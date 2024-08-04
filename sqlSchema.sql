@@ -2,6 +2,8 @@ CREATE TABLE users (
                        id INT(11) PRIMARY KEY AUTO_INCREMENT,
                        username VARCHAR(256) NOT NULL,
                        password VARCHAR(256) NOT NULL,
+                       nonce VARCHAR(256) NOT NULL,
+                       nonce_expiry DATETIME,
                        role VARCHAR(256) NOT NULL
 );
 

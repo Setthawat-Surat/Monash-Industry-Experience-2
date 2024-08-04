@@ -79,9 +79,20 @@
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/login" class="cs-li-link">
-                            Login
-                        </a>
+                        <?php
+                        if (!$this->Identity->isLoggedIn()) {
+                            echo $this->Html->link(
+                                'Log in',
+                                ['controller' => 'Auth', 'action' => 'login'],
+                                ['class' => 'cs-li-link']);
+                        }
+                        else
+                            echo $this->Html->link(
+                                'Log out',
+                                ['controller' => 'Auth', 'action' => 'logout'],
+                                ['class' => 'cs-li-link']);
+                        ?>
+
                     </li>
                 </ul>
             </div>
