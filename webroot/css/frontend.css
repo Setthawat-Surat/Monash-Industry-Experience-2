@@ -2144,5 +2144,81 @@
 
 
 
+/*-- -------------------------- -->
+<---         Login Form         -->
+<--- -------------------------- -*/
 
+
+/* styles.css */
+
+#login-form{
+    margin-top: 200px;
+    margin-left: 700px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 140px;
+}
+
+#login-form .body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#login-form .login-container {
+    background-color: #fff;
+    padding: 40px 50px;  /* Increased padding for a larger form */
+    border-radius: 10px;  /* Slightly larger border radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* Slightly darker shadow */
+    width: 100%;
+    max-width: 400px;  /* Set a maximum width for the form */
+}
+
+#login-form .login-form h2 {
+    margin-bottom: 30px;  /* Increased margin for spacing */
+    text-align: center;
+    color: #333;
+}
+
+#login-form .input-group {
+    margin-bottom: 20px;  /* Increased margin for spacing */
+    max-width: 370px; /* Set maximum width for input fields */
+}
+
+#login-form .input-group label {
+    display: block;
+    margin-bottom: 8px;  /* Increased margin for spacing */
+    color: #555;
+}
+
+#login-form .input-group input {
+    width: 100%;
+    padding: 12px;  /* Increased padding for larger input fields */
+    border: 1px solid #ccc;
+    border-radius: 6px;  /* Slightly larger border radius */
+    transition: border-color 0.3s;
+}
+
+#login-form .input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#login-form .login-button {
+    width: 100%;
+    max-width: 400px; /* Set maximum width for input fields */
+    padding: 12px;  /* Increased padding for a larger button */
+    background-color: orangered;
+    border: none;
+    border-radius: 6px;  /* Slightly larger border radius */
+    color: #fff;
+    font-size: 18px;  /* Larger font size for better readability */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#login-form .login-button:hover {
+    background-color: lightsalmon;
+}
 

@@ -145,10 +145,10 @@
                 <span class="cs-header">Contact</span>
             </li>
             <li class="cs-nav-li">
-                <a class="cs-nav-link" href="tel:123-456 7890">(123) 456 7890</a>
+                <a class="cs-nav-link" href="tel:123-456 7890">0457 800 078</a>
             </li>
             <li class="cs-nav-li">
-                <a class="cs-nav-link" href="mailto:info@codestitch.com">info@codestitch.com</a>
+                <a class="cs-nav-link" href="mailto:info@codestitch.com">susy@organicprintstudio.com.au</a>
             </li>
         </ul>
         <ul class="cs-nav">

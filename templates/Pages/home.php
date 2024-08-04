@@ -165,33 +165,33 @@ $this->assign('title', 'Fundraising');
         <div class="cs-gallery">
             <!--Picture 1-->
             <picture class="cs-image">
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char1.jpg">
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char1.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char1.jpg" alt="gallery" width="272" height="320">
+                <source media="(max-width: 600px)" srcset="<?= $this->Url->image('sample_product1.jpg')?>">
+                <source media="(min-width: 601px)" srcset="<?= $this->Url->image('sample_product1.jpg')?>">
+                <img loading="lazy" decoding="async" src="<?= $this->Url->image('sample_product1.jpg')?>" alt="gallery" width="272" height="320">
             </picture>
             <!--Picture 2-->
             <picture class="cs-image">
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char2.jpg">
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char2.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char2.jpg" alt="gallery" width="272" height="320">
+                <source media="(max-width: 600px)" srcset="<?= $this->Url->image('sample_product2.jpg')?>">
+                <source media="(min-width: 601px)" srcset="<?= $this->Url->image('sample_product2.jpg')?>">
+                <img loading="lazy" decoding="async" src="<?= $this->Url->image('sample_product2.jpg')?>" alt="gallery" width="272" height="320">
             </picture>
             <!--Picture 3-->
             <picture class="cs-image">
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char3.jpg">
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char3.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char3.jpg" alt="gallery" width="272" height="320">
+                <source media="(max-width: 600px)" srcset="<?= $this->Url->image('sample_product3.jpg')?>">
+                <source media="(min-width: 601px)" srcset="<?= $this->Url->image('sample_product3.jpg')?>">
+                <img loading="lazy" decoding="async" src="<?= $this->Url->image('sample_product3.jpg')?>" alt="gallery" width="272" height="320">
             </picture>
             <!--Picture 4-->
             <picture class="cs-image">
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char4.jpg">
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char4.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char4.jpg" alt="gallery" width="272" height="320">
+                <source media="(max-width: 600px)" srcset="<?= $this->Url->image('sample_product4.jpg')?>">
+                <source media="(min-width: 601px)" srcset="<?= $this->Url->image('sample_product4.jpg')?>">
+                <img loading="lazy" decoding="async" src="<?= $this->Url->image('sample_product4.jpg')?>" alt="gallery" width="272" height="320">
             </picture>
             <!--Picture 5-->
             <picture class="cs-image">
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char5.jpg">
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char5.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/char5.jpg" alt="gallery" width="272" height="320">
+                <source media="(max-width: 600px)" srcset="<?= $this->Url->image('sample_product5.jpg')?>">
+                <source media="(min-width: 601px)" srcset="<?= $this->Url->image('sample_product5.jpg')?>">
+                <img loading="lazy" decoding="async" src="<?= $this->Url->image('sample_product5.jpg')?>" alt="gallery" width="272" height="320">
             </picture>
         </div>
     </div>
