@@ -84,7 +84,6 @@ $this->assign('title', 'Fundraising');
 
 
 
-
 <!-- ============================================ -->
 <!--                  Timeline                    -->
 <!-- ============================================ -->
@@ -240,7 +239,48 @@ $this->assign('title', 'Fundraising');
             <div class="grid-item">$11.50 Each</div>
         </div>
     </div><br>
-</section><br><br><br>
+</section>
+
+<!-- ============================================ -->
+<!--                   Reviews                    -->
+<!-- ============================================ -->
+
+<section id="reviews-62"><br>
+    <div class="cs-container">
+        <div class="cs-content">
+            <h2 class="cs-title">Customer Testimonials</h2>
+            <p class="cs-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo, ornare. Lorem ipsum dolor sit amet.
+            </p>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <img class="cs-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile1.png" alt="profile" width="68" height="68">
+                <span class="cs-name">John Doe</span>
+                <span class="cs-desc">Texas</span>
+                <p class="cs-item-text">
+                    Proin massa eros, quis fringilla sagittis. Euismod scelerisque varius sed nec consequat, turpis.
+                </p>
+            </li>
+            <li class="cs-item">
+                <img class="cs-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile2.png" alt="profile" width="68" height="68">
+                <span class="cs-name">Jane Smith</span>
+                <span class="cs-desc">California</span>
+                <p class="cs-item-text">
+                    Proin massa eros, quis fringilla sagittis. Euismod scelerisque varius sed nec consequat, turpis.
+                </p>
+            </li>
+            <li class="cs-item">
+                <img class="cs-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile3.png" alt="profile" width="68" height="68">
+                <span class="cs-name">Thomas Madden</span>
+                <span class="cs-desc">Texas</span>
+                <p class="cs-item-text">
+                    Proin massa eros, quis fringilla sagittis. Euismod scelerisque varius sed nec consequat, turpis.
+                </p>
+            </li>
+        </ul>
+    </div><br><br>
+</section><br><br>
 
 
 

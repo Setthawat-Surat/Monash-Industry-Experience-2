@@ -98,10 +98,6 @@
             </div>
         </nav>
         <div class="cs-contact-group">
-            <a href="tel:+61457800078" class="cs-phone">
-                <img class="cs-phone-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-1a.svg" alt="phone icon" width="24" height="24" aria-hidden="true" decoding="async">
-                +61 457 800 078
-            </a>
             <div class="cs-social">
                 <a href="https://www.facebook.com/OrganicPrintStudio" class="cs-social-link" aria-label="Facebook">
                     <img class="cs-social-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/facebook-1a.svg" alt="Facebook icon" width="12" height="12" aria-hidden="true" decoding="async">
