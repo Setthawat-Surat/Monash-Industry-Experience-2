@@ -35,8 +35,11 @@ $this->assign('title', 'Login');
                 'id' => 'password',
             ]); ?>
         </div>
+        <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'forgetPassword']) ?>" class="forget-password">Forgot password?</a>
         <br>
         <?= $this->Form->button('Login', ['class' => 'login-button']) ?>
+        <br><br>
+        <span class="register-message">Don't have an account? <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'register']) ?>" class="register">Register here</a></span>
         <?= $this->Form->end() ?>
     </div>
 </section>

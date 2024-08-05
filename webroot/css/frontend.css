@@ -941,7 +941,7 @@
         background: #000;
         /* prevents the cursor from interacting with it */
         pointer-events: none;
-        opacity: 0.5;
+        opacity: 0.3;
         display: block;
         position: absolute;
         top: 0;
@@ -1810,7 +1810,7 @@
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 0.5rem;
-    background-color: deepskyblue;
+    background-color: orangered;
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
@@ -1819,7 +1819,7 @@
 }
 
 .calculate-button:hover {
-    background-color: lightblue;
+    background-color: lightsalmon;
 }
 
 .calculate-button:active {
@@ -2283,22 +2283,17 @@
 <---         Login Form         -->
 <--- -------------------------- -*/
 
-
 /* styles.css */
 
-#login-form{
-    margin-top: 200px;
-    margin-left: 700px;
+#login-form {
     font-family: "Poppins", sans-serif;
-    margin-bottom: 140px;
-}
-
-#login-form .body {
+    height: 100vh; /* Full viewport height */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    justify-content: center; /* Horizontally center the form */
+    align-items: center; /* Vertically center the form */
+    background-color: #f0f0f0; /* Background color for the page */
+    padding: 0 15px; /* Add padding to prevent content from touching the edges */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
 #login-form .login-container {
@@ -2318,7 +2313,7 @@
 
 #login-form .input-group {
     margin-bottom: 20px;  /* Increased margin for spacing */
-    max-width: 370px; /* Set maximum width for input fields */
+    max-width: 100%; /* Ensure input fields are full width within the container */
 }
 
 #login-form .input-group label {
@@ -2328,7 +2323,7 @@
 }
 
 #login-form .input-group input {
-    width: 100%;
+    width: calc(100% - 24px); /* Reduce width of input fields to make them narrower */
     padding: 12px;  /* Increased padding for larger input fields */
     border: 1px solid #ccc;
     border-radius: 6px;  /* Slightly larger border radius */
@@ -2342,7 +2337,7 @@
 
 #login-form .login-button {
     width: 100%;
-    max-width: 400px; /* Set maximum width for input fields */
+    max-width: 400px; /* Set maximum width for the button */
     padding: 12px;  /* Increased padding for a larger button */
     background-color: orangered;
     border: none;
@@ -2356,4 +2351,67 @@
 #login-form .login-button:hover {
     background-color: lightsalmon;
 }
+
+#login-form .forget-password {
+    font-size: 0.8em;
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+    color: dimgrey;
+    text-decoration: none; /* Remove underline */
+}
+
+#login-form .forget-password:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+#login-form .register {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+#login-form .register:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+#login-form .register-message {
+    font-size: 0.9em; /* Decreased font size */
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #login-form .login-container {
+        padding: 20px;
+    }
+
+    #login-form .login-button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    #login-form .register-message {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    #login-form .login-container {
+        padding: 15px;
+    }
+
+    #login-form .login-button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #login-form .register-message {
+        font-size: 0.7em;
+    }
+}
+
+
+
 
