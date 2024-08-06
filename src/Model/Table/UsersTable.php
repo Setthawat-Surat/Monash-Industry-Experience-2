@@ -38,7 +38,7 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('username');
+        $this->setDisplayField('email');
         $this->setPrimaryKey('id');
         $this->addBehavior('CanAuthenticate');
     }
@@ -52,10 +52,10 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('username')
-            ->maxLength('username', 256)
-            ->requirePresence('username', 'create')
-            ->notEmptyString('username');
+            ->scalar('email')
+            ->maxLength('email', 256)
+            ->requirePresence('email', 'create')
+            ->notEmptyString('email');
 
         $validator
             ->scalar('password')
@@ -81,7 +81,7 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->isUnique(['username']), ['errorField' => 'username']);
+        $rules->add($rules->isUnique(['email']), ['errorField' => 'email']);
 
         return $rules;
     }

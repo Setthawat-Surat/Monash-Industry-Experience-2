@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Table\SchoolsTable;
 use App\Model\Table\UsersTable;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
+use Cake\ORM\TableRegistry;
 
 /**
  * Auth Controller
@@ -17,8 +19,10 @@ class AuthController extends AppController
 {
     /**
      * @var \App\Model\Table\UsersTable $Users
+     * @var \App\Model\Table\SchoolsTable $Schools
      */
     private UsersTable $Users;
+    private SchoolsTable $Schools;
 
     /**
      * Controller initialize override
@@ -36,6 +40,32 @@ class AuthController extends AppController
         // CakePHP loads the model with the same name as the controller by default.
         // Since we don't have an Auth model, we'll need to load "Users" model when starting the controller manually.
         $this->Users = $this->fetchTable('Users');
+        $this->Schools = $this->fetchTable('Schools');
+    }
+
+    /**
+     * Generates a school code based on the school name
+     *
+     * @param string $schoolName The name of the school
+     * @return string The generated school code
+     */
+    protected function generateSchoolCode($schoolName) {
+        // Extract the first two characters from the school name
+        $nameParts = explode(' ', $schoolName);
+        $firstLetter = strtoupper(substr($nameParts[0], 0, 1));
+        $secondLetter = strtoupper(substr($nameParts[0], 1, 1));
+
+        // Generate a random 4-digit number excluding 0
+        $randomNumber = '';
+        while (strlen($randomNumber) < 4) {
+            $digit = mt_rand(1, 9); // Random digit between 1 and 9
+            $randomNumber .= $digit;
+        }
+
+        // Combine the letters and the random number
+        $code = $firstLetter . $secondLetter . $randomNumber;
+
+        return $code;
     }
 
     /**
@@ -47,16 +77,51 @@ class AuthController extends AppController
     {
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success('You have been registered. Please log in. ');
+            $data = $this->request->getData();
+            $user = $this->Users->patchEntity($user, $data);
+            $user->role = 'School';
 
-                return $this->redirect(['action' => 'login']);
+            if ($this->Users->save($user)) {
+
+                $usersTable = TableRegistry::getTableLocator()->get('Users');
+                $savedUser = $usersTable->find()
+                    ->where(['email' => $data['email']])
+                    ->first();
+
+                // After saving the user, get the user ID
+                $schoolData = [
+                    'name' => $data['schoolname'],
+                    'rep_first_name' => $data['repfirstname'],
+                    'rep_last_name' => $data['replastname'],
+                    'rep_email' => $data['repemail'],
+                    'address' => $data['schooladdress'],
+                    'bank_account_name' => $data['bankaccountname'],
+                    'bank_account_number' => $data['banknumber'],
+                    'bsb' => $data['bankbsb'],
+                    'approval_status' => 0, // Set default approval status
+                ];
+
+                $school = $this->Schools->newEmptyEntity();
+                $school = $this->Schools->patchEntity($school, $schoolData);
+                $school->id = $savedUser->id;
+                $school->code = $this->generateSchoolCode($data['schoolname']);
+
+                if ($this->Schools->save($school)) {
+                    $this->Flash->success('You have been registered. Please wait for admin to verify your account.');
+
+                    return $this->redirect(['action' => 'login']);
+                } else {
+                    // Rollback user save if school save fails
+                    $this->Users->delete($user);
+                    $this->Flash->error('The school details could not be saved. Please, try again.');
+                }
+            } else {
+                $this->Flash->error('The user could not be registered. Please, try again.');
             }
-            $this->Flash->error('The user could not be registered. Please, try again.');
         }
         $this->set(compact('user'));
     }
+
 
     /**
      * Forget Password method
@@ -69,6 +134,7 @@ class AuthController extends AppController
             // Retrieve the user entity by provided email address
             $user = $this->Users->findByEmail($this->request->getData('email'))->first();
             if ($user) {
+
                 // Set nonce and expiry date
                 $user->nonce = Security::randomString(128);
                 $user->nonce_expiry = new DateTime('7 days');

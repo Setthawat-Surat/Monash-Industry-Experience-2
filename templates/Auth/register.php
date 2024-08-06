@@ -4,49 +4,145 @@
  * @var \App\Model\Entity\User $user
  */
 
-$this->layout = 'login';
-$this->assign('title', 'Register new user');
+$this->layout = 'frontend'; // Use the correct layout for your project
+$this->assign('title', 'Register');
 ?>
-<div class="container register">
-    <div class="users form content">
+<section id="registration-section">
+    <div class="container">
+        <?= $this->Form->create($user, ['id' => 'registration-form']) ?>
+        <h2>Register</h2>
 
-        <?= $this->Form->create($user) ?>
+        <?= $this->Flash->render() ?>
 
-        <fieldset>
-            <legend>Register new user</legend>
+        <br><div class="personal-details-header">
+            <span>Personal Details</span>
+        </div><br>
 
-            <?= $this->Flash->render() ?>
-
-            <?= $this->Form->control('email'); ?>
-
-            <div class="row">
-                <?= $this->Form->control('first_name', ['templateVars' => ['container_class' => 'column']]); ?>
-                <?= $this->Form->control('last_name', ['templateVars' => ['container_class' => 'column']]); ?>
+        <div class="form-row">
+            <div class="form-group">
+                <?= $this->Form->control('schoolname', [
+                    'label' => 'School Name',
+                    'type' => 'text',
+                    'required' => true,
+                    'id' => 'schoolname',
+                    'name' => 'schoolname',
+                    'pattern' => '[a-zA-Z\s]*',
+                    'title' => 'School Name should only contain letters and spaces'
+                ]) ?>
             </div>
+        </div>
 
-            <div class="row">
-                <?php
-                echo $this->Form->control('password', [
-                    'value' => '',  // Ensure password is not sending back to the client side
-                    'templateVars' => ['container_class' => 'column']
-                ]);
-                // Validate password by repeating it
-                echo $this->Form->control('password_confirm', [
+        <div class="form-row">
+            <div class="form-group">
+                <?= $this->Form->control('schooladdress', [
+                    'label' => 'School Address',
+                    'type' => 'text',
+                    'required' => true,
+                    'id' => 'schooladdress',
+                    'name' => 'schooladdress'
+                ]) ?>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <?= $this->Form->control('repfirstname', [
+                    'label' => 'Your First Name',
+                    'type' => 'text',
+                    'required' => true,
+                    'id' => 'repfirstname',
+                    'name' => 'repfirstname'
+                ]) ?>
+            </div>
+            <div class="form-group">
+                <?= $this->Form->control('replastname', [
+                    'label' => 'Your Last Name',
+                    'type' => 'text',
+                    'required' => true,
+                    'id' => 'replastname',
+                    'name' => 'replastname'
+                ]) ?>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <?= $this->Form->control('repemail', [
+                    'label' => 'Your Email',
+                    'type' => 'email',
+                    'required' => true,
+                    'id' => 'repemail',
+                    'name' => 'repemail',
+                ]) ?>
+            </div>
+        </div>
+
+        <div class="bank-account-details-header">
+            <span>Bank Account Details</span>
+        </div><br>
+
+        <div class="form-row">
+            <div class="form-group">
+                <?= $this->Form->control('banknumber', [
+                    'label' => 'Bank Account Number',
+                    'type' => 'number',
+                    'required' => true,
+                    'id' => 'banknumber',
+                    'name' => 'banknumber'
+                ]) ?>
+            </div>
+            <div class="form-group">
+                <?= $this->Form->control('bankbsb', [
+                    'label' => 'BSB',
+                    'type' => 'number',
+                    'required' => true,
+                    'id' => 'bankbsb',
+                    'name' => 'bankbsb'
+                ]) ?>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <?= $this->Form->control('bankaccountname', [
+                    'label' => 'Bank Account Name',
+                    'type' => 'text',
+                    'required' => true,
+                    'id' => 'bankaccountname',
+                    'name' => 'bankaccountname',
+                    'pattern' => '[a-zA-Z\s]*',
+                    'title' => 'Bank Account Name should only contain letters and spaces'
+                ]) ?>
+            </div>
+        </div>
+
+        <div class="credentials-header">
+            <span>Account Credentials</span>
+        </div><br>
+
+        <div class="form-row">
+            <div class="form-group">
+                <?= $this->Form->control('email', [
+                    'label' => 'Email',
+                    'type' => 'email',
+                    'required' => true,
+                    'id' => 'email'
+                ]) ?>
+            </div>
+            <div class="form-group">
+                <div class="password-wrapper">
+                <?= $this->Form->control('password', [
+                    'label' => 'Password',
                     'type' => 'password',
-                    'value' => '',  // Ensure password is not sending back to the client side
-                    'label' => 'Retype Password',
-                    'templateVars' => ['container_class' => 'column']
-                ]);
-                ?>
+                    'required' => true,
+                    'id' => 'password'
+                ]) ?>
+                    <i class="fa-solid fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+                </div>
             </div>
+        </div>
 
-            <?= $this->Form->control('avatar', ['type' => 'file']); ?>
-
-        </fieldset>
-
-        <?= $this->Form->button('Register') ?>
-        <?= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'button button-outline float-right']) ?>
+        <?= $this->Form->button('Register', ['class' => 'submit-btn']) ?>
         <?= $this->Form->end() ?>
-
     </div>
-</div>
+</section>

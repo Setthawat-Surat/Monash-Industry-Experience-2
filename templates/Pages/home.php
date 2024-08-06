@@ -15,7 +15,8 @@ $this->assign('title', 'Fundraising');
                 Join us for a fun-filled day and help raise essential funds for our school. Together, we can make a big impact on our students' futures!
             </p>
             <div class="cs-button-group">
-                <button class="button" style="vertical-align:middle" onClick="scrollToTimeline();"><span>Read more </span></button>
+                <button class="button" style="vertical-align:middle" onClick="scrollToTimeline();"><span>Start Fundraising </span></button>
+                <button class="button button-secondary" style="vertical-align:middle" onClick="learnMore();"><span>Support Schools </span></button>
             </div>
         </div>
     </div>
@@ -159,7 +160,7 @@ $this->assign('title', 'Fundraising');
 <section id="gallery-1152">
     <div class="cs-container">
         <div class="cs-content">
-            <h2 class="cs-title">Sample Products - Tea towel</h2>
+            <h2 class="cs-title">Sample Product - Tea towel</h2>
         </div>
         <div class="cs-gallery">
             <!--Picture 1-->
@@ -248,7 +249,7 @@ $this->assign('title', 'Fundraising');
 <section id="reviews-62"><br>
     <div class="cs-container">
         <div class="cs-content">
-            <h2 class="cs-title">Customer Testimonials</h2>
+            <h2 class="cs-title">Words from our customers</h2>
             <p class="cs-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo, ornare. Lorem ipsum dolor sit amet.
             </p>

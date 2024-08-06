@@ -59,51 +59,51 @@ class SchoolsTable extends Table
         $validator
             ->scalar('name')
             ->maxLength('name', 256)
-            ->allowEmptyString('name');
+            ->notEmptyString('name');
 
         $validator
             ->scalar('rep_first_name')
             ->maxLength('rep_first_name', 256)
-            ->allowEmptyString('rep_first_name');
+            ->notEmptyString('rep_first_name');
 
         $validator
             ->scalar('rep_last_name')
             ->maxLength('rep_last_name', 256)
-            ->allowEmptyString('rep_last_name');
+            ->notEmptyString('rep_last_name');
 
         $validator
             ->scalar('rep_email')
             ->maxLength('rep_email', 256)
-            ->allowEmptyString('rep_email');
+            ->notEmptyString('rep_email');
 
         $validator
             ->scalar('address')
             ->maxLength('address', 256)
-            ->allowEmptyString('address');
+            ->notEmptyString('address');
 
         $validator
             ->scalar('code')
             ->maxLength('code', 256)
-            ->allowEmptyString('code');
+            ->notEmptyString('code');
 
         $validator
             ->scalar('bank_account_name')
             ->maxLength('bank_account_name', 256)
-            ->allowEmptyString('bank_account_name');
+            ->notEmptyString('bank_account_name');
 
         $validator
             ->scalar('bank_account_number')
             ->maxLength('bank_account_number', 256)
-            ->allowEmptyString('bank_account_number');
+            ->notEmptyString('bank_account_number');
 
         $validator
             ->scalar('bsb')
             ->maxLength('bsb', 256)
-            ->allowEmptyString('bsb');
+            ->notEmptyString('bsb');
 
         $validator
             ->boolean('approval_status')
-            ->allowEmptyString('approval_status');
+            ->notEmptyString('approval_status');
 
         return $validator;
     }

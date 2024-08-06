@@ -27,13 +27,16 @@ $this->assign('title', 'Login');
         </div>
         <div class="input-group">
             <label for="password">Password</label>
-            <?= $this->Form->control('password', [
-                'type' => 'password',
-                'required' => true,
-                'label' => false,
-                'value' => $debug ? 'password' : '',
-                'id' => 'password',
-            ]); ?>
+            <div class="password-container">
+                <?= $this->Form->control('password', [
+                    'type' => 'password',
+                    'required' => true,
+                    'label' => false,
+                    'value' => $debug ? 'password' : '',
+                    'id' => 'password',
+                ]); ?>
+                <i class="fa-solid fa-eye" id="togglePassword"></i>
+            </div>
         </div>
         <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'forgetPassword']) ?>" class="forget-password">Forgot password?</a>
         <br>

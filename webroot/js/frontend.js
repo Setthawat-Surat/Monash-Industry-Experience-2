@@ -83,3 +83,22 @@ function calculateProfit(event) {
     document.getElementById('profitMessage').textContent = `Your profit is $${profit.toFixed(2)} !`;
 }
 
+document.getElementById('togglePassword').addEventListener('click', function () {
+    const password = document.getElementById('password');
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+});
+
+document.getElementById('toggleRetypePassword').addEventListener('click', function () {
+    const retypePassword = document.getElementById('retype-password');
+    const type = retypePassword.getAttribute('type') === 'password' ? 'text' : 'password';
+    retypePassword.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+});
+
+
+
+
+
+

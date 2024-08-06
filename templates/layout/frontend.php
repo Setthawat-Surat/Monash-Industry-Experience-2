@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -61,21 +62,21 @@
                             </span>
                         <ul class="cs-drop-ul">
                             <li class="cs-drop-li">
-                                <a href="/services/registration" class="cs-li-link cs-drop-link">Registration</a>
+                                <a href="/services/registration" class="cs-li-link cs-drop-link">Fundraising</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="/services/classes" class="cs-li-link cs-drop-link">Our Classes</a>
+                                <a href="/services/custom" class="cs-li-link cs-drop-link">Custom tea towels and tote bags</a>
                             </li>
                         </ul>
                     </li>
                     <li class="cs-li">
-                        <a href="/blog" class="cs-li-link">
-                            Blog
+                        <a href="/faqs" class="cs-li-link">
+                            FAQs
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/contact" class="cs-li-link">
-                            Contact
+                        <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'register']) ?>" class="cs-li-link">
+                            Register
                         </a>
                     </li>
                     <li class="cs-li">
@@ -118,14 +119,22 @@
 <!-- ============================================ -->
 
 <footer id="cs-footer-274">
+    <div class="cs-background">
+        <picture>
+            <source media="(max-width: 600px)" srcset="<?= $this->Url->image('Footer_Background.png') ?>">
+            <source media="(min-width: 601px)" srcset="<?= $this->Url->image('Footer_Background.png') ?>">
+            <img loading="lazy" decoding="async" src="<?= $this->Url->image('Footer_Background.png') ?>" alt="Footer Background" width="1920" height="1200" aria-hidden="true">
+        </picture>
+        <div class="cs-overlay"></div>
+    </div><br>
     <div class="cs-container">
         <!-- Logo Group -->
         <div class="cs-logo-group">
             <a aria-label="go back to home" class="cs-logo" href="">
                 <!-- Remove the light class if you don't need the dark logo -->
-                <?= $this->Html->image('OrganicPrintStudioLogo.jpg',['style' => 'width: 140px; height: 65px; margin-left: 0px;'])?>
+                <?= $this->Html->image('OrganicPrintStudioLogo.jpg', ['style' => 'width: 140px; height: 65px; margin-left: 0px;']) ?>
             </a>
-            <p>Copyright© 2024 Organic Print Studio<br> All Right Reserved.</p>
+            <p>Copyright© 2024 Organic Print Studio<br> All Rights Reserved.</p>
             <div class="cs-social">
                 <a class="cs-social-link" aria-label="visit facebook profile" href="https://www.facebook.com/OrganicPrintStudio">
                     <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Social/Facebook.svg" alt="facebook" width="6" height="11">
@@ -167,8 +176,10 @@
                 ​(closed for lunch 12pm-2pm)
             </li>
         </ul>
-    </div>
+    </div><br>
 </footer>
+
+
 
 
 <!-- Bootstrap core JS-->
