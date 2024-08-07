@@ -3,6 +3,18 @@ var CSbody = document.querySelector("body");
 const CSnavbarMenu = document.querySelector("#cs-navigation");
 const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
 
+
+// FAQ
+
+const faqItems = Array.from(document.querySelectorAll('.cs-faq-item'));
+for (const item of faqItems) {
+    const onClick = () => {
+        item.classList.toggle('active')
+    }
+    item.addEventListener('click', onClick)
+}
+
+
 CShamburgerMenu.addEventListener('click', function() {
     CShamburgerMenu.classList.toggle("cs-active");
     CSnavbarMenu.classList.toggle("cs-active");
@@ -96,6 +108,7 @@ document.getElementById('toggleRetypePassword').addEventListener('click', functi
     retypePassword.setAttribute('type', type);
     this.classList.toggle('fa-eye-slash');
 });
+
 
 
 

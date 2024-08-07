@@ -51,7 +51,7 @@
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/about" class="cs-li-link">
+                        <a href="/pages/about_us" class="cs-li-link">
                             About
                         </a>
                     </li>
@@ -70,7 +70,7 @@
                         </ul>
                     </li>
                     <li class="cs-li">
-                        <a href="/faqs" class="cs-li-link">
+                        <a href="/pages/faqs" class="cs-li-link">
                             FAQs
                         </a>
                     </li>
