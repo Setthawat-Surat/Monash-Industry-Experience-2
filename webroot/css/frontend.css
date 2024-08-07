@@ -2927,6 +2927,7 @@
     }
     #faq-350 .cs-title,
     #faq-350 .cs-topper {
+
         text-align: left;
         width: 80%;
         margin-left: 0;
@@ -3012,7 +3013,7 @@ body {
     #contact-1750 .cs-container {
         width: 100%;
         /* changes to 1024 on desktop */
-        max-width: 44rem;
+        max-width: 50rem;
         margin: auto;
         background-color: #fff;
         display: flex;
@@ -3100,7 +3101,7 @@ body {
         /* prevents padding from adding to the width */
         box-sizing: border-box;
         padding: 0 1.5rem;
-        background-color: var(--primary);
+        background-color: #ff6a3e;
         overflow: hidden;
         color: #1a1a1a;
         border: none;
@@ -3142,7 +3143,7 @@ body {
         gap: 1.5rem;
     }
     #contact-1750 .cs-detail {
-        font-size: 1.25rem;
+
         font-weight: 700;
         line-height: 1.2em;
         color: var(--bodyTextColor);
@@ -3264,17 +3265,7 @@ body {
     /* prevents padding from affecting height and width */
     box-sizing: border-box;
 }
-.cs-topper {
-    font-size: var(--topperFontSize);
-    line-height: 1.2em;
-    text-transform: uppercase;
-    text-align: inherit;
-    letter-spacing: .1em;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 0.25rem;
-    display: block;
-}
+
 
 .cs-title {
     font-size: var(--headerFontSize);
