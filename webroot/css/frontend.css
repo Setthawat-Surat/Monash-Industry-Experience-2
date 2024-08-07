@@ -2386,7 +2386,7 @@
 #login-form .password-container i {
     position: absolute;
     top: 50%;
-    right: 10px; /* Adjust as needed for spacing from the right edge */
+    right: 30px; /* Adjust as needed for spacing from the right edge */
     transform: translateY(-50%);
     font-size: 1.2em; /* Adjust icon size if needed */
     cursor: pointer;
