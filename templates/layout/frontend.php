@@ -70,7 +70,7 @@
                         </ul>
                     </li>
                     <li class="cs-li">
-                        <a href="/pages/faqs" class="cs-li-link">
+                        <a href="<?= $this->Url->build(['controller'=>'Pages', 'action' => 'display','Faqs']) ?>" class="cs-li-link">
                             FAQs
                         </a>
                     </li>
