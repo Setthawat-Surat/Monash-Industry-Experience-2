@@ -18,9 +18,8 @@
 
     <!-- Custom fonts for this template-->
     <link href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <?= $this->Html->css('School_dashboard.min.css'); ?>
@@ -137,6 +136,12 @@
                 <a class="nav-link" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Logout</span></a>
             </li>
 
             <!-- Divider -->
@@ -403,7 +408,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/login.html">Logout</a>
+                    <a class="btn btn-primary" href="<?= $this->Url->build(['controller'=>'Auth', 'action' => 'logout']) ?>">Logout</a>
                 </div>
             </div>
         </div>
@@ -412,13 +417,15 @@
     <!-- Bootstrap core JavaScript-->
     <script src="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <?= $this->Html->script('School_dashboard.min.js'); ?>
-    <?= $this->fetch('script') ?>
+    <?= $this->Html->script('School_dashboard.js'); ?>
+    <?= $this->fetch('script'); ?>
+
 
 
     <!-- Page level plugins -->

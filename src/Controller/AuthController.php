@@ -261,11 +261,40 @@ class AuthController extends AppController
 
         // if user passes authentication, grant access to the system
         if ($result && $result->isValid()) {
-            // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
-            $fallbackLocation = ['controller' => 'Pages', 'action' => 'display', 'home'];
+            $identity = $this->Authentication->getIdentity();
+            $user_role = $identity->get('role');
+            $user_id = $identity->get('id');
 
-            // and redirect user to the location they're trying to access
-            return $this->redirect($this->Authentication->getLoginRedirect() ?? $fallbackLocation);
+
+            if($user_role == 'School'){
+                $schoolsTable = TableRegistry::getTableLocator()->get('Schools');
+                $school_user_account_status = $schoolsTable->find()
+                    ->where(['id' => $user_id])
+                    ->first();
+                $user_account_status = $school_user_account_status->approval_status;
+
+                if($user_account_status){
+                    $this->redirect(['controller' => 'Pages', 'action' => 'display','School_dashboard']);
+                }
+                else if(!$user_account_status){
+                    $this->Flash->error('Your account has not been verified yet. Please wait for our team to verify your account. ');
+                }
+            }
+
+            else if($user_role == 'Admin'){
+                $this->redirect(['controller' => 'Pages', 'action' => 'display','Admin_dashboard']);
+            }
+
+
+            else{
+                // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
+                $fallbackLocation = ['controller' => 'Pages', 'action' => 'display','home'];
+
+                // and redirect user to the location they're trying to access
+                return $this->redirect($this->Authentication->getLoginRedirect() ?? $fallbackLocation);
+
+            }
+
         }
 
         // display error if user submitted their credentials but authentication failed

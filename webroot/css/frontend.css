@@ -2386,7 +2386,7 @@
 #login-form .password-container i {
     position: absolute;
     top: 50%;
-    right: 30px; /* Adjust as needed for spacing from the right edge */
+    right: 10px; /* Adjust as needed for spacing from the right edge */
     transform: translateY(-50%);
     font-size: 1.2em; /* Adjust icon size if needed */
     cursor: pointer;
@@ -2399,12 +2399,13 @@
 }
 
 #login-form .input-group input {
-    width: calc(100% - 24px); /* Reduce width of input fields to make them narrower */
-    padding: 12px;  /* Increased padding for larger input fields */
+    width: 100%; /* Make the input take full width */
+    padding: 12px; /* Keep the padding */
     border: 1px solid #ccc;
-    border-radius: 6px;  /* Slightly larger border radius */
-    transition: border-color 0.3s;
+    border-radius: 6px;
+    box-sizing: border-box; /* Include padding and border in width calculation */
 }
+
 
 #login-form .input-group input:focus {
     border-color: #007bff;
