@@ -51,9 +51,9 @@ $this->assign('title', 'Fundraising');
                 <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fballs1.svg" loading="lazy" decoding="async" alt="icon" width="48" height="48" aria-hidden="true">
                 <!-- Text Grouped For Flexbox-->
                 <div class="cs-text-group">
-                    <h3 class="cs-h3">Highly Experienced Therapists</h3>
+                    <h3 class="cs-h3">Eco-Friendly Tea Towel Printing</h3>
                     <p class="cs-item-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa fugiat impedit molestias vitae voluptatibus sed enim! Cupiditate ab praesentium dolorem libero veritatis beatae assumenda totam, in, nemo quis consectetur labore! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, quam?
+                        Organic Print Studio has years in the tea-towel printing industry whilst introducing unique, creative flares to your designs to make your tea-towels stand out! Using 100% Certified organic cotton as well as having commitments to sustainability and ethically sourcing materials, you can be assured that your tea towels are both quality and good for the environment.
                     </p>
                 </div>
             </li>
@@ -61,9 +61,9 @@ $this->assign('title', 'Fundraising');
                 <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fballs2.svg" loading="lazy" decoding="async" alt="icon" width="48" height="48" aria-hidden="true">
                 <!-- Text Grouped For Flexbox-->
                 <div class="cs-text-group">
-                    <h3 class="cs-h3">No one does outpatient like us</h3>
+                    <h3 class="cs-h3">Efficient Tea Towel Fundraising</h3>
                     <p class="cs-item-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa fugiat impedit molestias vitae voluptatibus sed enim! Cupiditate ab praesentium dolorem libero veritatis beatae assumenda totam, in, nemo quis consectetur labore! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, quam?
+                        The Fund4Schools portal will allow you to centrally manage all tea-towel fundraisers whilst having direct communication with Organic Print Studio to streamline the design process. This, along with the shopping portal will allow family and friends of the school to directly purchase these designed to order, allowing schools to reduce waste and get professional consultation about tea-towel designs prior to printing.
                     </p>
                 </div>
             </li>

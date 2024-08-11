@@ -2677,6 +2677,7 @@
     #faq-350 {
         padding: var(--sectionPadding);
         background: #f7f7f7;
+        font-family: "Poppins", sans-serif;
     }
     #faq-350 .cs-container {
         width: 100%;

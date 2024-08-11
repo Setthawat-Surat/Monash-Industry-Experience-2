@@ -97,4 +97,23 @@ class SchoolsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function updateAccountStatus($id = null, $status = null){
+        $this->request->allowMethod(['post','get']);
+        $School = $this->Schools->get($id);
+
+        if ($status == 1){
+            $School->approval_status = 0;
+        }
+        else {
+            $School->approval_status = 1;
+        }
+
+        if($this->Schools->save($School)){
+            $this->Flash->success(__('The account status of' . ' ' . $School->rep_first_name . ' ' . $School->rep_last_name . ' ' . 'has been changed'));
+        }
+
+
+        return $this->redirect(['controller'=>'Pages', 'action'=>'display','Admin_dashboard']);
+    }
 }

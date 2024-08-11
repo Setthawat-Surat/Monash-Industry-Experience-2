@@ -278,6 +278,7 @@ class AuthController extends AppController
                 }
                 else if(!$user_account_status){
                     $this->Flash->error('Your account has not been verified yet. Please wait for our team to verify your account. ');
+                    $this->Authentication->logout();
                 }
             }
 
