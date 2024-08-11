@@ -3,74 +3,51 @@ $this->setLayout('frontend');
 $this->assign('title', 'About');
 ?>
 
+<link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+<!-- https://codepen.io/bookworm0618/details/wxojZQ -->
 
+<main>
+    <section id="about-us">
+        <h1> One Tae Kwon Do Academy </h1>
+        <p> Encourage, Educate, Empower </p>
+    </section>
 
-
-<div class="space"> </div>
-<!-- ============================================ -->
-<!--                   Contact                    -->
-<!-- ============================================ -->
-
-<section id="contact-1750">
-    <div class="cs-container">
-        <div class="cs-form-group">
-            <div class="cs-content">
-                <span class="cs-topper">Get in Touch</span>
-                <h2 class="cs-title">Contact Us</h2>
-            </div>
-            <!--Form-->
-            <form class="cs-form" id="cs-form-1750" name="Contact Form" method="post">
-                <label class="cs-label">
-Name *
-                    <input class="cs-input" required type="text" id="name-1750" name="name" placeholder="John Doe">
-                </label>
-                <label class="cs-label cs-email">
-Email *
-                    <input class="cs-input" required type="email" id="email-1750" name="email" placeholder="name@company.com">
-                </label>
-                <label class="cs-label cs-phone">
-Phone *
-                    <input class="cs-input" required type="phone" id="phone-1750" name="phone" placeholder="+1 (206) 987-6543">
-                </label>
-                <label class="cs-label">
-Message *
-                    <textarea class="cs-input cs-textarea" required name="Message" id="message-1750" placeholder="Hello, I am interested..."></textarea>
-                </label>
-                <button class="cs-button-solid cs-submit" type="submit">Send Message</button>
-            </form>
+    <section id="videos">
+        <h1> You Can Learn To Do This!! </h1>
+        <div class="video">
+            <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/TKEbws4QhEk" frameborder="0" allow="autoplay; encrypted-media" autoplay="1" allowfullscreen></iframe>
         </div>
-        <!--Contact Info-->
-        <div class="cs-info-group">
-            <div class="cs-info">
-                <span class="cs-topper">Location</span>
-                <span class="cs-detail">234-244 Stockwell Rd, 4th Floor<br>Brixton, SW9 9SP</span>
-            </div>
-            <div class="cs-info">
-                <span class="cs-topper">Working Hours</span>
-                <span class="cs-detail">Monday - Saturday: 10:00 - 20:00</span>
-                <span class="cs-detail">Sunday: Closed</span>
-            </div>
-            <div class="cs-info">
-                <span class="cs-topper">Contact</span>
-                <span class="cs-detail">M: +99 40 70 929</span>
-                <span class="cs-detail">E: info@stitchgym.com</span>
-            </div>
+    </section>
+
+    <div id="photos">
+        <h1> Photo Gallery </h1>
+        <div id="photo-gallery">
+            <img class="aboutimg" src="http://www.mastermoontkd.com/images/Children/Children-taekwondo-image1.jpg">
+            <img class="aboutimg" src="http://tma-academy.net/wp-content/uploads/2015/03/2015-tiger-spring-open-161-400x300.jpg">
+            <img class="aboutimg" src="http://tma-academy.net/wp-content/uploads/2015/02/10455745_829764327064099_1920458374809235330_n-960x570.jpg">
+            <img class="aboutimg" src="http://eagletkdlv.com/files/2015/04/Eagle-Taekwondo-Taekwondo-Sparring-Team.jpg">
+            <img class="aboutimg" src="http://tma-academy.net/wp-content/uploads/2015/02/GirlsNationalTeam-1010x600.jpg">
+            <img class="aboutimg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpX7TyuWsYOkJFe4yg3BVFu10A_NjfqIh6K9rijaAHLdL9Ub69">
         </div>
     </div>
 
-    <div class="cs-picture-group">
-        <!--Replace with your iframe for your google business profile-->
-        <iframe class="cs-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172153.33373691145!2d-122.33979794999999!3d47.608715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA!5e0!3m2!1sen!2sus!4v1717096613140!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-        <!--All three graphics use the same src, which is transformed in the CSS. If you want to replace the graphic with another one, simply replace all the src's with the same URL and watch the magic happen!-->
-        <img class="cs-graphic cs-top cs-light" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/gym-hero-shape-top-light.svg" alt="graphic" height="161" width="1920" loading="lazy" decoding="async" >
-        <img class="cs-graphic cs-left cs-light" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/gym-hero-shape-top-light.svg" alt="graphic" height="161" width="1920" loading="lazy" decoding="async" >
-        <img class="cs-graphic cs-bottom cs-light" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/gym-hero-shape-top-light.svg" alt="graphic" height="161" width="1920" loading="lazy" decoding="async" >
 
-        <!--This is a dark version. Download the images and change the fill color to match the color of the section background below it-->
-        <img class="cs-graphic cs-top cs-dark" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/gym-hero-shape-top-dark.svg" alt="graphic" height="161" width="1920" loading="lazy" decoding="async" >
-        <img class="cs-graphic cs-left cs-dark" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/gym-hero-shape-top-dark.svg" alt="graphic" height="161" width="1920" loading="lazy" decoding="async" >
-        <img class="cs-graphic cs-bottom cs-dark" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/gym-hero-shape-top-dark.svg" alt="graphic" height="161" width="1920" loading="lazy" decoding="async" >
-    </div>
 
-</section>
+    <!-- ============================================ -->
+    <!--                   Contact                    -->
+    <!-- ============================================
+    <header class="about_header">CONTACT FORM</header>
+    <form id="form" class="topBefore">
+
+        <input id="name" type="text" placeholder="NAME">
+        <input id="email" type="text" placeholder="E-MAIL">
+        <textarea id="message" type="text" placeholder="MESSAGE"></textarea>
+        <input id="submit" type="submit" value="GO!">
+
+    </form>
+
+    -->
+
+
+</main>
