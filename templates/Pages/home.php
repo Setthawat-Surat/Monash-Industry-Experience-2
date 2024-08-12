@@ -10,9 +10,9 @@ $this->assign('title', 'Fundraising');
 <section id="hero-1785">
     <div class="cs-container">
         <div class="cs-content">
-            <h2 class="cs-title">Join the Fun and raise funds together!</h2>
+            <h2 class="cs-title"><?= $this->ContentBlock->text('home-title'); ?></h2>
             <p class="cs-text">
-                Join us for a fun-filled day and help raise essential funds for our school. Together, we can make a big impact on our students' futures!
+                <?= $this->ContentBlock->text('home-content'); ?>
             </p>
             <div class="cs-button-group">
                 <button class="button" style="vertical-align:middle" onClick="scrollToTimeline();"><span>Start Fundraising </span></button>
