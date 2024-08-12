@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-namespace Seeds;
-
 use Migrations\AbstractSeed;
 
 class ContentBlocksSeed extends AbstractSeed
