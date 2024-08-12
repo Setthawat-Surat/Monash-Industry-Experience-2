@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Organic Print Studio - <?= $this->fetch('title') ?></title>
+    <title><?= $this->ContentBlock->text('website-title') ?> - <?= $this->fetch('title') ?></title>
     <!-- Favicon-->
     <?= $this->Html->meta('icon') ?>
+
+
     <?= $this->fetch('meta') ?>
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
@@ -31,7 +33,7 @@
     <div class="cs-container">
         <!--Nav Logo-->
         <a href="/" class="cs-logo" aria-label="back to home">
-            <?= $this->Html->image('OrganicPrintStudioLogo.jpg',['style' => 'width: 150px; height: 100px; margin-left: 45px;'])?>
+            <?= $this->ContentBlock->image('logo',['style' => 'width: 150px; height: 100px; margin-left: 45px;']); ?>
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
@@ -79,6 +81,13 @@
                             Register
                         </a>
                     </li>
+                    <li class="cs-li">
+                        <a href="/Content Blocks" class="cs-li-link">
+                            ContentBlocks
+                        </a>
+                    </li>
+
+
                     <li class="cs-li">
                         <?php
                         if (!$this->Identity->isLoggedIn()) {
@@ -132,9 +141,9 @@
         <div class="cs-logo-group">
             <a aria-label="go back to home" class="cs-logo" href="">
                 <!-- Remove the light class if you don't need the dark logo -->
-                <?= $this->Html->image('OrganicPrintStudioLogo.jpg', ['style' => 'width: 140px; height: 65px; margin-left: 0px;']) ?>
+                <?= $this->ContentBlock->image('logo',['style' => 'width: 140px; height: 65px; margin-left: 45px;']); ?>
             </a>
-            <p>Copyright© 2024 Organic Print Studio<br> All Rights Reserved.</p>
+            <p><?= $this->ContentBlock->text('copyright'); ?><br> All Rights Reserved.</p>
             <div class="cs-social">
                 <a class="cs-social-link" aria-label="visit facebook profile" href="https://www.facebook.com/OrganicPrintStudio">
                     <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Social/Facebook.svg" alt="facebook" width="6" height="11">
@@ -150,10 +159,10 @@
                 <span class="cs-header">Contact</span>
             </li>
             <li class="cs-nav-li">
-                <a class="cs-nav-link" href="tel:123-456 7890">0457 800 078</a>
+                <a class="cs-nav-link" href="tel:123-456 7890"><?= $this->ContentBlock->text('contact-number'); ?></a>
             </li>
             <li class="cs-nav-li">
-                <a class="cs-nav-link" href="mailto:info@codestitch.com">susy@organicprintstudio.com.au</a>
+                <a class="cs-nav-link" href="mailto:info@codestitch.com"><?= $this->ContentBlock->text('contact-email'); ?></a>
             </li>
         </ul>
         <ul class="cs-nav">
@@ -170,7 +179,7 @@
                 <span class="cs-header">Opening Hours</span>
             </li>
             <li class="cs-nav-li">
-                Tuesday, Thursday, Friday: 9am-6pm
+                <?= $this->ContentBlock->text('opening-hour'); ?>
             </li>
             <li class="cs-nav-li">
                 ​(closed for lunch 12pm-2pm)
