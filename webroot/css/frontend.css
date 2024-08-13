@@ -2458,6 +2458,7 @@
     margin-top: 15px;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
     #login-form .login-container {
@@ -2603,6 +2604,47 @@
     color: #888;
     font-size: 20px;
 }
+
+#registration-form .password-strength-checklist{
+    background-color: lightgrey;
+    border-radius: 15px;
+}
+
+#registration-form .password-strength-checklist h3{
+    margin-left: 20px;
+    color: darkred;
+}
+
+#registration-form .checklist{
+    list-style: none;
+}
+
+#registration-form .list-item{
+    color:red;
+}
+
+#registration-form .list-item:before{
+    content:'\f00d';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    color:red;
+}
+
+#registration-form .list-item.valid {
+    color: green; /* Change text color to green */
+}
+
+#registration-form .list-item.valid::before {
+    content: '\f00c'; /* Font Awesome check icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    display: inline-block;
+    color:green;
+}
+
 
 #registration-form .submit-btn {
     background: orangered;

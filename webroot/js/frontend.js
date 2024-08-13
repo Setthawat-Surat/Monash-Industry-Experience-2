@@ -102,12 +102,58 @@ document.getElementById('togglePassword').addEventListener('click', function () 
     this.classList.toggle('fa-eye-slash');
 });
 
-document.getElementById('toggleRetypePassword').addEventListener('click', function () {
-    const retypePassword = document.getElementById('retype-password');
-    const type = retypePassword.getAttribute('type') === 'password' ? 'text' : 'password';
-    retypePassword.setAttribute('type', type);
-    this.classList.toggle('fa-eye-slash');
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const passwordInput = document.getElementById('password');
+    const checklistItems = document.querySelectorAll('#registration-form .list-item');
+    const form = document.getElementById('registration-form'); // Ensure the form has this ID
+
+
+    // Regex patterns for each condition
+    const conditions = [
+        { regex: /.{8,}/, index: 0 },                // At least 8 characters
+        { regex: /[0-9]/, index: 1 },                // At least 1 number
+        { regex: /[A-Z]/, index: 2 },                // At least 1 uppercase character
+        { regex: /[!@#$%^&*(),.?":{}|<>]/, index: 3 } // At least 1 special character
+    ];
+
+    function checkPasswordStrength() {
+        const password = passwordInput.value;
+
+        conditions.forEach(condition => {
+            const listItem = checklistItems[condition.index];
+            if (!listItem) {
+                console.error(`List item at index ${condition.index} not found`);
+                return;
+            }
+            if (condition.regex.test(password)) {
+                listItem.classList.add('valid');
+            } else {
+                listItem.classList.remove('valid');
+            }
+        });
+    }
+
+    function isPasswordValid() {
+        return conditions.every(condition => condition.regex.test(passwordInput.value));
+    }
+
+    // Add event listener to password input field
+    passwordInput.addEventListener('input', checkPasswordStrength);
+
+    // Add event listener to form submit
+    form.addEventListener('submit', function (event) {
+        if (!isPasswordValid()) {
+            event.preventDefault(); // Prevent form submission
+            alert('Please ensure your password meets all the requirements.');
+        }
+    });
+
+    checkPasswordStrength();
 });
+
+
 
 
 

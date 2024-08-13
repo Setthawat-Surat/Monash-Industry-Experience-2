@@ -136,18 +136,35 @@ $this->assign('title', 'Register');
                     'id' => 'email'
                 ]) ?>
             </div>
+        </div>
+
+        <div class="form-row">
             <div class="form-group">
                 <div class="password-wrapper">
-                <?= $this->Form->control('password', [
-                    'label' => 'Password',
-                    'type' => 'password',
-                    'required' => true,
-                    'id' => 'password'
-                ]) ?>
+                    <?= $this->Form->control('password', [
+                        'class' => 'password-input',
+                        'label' => 'Password',
+                        'type' => 'password',
+                        'required' => true,
+                        'id' => 'password',
+                        'data-validate' => 'true'
+                    ]) ?>
                     <i class="fa-solid fa-eye" id="togglePassword" style="cursor: pointer;"></i>
                 </div>
+                <div class="password-strength-checklist">
+                    <h3 class="checklist-title">Password should be:</h3>
+
+                    <ul class="checklist">
+                        <li class="list-item">At least 8 characters long</li>
+                        <li class="list-item">At least 1 number</li>
+                        <li class="list-item">At least 1 uppercase character</li>
+                        <li class="list-item">At least 1 special character</li>
+                    </ul>
+                </div><br>
             </div>
         </div>
+
+
 
         <?= $this->Form->button('Register', ['class' => 'submit-btn']) ?>
         <?= $this->Form->end() ?>
