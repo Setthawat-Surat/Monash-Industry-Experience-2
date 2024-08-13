@@ -19,7 +19,11 @@
                 <?php
                     echo $this->Form->control('username');
                     echo $this->Form->control('password');
-                    echo $this->Form->control('role');
+                    echo $this->Form->control('role', [
+                        'type' => 'select',
+                        'options' => ['admin' => 'Admin'],
+                        'empty' => false
+                    ]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

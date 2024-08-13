@@ -1,3 +1,11 @@
+<?php
+/**
+ * Auth Controller
+ *
+ * @property \Authentication\Controller\Component\AuthenticationComponent $Authentication
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,9 +59,29 @@
             <div class="cs-ul-wrapper">
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                     <li class="cs-li">
-                        <a href="/" class="cs-li-link cs-active">
-                            Home
-                        </a>
+                        <?php
+                        if ($this->Identity->isLoggedIn()) {
+                            $user_role = $this->Identity->get('role');
+                            if($user_role == 'Admin'){
+                                echo $this->Html->link(
+                                    'Dashboard',
+                                    ['controller' => 'Pages', 'action' => 'display','Admin_dashboard'],
+                                    ['class' => 'cs-li-link']);
+                            }
+                            elseif($user_role == 'School'){
+                                echo $this->Html->link(
+                                    'Dashboard',
+                                    ['controller' => 'Pages', 'action' => 'display','School_dashboard'],
+                                    ['class' => 'cs-li-link']);
+                            }
+
+                        }
+                        else
+                            echo $this->Html->link(
+                                'Home',
+                                ['controller' => 'Pages', 'action' => 'display','home'],
+                                ['class' => 'cs-li-link']);
+                        ?>
                     </li>
                     <li class="cs-li">
                         <a href="/pages/about_us" class="cs-li-link">
@@ -84,11 +112,7 @@
                             Register
                         </a>
                     </li>
-                    <li class="cs-li">
-                        <a href="/Content Blocks" class="cs-li-link">
-                            ContentBlocks
-                        </a>
-                    </li>
+
 
 
                     <li class="cs-li">
