@@ -15,7 +15,7 @@ $this->assign('title', 'Register');
         <?= $this->Flash->render() ?>
 
         <br><div class="personal-details-header">
-            <span>Personal Details</span>
+            <span>Personal/School Details</span>
         </div><br>
 
         <div class="form-row">
@@ -27,6 +27,7 @@ $this->assign('title', 'Register');
                     'id' => 'schoolname',
                     'name' => 'schoolname',
                     'pattern' => '[a-zA-Z\s]*',
+                    'minlength' => 5,
                     'title' => 'School Name should only contain letters and spaces'
                 ]) ?>
             </div>
@@ -51,7 +52,9 @@ $this->assign('title', 'Register');
                     'type' => 'text',
                     'required' => true,
                     'id' => 'repfirstname',
-                    'name' => 'repfirstname'
+                    'name' => 'repfirstname',
+                    'pattern' => '[a-zA-Z][a-zA-Z\'\-]*',
+                    'title' => 'First Name should only contain letters, dashes, apostrophes and start with capital letter.'
                 ]) ?>
             </div>
             <div class="form-group">
@@ -60,7 +63,9 @@ $this->assign('title', 'Register');
                     'type' => 'text',
                     'required' => true,
                     'id' => 'replastname',
-                    'name' => 'replastname'
+                    'name' => 'replastname',
+                    'pattern' => '[a-zA-Z][a-zA-Z\'\-]*',
+                    'title' => 'Last Name should only contain letters, dashes, apostrophes and start with capital letter.'
                 ]) ?>
             </div>
         </div>
@@ -88,7 +93,8 @@ $this->assign('title', 'Register');
                     'type' => 'number',
                     'required' => true,
                     'id' => 'banknumber',
-                    'name' => 'banknumber'
+                    'name' => 'banknumber',
+                    'maxlength' => 10
                 ]) ?>
             </div>
             <div class="form-group">
@@ -97,7 +103,8 @@ $this->assign('title', 'Register');
                     'type' => 'number',
                     'required' => true,
                     'id' => 'bankbsb',
-                    'name' => 'bankbsb'
+                    'name' => 'bankbsb',
+                    'maxlength' => 6
                 ]) ?>
             </div>
         </div>
@@ -110,8 +117,8 @@ $this->assign('title', 'Register');
                     'required' => true,
                     'id' => 'bankaccountname',
                     'name' => 'bankaccountname',
-                    'pattern' => '[a-zA-Z\s]*',
-                    'title' => 'Bank Account Name should only contain letters and spaces'
+                    'pattern' => '[a-zA-Z][a-zA-Z\'\- ]*',
+                    'title' => 'Bank Account Name should only contain letters, dashes, apostrophes'
                 ]) ?>
             </div>
         </div>
