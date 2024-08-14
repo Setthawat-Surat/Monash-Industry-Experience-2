@@ -69,7 +69,7 @@ $this->assign('title', 'Fundraising');
                 <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fballs3.svg" loading="lazy" decoding="async" alt="icon" width="48" height="48" aria-hidden="true">
                 <!-- Text Grouped For Flexbox-->
                 <div class="cs-text-group">
-                    <h3 class="cs-h3"><?= $this->ContentBlock->text('wcu-titile3'); ?></h3>
+                    <h3 class="cs-h3"><?= $this->ContentBlock->text('wcu-title3'); ?></h3>
                     <p class="cs-item-text">
                         <?= $this->ContentBlock->text('wcu-reason3'); ?>
                     </p>
@@ -272,7 +272,7 @@ $this->assign('title', 'Fundraising');
             <li class="cs-item">
                 <img class="cs-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile3.png" alt="profile" width="68" height="68">
                 <span class="cs-name"><?= $this->ContentBlock->text('wfoc-name3'); ?></span>
-                <span class="cs-desc"><?= $this->ContentBlock->text('wfoc-location3'); ?></span>
+                <span class="cs-desc"><?= $this->ContentBlock->text('wfoc-loc3'); ?></span>
                 <p class="cs-item-text">
                     <?= $this->ContentBlock->text('wfoc-testi3'); ?>
                 </p>
