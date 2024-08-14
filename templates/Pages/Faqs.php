@@ -41,51 +41,51 @@ $this->assign('title', 'FAQ');
                 <li class="cs-faq-item active">
                     <button class="cs-button">
                         <span class="cs-button-text">
-                            How much are house cleaning services?
+                            <?= $this->ContentBlock->text('faq-question1'); ?>
                         </span>
                     </button>
                     <p class="cs-item-p">
-                        Some cleaning plans require a minimum commitment term. Cancelling your plan before the minimum term is complete will result in a $99 fee. If you want to learn more information about how to cancel, please inbox us.
+                        <?= $this->ContentBlock->text('faq-answer1'); ?>
                     </p>
                 </li>
                 <li class="cs-faq-item">
                     <button class="cs-button">
                         <span class="cs-button-text">
-                            What is your plan cancellation policy?
+                            <?= $this->ContentBlock->text('faq-question2'); ?>
                         </span>
                     </button>
                     <p class="cs-item-p">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam.
+                        <?= $this->ContentBlock->text('faq-answer2'); ?>
                     </p>
                 </li>
                 <li class="cs-faq-item">
                     <button class="cs-button">
                         <span class="cs-button-text">
-                            How long should a house cleaning take?
+                            <?= $this->ContentBlock->text('faq-question3'); ?>
                         </span>
                     </button>
                     <p class="cs-item-p">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam.
+                        <?= $this->ContentBlock->text('faq-answer3'); ?>
                     </p>
                 </li>
                 <li class="cs-faq-item">
                     <button class="cs-button">
                         <span class="cs-button-text">
-                            How much are house cleaning services?
+                            <?= $this->ContentBlock->text('faq-question4'); ?>
                         </span>
                     </button>
                     <p class="cs-item-p">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam.
+                        <?= $this->ContentBlock->text('faq-question4'); ?>
                     </p>
                 </li>
                 <li class="cs-faq-item">
                     <button class="cs-button">
                         <span class="cs-button-text">
-                            Contact us?
+                            <?= $this->ContentBlock->text('faq-question5'); ?>
                         </span>
                     </button>
                     <p class="cs-item-p">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam.
+                        <?= $this->ContentBlock->text('faq-answer5'); ?>
                     </p>
                 </li>
             </ul>
