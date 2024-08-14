@@ -96,7 +96,9 @@ $this->assign('title', 'Fundraising');
                     Are you a school representative and willing to raise funds for your school? We’re thrilled to launch our new fundraising campaign and need your help to succeed. Here’s how you can get involved!
                 </p><br>
                 <div class="cs-button-group">
-                    <button class="button" style="vertical-align:middle" onClick=""><span>Start Fundraising</span></button>
+                    <button class="button" style="vertical-align:middle" onclick="window.location.href='<?= $this->Url->build(['controller' => 'Auth', 'action' => 'register']) ?>'">
+                        <span>Start Fundraising</span>
+                    </button>
                 </div>
             </div>
             <div class="cs-image-group">
