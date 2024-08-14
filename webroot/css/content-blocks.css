@@ -1,3 +1,10 @@
+.contentBlocks.index.content{
+    padding: 2rem 2rem 1rem;
+    margin-top: 5rem;
+    margin-left: 18rem;
+    box-sizing: border-box;
+}
+
 .content-blocks--list-subheading {
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -50,4 +57,24 @@
     max-width: 400px;
     max-height: 400px;
     margin: 2em 0;
+}
+
+
+@media (max-width: 480px) {
+    .content-blocks--list-subheading {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .content-blocks--list-group-item {
+        padding: 0.5em;
+    }
+
+    .content-blocks--form-description {
+        font-size: 0.9rem;
+    }
+
+    .content-blocks--description {
+        font-size: 0.9rem;
+    }
 }

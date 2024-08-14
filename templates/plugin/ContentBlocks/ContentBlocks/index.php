@@ -8,7 +8,7 @@
 
 $this->assign('title', 'Content Blocks');
 
-$this->setLayout('frontend');
+$this->setLayout('Admin_dashboard');
 $this->Html->css('content-blocks', ['block' => true]);
 
 
