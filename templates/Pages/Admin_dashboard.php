@@ -10,7 +10,8 @@ use Cake\ORM\TableRegistry;
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">Dashboard</h1><br><br>
+                        <!--
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
@@ -72,6 +73,7 @@ use Cake\ORM\TableRegistry;
                                 </div>
                             </div>
                         </div>
+                        !-->
 
                         <?php
                         $school_table = TableRegistry::getTableLocator()->get('Schools');

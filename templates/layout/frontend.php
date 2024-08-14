@@ -95,10 +95,12 @@
                             </span>
                         <ul class="cs-drop-ul">
                             <li class="cs-drop-li">
-                                <a href="/services/registration" class="cs-li-link cs-drop-link">Fundraising</a>
+                                <a href="<?= $this->Url->build(['controller'=>'Auth', 'action' => 'register']) ?>" class="cs-li-link cs-drop-link">Fundraising</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="/services/custom" class="cs-li-link cs-drop-link">Custom tea towels and tote bags</a>
+                                <a href="https://www.organicprintstudio.com.au/" class="cs-li-link cs-drop-link" target="_blank" rel="noopener noreferrer">
+                                    Custom tea towels and tote bags
+                                </a>
                             </li>
                         </ul>
                     </li>
