@@ -81,7 +81,7 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                         Content Management System (CMS)
                     </a>
-                    <a class="nav-link" href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'add']) ?>">
+                    <a class="nav-link" href="/UrlHandler/adduser">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         Create admin account
                     </a>

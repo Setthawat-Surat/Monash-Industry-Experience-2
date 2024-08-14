@@ -49,6 +49,14 @@ class UrlHandlerController extends AppController
         ]);
     }
 
+    public function adduser()
+    {
+        return $this->redirect([
+            'controller' => 'users',
+            'action' => 'add'
+        ]);
+    }
+
 
 
 
