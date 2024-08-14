@@ -41,9 +41,9 @@ $this->assign('title', 'Fundraising');
 <section id="why-choose-892">
     <div class="cs-container">
         <div class="cs-content">
-            <h2 class="cs-title">Why Choose Us?</h2>
+            <h2 class="cs-title"><?= $this->ContentBlock->text('wcu-title'); ?></h2>
             <p class="cs-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia incidunt quia enim mollitia delectus? Perferendis sapiente quaerat quos. Odit quasi similique nobis earum laudantium ad doloribus quos eos quod. Delectus?
+                <?= $this->ContentBlock->text('wcu-description'); ?>
             </p>
         </div>
         <ul class="cs-card-group">
@@ -51,9 +51,8 @@ $this->assign('title', 'Fundraising');
                 <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fballs1.svg" loading="lazy" decoding="async" alt="icon" width="48" height="48" aria-hidden="true">
                 <!-- Text Grouped For Flexbox-->
                 <div class="cs-text-group">
-                    <h3 class="cs-h3">Eco-Friendly Tea Towel Printing</h3>
-                    <p class="cs-item-text">
-                        Organic Print Studio has years in the tea-towel printing industry whilst introducing unique, creative flares to your designs to make your tea-towels stand out! Using 100% Certified organic cotton as well as having commitments to sustainability and ethically sourcing materials, you can be assured that your tea towels are both quality and good for the environment.
+                    <h3 class="cs-h3"><?= $this->ContentBlock->text('wcu-title1'); ?></h3>
+                    <p class="cs-item-text"><?= $this->ContentBlock->text('wcu-reason1'); ?>
                     </p>
                 </div>
             </li>
@@ -61,9 +60,8 @@ $this->assign('title', 'Fundraising');
                 <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fballs2.svg" loading="lazy" decoding="async" alt="icon" width="48" height="48" aria-hidden="true">
                 <!-- Text Grouped For Flexbox-->
                 <div class="cs-text-group">
-                    <h3 class="cs-h3">Efficient Tea Towel Fundraising</h3>
-                    <p class="cs-item-text">
-                        The Fund4Schools portal will allow you to centrally manage all tea-towel fundraisers whilst having direct communication with Organic Print Studio to streamline the design process. This, along with the shopping portal will allow family and friends of the school to directly purchase these designed to order, allowing schools to reduce waste and get professional consultation about tea-towel designs prior to printing.
+                    <h3 class="cs-h3"><?= $this->ContentBlock->text('wcu-title2'); ?></h3>
+                    <p class="cs-item-text"><?= $this->ContentBlock->text('wcu-reason2'); ?>
                     </p>
                 </div>
             </li>
@@ -71,9 +69,9 @@ $this->assign('title', 'Fundraising');
                 <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fballs3.svg" loading="lazy" decoding="async" alt="icon" width="48" height="48" aria-hidden="true">
                 <!-- Text Grouped For Flexbox-->
                 <div class="cs-text-group">
-                    <h3 class="cs-h3">Perfectly Structured Sessions</h3>
+                    <h3 class="cs-h3"><?= $this->ContentBlock->text('wcu-titile3'); ?></h3>
                     <p class="cs-item-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa fugiat impedit molestias vitae voluptatibus sed enim! Cupiditate ab praesentium dolorem libero veritatis beatae assumenda totam, in, nemo quis consectetur labore! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, quam?
+                        <?= $this->ContentBlock->text('wcu-reason3'); ?>
                     </p>
                 </div>
             </li>
@@ -249,34 +247,34 @@ $this->assign('title', 'Fundraising');
 <section id="reviews-62"><br>
     <div class="cs-container">
         <div class="cs-content">
-            <h2 class="cs-title">Words from our customers</h2>
+            <h2 class="cs-title"><?= $this->ContentBlock->text('wfoc-title'); ?></h2>
             <p class="cs-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo, ornare. Lorem ipsum dolor sit amet.
+                <?= $this->ContentBlock->text('wfoc-description'); ?>
             </p>
         </div>
         <ul class="cs-card-group">
             <li class="cs-item">
                 <img class="cs-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile1.png" alt="profile" width="68" height="68">
-                <span class="cs-name">John Doe</span>
-                <span class="cs-desc">Texas</span>
+                <span class="cs-name"><?= $this->ContentBlock->text('wfoc-name1'); ?></span>
+                <span class="cs-desc"><?= $this->ContentBlock->text('wfoc-loc1'); ?></span>
                 <p class="cs-item-text">
-                    Proin massa eros, quis fringilla sagittis. Euismod scelerisque varius sed nec consequat, turpis.
+                    <?= $this->ContentBlock->text('wfoc-testi1'); ?>
                 </p>
             </li>
             <li class="cs-item">
                 <img class="cs-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile2.png" alt="profile" width="68" height="68">
-                <span class="cs-name">Jane Smith</span>
-                <span class="cs-desc">California</span>
+                <span class="cs-name"><?= $this->ContentBlock->text('wfoc-name2'); ?></span>
+                <span class="cs-desc"><?= $this->ContentBlock->text('wfoc-loc2'); ?></span>
                 <p class="cs-item-text">
-                    Proin massa eros, quis fringilla sagittis. Euismod scelerisque varius sed nec consequat, turpis.
+                    <?= $this->ContentBlock->text('wfoc-testi2'); ?>
                 </p>
             </li>
             <li class="cs-item">
                 <img class="cs-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/profile3.png" alt="profile" width="68" height="68">
-                <span class="cs-name">Thomas Madden</span>
-                <span class="cs-desc">Texas</span>
+                <span class="cs-name"><?= $this->ContentBlock->text('wfoc-name3'); ?></span>
+                <span class="cs-desc"><?= $this->ContentBlock->text('wfoc-location3'); ?></span>
                 <p class="cs-item-text">
-                    Proin massa eros, quis fringilla sagittis. Euismod scelerisque varius sed nec consequat, turpis.
+                    <?= $this->ContentBlock->text('wfoc-testi3'); ?>
                 </p>
             </li>
         </ul>
