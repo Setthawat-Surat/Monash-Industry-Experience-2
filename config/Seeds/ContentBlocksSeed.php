@@ -308,6 +308,32 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'type' => 'text',
                 'value' => "By logging in to your account",
             ],
+            [
+                'parent' => 'About us',
+                'label' => 'About Us Video Title',
+                'description' => 'About us Section',
+                'slug' => 'abt-vidotitle',
+                'type' => 'text',
+                'value' => "You Can Learn More About Us!!",
+            ],
+            [
+                'parent' => 'About us',
+                'label' => 'About Us Video Link',
+                'description' => 'About us Section',
+                'slug' => 'abt-video',
+                'type' => 'text',
+                'value' => "https://www.youtube.com/embed/RMk4wd5TCfM",
+            ],
+            [
+                'parent' => 'About us',
+                'label' => 'About Us Content',
+                'description' => 'About us Section',
+                'slug' => 'abt-text',
+                'type' => 'text',
+                'value' => "From her little garden studio, Susy Kennedy is creating beautiful personalised souvenir tea towels for special events. Printed on top-quality ACO Certified cotton, these unique keepsakes will remind guests of your happy occasion, or as merchandise for your business. Organic Print Studio is all about the beauty of life and the occasions that mark our journeys through it.<br>
+            Constantly developing new products in collaboration with local artists, Susy strives to ethically source materials that minimise impact on the environment. She applies her love for quality textiles in the beautiful tactile products she develops. Susy keeps her finger on the pulse of design trends and feeds that back through her products to customers.",
+            ],
+
 
 
         ];

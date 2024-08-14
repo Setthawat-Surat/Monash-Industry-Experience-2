@@ -40,7 +40,8 @@ $this->Html->css('ContentBlocks.content-blocks', ['block' => true]);
 
             <?php
             if ($contentBlock->type === 'text') {
-                if ($contentBlock->slug !== 'home-content' && $contentBlock->slug !== 'about-text'){
+                if ($contentBlock->slug !== 'home-content' && $contentBlock->slug !== 'abt-text' &&
+                $contentBlock->slug !== 'wfoc-testi2' && $contentBlock->slug !== 'wfoc-testi1' && $contentBlock->slug !== 'wfoc-testi3'){
                     echo $this->Form->control('value', [
                         'type' => 'text',
                         'value' => html_entity_decode($contentBlock->value),
@@ -59,7 +60,8 @@ $this->Html->css('ContentBlocks.content-blocks', ['block' => true]);
                     ]);
                 }
 
-            } else if ($contentBlock->type === 'html') {
+            }
+            else if ($contentBlock->type === 'html') {
                 echo $this->Form->control('value', [
                     'type' => 'textarea',
                     'label' => false,

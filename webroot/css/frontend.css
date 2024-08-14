@@ -3029,6 +3029,7 @@ body {
 }
 
 .cs-text {
+    white-space: normal;
     font-size: var(--bodyFontSize);
     line-height: 1.5em;
     text-align: inherit;
@@ -3324,7 +3325,7 @@ body {
     background-color: #444;
     color: white;
     Padding: 20em;
-    background-image: url(https://images.unsplash.com/photo-1514050566906-8d077bae7046?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2369b77063d1bf6462de3d6658f18a6a&auto=format&fit=crop&w=1352&q=80);
+    background-image: url('../img/Homepage_Background.png');
     background-size: cover;
     background-blend-mode: multiply;
     display: flex;
@@ -3332,6 +3333,18 @@ body {
     align-items: center;
 
 }
+
+#about-text {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid black;*/
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+}
+
 
 #videos {
     text-align: center;

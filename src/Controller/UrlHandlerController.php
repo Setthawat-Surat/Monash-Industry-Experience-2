@@ -57,6 +57,22 @@ class UrlHandlerController extends AppController
         ]);
     }
 
+    public function fAQ()
+    {
+        return $this->redirect([
+            'controller' => 'pages',
+            'action' => 'faqs'
+        ]);
+    }
+
+    public function aboutUs()
+    {
+        return $this->redirect([
+            'controller' => 'pages',
+            'action' => 'about_us'
+        ]);
+    }
+
 
 
 
