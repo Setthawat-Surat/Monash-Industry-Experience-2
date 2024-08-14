@@ -46,7 +46,7 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display','home']) ?>">
+                    <a class="nav-link" href="/UrlHandler/home">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Home
                     </a>
@@ -77,7 +77,7 @@
                         </nav>
                     </div>
                     <div class="sb-sidenav-menu-heading">Backends</div>
-                    <a class="nav-link" href="<?= $this->Url->build(['controller' => 'Contentblocks', 'action' => 'index']) ?>">
+                    <a class="nav-link" href="/UrlHandler/global">
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                         Content Management System (CMS)
                     </a>
