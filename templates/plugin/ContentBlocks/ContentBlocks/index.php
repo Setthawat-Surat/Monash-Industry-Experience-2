@@ -33,7 +33,7 @@ echo $this->Html->link(__('New Content Block'), ['action' => 'add'], ['class' =>
 <div class="space"> </div>
 <div class="contentBlocks index content">
 
-
+    <?= $this->Flash->render(); ?>
     <h3><?= __('Content Blocks') ?></h3>
 
     <div>

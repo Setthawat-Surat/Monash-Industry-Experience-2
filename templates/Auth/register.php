@@ -90,21 +90,23 @@ $this->assign('title', 'Register');
             <div class="form-group">
                 <?= $this->Form->control('banknumber', [
                     'label' => 'Bank Account Number',
-                    'type' => 'number',
+                    'type' => 'text',
                     'required' => true,
                     'id' => 'banknumber',
                     'name' => 'banknumber',
-                    'maxlength' => 10
+                    'pattern' => '[0-9]{6,10}',
+                    'title' => 'Bank Account Number should contain numbers only and it should be 6-10 digits'
                 ]) ?>
             </div>
             <div class="form-group">
                 <?= $this->Form->control('bankbsb', [
                     'label' => 'BSB',
-                    'type' => 'number',
+                    'type' => 'text',
                     'required' => true,
                     'id' => 'bankbsb',
                     'name' => 'bankbsb',
-                    'maxlength' => 6
+                    'pattern' => '[0-9]{6}',
+                    'title' => 'BSB should contain numbers only and it should be exactly 6 digits'
                 ]) ?>
             </div>
         </div>

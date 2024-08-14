@@ -21,7 +21,7 @@
                     echo $this->Form->control('password');
                     echo $this->Form->control('role', [
                         'type' => 'select',
-                        'options' => ['admin' => 'Admin'],
+                        'options' => ['Admin' => 'Admin'],
                         'empty' => false
                     ]);
                 ?>
