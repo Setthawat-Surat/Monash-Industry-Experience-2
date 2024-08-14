@@ -16,21 +16,21 @@ $this->assign('title', 'FAQ');
         <div class="cs-left">
             <!--Big Image-->
             <picture class="cs-picture cs-picture1" aria-hidden="true">
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3-m.jpg">
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg" alt="cleaning supplies" width="672" height="672">
+                <source media="(max-width: 600px)" srcset="<?= $this->Url->image('sample_product1.jpg')?>">
+                <source media="(min-width: 601px)" srcset="<?= $this->Url->image('sample_product1.jpg')?>">
+                <img loading="lazy" decoding="async" src="<?= $this->Url->image('sample_product1.jpg')?>" alt="cleaning supplies" width="672" height="672">
             </picture>
             <!--Medium Image-->
             <picture class="cs-picture cs-picture2" aria-hidden="true">
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2-m.jpg">
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg" alt="cleaning supplies" width="300" height="300">
+                <source media="(max-width: 600px)" srcset="<?= $this->Url->image('sample_product2.jpg')?>">
+                <source media="(min-width: 601px)" srcset="<?= $this->Url->image('sample_product2.jpg')?>">
+                <img loading="lazy" decoding="async" src="<?= $this->Url->image('sample_product2.jpg')?>" alt="cleaning supplies" width="300" height="300">
             </picture>
             <!--Small Image-->
             <picture class="cs-picture cs-picture3" aria-hidden="true">
-                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1-m.jpg">
-                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg">
-                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg" alt="cleaner" width="200" height="200">
+                <source media="(max-width: 600px)" srcset="<?= $this->Url->image('sample_product3.jpg')?>">
+                <source media="(min-width: 601px)" srcset="<?= $this->Url->image('sample_product3.jpg')?>">
+                <img loading="lazy" decoding="async" src="<?= $this->Url->image('sample_product3.jpg')?>" alt="cleaner" width="200" height="200">
             </picture>
         </div>
         <div class="cs-content">
