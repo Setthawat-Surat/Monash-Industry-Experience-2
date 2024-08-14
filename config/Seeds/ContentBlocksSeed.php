@@ -41,7 +41,7 @@ class ContentBlocksSeed extends AbstractSeed
             ],
             [
                 'parent' => 'global',
-                'label' => 'Number',
+                'label' => 'Email',
                 'description' => 'Shown on the website anywhere of the contact email',
                 'slug' => 'contact-email',
                 'type' => 'text',
@@ -113,7 +113,7 @@ class ContentBlocksSeed extends AbstractSeed
             ],
             [
                 'parent' => 'home',
-                'label' => 'Why Choose Us Reason1 Text',
+                'label' => 'Why Choose Us Reason1',
                 'description' => 'Why Choose Us Reason1',
                 'slug' => 'wcu-reason1',
                 'type' => 'text',
