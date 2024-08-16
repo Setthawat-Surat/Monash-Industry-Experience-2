@@ -55,6 +55,10 @@
                     <td><?= h($school->bsb) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Logo') ?></th>
+                    <td><?= h($school->logo) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($school->id) ?></td>
                 </tr>

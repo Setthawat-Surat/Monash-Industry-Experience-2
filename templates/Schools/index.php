@@ -22,6 +22,7 @@
                     <th><?= $this->Paginator->sort('bank_account_number') ?></th>
                     <th><?= $this->Paginator->sort('bsb') ?></th>
                     <th><?= $this->Paginator->sort('approval_status') ?></th>
+                    <th><?= $this->Paginator->sort('logo') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -39,6 +40,13 @@
                     <td><?= h($school->bank_account_number) ?></td>
                     <td><?= h($school->bsb) ?></td>
                     <td><?= h($school->approval_status) ?></td>
+                    <td>
+                        <?php if (!empty($school->logo)): ?>
+                            <?= $this->Html->image('/school_logo_img/' . $school->logo, ['alt' => 'School Logo', 'class' => 'school-logo']) ?>
+                        <?php else: ?>
+                            <?= h('No logo available') ?>
+                        <?php endif; ?>
+                    </td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $school->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $school->id]) ?>

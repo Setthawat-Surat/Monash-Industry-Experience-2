@@ -9,19 +9,74 @@ $this->assign('title', 'Register');
 ?>
 <section id="registration-section">
     <div class="container">
-        <?= $this->Form->create($user, ['id' => 'registration-form']) ?>
+        <?= $this->Form->create($user, ['type' => 'file','id' => 'registration-form']) ?>
         <h2>Register</h2>
 
         <?= $this->Flash->render() ?>
 
         <br><div class="personal-details-header">
-            <span>Personal/School Details</span>
+            <span>Personal Details</span>
+        </div><br>
+
+
+
+        <div class="form-row">
+            <div class="form-group">
+                <?= $this->Form->control('repfirstname', [
+                    'label' => [
+                        'text' => 'Your First Name <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
+                    'type' => 'text',
+                    'required' => true,
+                    'id' => 'repfirstname',
+                    'name' => 'repfirstname',
+                    'pattern' => '[a-zA-Z][a-zA-Z\'\-]*',
+                    'title' => 'First Name should only contain letters, dashes, apostrophes and start with capital letter.'
+                ]) ?>
+            </div>
+            <div class="form-group">
+                <?= $this->Form->control('replastname', [
+                    'label' => [
+                        'text' => 'Your Last Name <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
+                    'type' => 'text',
+                    'required' => true,
+                    'id' => 'replastname',
+                    'name' => 'replastname',
+                    'pattern' => '[a-zA-Z][a-zA-Z\'\-]*',
+                    'title' => 'Last Name should only contain letters, dashes, apostrophes and start with capital letter.'
+                ]) ?>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <?= $this->Form->control('repemail', [
+                    'label' => [
+                        'text' => 'Your Email <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
+                    'type' => 'email',
+                    'required' => true,
+                    'id' => 'repemail',
+                    'name' => 'repemail',
+                ]) ?>
+            </div>
+        </div>
+
+        <div class="bank-account-details-header">
+            <span>School Details</span>
         </div><br>
 
         <div class="form-row">
             <div class="form-group">
                 <?= $this->Form->control('schoolname', [
-                    'label' => 'School Name',
+                    'label' => [
+                        'text' => 'School Name <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
                     'type' => 'text',
                     'required' => true,
                     'id' => 'schoolname',
@@ -36,7 +91,10 @@ $this->assign('title', 'Register');
         <div class="form-row">
             <div class="form-group">
                 <?= $this->Form->control('schooladdress', [
-                    'label' => 'School Address',
+                    'label' => [
+                        'text' => 'Address <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
                     'type' => 'text',
                     'required' => true,
                     'id' => 'schooladdress',
@@ -47,80 +105,55 @@ $this->assign('title', 'Register');
 
         <div class="form-row">
             <div class="form-group">
-                <?= $this->Form->control('repfirstname', [
-                    'label' => 'Your First Name',
+                <?= $this->Form->control('schoolsuburb', [
+                    'label' => [
+                        'text' => 'Suburb <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
                     'type' => 'text',
                     'required' => true,
-                    'id' => 'repfirstname',
-                    'name' => 'repfirstname',
-                    'pattern' => '[a-zA-Z][a-zA-Z\'\-]*',
-                    'title' => 'First Name should only contain letters, dashes, apostrophes and start with capital letter.'
-                ]) ?>
-            </div>
-            <div class="form-group">
-                <?= $this->Form->control('replastname', [
-                    'label' => 'Your Last Name',
-                    'type' => 'text',
-                    'required' => true,
-                    'id' => 'replastname',
-                    'name' => 'replastname',
-                    'pattern' => '[a-zA-Z][a-zA-Z\'\-]*',
-                    'title' => 'Last Name should only contain letters, dashes, apostrophes and start with capital letter.'
+                    'id' => 'schoolsuburb',
+                    'name' => 'schoolsuburb'
                 ]) ?>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group">
-                <?= $this->Form->control('repemail', [
-                    'label' => 'Your Email',
-                    'type' => 'email',
-                    'required' => true,
-                    'id' => 'repemail',
-                    'name' => 'repemail',
-                ]) ?>
-            </div>
-        </div>
-
-        <div class="bank-account-details-header">
-            <span>Bank Account Details</span>
-        </div><br>
-
-        <div class="form-row">
-            <div class="form-group">
-                <?= $this->Form->control('banknumber', [
-                    'label' => 'Bank Account Number',
+                <?= $this->Form->control('schoolpostcode', [
+                    'label' => [
+                        'text' => 'Postal Code <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
                     'type' => 'text',
                     'required' => true,
-                    'id' => 'banknumber',
-                    'name' => 'banknumber',
-                    'pattern' => '[0-9]{6,10}',
-                    'title' => 'Bank Account Number should contain numbers only and it should be 6-10 digits'
+                    'id' => 'schoolpostcode',
+                    'name' => 'schoolpostcode'
                 ]) ?>
             </div>
+
             <div class="form-group">
-                <?= $this->Form->control('bankbsb', [
-                    'label' => 'BSB',
+                <?= $this->Form->control('schoolstate', [
+                    'label' => [
+                        'text' => 'State <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
                     'type' => 'text',
                     'required' => true,
-                    'id' => 'bankbsb',
-                    'name' => 'bankbsb',
-                    'pattern' => '[0-9]{6}',
-                    'title' => 'BSB should contain numbers only and it should be exactly 6 digits'
+                    'id' => 'schoolstate',
+                    'name' => 'schoolstate'
                 ]) ?>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group">
-                <?= $this->Form->control('bankaccountname', [
-                    'label' => 'Bank Account Name',
-                    'type' => 'text',
-                    'required' => true,
-                    'id' => 'bankaccountname',
-                    'name' => 'bankaccountname',
-                    'pattern' => '[a-zA-Z][a-zA-Z\'\- ]*',
-                    'title' => 'Bank Account Name should only contain letters, dashes, apostrophes'
+                <?= $this->Form->control('schoollogo', [
+                    'label' => 'Logo',
+                    'type' => 'file',
+                    'required' => false,
+                    'id' => 'schoollogo',
+                    'name' => 'schoollogo'
                 ]) ?>
             </div>
         </div>
@@ -132,7 +165,10 @@ $this->assign('title', 'Register');
         <div class="form-row">
             <div class="form-group">
                 <?= $this->Form->control('email', [
-                    'label' => 'Email',
+                    'label' => [
+                        'text' => 'Your Email <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
                     'type' => 'email',
                     'required' => true,
                     'id' => 'email'
@@ -145,7 +181,10 @@ $this->assign('title', 'Register');
                 <div class="password-wrapper">
                     <?= $this->Form->control('password', [
                         'class' => 'password-input',
-                        'label' => 'Password',
+                        'label' => [
+                            'text' => 'Password <span class="required-asterisk">*</span>',
+                            'escape' => false
+                        ],
                         'type' => 'password',
                         'required' => true,
                         'id' => 'password',

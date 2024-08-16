@@ -88,17 +88,29 @@ class AuthController extends AppController
                     ->where(['email' => $data['email']])
                     ->first();
 
+                $address = $data['schooladdress'] . ' ' . $data['schoolsuburb'] . ' ' . $data['schoolstate'] . ' ' .$data['schoolpostcode'];
+
+                $file = $this->request->getData('schoollogo');
+                $image_name = $file->getClientFilename();
+                $targetPath = WWW_ROOT . 'school_logo_img' . DS . $image_name;
+
+                if ($file->getError() === UPLOAD_ERR_OK) {
+                    if ($image_name) {
+                        $file->moveTo($targetPath);
+                    }
+                } else {
+                    $image_name = null;
+                }
+
                 // After saving the user, get the user ID
                 $schoolData = [
                     'name' => $data['schoolname'],
                     'rep_first_name' => $data['repfirstname'],
                     'rep_last_name' => $data['replastname'],
                     'rep_email' => $data['repemail'],
-                    'address' => $data['schooladdress'],
-                    'bank_account_name' => $data['bankaccountname'],
-                    'bank_account_number' => $data['banknumber'],
-                    'bsb' => $data['bankbsb'],
-                    'approval_status' => 0, // Set default approval status
+                    'address' => $address,
+                    'logo' => $image_name,
+                    'approval_status' => 1, // Set default approval status
                 ];
 
                 $school = $this->Schools->newEmptyEntity();
@@ -107,7 +119,7 @@ class AuthController extends AppController
                 $school->code = $this->generateSchoolCode($data['schoolname']);
 
                 if ($this->Schools->save($school)) {
-                    $this->Flash->success('You have been registered. Please wait for admin to verify your account.');
+                    $this->Flash->success('You have been registered. Please login.');
 
                     return $this->redirect(['action' => 'login']);
                 } else {

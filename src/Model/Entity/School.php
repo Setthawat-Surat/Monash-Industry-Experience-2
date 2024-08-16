@@ -19,6 +19,7 @@ use Cake\ORM\Entity;
  * @property string|null $bank_account_number
  * @property string|null $bsb
  * @property bool|null $approval_status
+ * @property string|null $logo
  *
  * @property \App\Model\Entity\Campaign[] $campaigns
  */
@@ -44,6 +45,7 @@ class School extends Entity
         'bank_account_number' => true,
         'bsb' => true,
         'approval_status' => true,
+        'logo' => true,
         'campaigns' => true,
     ];
 }

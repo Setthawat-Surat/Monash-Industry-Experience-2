@@ -153,7 +153,25 @@ document.addEventListener('DOMContentLoaded', function () {
     checkPasswordStrength();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const sourceField = document.getElementById('repemail');
+    const targetField = document.getElementById('email');
 
+    // Function to synchronize fields
+    function syncFields(event)
+    {
+        // Avoid infinite loop
+        if (event.target === sourceField) {
+            targetField.value = sourceField.value;
+        } else if (event.target === targetField) {
+            sourceField.value = targetField.value;
+        }
+    }
+
+    // Add event listeners to both fields
+    sourceField.addEventListener('input', syncFields);
+    targetField.addEventListener('input', syncFields);
+});
 
 
 
