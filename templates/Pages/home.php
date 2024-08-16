@@ -195,7 +195,7 @@ $this->assign('title', 'Fundraising');
             </picture>
         </div>
     </div>
-</section><br><br><br><br><br><br>
+</section><br><br><br>
 
 
 
@@ -203,30 +203,15 @@ $this->assign('title', 'Fundraising');
 <!--                  Pricing                     -->
 <!-- ============================================ -->
 
-<section id="pricing-1387"><br>
+<section id="pricing-1387">
+    <h2 class="cs-price-title">Price Breakdown</h2>
+    <p class="cs-price-text">
+        Here’s our price breakdown: buy in bulk to lower your cost per item and maximize your fund raises!
+    </p>
+    <p class="cs-product-minimum" style="color: red; font-weight: bold;">
+        *Minimum order: 25 pieces per class
+    </p><br>
     <div class="cs-container">
-        <div class="cs-content">
-            <h2 class="cs-title">Price Breakdown</h2>
-            <p class="cs-text">
-                Here’s our price breakdown: buy in bulk to lower your cost per item and maximize your fund raises!
-            </p>
-            <p style="color: red; font-weight: bold;">
-                *Minimum order: 25 pieces per class
-            </p><br>
-            <h2 class="cs-title">Profit Calculator</h2>
-            <form class="profit-calculator" onsubmit="calculateProfit(event)">
-                <div class="form-group">
-                    <label for="number-of-towels">Number of tea towels that you would like to purchase<br>(min. 25):</label>
-                    <input type="number" id="number-of-towels" name="number-of-towels" min="25" required>
-                </div>
-                <div class="form-group">
-                    <label for="selling-price">How much would you like to sell each of them for:</label>
-                    <input type="number" id="selling-price" name="selling-price" step="0.01" required>
-                </div>
-                <button type="submit" class="calculate-button">Calculate</button>
-                <p id="profitMessage"></p> <!-- To display the profit message -->
-            </form>
-        </div>
         <div class="grid">
             <div class="grid-item"><b>Number of tea towels purchases</b></div>
             <div class="grid-item"><b>Cost</b></div>
@@ -238,6 +223,21 @@ $this->assign('title', 'Fundraising');
             <div class="grid-item">$12 Each</div>
             <div class="grid-item">Above 500 Pieces</div>
             <div class="grid-item">$11.50 Each</div>
+        </div>
+        <div class="cs-content">
+            <h2 class="cs-title">Profit Calculator</h2>
+            <form class="profit-calculator" onsubmit="calculateProfit(event)">
+                <div class="form-group">
+                    <label for="number-of-towels">Number of tea towels that you would like to purchase<br>(min. 25):</label>
+                    <input type="number" id="number-of-towels" name="number-of-towels" min="25" required>
+                </div>
+                <div class="form-group">
+                    <label for="selling-price">How much would you like to sell each of them for:</label>
+                    <input type="number" id="selling-price" name="selling-price" step="0.01" required>
+                </div><br>
+                <button type="submit" class="calculate-button">Calculate</button>
+                <p id="profitMessage"></p> <!-- To display the profit message -->
+            </form>
         </div>
     </div><br>
 </section>

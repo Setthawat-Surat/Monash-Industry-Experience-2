@@ -299,7 +299,7 @@
         display: block;
     }
     #cs-navigation .cs-dropdown {
-        color: var(--bodyTextColorWhite);
+        color: black;
         position: relative;
     }
     #cs-navigation .cs-dropdown.cs-active .cs-drop-ul {
@@ -346,7 +346,7 @@
     #cs-navigation .cs-li-link.cs-drop-link {
         /* 14px - 16px */
         font-size: clamp(0.875rem, 2vw, 1.25rem);
-        color: #fff;
+        color: black;
     }
 }
 /* Desktop - 1024px */
@@ -561,7 +561,7 @@
         transition: background-color 0.3s;
     }
     #cs-navigation .cs-social-link:hover {
-        background-color: var(--primary);
+        background-color: dimgrey;
     }
     #cs-navigation .cs-social-link:hover .cs-social-icon {
         opacity: 1;
@@ -1424,10 +1424,6 @@
     #timeline-1517 .cs-item:hover .cs-date {
         color: var(--secondary);
     }
-    #timeline-1517 .cs-item:hover:before {
-        background-color: var(--secondary);
-        border-color: var(--secondary);
-    }
     #timeline-1517 .cs-item:before {
         /* bullet circle */
         content: "";
@@ -1746,10 +1742,7 @@
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.grid-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -1867,6 +1860,23 @@
         z-index: 1;
 
     }
+    #pricing-1387 .cs-price-title {
+        display: flex;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 2rem;
+    }
+    #pricing-1387 .cs-price-text {
+        display: flex;
+        justify-content: center;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    #pricing-1387 .cs-product-minimum{
+        display: flex;
+        justify-content: center;
+    }
     #pricing-1387 .cs-container {
         width: 100%;
         /* changes to 1280px at tablet */
@@ -1898,6 +1908,32 @@
     }
     #pricing-1387 .cs-text:last-of-type {
         margin-bottom: 2rem;
+    }
+    #pricing-1387 .profit-calculator {
+        margin-top: 2rem; /* Adds space between description and calculator */
+        width: 100%; /* Ensure full width for mobile */
+        max-width: 33.875rem; /* Consistent with content width */
+    }
+    #pricing-1387 .grid {
+        width: 100%;
+        max-width: 33.875rem; /* Ensure table width matches other elements */
+        margin-top: 2rem; /* Adds space between calculator and table */
+    }
+
+    /* Existing Styles for grid items */
+    #pricing-1387 .grid-item {
+        text-align: center;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+    }
+
+    #pricing-1387 .grid-item:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    #pricing-1387 .grid-item:nth-child(even) {
+        background-color: #fff;
     }
     #pricing-1387 .cs-toggle-group {
         width: 100%;
@@ -2270,6 +2306,22 @@
 }
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
+    #pricing-1387 .cs-price-title {
+        display: flex;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 3rem;
+    }
+    #pricing-1387 .cs-price-text {
+        display: flex;
+        justify-content: center;
+        font-weight: 500;
+    }
+
+    #pricing-1387 .cs-product-minimum{
+        display: flex;
+        justify-content: center;
+    }
     #pricing-1387 .cs-container {
         max-width: 80rem;
     }
@@ -2280,6 +2332,23 @@
 }
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
+    #pricing-1387 .cs-price-title {
+        display: flex;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 3rem;
+    }
+    #pricing-1387 .cs-price-text {
+        display: flex;
+        justify-content: center;
+        font-weight: 500;
+    }
+
+    #pricing-1387 .cs-product-minimum{
+        display: flex;
+        justify-content: center;
+    }
+
     #pricing-1387 .cs-container {
         flex-direction: row;
         align-items: center;
