@@ -11280,3 +11280,194 @@ body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
 
+/* Centering the form-wrapper */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full viewport width */
+}
+
+#registration-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Adjusted to be narrower */
+}
+
+#registration-form .title {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+#registration-form .form-group {
+    margin-bottom: 20px;
+}
+
+#registration-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #495057;
+}
+
+#registration-form input[type="text"],
+#registration-form input[type="email"],
+#registration-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#registration-form input::placeholder {
+    color: #6c757d;
+}
+
+#registration-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#registration-form button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Flash messages */
+.message {
+    padding: .5rem 1rem;
+    background: #eff8ff;
+    color: #2779bd;
+    border-color: #6cb2eb;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+.message.hidden {
+    display: none;
+}
+.message.success {
+    background: #e3fcec;
+    color: #1f9d55;
+    border-color: #51d88a;
+}
+.message.warning {
+    background: #fffabc;
+    color: #8d7b00;
+    border-color: #d3b800;
+}
+.message.error {
+    background: #fcebea;
+    color: #cc1f1a;
+    border-color: #ef5753;
+}
+.error-message{
+    font-weight: bold;
+    color: #cc1f1a;
+    border-color: #ef5753;
+}
+
+
+#upload-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px; /* Add padding for some space around the section */
+}
+
+#upload-section .upload-form-wrapper {
+    background-color: #ffffff; /* White background for the form wrapper */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Padding inside the form wrapper */
+    max-width: 500px; /* Maximum width of the form */
+    width: 100%; /* Full width up to the maximum width */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+#upload-section .upload-form-wrapper .title {
+    font-size: 24px; /* Font size for the title */
+    margin-bottom: 20px; /* Space below the title */
+    text-align: center; /* Center-align the title */
+    color: #333333; /* Dark gray color for the title */
+}
+
+#upload-section .upload-form-wrapper .form-group {
+    margin-bottom: 15px; /* Space between form elements */
+}
+
+#upload-section .upload-form-wrapper .form-group label {
+    display: block; /* Block display for labels */
+    font-weight: bold; /* Bold text for labels */
+    margin-bottom: 5px; /* Space below the label */
+    color: #333333; /* Dark gray color for labels */
+}
+
+#upload-section .upload-form-wrapper .form-group input[type="file"] {
+    display: block; /* Block display for the file input */
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the file input */
+    border: 1px solid #cccccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for the file input */
+}
+
+#upload-section .upload-form-wrapper .form-group input[type="file"]:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+#upload-section .upload-form-wrapper .form-group button {
+    display: block; /* Block display for the button */
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners for the button */
+    background-color: #007bff; /* Blue background color */
+    color: #ffffff; /* White text color */
+    font-size: 16px; /* Font size for the button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+#upload-section .upload-form-wrapper .form-group button:hover {
+    background-color: #0056b3; /* Darker blue background on hover */
+}
+
+#upload-section .current-logo-wrapper {
+    text-align: center; /* Center-align the content within the logo wrapper */
+    margin-bottom: 20px; /* Space below the current logo section */
+}
+
+#upload-section .current-logo-wrapper h2 {
+    font-size: 20px; /* Font size for the heading */
+    margin-bottom: 10px; /* Space below the heading */
+    color: #333333; /* Dark gray color for the heading */
+}
+
+#upload-section .separator {
+    border: none; /* Remove default border */
+    border-top: 1px solid #cccccc; /* Light gray line */
+    margin: 20px 0; /* Space above and below the line */
+}
+
+
+

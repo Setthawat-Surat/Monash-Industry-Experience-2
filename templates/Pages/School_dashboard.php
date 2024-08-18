@@ -11,7 +11,7 @@ $this->setLayout('School_dashboard');
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Create Campaign</a>
     </div>
-
+    <?= $this->flash->render() ?>
 
     <!-- Content Row -->
     <!--

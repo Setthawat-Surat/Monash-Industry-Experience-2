@@ -2642,6 +2642,36 @@
     margin-bottom: 30px;
 }
 
+#registration-form .form-group select {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 18px;
+    box-sizing: border-box; /* Include padding in element's width and height */
+    background-color: #fff; /* Ensure background matches other inputs */
+    color: #333; /* Text color should match other inputs */
+    appearance: none; /* Remove default styling in some browsers */
+}
+
+#registration-form .form-group::after {
+    content: '\f078'; /* FontAwesome down arrow unicode */
+    font-family: 'FontAwesome'; /* Use FontAwesome for arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust to align with padding */
+    transform: translateY(-50%);
+    font-size: 18px; /* Match font-size with input field */
+    color: #333; /* Arrow color should match text color */
+    pointer-events: none; /* Prevent arrow from interfering with clicks */
+}
+
+#registration-form .form-group select:focus {
+    border-color: #aaa; /* Adjust border color on focus */
+    outline: none; /* Remove default outline on focus */
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Optional: add a shadow on focus */
+}
+
 #registration-form .required-asterisk {
     color: red;
     margin-left: 0.2em;
@@ -2653,6 +2683,11 @@
     font-weight: bold;
     color: #555;
     font-size: 18px;
+}
+
+#registration-form .input-field-description{
+    font-weight: 500;
+    font-size: 14px;
 }
 
 #registration-form .form-group input {

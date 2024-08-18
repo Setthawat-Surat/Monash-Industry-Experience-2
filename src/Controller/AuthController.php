@@ -89,7 +89,6 @@ class AuthController extends AppController
                     ->first();
 
                 $address = $data['schooladdress'] . ' ' . $data['schoolsuburb'] . ' ' . $data['schoolstate'] . ' ' .$data['schoolpostcode'];
-
                 $file = $this->request->getData('schoollogo');
                 $image_name = $file->getClientFilename();
                 $targetPath = WWW_ROOT . 'school_logo_img' . DS . $image_name;

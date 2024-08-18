@@ -32,7 +32,7 @@ $this->assign('title', 'Register');
                     'id' => 'repfirstname',
                     'name' => 'repfirstname',
                     'pattern' => '[a-zA-Z][a-zA-Z\'\-]*',
-                    'title' => 'First Name should only contain letters, dashes, apostrophes and start with capital letter.'
+                    'title' => 'First Name should only contain letters, dashes, apostrophes.'
                 ]) ?>
             </div>
             <div class="form-group">
@@ -45,8 +45,8 @@ $this->assign('title', 'Register');
                     'required' => true,
                     'id' => 'replastname',
                     'name' => 'replastname',
-                    'pattern' => '[a-zA-Z][a-zA-Z\'\-]*',
-                    'title' => 'Last Name should only contain letters, dashes, apostrophes and start with capital letter.'
+                    'pattern' => '^[a-zA-Z][a-zA-Z\s]*[a-zA-Z]$',
+                    'title' => 'Last Name should only contain letters, dashes, apostrophes.'
                 ]) ?>
             </div>
         </div>
@@ -55,7 +55,7 @@ $this->assign('title', 'Register');
             <div class="form-group">
                 <?= $this->Form->control('repemail', [
                     'label' => [
-                        'text' => 'Your Email <span class="required-asterisk">*</span>',
+                        'text' => 'Your Email <span class="required-asterisk">*</span><br><p class="input-field-description">*** Please note that we will use this email to contact you.</p>',
                         'escape' => false
                     ],
                     'type' => 'email',
@@ -112,6 +112,8 @@ $this->assign('title', 'Register');
                     ],
                     'type' => 'text',
                     'required' => true,
+                    'pattern' => '^[a-zA-Z][a-zA-Z\s]*[a-zA-Z]$',
+                    'title' => 'Suburb should contain only letters and spaces in between.',
                     'id' => 'schoolsuburb',
                     'name' => 'schoolsuburb'
                 ]) ?>
@@ -127,6 +129,8 @@ $this->assign('title', 'Register');
                     ],
                     'type' => 'text',
                     'required' => true,
+                    'pattern' => '^\d{4}$',
+                    'title' => 'Postal Code must be exactly 4 digits and only contains number.',
                     'id' => 'schoolpostcode',
                     'name' => 'schoolpostcode'
                 ]) ?>
@@ -134,16 +138,28 @@ $this->assign('title', 'Register');
 
             <div class="form-group">
                 <?= $this->Form->control('schoolstate', [
+                    'type' => 'select',
+                    'options' => [
+                        'NSW' => 'New South Wales',
+                        'VIC' => 'Victoria',
+                        'QLD' => 'Queensland',
+                        'SA' => 'South Australia',
+                        'WA' => 'Western Australia',
+                        'TAS' => 'Tasmania',
+                        'ACT' => 'Australian Capital Territory',
+                        'NT' => 'Northern Territory'
+                    ],
                     'label' => [
                         'text' => 'State <span class="required-asterisk">*</span>',
                         'escape' => false
                     ],
-                    'type' => 'text',
+                    'empty' => 'Please select a state',
                     'required' => true,
                     'id' => 'schoolstate',
                     'name' => 'schoolstate'
                 ]) ?>
             </div>
+
         </div>
 
         <div class="form-row">
