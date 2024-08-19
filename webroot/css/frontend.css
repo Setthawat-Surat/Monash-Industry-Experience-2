@@ -860,6 +860,7 @@
         font-family: "Poppins", sans-serif;
     }
     #hero-1785 .cs-container {
+        padding: 40px;
         width: 100%;
         max-width: 80rem;
         margin: auto;
@@ -872,7 +873,7 @@
         border-radius: 35px;
         opacity: 0.9;
         transition: transform 0.8s ease, background-color 0.3s ease, opacity 1s ease;
-        
+
 
     }
 
@@ -2746,6 +2747,9 @@
         /* 40px - 48px */
         gap: clamp(2.5rem, 5vw, 3rem);
     }
+
+
+
     #faq-350 .cs-content {
         /* set text align to left if content needs to be left aligned */
         text-align: left;

@@ -88,7 +88,7 @@ $this->assign('title', 'Fundraising');
 <!-- ============================================ -->
 
 <section id="timeline-1517">
-    <div class="cs-container">
+    <div class="cs-container-ver2">
         <div class="cs-content">
             <div class="cs-flex">
                 <h1 class="cs-title">How to raise funds with us?</h1>
