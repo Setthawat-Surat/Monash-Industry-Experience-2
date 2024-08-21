@@ -16,7 +16,7 @@ use Cake\ORM\Entity;
  * @property string|null $sales_price
  * @property string|null $final_design_photo
  * @property int|null $campaign_id
- * @property int|null $admin_id
+ * @property int|null $user_id
  *
  * @property \App\Model\Entity\Campaign $campaign
  * @property \App\Model\Entity\Admin $admin
@@ -42,7 +42,7 @@ class DesignDraft extends Entity
         'sales_price' => true,
         'final_design_photo' => true,
         'campaign_id' => true,
-        'admin_id' => true,
+        'user_id' => true,
         'campaign' => true,
         'admin' => true,
         'design_photos' => true,

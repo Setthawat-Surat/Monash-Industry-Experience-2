@@ -36,7 +36,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="/UrlHandler/global"><span>OPS</span>Admin</a>
+            <a href="/UrlHandler/dashboard"><span>OPS</span>Admin</a>
         </div>
     </nav>
     <main class="main">

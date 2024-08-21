@@ -3,11 +3,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+
 /**
  * Schools Controller
  *
  * @property \App\Model\Table\SchoolsTable $Schools
  */
+
 class SchoolsController extends AppController
 {
     /**
@@ -98,22 +100,116 @@ class SchoolsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function updateAccountStatus($id = null, $status = null){
-        $this->request->allowMethod(['post','get']);
-        $School = $this->Schools->get($id);
 
-        if ($status == 1){
-            $School->approval_status = 0;
+    public function addBankAccount() {
+        $userId = $this->Authentication->getIdentity()->get('id');
+        $school = $this->Schools->find()
+            ->where(['id' => $userId])
+            ->first();
+
+        if ($this->request->is('post')) {
+            // Patch the bank account details to the existing school entity
+            $bank_acc_number = $this->request->getData('bank_acc_number');
+            $bank_acc_name = $this->request->getData('bank_acc_name');
+            $bank_bsb = $this ->request->getData('bank_bsb');
+
+            $school->bank_account_name = $bank_acc_name;
+            $school->bank_account_number = $bank_acc_number;
+            $school->bsb = $bank_bsb;
+
+            // Save the updated school record
+            if ($this->Schools->save($school)) {
+                $this->Flash->success(__('Your bank account details have been saved.'));
+                return $this->redirect(['controller'=>'pages','action' => 'display','School_dashboard']);
+            }
+
+            $this->Flash->error(__('Unable to add the bank account details. Please, try again.'));
         }
-        else {
-            $School->approval_status = 1;
-        }
 
-        if($this->Schools->save($School)){
-            $this->Flash->success(__('The account status of' . ' ' . $School->rep_first_name . ' ' . $School->rep_last_name . ' ' . 'has been changed'));
-        }
-
-
-        return $this->redirect(['controller'=>'Pages', 'action'=>'display','Admin_dashboard']);
+        // Pass the school entity to the view
+        $this->set(compact('school'));
     }
+
+
+    public function updateBankAccount(){
+        $userId = $this->Authentication->getIdentity()->get('id');
+        $school = $this->Schools->find()
+            ->where(['id' => $userId])
+            ->first();
+
+        if ($this->request->is('post')) {
+            // Patch the bank account details to the existing school entity
+            $bank_acc_number = $this->request->getData('bank_acc_number');
+            $bank_acc_name = $this->request->getData('bank_acc_name');
+            $bank_bsb = $this ->request->getData('bank_bsb');
+
+            $school->bank_account_name = $bank_acc_name;
+            $school->bank_account_number = $bank_acc_number;
+            $school->bsb = $bank_bsb;
+
+            // Save the updated school record
+            if ($this->Schools->save($school)) {
+                $this->Flash->success(__('Your bank account details have been updated.'));
+                return $this->redirect(['controller'=>'pages','action' => 'display','School_dashboard']);
+            }
+
+            $this->Flash->error(__('Unable to update the bank account details. Please, try again.'));
+        }
+
+        // Pass the school entity to the view
+        $this->set(compact('school'));
+    }
+
+
+    public function addSchoolLogo() {
+        $userId = $this->Authentication->getIdentity()->get('id');
+        $school = $this->Schools->find()
+            ->where(['id' => $userId])
+            ->first();
+
+        if ($this->request->is(['post','put'])) {
+            $file = $this->request->getData('logo');
+            if ($file->getError() === UPLOAD_ERR_OK) {
+                $image_name = $file->getClientFilename();
+                $targetPath = WWW_ROOT . 'school_logo_img' . DS . $image_name;
+                $file->moveTo($targetPath);
+                $school->logo = $image_name;
+                if ($this->Schools->save($school)) {
+                    $this->Flash->success(__('The school logo has been uploaded successfully'));
+                    return $this->redirect(['controller'=>'pages','action' => 'display','School_dashboard']);
+                }
+            } else {
+                $this->Flash->error(__('Failed to upload the file.'));
+            }
+        }
+
+        $this->set(compact('school'));
+    }
+
+    public function updateSchoolLogo(){
+        $userId = $this->Authentication->getIdentity()->get('id');
+        $school = $this->Schools->find()
+            ->where(['id' => $userId])
+            ->first();
+
+        if ($this->request->is(['post','put'])) {
+            $file = $this->request->getData('logo');
+            if ($file->getError() === UPLOAD_ERR_OK) {
+                $image_name = $file->getClientFilename();
+                $targetPath = WWW_ROOT . 'school_logo_img' . DS . $image_name;
+                $file->moveTo($targetPath);
+                $school->logo = $image_name;
+                if ($this->Schools->save($school)) {
+                    $this->Flash->success(__('The school logo has been updated successfully'));
+                    return $this->redirect(['controller'=>'pages','action' => 'display','School_dashboard']);
+                }
+            } else {
+                $this->Flash->error(__('Failed to upload the file.'));
+            }
+        }
+
+        $this->set(compact('school'));
+    }
+
+
 }

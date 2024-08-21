@@ -40,7 +40,10 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('email');
         $this->setPrimaryKey('id');
-        $this->addBehavior('CanAuthenticate');
+
+        $this->hasMany('DesignDrafts', [
+            'foreignKey' => 'user_id',
+        ]);
     }
 
     /**
@@ -52,8 +55,7 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->scalar('email')
-            ->maxLength('email', 256)
+            ->email('email')
             ->requirePresence('email', 'create')
             ->notEmptyString('email');
 
@@ -62,6 +64,15 @@ class UsersTable extends Table
             ->maxLength('password', 256)
             ->requirePresence('password', 'create')
             ->notEmptyString('password');
+
+        $validator
+            ->scalar('nonce')
+            ->maxLength('nonce', 256)
+            ->allowEmptyString('nonce');
+
+        $validator
+            ->dateTime('nonce_expiry')
+            ->allowEmptyDateTime('nonce_expiry');
 
         $validator
             ->scalar('role')

@@ -27,7 +27,7 @@ class DesignDraftsFixture extends TestFixture
                 'sales_price' => 'Lorem ipsum dolor sit amet',
                 'final_design_photo' => 'Lorem ipsum dolor sit amet',
                 'campaign_id' => 1,
-                'admin_id' => 1,
+                'user_id' => 1,
             ],
         ];
         parent::init();

@@ -12,6 +12,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $email
  * @property string $password
+ * @property string|null $nonce
+ * @property \Cake\I18n\DateTime|null $nonce_expiry
  * @property string $role
  */
 class User extends Entity
@@ -28,8 +30,11 @@ class User extends Entity
     protected array $_accessible = [
         'email' => true,
         'password' => true,
+        'nonce' => true,
+        'nonce_expiry' => true,
         'role' => true,
     ];
+
 
     /**
      * Fields that are excluded from JSON versions of the entity.
@@ -40,14 +45,12 @@ class User extends Entity
         'password',
     ];
 
-
-    protected function _setPassword(string $password): ?string
+    protected function _setPassword(string $password) : ?string
     {
         if (strlen($password) > 0) {
             return (new DefaultPasswordHasher())->hash($password);
         }
-
-        return $password;
     }
+
 
 }

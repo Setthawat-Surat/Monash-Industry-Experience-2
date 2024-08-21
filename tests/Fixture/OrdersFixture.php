@@ -23,7 +23,7 @@ class OrdersFixture extends TestFixture
                 'customer_name' => 'Lorem ipsum dolor sit amet',
                 'customer_contact_number' => 'Lorem ipsum dolor sit amet',
                 'customer_contact_email' => 'Lorem ipsum dolor sit amet',
-                'date_purchase' => 1722746855,
+                'date_purchase' => 1723821059,
             ],
         ];
         parent::init();

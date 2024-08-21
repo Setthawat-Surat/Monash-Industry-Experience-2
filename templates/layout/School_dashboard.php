@@ -1,5 +1,9 @@
 <?php
 use Cake\ORM\TableRegistry;
+
+$school_table = TableRegistry::getTableLocator()->get('Schools');
+$user_id = $this->Identity->get('id');
+$school_rep= $school_table->find()->where(['id' => $user_id])->first();
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +31,7 @@ use Cake\ORM\TableRegistry;
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <?= $this->Html->css('School_dashboard.min.css'); ?>
+    <?= $this->Html->css('School_dashboard.css'); ?>
 
 </head>
 
@@ -51,8 +55,14 @@ use Cake\ORM\TableRegistry;
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display','home'])?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-home"></i>
                     <span>Home</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display','School_dashboard'])?>">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -73,6 +83,51 @@ use Cake\ORM\TableRegistry;
                     <span>Create Campaign</span>
                 </a>
             </li>
+
+
+            <!-- Add and Update Bank details shortcut -->
+            <?php
+            if ($school_rep->get('bank_account_name') == null && $school_rep->get('bank_account_number') == null && $school_rep->get('bsb') == null) {
+                echo '
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="/UrlHandler/addBankAccount">
+                                <span>Add Bank Account Details</span>
+                            </a>
+                        </li>';
+            }
+            else {
+                echo '
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="/UrlHandler/updateBankAccount">
+                                <span>Update Bank Account Details</span>
+                            </a>
+                        </li>';
+            }
+            ?>
+
+
+            <!-- Add and Update School logo shortcut -->
+            <?php
+            if ($school_rep->get('logo') == null) {
+                echo '
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="/UrlHandler/addSchoolLogo">
+                                <span>Add School logo</span>
+                            </a>
+                        </li>';
+            }
+            else {
+                echo '
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" href="/UrlHandler/updateSchoolLogo">
+                                <span>Update School logo</span>
+                            </a>
+                        </li>';
+            }
+            ?>
+
+
+
 
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -221,13 +276,8 @@ use Cake\ORM\TableRegistry;
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php
                                 if($this->Identity->isLoggedIn()){
-                                    $school_table = TableRegistry::getTableLocator()->get('Schools');
-                                    $user_id = $this->Identity->get('id');
-                                    $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                                     $school_rep_firstname = $school_rep->get('rep_first_name');
                                     $school_rep_lastname = $school_rep->get('rep_last_name');
-
-
                                 }
 
                                 ?>

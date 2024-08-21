@@ -30,6 +30,7 @@ class SchoolsFixture extends TestFixture
                 'bank_account_number' => 'Lorem ipsum dolor sit amet',
                 'bsb' => 'Lorem ipsum dolor sit amet',
                 'approval_status' => 1,
+                'logo' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();

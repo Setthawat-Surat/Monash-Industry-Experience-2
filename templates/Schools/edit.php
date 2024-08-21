@@ -32,6 +32,7 @@
                     echo $this->Form->control('bank_account_number');
                     echo $this->Form->control('bsb');
                     echo $this->Form->control('approval_status');
+                    echo $this->Form->control('logo');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

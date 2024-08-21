@@ -73,9 +73,38 @@ class UrlHandlerController extends AppController
         ]);
     }
 
+    public function addBankAccount()
+    {
+        return $this->redirect([
+            'controller' => 'schools',
+            'action' => 'addBankAccount'
+        ]);
+    }
+
+    public function updateBankAccount()
+    {
+        return $this->redirect([
+            'controller' => 'schools',
+            'action' => 'updateBankAccount'
+        ]);
+    }
 
 
+    public function addSchoolLogo()
+    {
+        return $this->redirect([
+            'controller' => 'schools',
+            'action' => 'addSchoolLogo'
+        ]);
+    }
 
 
+    public function updateSchoolLogo()
+    {
+        return $this->redirect([
+            'controller' => 'schools',
+            'action' => 'updateSchoolLogo'
+        ]);
+    }
 
 }

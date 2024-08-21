@@ -59,51 +59,56 @@ class SchoolsTable extends Table
         $validator
             ->scalar('name')
             ->maxLength('name', 256)
-            ->notEmptyString('name');
+            ->allowEmptyString('name');
 
         $validator
             ->scalar('rep_first_name')
             ->maxLength('rep_first_name', 256)
-            ->notEmptyString('rep_first_name');
+            ->allowEmptyString('rep_first_name');
 
         $validator
             ->scalar('rep_last_name')
             ->maxLength('rep_last_name', 256)
-            ->notEmptyString('rep_last_name');
+            ->allowEmptyString('rep_last_name');
 
         $validator
             ->scalar('rep_email')
             ->maxLength('rep_email', 256)
-            ->notEmptyString('rep_email');
+            ->allowEmptyString('rep_email');
 
         $validator
             ->scalar('address')
             ->maxLength('address', 256)
-            ->notEmptyString('address');
+            ->allowEmptyString('address');
 
         $validator
             ->scalar('code')
             ->maxLength('code', 256)
-            ->notEmptyString('code');
+            ->allowEmptyString('code');
 
         $validator
             ->scalar('bank_account_name')
             ->maxLength('bank_account_name', 256)
-            ->notEmptyString('bank_account_name');
+            ->allowEmptyString('bank_account_name');
 
         $validator
             ->scalar('bank_account_number')
             ->maxLength('bank_account_number', 256)
-            ->notEmptyString('bank_account_number');
+            ->allowEmptyString('bank_account_number');
 
         $validator
             ->scalar('bsb')
             ->maxLength('bsb', 256)
-            ->notEmptyString('bsb');
+            ->allowEmptyString('bsb');
 
         $validator
             ->boolean('approval_status')
-            ->notEmptyString('approval_status');
+            ->allowEmptyString('approval_status');
+
+        $validator
+            ->scalar('logo')
+            ->maxLength('logo', 256)
+            ->allowEmptyString('logo');
 
         return $validator;
     }

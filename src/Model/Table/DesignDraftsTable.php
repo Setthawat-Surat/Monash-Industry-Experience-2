@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * DesignDrafts Model
  *
  * @property \App\Model\Table\CampaignsTable&\Cake\ORM\Association\BelongsTo $Campaigns
- * @property \App\Model\Table\AdminsTable&\Cake\ORM\Association\BelongsTo $Admins
  * @property \App\Model\Table\DesignPhotosTable&\Cake\ORM\Association\HasMany $DesignPhotos
  * @property \App\Model\Table\ProductsTable&\Cake\ORM\Association\HasMany $Products
  *
@@ -49,8 +48,8 @@ class DesignDraftsTable extends Table
         $this->belongsTo('Campaigns', [
             'foreignKey' => 'campaign_id',
         ]);
-        $this->belongsTo('Admins', [
-            'foreignKey' => 'admin_id',
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
         ]);
         $this->hasMany('DesignPhotos', [
             'foreignKey' => 'design_draft_id',
@@ -103,8 +102,8 @@ class DesignDraftsTable extends Table
             ->allowEmptyString('campaign_id');
 
         $validator
-            ->integer('admin_id')
-            ->allowEmptyString('admin_id');
+            ->integer('user_id')
+            ->allowEmptyString('user_id');
 
         return $validator;
     }
@@ -119,7 +118,7 @@ class DesignDraftsTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn(['campaign_id'], 'Campaigns'), ['errorField' => 'campaign_id']);
-        $rules->add($rules->existsIn(['admin_id'], 'Admins'), ['errorField' => 'admin_id']);
+        $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
 
         return $rules;
     }
