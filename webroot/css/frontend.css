@@ -860,6 +860,7 @@
         font-family: "Poppins", sans-serif;
     }
     #hero-1785 .cs-container {
+        padding: 40px;
         width: 100%;
         max-width: 80rem;
         margin: auto;
@@ -868,7 +869,20 @@
         align-items: center;
         flex-wrap: wrap;
         gap: 3rem;
+        background: rgba(1, 1, 1, 0.5);
+        border-radius: 35px;
+        opacity: 0.9;
+        transition: transform 0.8s ease, background-color 0.3s ease, opacity 1s ease;
+
+
     }
+
+    #hero-1785 .cs-container:hover {
+        transform: scale(1.05);
+        background-color: rgba(1, 1, 1, 0.7);
+        opacity: 1;
+    }
+
     #hero-1785 .cs-content {
         text-align: center;
         width: 100%;
@@ -956,10 +970,10 @@
         content: "";
         width: 100%;
         height: 100%;
-        background: #000;
+        background: rgba(0, 0, 0, 0.1);
         /* prevents the cursor from interacting with it */
         pointer-events: none;
-        opacity: 0.6;
+
         display: block;
         position: absolute;
         top: 0;
@@ -2847,6 +2861,9 @@
         /* 40px - 48px */
         gap: clamp(2.5rem, 5vw, 3rem);
     }
+
+
+
     #faq-350 .cs-content {
         /* set text align to left if content needs to be left aligned */
         text-align: left;
