@@ -11,13 +11,14 @@ $this->assign('title', 'Campaign');
 
 
 
-
+<div class="space"></div>
 <body>
+
 <section id="activity-registration-section">
     <div class="container">
         <h2>Register New Activity</h2>
 
-        <form id="activity-registration-form" action="/submit_activity" method="POST"> <!-- Update action URL to your server endpoint -->
+        <form id="activity-registration-form" action="/create" method="POST"> <!-- Update action URL to your server endpoint -->
 
             <!-- Activity Name -->
             <div class="form-group">
@@ -31,12 +32,6 @@ $this->assign('title', 'Campaign');
                 <input type="number" id="default_sales_price" name="default_sales_price" required min="0" step="0.01" placeholder="Enter default sales price">
             </div>
 
-            <!-- Total Fund Raised -->
-            <div class="form-group">
-                <label for="total_fund_raised">Total Fund Raised</label>
-                <input type="number" id="total_fund_raised" name="total_fund_raised" min="0" step="0.01" placeholder="Enter total fund raised">
-            </div>
-
             <!-- Start Date -->
             <div class="form-group">
                 <label for="start_date">Start Date</label>
@@ -47,12 +42,6 @@ $this->assign('title', 'Campaign');
             <div class="form-group">
                 <label for="end_date">End Date</label>
                 <input type="date" id="end_date" name="end_date" required>
-            </div>
-
-            <!-- School ID -->
-            <div class="form-group">
-                <label for="school_id">School ID</label>
-                <input type="number" id="school_id" name="school_id" required min="1" placeholder="Enter school ID">
             </div>
 
             <!-- Submit Button -->
