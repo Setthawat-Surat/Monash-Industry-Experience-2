@@ -171,7 +171,7 @@ class SchoolsController extends AppController
             $file = $this->request->getData('logo');
             if ($file->getError() === UPLOAD_ERR_OK) {
                 $image_name = $file->getClientFilename();
-                $targetPath = WWW_ROOT . 'school_logo_img' . DS . $image_name;
+                $targetPath = WWW_ROOT . 'img/school_logo_img' . DS . $image_name;
                 $file->moveTo($targetPath);
                 $school->logo = $image_name;
                 if ($this->Schools->save($school)) {
@@ -196,7 +196,7 @@ class SchoolsController extends AppController
             $file = $this->request->getData('logo');
             if ($file->getError() === UPLOAD_ERR_OK) {
                 $image_name = $file->getClientFilename();
-                $targetPath = WWW_ROOT . 'school_logo_img' . DS . $image_name;
+                $targetPath = WWW_ROOT . 'img/school_logo_img' . DS . $image_name;
                 $file->moveTo($targetPath);
                 $school->logo = $image_name;
                 if ($this->Schools->save($school)) {

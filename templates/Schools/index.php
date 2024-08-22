@@ -42,7 +42,7 @@
                     <td><?= h($school->approval_status) ?></td>
                     <td>
                         <?php if (!empty($school->logo)): ?>
-                            <?= $this->Html->image('/school_logo_img/' . $school->logo, ['alt' => 'School Logo', 'class' => 'school-logo']) ?>
+                            <?= $this->Html->image('school_logo_img/' . $school->logo, ['alt' => 'School Logo', 'class' => 'school-logo']) ?>
                         <?php else: ?>
                             <?= h('No logo available') ?>
                         <?php endif; ?>

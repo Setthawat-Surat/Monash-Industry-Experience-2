@@ -23,7 +23,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
         <div class="current-logo-wrapper">
             <?php if (!empty($school_rep->logo)): ?>
                 <h2>Current School Logo</h2>
-                <?= $this->Html->image('/school_logo_img/' . $school_rep->logo, [
+                <?= $this->Html->image('school_logo_img/' . $school_rep->logo, [
                     'style' => 'max-width: 300px; max-height: 200px; height: auto; border: 1px solid #cccccc; border-radius: 4px; margin-top: 10px;'
                 ]) ?>
             <?php else: ?>
