@@ -4,63 +4,83 @@
  * @var \App\Model\Entity\Campaign $campaign
  */
 
+$this->layout = 'frontend';
 $this->assign('title', 'Campaign');
 ?>
 
 <div class="space"></div>
-<body>
-<section id="activity-registration-section">
-    <div class="container">
-        <h2>Register New Activity</h2>
+<body id="sigupbody">
 
-        <?= $this->Form->create($campaign, ['url' => ['action' => 'create'], 'id' => 'activity-registration-form']) ?>
 
-        <?= $this->Flash->render() ?>
+<?= $this->Form->create($campaign, ['url' => ['action' => 'create'], 'id' => 'signup']) ?>
+<?= $this->Flash->render() ?>
 
-        <div class="form-group">
-            <?= $this->Form->control('name', [
-                'label' => 'Activity Name',
-                'required' => true,
-                'pattern' => '[a-zA-Z\s]*',
-                'minlength' => '3',
-                'title' => 'Activity Name should only contain letters and spaces',
-                'placeholder' => 'Enter activity name',
-            ]) ?>
-        </div>
+    <ul id="section-tabs">
+        <li class="current active"><span>1.</span> Step1</li>
+        <li><span>2.</span> Step2</li>
+        <li><span>3.</span> Step3</li>
+        <li><span>4.</span> Step4</li>
+    </ul>
 
-        <div class="form-group">
-            <?= $this->Form->control('default_sales_price', [
-                'label' => 'Default Sales Price',
-                'required' => true,
-                'type' => 'number',
-                'min' => '0',
-                'step' => '0.01',
-                'placeholder' => 'Enter default sales price',
-            ]) ?>
-        </div>
+    <div id="fieldsets">
+        <fieldset class="current">
 
-        <div class="form-group">
+            <div class="form-group">
+
+                <?= $this->Form->control('name', [
+                    'label' => 'Activity Name',
+                    'required' => true,
+                    'pattern' => '[a-zA-Z\s]*',
+                    'minlength' => '3',
+                    'title' => 'Activity Name should only contain letters and spaces',
+                    'placeholder' => 'Enter activity name',
+                ]) ?>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="next">
+
+            <div class="form-group">
+                <?= $this->Form->control('default_sales_price', [
+                    'label' => 'Default Sales Price',
+                    'required' => true,
+                    'type' => 'number',
+                    'min' => '0',
+                    'step' => '0.01',
+                    'placeholder' => 'Enter default sales price',
+                ]) ?>
+            </div>
+
+
+        </fieldset>
+
+        <fieldset class="next">
             <?= $this->Form->control('start_date', [
                 'label' => 'Start Date',
                 'required' => true,
                 'type' => 'date',
             ]) ?>
-        </div>
 
-        <div class="form-group">
+
+        </fieldset>
+
+        <fieldset class="next">
+
             <?= $this->Form->control('end_date', [
                 'label' => 'End Date',
                 'required' => true,
                 'type' => 'date',
             ]) ?>
-        </div>
 
-        <div class="form-group">
-            <?= $this->Form->button(__('Register Activity'), ['class' => 'submit-btn']) ?>
-        </div>
+        </fieldset>
 
-        <?= $this->Form->end() ?>
+        <a class="btn" id="next">Next Section ▷</a>
+        <input type="submit" class="btn">
+
     </div>
-</section>
+</form>
+
+
 </body>
 </html>
