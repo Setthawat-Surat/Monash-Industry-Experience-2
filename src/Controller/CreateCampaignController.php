@@ -34,6 +34,21 @@ class CreateCampaignController extends AppController
             // Patch the data into the entity
             $campaign = $this->Campaigns->patchEntity($campaign, $data);
 
+            if ($campaign->school_id === null) {
+                $userId = $this->Authentication->getIdentity()->get('id');
+                $school = $this->Campaigns->Schools->find()
+                    ->where(['id' => $userId])
+                    ->first();
+
+                if ($school) {
+                    $campaign->school_id = $school->id;
+                }
+            }
+
+            if ($campaign->total_fund_raised === null) {
+                $campaign->total_fund_raised = 0;
+            }
+
             // Check if the entity is valid
             if ($campaign->getErrors()) {
                 // Handle validation errors if needed
