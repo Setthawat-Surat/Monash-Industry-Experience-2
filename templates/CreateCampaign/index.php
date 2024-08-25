@@ -57,6 +57,7 @@ $this->assign('title', 'Campaign');
         </fieldset>
 
         <fieldset class="next">
+
             <?= $this->Form->control('start_date', [
                 'label' => 'Start Date',
                 'required' => true,

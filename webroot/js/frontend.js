@@ -19,13 +19,16 @@ for (const item of faqItems) {
 
 /* create campaign */
 
-$("body").on("keyup", "form", function(e){
+$("body").on("keydown", "#signup", function(e){
     if (e.which == 13){
-        if ($("#next").is(":visible") && $("fieldset.current").find("input, textarea").valid() ){
+        if ($("#next").is(":visible")  ){
+            console.log("INSIDE THE KEYdown");
             e.preventDefault();
             nextSection();
             return false;
+
         }
+
     }
 });
 
@@ -62,10 +65,11 @@ function goToSection(i){
 
 function nextSection(){
     var i = $("fieldset.current").index();
-    console.log("here is nextsection");
+    //console.log("here is nextsection");
+
     if (i < 3){
         $(".orderli").eq(i+1).addClass("active");
-        console.log($(".orderli").length);
+        //console.log($(".orderli").length);
         goToSection(i+1);
     }
 }
