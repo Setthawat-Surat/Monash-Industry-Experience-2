@@ -35,11 +35,13 @@ $("#next").on("click", function(e){
     nextSection();
 });
 
-$("form").on("submit", function(e){
+
+$("#signup").on("submit", function(e){
     if ($("#next").is(":visible") || $("fieldset.current").index() < 3){
         e.preventDefault();
     }
 });
+
 
 function goToSection(i){
     $("fieldset:gt("+i+")").removeClass("current").addClass("next");
