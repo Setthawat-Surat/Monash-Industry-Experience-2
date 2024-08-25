@@ -42,7 +42,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <div class="form-group">
 
                 <?= $this->Form->control('name', [
-                    'label' => 'Activity Name',
+                    'label' => 'Activity Name:',
                     'required' => true,
                     'pattern' => '[a-zA-Z\s]*',
                     'minlength' => '3',
@@ -57,7 +57,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
             <div class="form-group">
                 <?= $this->Form->control('default_sales_price', [
-                    'label' => 'Default Sales Price',
+                    'label' => 'Default Sales Price:',
                     'required' => true,
                     'type' => 'number',
                     'min' => '0',
@@ -70,24 +70,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         </fieldset>
 
         <fieldset class="next">
-
+            <div class="form-group">
             <?= $this->Form->control('start_date', [
-                'label' => 'Start Date',
+                'label' => 'Start Date:',
                 'required' => true,
                 'type' => 'date',
             ]) ?>
-
+            <div>
 
         </fieldset>
 
         <fieldset class="next">
-
+            <div class="form-group">
             <?= $this->Form->control('end_date', [
-                'label' => 'End Date',
+                'label' => 'End Date:',
                 'required' => true,
                 'type' => 'date',
             ]) ?>
 
+                <div>
         </fieldset>
 
         <a class="btn" id="next">Next Section ▷</a>
