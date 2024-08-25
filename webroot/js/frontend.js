@@ -68,7 +68,7 @@ function nextSection(){
     }
 }
 
-$("li").on("click", function(e){
+$(".orderli").on("click", function(e){
     var i = $(this).index();
     if ($(this).hasClass("active")){
         goToSection(i);
