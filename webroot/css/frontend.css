@@ -3678,7 +3678,7 @@ textarea:hover {
 
 
 #sigupbody {
-    background: url(http://farm5.staticflickr.com/4139/4825532997\_7a7cd3d640\_b.jpg);
+    background-color: grey;
     background-size: cover;
     height: 100%;
     font-family: 'Merriweather Sans', sans-serif;
@@ -3686,7 +3686,7 @@ textarea:hover {
 }
 
 #signup {
-    width: 600px;
+    width: min(80%, 800px);
     height: auto;
     padding: 20px;
     background: #fff;
