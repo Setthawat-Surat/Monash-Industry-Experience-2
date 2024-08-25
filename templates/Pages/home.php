@@ -28,7 +28,7 @@ $this->assign('title', 'Fundraising');
         <img loading="lazy" decoding="async" src="<?= $this->Url->image('Homepage_Background.png')?>" alt="field" width="1920" height="1200" aria-hidden="true">
     </picture>
 
-    <img class="cs-graphic" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/white-splatter2.svg" alt="graphic" height="161" width="1920" loading="lazy" decoding="async" >
+<!--    <img class="cs-graphic" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/white-splatter2.svg" alt="graphic" height="161" width="1920" loading="lazy" decoding="async" >-->
     <!--This is a dark version. Download the image and change the fill color to match the color of the section background below it-->
     <img class="cs-graphic cs-graphic-dark" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/dark-mode-splatter2.svg" alt="graphic" height="161" width="1920" loading="lazy" decoding="async" >
 </section><br>
