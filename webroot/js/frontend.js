@@ -49,7 +49,7 @@ $("#signup").on("submit", function(e){
 function goToSection(i){
     $("fieldset:gt("+i+")").removeClass("current").addClass("next");
     $("fieldset:lt("+i+")").removeClass("current");
-    $("li").eq(i).addClass("current").siblings().removeClass("current");
+    $(".orderli").eq(i).addClass("current").siblings().removeClass("current");
     setTimeout(function(){
         $("fieldset").eq(i).removeClass("next").addClass("current active");
         if ($("fieldset.current").index() == 3){
