@@ -3766,10 +3766,13 @@ input[type=submit] {
     font-weight: bold;
     list-style: none;
     text-transform: uppercase;
-    li {
+    .orderli {
         color: #a7a7a7;
         span {
             color: #bababa;
+        }
+        .black{
+            color: black;
         }
         cursor: not-allowed;
         &.active {

@@ -13,13 +13,14 @@ $this->assign('title', 'Campaign');
 
 
 <?= $this->Form->create($campaign, ['url' => ['action' => 'create'], 'id' => 'signup']) ?>
-<?= $this->Flash->render() ?>
+
+
 
     <ul id="section-tabs">
-        <li class="current active"><span>1.</span> Step1</li>
-        <li><span>2.</span> Step2</li>
-        <li><span>3.</span> Step3</li>
-        <li><span>4.</span> Step4</li>
+        <li class="current active orderli" ><span>1.</span> Step1</li>
+        <li class="orderli"><span>2.</span> Step2</li>
+        <li class="orderli"><span>3.</span> Step3</li>
+        <li class="orderli"><span>4.</span> Step4</li>
     </ul>
 
     <div id="fieldsets">
@@ -78,8 +79,12 @@ $this->assign('title', 'Campaign');
         <a class="btn" id="next">Next Section ▷</a>
         <input type="submit" class="btn">
 
+
+
     </div>
+
 </form>
+<?= $this->Flash->render() ?>
 
 
 </body>

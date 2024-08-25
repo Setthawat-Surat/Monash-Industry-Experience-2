@@ -60,8 +60,10 @@ function goToSection(i){
 
 function nextSection(){
     var i = $("fieldset.current").index();
+    console.log("here is nextsection");
     if (i < 3){
-        $("li").eq(i+1).addClass("active");
+        $(".orderli").eq(i+1).addClass("active");
+        console.log($(".orderli").length);
         goToSection(i+1);
     }
 }
