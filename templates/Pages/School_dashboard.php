@@ -1,6 +1,16 @@
 <?php
+
+use Cake\ORM\TableRegistry;
+
 $this->setLayout('School_dashboard');
+
+$campaign_table = TableRegistry::getTableLocator()->get('Campaigns');
+$user_id = $this->Identity->get('id');
+$created_campaign= $campaign_table->find()->where(['school_id' => $user_id])->all();
+$campaignCount = $campaign_table->find()->where(['school_id' => $user_id])->count();
+
 ?>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -24,7 +34,7 @@ $this->setLayout('School_dashboard');
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Total Campaign</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $campaignCount ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -41,7 +51,7 @@ $this->setLayout('School_dashboard');
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Profit made</div>
+                                Total profit made</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">$0</div>
                         </div>
                         <div class="col-auto">
@@ -93,10 +103,43 @@ $this->setLayout('School_dashboard');
         </div>
     </div><br><br><br>
 
-
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h3 class="h3 mb-0 text-gray-800">Campaigns</h3>
+        <h3 class="h3 mb-0 text-gray-800">Upcoming Campaigns</h3>
     </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            // Initialize the calendar
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                timeZone: 'UTC',
+                events: [],
+                contentHeight: 650
+            });
+
+            <?php foreach ($created_campaign as $created_campaigns):?>
+                calendar.addEvent({
+                    id: '<?= $created_campaigns->id ?>',
+                    title: '<?= $created_campaigns->name . ' ' . 'Campaign' ?>',
+                    start: '<?= $created_campaigns->start_date->format('Y-m-d') ?>',
+                    end: '<?= $created_campaigns->end_date->format('Y-m-d')?>',
+                    color: 'green',
+                });
+            <?php endforeach; ?>
+            // Render the calendar
+            calendar.render();
+        });
+
+
+
+    </script>
+
+    <div id='calendar'></div>
+
+
 
     <!-- Content Row -->
     <!--
