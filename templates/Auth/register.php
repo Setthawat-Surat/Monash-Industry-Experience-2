@@ -169,7 +169,8 @@ $this->assign('title', 'Register');
                     'type' => 'file',
                     'required' => false,
                     'id' => 'schoollogo',
-                    'name' => 'schoollogo'
+                    'name' => 'schoollogo',
+                    'accept' => 'image/*',
                 ]) ?>
             </div>
         </div>

@@ -173,6 +173,28 @@ document.addEventListener('DOMContentLoaded', () => {
     targetField.addEventListener('input', syncFields);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registration-form');
+    const fileInput = document.getElementById('schoollogo');
+
+    form.addEventListener('submit', function(event) {
+        const file = fileInput.files[0];
+
+        if (file) {
+            const allowedExtensions = ['jpeg', 'jpg', 'png', 'webp'];
+            const fileExtension = file.name.split('.').pop().toLowerCase();
+
+            if (!allowedExtensions.includes(fileExtension)) {
+                alert('Please upload a valid image file. (JPEG, JPG, PNG, WebP)');
+                event.preventDefault();
+            }
+        } else {
+            alert('Please select a file to upload.');
+            event.preventDefault();
+        }
+    });
+});
+
 
 
 
