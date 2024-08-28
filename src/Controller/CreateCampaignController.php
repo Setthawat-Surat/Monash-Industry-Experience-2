@@ -29,8 +29,6 @@ class CreateCampaignController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->getData();
 
-
-
             // Patch the data into the entity
             $campaign = $this->Campaigns->patchEntity($campaign, $data);
 
