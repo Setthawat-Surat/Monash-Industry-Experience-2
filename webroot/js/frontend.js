@@ -1,7 +1,4 @@
-// add classes for mobile navigation toggling
-var CSbody = document.querySelector("body");
-const CSnavbarMenu = document.querySelector("#cs-navigation");
-const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
+
 
 
 
@@ -17,29 +14,6 @@ for (const item of faqItems) {
 }
 
 
-
-
-
-
-CShamburgerMenu.addEventListener('click', function() {
-    CShamburgerMenu.classList.toggle("cs-active");
-    CSnavbarMenu.classList.toggle("cs-active");
-    CSbody.classList.toggle("cs-open");
-    // run the function to check the aria-expanded value
-    ariaExpanded();
-});
-
-// checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not
-function ariaExpanded() {
-    const csUL = document.querySelector('#cs-expanded');
-    const csExpanded = csUL.getAttribute('aria-expanded');
-
-    if (csExpanded === 'false') {
-        csUL.setAttribute('aria-expanded', 'true');
-    } else {
-        csUL.setAttribute('aria-expanded', 'false');
-    }
-}
 
 // This script adds a class to the body after scrolling 100px
 // and we used these body.scroll styles to create some on scroll
@@ -177,6 +151,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add event listeners to both fields
     sourceField.addEventListener('input', syncFields);
     targetField.addEventListener('input', syncFields);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registration-form');
+    const fileInput = document.getElementById('schoollogo');
+
+    form.addEventListener('submit', function(event) {
+        const file = fileInput.files[0];
+
+        if (file) {
+            const allowedExtensions = ['jpeg', 'jpg', 'png', 'webp'];
+            const fileExtension = file.name.split('.').pop().toLowerCase();
+
+            if (!allowedExtensions.includes(fileExtension)) {
+                alert('Please upload a valid image file. (JPEG, JPG, PNG, WebP)');
+                event.preventDefault();
+            }
+        }
+    });
 });
 
 

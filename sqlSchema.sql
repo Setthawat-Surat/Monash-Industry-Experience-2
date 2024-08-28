@@ -25,7 +25,7 @@ CREATE TABLE schools (
 
 
 CREATE TABLE campaigns (
-                           id INT(11) PRIMARY KEY,
+                           id INT(11) PRIMARY KEY AUTO_INCREMENT,
                            name VARCHAR(256),
                            default_sales_price VARCHAR(256),
                            total_fund_raised VARCHAR(256),
