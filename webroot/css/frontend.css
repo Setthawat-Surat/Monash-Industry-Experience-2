@@ -3698,7 +3698,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     color: #666;
 }
 
-#signup {
+#sigupbody #signup {
     width: min(80%, 800px);
     height: auto;
     padding: 20px;
@@ -3708,7 +3708,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     min-height: 300px;
 }
 
-#fieldsets {
+#sigupbody #fieldsets {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -3719,11 +3719,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     overflow: hidden;
 }
 
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=tel],
-textarea {
+#sigupbody input[type=text],
+#sigupbody input[type=email],
+#sigupbody input[type=password],
+#sigupbody input[type=tel],
+#sigupbody textarea {
     display: block;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -3734,21 +3734,21 @@ textarea {
     margin-bottom: 8px;
     position: relative;
 }
-input[type=text]:focus,
-input[type=email]:focus,
-input[type=password]:focus,
-input[type=tel]:focus,
-textarea:focus {
+#sigupbody input[type=text]:focus,
+#sigupbody input[type=email]:focus,
+#sigupbody input[type=password]:focus,
+#sigupbody input[type=tel]:focus,
+#sigupbody textarea:focus {
     outline: none;
     border: 1px solid #22938a; /* darken(#2cbab2,10%) */
 }
 
-input[type=radio] {
+#sigupbody input[type=radio] {
     margin: 6px;
     display: inline-block;
 }
 
-fieldset {
+#sigupbody fieldset {
     border: none;
     position: absolute;
     left: -640px;
@@ -3761,21 +3761,21 @@ fieldset {
     opacity: 0;
 }
 
-fieldset.current {
+#sigupbody fieldset.current {
     left: 20px;
     opacity: 1;
 }
 
-fieldset.next {
+#sigupbody fieldset.next {
     left: 640px;
 }
 
-input[type=submit] {
+#sigupbody input[type=submit] {
     display: none;
     border: none;
 }
 
-#section-tabs {
+#sigupbody #section-tabs {
     font-size: 0.8em;
     height: 50px;
     position: relative;
@@ -3787,7 +3787,7 @@ input[type=submit] {
     text-transform: uppercase;
 }
 
-#section-tabs .orderli {
+#sigupbody #section-tabs .orderli {
     color: #a7a7a7;
     cursor: not-allowed;
     border-left: 1px solid #aaa;
@@ -3803,27 +3803,27 @@ input[type=submit] {
     position: relative;
 }
 
-#section-tabs .orderli span {
+#sigupbody #section-tabs .orderli span {
     color: #bababa;
 }
 
-#section-tabs .orderli .black {
+#sigupbody #section-tabs .orderli .black {
     color: black;
 }
 
-#section-tabs .orderli.active {
+#sigupbody #section-tabs .orderli.active {
     color: #444;
     cursor: pointer;
 }
 
-#section-tabs .orderli.current {
+#sigupbody #section-tabs .orderli.current {
     opacity: 1;
     background: #fff;
     z-index: 999;
     border-left: none;
 }
 
-#section-tabs .orderli.current:after {
+#sigupbody #section-tabs .orderli.current:after {
     content: "";
     display: block;
     margin-left: 0;
@@ -3834,37 +3834,37 @@ input[type=submit] {
     border-left: 15px solid #2cbab2;
 }
 
-.error {
+#sigupbody .error {
     color: #bf2424;
     display: block;
 }
 
-input.error, textarea.error {
+#sigupbody input.error, textarea.error {
     border-color: #bf2424;
 }
 
-input.error:focus, textarea.error:focus {
+#sigupbody input.error:focus, textarea.error:focus {
     border-color: #bf2424;
 }
 
-label.error {
+#sigupbody label.error {
     margin-bottom: 20px;
 }
 
-input.valid {
+#sigupbody input.valid {
     color: green;
 }
 
-label.valid {
+#sigupbody label.valid {
     position: absolute;
     right: 20px;
 }
 
-input + .valid, textarea + .valid {
+#sigupbody input + .valid, textarea + .valid {
     display: none;
 }
 
-.valid + .valid {
+#sigupbody .valid + .valid {
     display: inline;
     position: absolute;
     right: 10px;
@@ -3872,7 +3872,7 @@ input + .valid, textarea + .valid {
     color: green;
 }
 
-.btn {
+#sigupbody .btn {
     border: none;
     padding: 8px;
     background: #2cbab2;
@@ -3887,7 +3887,7 @@ input + .valid, textarea + .valid {
     font-family: 'Merriweather Sans', sans-serif;
 }
 
-.btn:hover {
+#sigupbody .btn:hover {
     background: #26978b; /* darken(#2cbab2, 6%) */
 }
 

@@ -101,6 +101,45 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 </form>
 <?= $this->Flash->render() ?>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("signup");
+        const nextButton = document.getElementById("next");
+        const fieldsets = form.querySelectorAll("fieldset");
+        const tabs = document.querySelectorAll("#section-tabs .orderli");
+        let currentStep = 0;
+
+        nextButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            const currentFieldset = fieldsets[currentStep];
+            if (validateFields(currentFieldset)) {
+
+            }
+        });
+
+        function validateFields(fieldset) {
+            let valid = false;
+            const inputs = fieldset.querySelectorAll("input[required], textarea[required]");
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.classList.add("error");
+                    valid = false;
+                } else {
+                    input.classList.remove("error");
+                }
+            });
+            return valid;
+        }
+
+        function goToNextStep() {
+            fieldsets[currentStep].classList.remove("current");
+            tabs[currentStep].classList.remove("current", "active");
+            currentStep++;
+            fieldsets[currentStep].classList.add("current");
+            tabs[currentStep].classList.add("current", "active");
+        }
+    });
+</script>
 
 </body>
-</html>
+

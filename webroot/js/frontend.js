@@ -59,6 +59,11 @@ $("#signup").on("submit", function(e){
 
 
 function goToSection(i){
+    var currentFieldset = $("fieldset.current");
+
+    // Validate current section before transitioning
+    if (validateFields(currentFieldset)) {
+
     $("fieldset:gt("+i+")").removeClass("current").addClass("next");
     $("fieldset:lt("+i+")").removeClass("current");
     $(".orderli").eq(i).addClass("current").siblings().removeClass("current");
@@ -72,6 +77,7 @@ function goToSection(i){
             $("input[type=submit]").hide();
         }
     }, 80);
+    }
 
 }
 
@@ -95,8 +101,22 @@ $(".orderli").on("click", function(e){
     }
 });
 
-
-
+function validateFields(fieldset) {
+    let valid = true;
+    const inputs = fieldset.find("input[required], textarea[required]");
+    inputs.each(function() {
+        if (!this.checkValidity()) {
+            $(this).addClass("error");
+            valid = false;
+            // Display the custom error message
+            var errorMessage = this.validationMessage || 'Invalid input.';
+            alert("Error in '" + this.name + "': " + errorMessage);
+        } else {
+            $(this).removeClass("error");
+        }
+    });
+    return valid;
+}
 
 
 
