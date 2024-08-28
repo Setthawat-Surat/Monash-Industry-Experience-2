@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Campaign $campaign
  */
 
-$this->layout = 'frontend';
+$this->layout = 'school_dashboard';
 $this->assign('title', 'Campaign');
 ?>
 
@@ -21,8 +21,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 
-<div class="space"></div>
-<body id="sigupbody">
+
+<div id="sigupbody">
 
 
 <?= $this->Form->create($campaign, ['url' => ['action' => 'create'], 'id' => 'signup']) ?>
@@ -42,12 +42,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <div class="form-group">
 
                 <?= $this->Form->control('name', [
-                    'label' => 'Activity Name:',
+                    'label' => 'Campaign Name:',
                     'required' => true,
                     'pattern' => '[a-zA-Z\s]*',
                     'minlength' => '3',
-                    'title' => 'Activity Name should only contain letters and spaces',
-                    'placeholder' => 'Enter activity name',
+                    'title' => 'Campaign Name should only contain letters and spaces',
+                    'placeholder' => 'Enter Campaign name',
                 ]) ?>
             </div>
 
@@ -75,6 +75,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 'label' => 'Start Date:',
                 'required' => true,
                 'type' => 'date',
+                'id' => 'start-date'
             ]) ?>
             <div>
 
@@ -86,13 +87,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 'label' => 'End Date:',
                 'required' => true,
                 'type' => 'date',
+                'id' => 'end-date'
             ]) ?>
 
                 <div>
         </fieldset>
 
         <a class="btn" id="next">Next Section ▷</a>
-        <input type="submit" class="btn">
+        <input type="submit" class="btn" value="Create">
 
 
 
@@ -101,45 +103,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 </form>
 <?= $this->Flash->render() ?>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("signup");
-        const nextButton = document.getElementById("next");
-        const fieldsets = form.querySelectorAll("fieldset");
-        const tabs = document.querySelectorAll("#section-tabs .orderli");
-        let currentStep = 0;
 
-        nextButton.addEventListener("click", function(event) {
-            event.preventDefault();
-            const currentFieldset = fieldsets[currentStep];
-            if (validateFields(currentFieldset)) {
-
-            }
-        });
-
-        function validateFields(fieldset) {
-            let valid = false;
-            const inputs = fieldset.querySelectorAll("input[required], textarea[required]");
-            inputs.forEach(input => {
-                if (!input.checkValidity()) {
-                    input.classList.add("error");
-                    valid = false;
-                } else {
-                    input.classList.remove("error");
-                }
-            });
-            return valid;
-        }
-
-        function goToNextStep() {
-            fieldsets[currentStep].classList.remove("current");
-            tabs[currentStep].classList.remove("current", "active");
-            currentStep++;
-            fieldsets[currentStep].classList.add("current");
-            tabs[currentStep].classList.add("current", "active");
-        }
-    });
-</script>
-
-</body>
+</div>
 
