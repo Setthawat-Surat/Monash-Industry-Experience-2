@@ -182,4 +182,24 @@ function validateFields(fieldset) {
     return valid;
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('studentDesigns');
+    const fileList = document.getElementById('fileList');
+
+    fileInput.addEventListener('change', function() {
+        const files = fileInput.files;
+        fileList.innerHTML = ''; // Clear previous file list
+
+        if (files.length > 0) {
+            const ul = document.createElement('ul');
+            for (let i = 0; i < files.length; i++) {
+                const li = document.createElement('li');
+                li.textContent = files[i].name;
+                ul.appendChild(li);
+            }
+            fileList.appendChild(ul);
+        }
+    });
+});
+
 

@@ -116,4 +116,21 @@ class UrlHandlerController extends AppController
         ]);
     }
 
+    public function myCampaign()
+    {
+        return $this->redirect([
+            'controller' => 'campaigns',
+            'action' => 'myCampaign'
+        ]);
+    }
+
+
+    public function myDesign(){
+        return $this->redirect([
+            'controller' => 'DesignDrafts',
+            'action' => 'myDesign'
+        ]);
+    }
+
+
 }

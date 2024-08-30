@@ -65,6 +65,12 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                     <span>Dashboard</span></a>
             </li>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="/UrlHandler/myCampaign">
+                    <i class="fas fa-file-alt"></i>
+                    <span>My Campaigns</span></a>
+            </li>
+
             <!-- Divider -->
 
             <hr class="sidebar-divider">

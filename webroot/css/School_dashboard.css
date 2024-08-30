@@ -11692,4 +11692,110 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 
+/* Styles for the header row */
+#upload-design-form .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Styles for the back link */
+#upload-design-form .back-link {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    font-size: 18px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+#upload-design-form .back-link i {
+    margin-right: 8px; /* Space between the icon and text */
+}
+
+/* Styles for the heading */
+#upload-design-form .h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+#upload-design-form label{
+    color:black;
+    font-weight: bold;
+}
+
+#upload-design-form .required-asterisk{
+    color:red;
+}
+
+
+#upload-design-form .form-container {
+    max-width: 550px; /* Adjust the maximum width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 30px; /* Add padding inside the container */
+    background-color: white; /* Optional: Add background color */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+/* Optional: Make form controls full width */
+#upload-design-form .form-control {
+    width: 100%;
+}
+
+
+#upload-design-form .upload-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #fcfcfc;
+}
+
+#upload-design-form .upload-card {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 600px;
+    height: auto;
+    background-color: #ffffff;
+    padding: 10px 30px 40px;
+}
+
+#upload-design-form .upload-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+
+}
+
+#upload-design-form .upload-drop_box {
+    margin: 25px 0 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px dotted #a3a3a3;
+    border-radius: 5px;
+}
+
+#upload-design-form .upload-drop_box h4 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2e2e2e;
+}
+
+#upload-design-form .upload-drop_box p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #a3a3a3;
+}
+
+
+
 
