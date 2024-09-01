@@ -1,4 +1,7 @@
 <?php
+
+use Cake\ORM\TableRegistry;
+
 $this->setLayout('School_dashboard');
 $campaignId = $this->request->getQuery('cID');
 ?>
@@ -7,12 +10,62 @@ $campaignId = $this->request->getQuery('cID');
     <br>
     <h1 style="text-align: center; margin: 0 auto;"><?= h($campaign->name) ?> Campaign</h1><br><br>
 
-    <div class="text-center">
+    <div class="text-center mb-3">
         <a href="<?= $this->Url->build(['controller' => 'DesignDrafts', 'action' => 'create', '?' => ['cID' => $campaignId]]) ?>" class="btn btn-primary">
             <i class="fas fa-plus"></i> Add Design
         </a>
-    </div>
+    </div><br>
 
+    <section id="design-card">
+        <div class="row">
+            <?php foreach ($designDrafts as $draft): ?>
+                <div class="col-12 mb-4"> <!-- Use col-12 to ensure full width -->
+                    <div class="card position-relative h-100">
+                        <div class="card-body">
+                            <h4 class="card-text text-center"><?= h($draft->design_yearlevel) . " " . "Designs"?></h4>
+                            <p class="card-text"><strong>Specifications:</strong> <?= h($draft->specifications) ?></p>
+                            <p class="card-text"><strong>Selling Price:</strong> <?= "$" . h($draft->sales_price) ?></p>
+                            <p class="card-text"><strong>Approval Status:</strong> <?= $draft->approval_status ? 'Approved' : 'Pending' ?></p>
+                            <?php if (!empty($draft->final_designs)): ?>
+                                <p class="card-text text-center"><strong>Final Designs:</strong></p>
+                                <p class="card-text text-center"><?= h($draft->final_designs) ?></p><br>
+                            <?php else: ?>
+                                <p class="card-text text-center"><strong>Final Designs:</strong></p>
+                                <p class="card-text text-center">Final design hasn't been upload by admin staffs yet.</p><br>
+                            <?php endif; ?>
+                            <p class="card-text text-center"><strong>Your Uploaded Designs:</strong>
+                        </div>
 
+                        <!-- Display associated photos -->
+                        <?php
+                        $designPhotos = TableRegistry::getTableLocator()->get('DesignPhotos');
+                        $campaign_designPhotos = $designPhotos->find()->where(['design_draft_id' => $draft->id])->all();
+                        ?>
+                        <?php if (!empty($campaign_designPhotos)): ?>
+                            <div class="card-img-container">
+                                <?php foreach ($campaign_designPhotos as $photo): ?>
+                                    <?= $this->Html->image(
+                                        'student_designs_img/' . h($photo->photo),
+                                        ['class' => 'card-img', 'alt' => 'Design Photo']
+                                    ) ?>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="card-delete-icon position-absolute" style="top: 10px; right: 10px;">
+                            <?= $this->Form->postLink(
+                                '<i class="fa-regular fa-trash-can text-danger"></i>',
+                                ['controller' => 'DesignDrafts', 'action' => 'deletedesigns', $draft->id, '?' => ['cID' => $campaignId]],
+                                [
+                                    'escape' => false,
+                                    'confirm' => __('Are you sure you want to delete this design draft?'),
+                                    'title' => 'Delete this design?'
+                                ]
+                            ) ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
 </div>
-

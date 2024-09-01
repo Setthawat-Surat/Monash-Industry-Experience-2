@@ -195,5 +195,86 @@ class DesignDraftsController extends AppController
         $users = $this->DesignDrafts->Users->find('list', ['limit' => 200])->all();
         $this->set(compact('designDraft', 'campaigns', 'users'));
     }
+
+    public function deletedesigns($id = null)
+    {
+        $campaignId = $this->request->getQuery('cID');
+        $this->request->allowMethod(['post', 'delete']);
+        $designDraft = $this->DesignDrafts->get($id);
+        if ($this->DesignDrafts->delete($designDraft)) {
+            $this->Flash->success(__('The design draft has been deleted.'));
+        } else {
+            $this->Flash->error(__('The design draft could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $campaignId]]);
+    }
+
+    public function adminViewDesign(){
+
+        $campaignTable = TableRegistry::getTableLocator()->get('Campaigns');
+        $campaign = $campaignTable->find()->all();
+
+        $this->set(compact('campaign'));
+
+
+    }
+
+    public function downloadDesigns($designDraftId = null)
+    {
+        $this->request->allowMethod(['get']);
+
+        // Ensure the designDraftId is valid
+        if ($designDraftId === null) {
+            throw new BadRequestException(__('Invalid Design Draft ID'));
+        }
+
+        $school_table = TableRegistry::getTableLocator()->get('Schools');
+        $design_draft_table = TableRegistry::getTableLocator()->get('DesignDrafts');
+        $design_photo_table = TableRegistry::getTableLocator()->get('DesignPhotos');
+
+        // Retrieve the design draft information
+        $designDraft = $design_draft_table->get($designDraftId);
+        $school = $school_table->get($designDraft->user_id);
+
+        // Create a temporary file for the ZIP archive
+        $zip = new \ZipArchive();
+        $zipFilename = tempnam(sys_get_temp_dir(), 'zip');
+        $zip->open($zipFilename, \ZipArchive::CREATE);
+
+        // Add school logo to ZIP
+        if ($school->logo) {
+            $logoPath = WWW_ROOT . 'img/school_logo_img' . DS . $school->logo;
+            if (file_exists($logoPath)) {
+                $zip->addFile($logoPath, 'school_logo/' . $school->logo);
+            }
+        }
+
+        // Add design draft photos to ZIP
+        $designPhotos = $design_photo_table->find()
+            ->where(['design_draft_id' => $designDraftId])
+            ->all();
+        foreach ($designPhotos as $designPhoto) {
+            $photoPath = WWW_ROOT . 'img/student_designs_img' . DS . $designPhoto->photo;
+            if (file_exists($photoPath)) {
+                $zip->addFile($photoPath, 'design_photos/' . $designPhoto->photo);
+            }
+        }
+
+        // Close ZIP file
+        $zip->close();
+
+        // Prepare response
+        $response = $this->response->withFile(
+            $zipFilename,
+            ['download' => true, 'name' => $school->name . '_' . $designDraft->design_yearlevel . '_designs.zip']
+        );
+
+        // Clean up
+        unlink($zipFilename);
+
+        return $response;
+    }
+
 }
 

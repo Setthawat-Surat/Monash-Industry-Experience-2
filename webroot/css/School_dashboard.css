@@ -11797,5 +11797,47 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 
+#design-card .card {
+    /* Ensure each card takes full width of its container */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow height to adjust based on content */
+}
+
+#design-card .card-body {
+    /* Ensure card body contents are properly spaced */
+    padding: 15px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+#design-card .card-img-container {
+    /* Use flexbox to align images in a row */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to new lines if needed */
+    gap: 10px; /* Space between images */
+    padding: 15px;
+}
+
+#design-card .card-img {
+    /* Style for each image */
+    flex: 1 1 auto; /* Allow images to grow and shrink, take equal space */
+    max-width: calc(15% - 10px); /* Adjust based on the number of images per row and gap */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure images cover the container without distortion */
+}
+
+#design-card .card-delete-icon {
+    /* Style for the delete icon */
+    z-index: 10; /* Ensure it's above other content */
+}
+
+
+
+
+
+
+
 
 

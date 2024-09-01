@@ -133,4 +133,12 @@ class UrlHandlerController extends AppController
     }
 
 
+    public function adminViewDesign(){
+        return $this->redirect([
+            'controller' => 'DesignDrafts',
+            'action' => 'adminViewDesign'
+        ]);
+    }
+
+
 }
