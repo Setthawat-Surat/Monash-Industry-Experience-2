@@ -276,5 +276,32 @@ class DesignDraftsController extends AppController
         return $response;
     }
 
+    public function addFinalDesign(){
+
+        $design_id = $this->request->getQuery('dID');
+        $DesignDrafts = $this->DesignDrafts->find()
+            ->where(['id' => $design_id])
+            ->first();
+
+        if ($this->request->is(['post','put'])) {
+            $file = $this->request->getData('final_design');
+            if ($file->getError() === UPLOAD_ERR_OK) {
+                $image_name = $file->getClientFilename();
+                $targetPath = WWW_ROOT . 'img/final_design' . DS . $image_name;
+                $file->moveTo($targetPath);
+                $DesignDrafts->final_design_photo = $image_name;
+                if ($this->DesignDrafts->save($DesignDrafts)) {
+                    $this->Flash->success(__('The final design has been uploaded successfully'));
+                    return $this->redirect(['controller'=>'DesignDrafts','action' => 'admin_view_design']);
+                }
+            } else {
+                $this->Flash->error(__('Failed to upload the file.'));
+            }
+        }
+
+        $this->set(compact('DesignDrafts'));
+
+    }
+
 }
 
