@@ -146,10 +146,11 @@ $school = $school_table->find()->all();
                                                     <i class="fas fa-pencil-alt"></i> Update Final Design
                                                 </a>
                                                 -->
-
+                                                <!--
                                                 <a href="<?= $this->Url->build(['controller' => 'DesignDrafts', 'action' => 'downloadDesigns', $designs->id]) ?>" class="btn btn-secondary">
                                                     <i class="fas fa-download"></i> Download Designs
                                                 </a>
+                                                -->
                                             </div>
                                         </div>
                                     </div>

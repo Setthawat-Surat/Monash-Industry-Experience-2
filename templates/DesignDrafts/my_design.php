@@ -26,9 +26,14 @@ $campaignId = $this->request->getQuery('cID');
                             <p class="card-text"><strong>Specifications:</strong> <?= h($draft->specifications) ?></p>
                             <p class="card-text"><strong>Selling Price:</strong> <?= "$" . h($draft->sales_price) ?></p>
                             <p class="card-text"><strong>Approval Status:</strong> <?= $draft->approval_status ? 'Approved' : 'Pending' ?></p>
-                            <?php if (!empty($draft->final_designs)): ?>
+                            <?php if (!empty($draft->final_design_photo)): ?>
                                 <p class="card-text text-center"><strong>Final Designs:</strong></p>
-                                <p class="card-text text-center"><?= h($draft->final_designs) ?></p><br>
+                                <div class="card-img-container">
+                                    <?= $this->Html->image(
+                                        'final_design/' . h($draft->final_design_photo),
+                                        ['class' => 'card-img', 'alt' => 'Final Design Photo']
+                                    ) ?>
+                                </div>
                             <?php else: ?>
                                 <p class="card-text text-center"><strong>Final Designs:</strong></p>
                                 <p class="card-text text-center">Final design hasn't been upload by admin staffs yet.</p><br>

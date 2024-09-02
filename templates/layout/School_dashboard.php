@@ -117,7 +117,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                 echo '
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/UrlHandler/addSchoolLogo">
-                                <span>Add School logo</span>
+                                <span>Add School Logo</span>
                             </a>
                         </li>';
             }
@@ -125,7 +125,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                 echo '
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/UrlHandler/updateSchoolLogo">
-                                <span>Update School logo</span>
+                                <span>Update School Logo</span>
                             </a>
                         </li>';
             }
