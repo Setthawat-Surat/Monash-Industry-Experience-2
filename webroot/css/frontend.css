@@ -2540,6 +2540,23 @@
     box-sizing: border-box; /* Include padding in element's width and height */
 }
 
+#registration-form .form-group textarea {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 18px;
+    box-sizing: border-box; /* Include padding in element's width and height */
+    background-color: #fff; /* Ensure background matches other inputs */
+    color: #333; /* Text color should match other inputs */
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+#registration-form .form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
 #registration-form .form-group input:focus {
     border-color: #007bff;
     outline: none;
@@ -2650,6 +2667,11 @@
     }
 
     #registration-form .form-group input {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    #registration-form .form-group textarea {
         padding: 15px;
         font-size: 16px;
     }
@@ -3499,6 +3521,10 @@ textarea:hover {
     color: #e2dedb;
 }
 */
+
+
+
+
 
 
 

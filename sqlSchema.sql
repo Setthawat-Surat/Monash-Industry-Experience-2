@@ -40,7 +40,7 @@ CREATE TABLE design_drafts (
                                design_name VARCHAR(256),
                                design_yearlevel VARCHAR(256),
                                specifications VARCHAR(256),
-                               approval_status VARCHAR(256),
+                               approval_status TINYINT(1),
                                sales_price VARCHAR(256),
                                final_design_photo VARCHAR(256),
                                campaign_id INT(11),

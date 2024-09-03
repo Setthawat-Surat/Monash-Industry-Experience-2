@@ -101,4 +101,21 @@ class CampaignsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
+    public function myCampaign(){
+
+    }
+
+    public function deletecampaign($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $campaign = $this->Campaigns->get($id);
+        if ($this->Campaigns->delete($campaign)) {
+            $this->Flash->success(__('The campaign has been deleted.'));
+        } else {
+            $this->Flash->error(__('The campaign could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['controller'=>'Campaigns','action' => 'myCampaign']);
+    }
+
 }

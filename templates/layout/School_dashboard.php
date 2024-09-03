@@ -65,6 +65,12 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                     <span>Dashboard</span></a>
             </li>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="/UrlHandler/myCampaign">
+                    <i class="fas fa-file-alt"></i>
+                    <span>My Campaigns</span></a>
+            </li>
+
             <!-- Divider -->
 
             <hr class="sidebar-divider">
@@ -83,7 +89,6 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                     <span>Create Campaign</span>
                 </a>
             </li>
-
 
             <!-- Add and Update Bank details shortcut -->
             <?php
@@ -112,7 +117,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                 echo '
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/UrlHandler/addSchoolLogo">
-                                <span>Add School logo</span>
+                                <span>Add School Logo</span>
                             </a>
                         </li>';
             }
@@ -120,7 +125,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                 echo '
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/UrlHandler/updateSchoolLogo">
-                                <span>Update School logo</span>
+                                <span>Update School Logo</span>
                             </a>
                         </li>';
             }
@@ -242,26 +247,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+
                         </li>
 
 

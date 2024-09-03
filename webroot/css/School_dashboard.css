@@ -11692,4 +11692,193 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 
+/* Styles for the header row */
+#upload-design-form .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Styles for the back link */
+#upload-design-form .back-link {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    font-size: 18px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+#upload-design-form .back-link i {
+    margin-right: 8px; /* Space between the icon and text */
+}
+
+/* Styles for the heading */
+#upload-design-form .h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+#upload-design-form label{
+    color:black;
+    font-weight: bold;
+}
+
+#upload-design-form .required-asterisk{
+    color:red;
+}
+
+
+#upload-design-form .form-container {
+    max-width: 550px; /* Adjust the maximum width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 30px; /* Add padding inside the container */
+    background-color: white; /* Optional: Add background color */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+/* Optional: Make form controls full width */
+#upload-design-form .form-control {
+    width: 100%;
+}
+
+
+#upload-design-form .upload-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #fcfcfc;
+}
+
+#upload-design-form .upload-card {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 600px;
+    height: auto;
+    background-color: #ffffff;
+    padding: 10px 30px 40px;
+}
+
+#upload-design-form .upload-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+
+}
+
+#upload-design-form .upload-drop_box {
+    margin: 25px 0 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px dotted #a3a3a3;
+    border-radius: 5px;
+}
+
+#upload-design-form .upload-drop_box h4 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2e2e2e;
+}
+
+#upload-design-form .upload-drop_box p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #a3a3a3;
+}
+
+
+#design-card .card {
+    /* Ensure each card takes full width of its container */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow height to adjust based on content */
+}
+
+#design-card .card-body {
+    /* Ensure card body contents are properly spaced */
+    padding: 15px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+#design-card .card-img-container {
+    /* Use flexbox to align images in a row */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to new lines if needed */
+    gap: 10px; /* Space between images */
+    padding: 15px;
+}
+
+#design-card .card-img {
+    /* Style for each image */
+    flex: 1 1 auto; /* Allow images to grow and shrink, take equal space */
+    max-width: calc(15% - 10px); /* Adjust based on the number of images per row and gap */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure images cover the container without distortion */
+}
+
+#design-card .card-delete-icon {
+    /* Style for the delete icon */
+    z-index: 10; /* Ensure it's above other content */
+}
+
+#add-final-design {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+}
+
+#add-final-design .upload-form-wrapper {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+}
+
+#add-final-design .upload-form-wrapper .title {
+    font-size: 1.75rem;
+    color: #343a40;
+}
+
+#add-final-design .upload-form-wrapper .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#add-final-design .upload-form-wrapper .form-label {
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+
+#add-final-design .upload-form-wrapper .form-control {
+    border-radius: 0.25rem;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+#add-final-design .upload-form-wrapper .btn-primary {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+
+
+
+
+
+
+
+
 

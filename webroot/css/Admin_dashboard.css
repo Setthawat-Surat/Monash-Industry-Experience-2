@@ -11272,3 +11272,71 @@ body {
     color: #cc1f1a;
     border-color: #ef5753;
 }
+
+
+#upload-final-design .upload-warning {
+    color: #B8860B;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+#upload-final-design .upload-warning i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    color: #B8860B;
+}
+
+#upload-final-design .upload-success {
+    color: green;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+#upload-final-design .upload-success i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    color: green;
+}
+
+
+#upload-final-design .card-img-container {
+    /* Use flexbox to align images in a row */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to new lines if needed */
+    gap: 20px; /* Space between images */
+    padding: 15px;
+}
+
+#upload-final-design .card-img {
+    /* Style for each image */
+    flex: 1 1 auto; /* Allow images to grow and shrink, take equal space */
+    max-width: calc(15% - 10px); /* Adjust based on the number of images per row and gap */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure images cover the container without distortion */
+}
+
+#upload-final-design .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#upload-final-design .card-content {
+    flex: 1;
+}
+
+#upload-final-design .card-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Adjust spacing between buttons as needed */
+}
+
+#upload-final-design .btn i {
+    margin-right: 5px; /* Adjust spacing between the icon and text */
+}
+
+
+

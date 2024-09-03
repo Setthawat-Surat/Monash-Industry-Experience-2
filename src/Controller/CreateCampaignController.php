@@ -20,8 +20,8 @@ class CreateCampaignController extends AppController
     {
         $campaign = $this->Campaigns->newEmptyEntity();
         $this->set(compact('campaign'));
-
     }
+
 
     public function create()
     {
@@ -55,7 +55,7 @@ class CreateCampaignController extends AppController
             // Save the campaign entity into the database
             if ($this->Campaigns->save($campaign)) {
                 $this->Flash->success(__('The campaign has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Campaigns', 'action' => 'myCampaign']);
             }
 
             $this->Flash->error(__('The campaign could not be saved. Please, try again.'));
