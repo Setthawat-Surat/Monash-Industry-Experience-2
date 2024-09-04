@@ -55,8 +55,8 @@
 
 .nav-button {
     font-family: "Poppins", sans-serif;
-    background-color: #ff00ff; /* Neon pink background color */
-    color: #ffd800; /* Neon yellow text color */
+    background-color: #fa49fa; /* Neon pink background color */
+    color: #ffff00; /* Neon yellow text color */
     padding: 10px 20px; /* Padding inside the buttons */
     border: none; /* Removes the default button border */
     font-size: 16px; /* Font size for button text */
@@ -240,7 +240,7 @@
 
     /* Style for links inside buttons */
     #Welcome-1517 .cs-button-group .nav-button .nav-link {
-        color: #ff00ff; /* Set text color to pink */
+        color: #fa49fa; /* Set text color to pink */
         text-decoration: none; /* Remove underline from links */
         display: block; /* Make link block level to occupy full button area */
     }
@@ -967,7 +967,7 @@
     }
     /* Style for buttons */
     #timeline-1517 .cs-button-group .nav-button {
-        background-color: #ff00ff; /* Set button background color to yellow */
+        background-color: #fa49fa; /* Set button background color to yellow */
         border: none; /* Remove default border */
         padding: 10px 20px; /* Add some padding */
         margin: 5px; /* Add some margin between buttons */
@@ -1353,7 +1353,7 @@
     }
     /* Style for buttons */
     #pricing-1387 .cs-button-group .nav-button {
-        background-color: #ff00ff; /* Set button background color to yellow */
+        background-color: #fa49fa; /* Set button background color to yellow */
         border: none; /* Remove default border */
         padding: 10px 20px; /* Add some padding */
         margin: 5px; /* Add some margin between buttons */
@@ -2052,7 +2052,7 @@
         overflow: hidden;
         position: relative;
         z-index: 1;
-        background-color: #ff00ff;
+        background-color: #fa49fa;
         font-family: "Poppins", sans-serif;
     }
     #Testimonial-1517:before {
@@ -2093,7 +2093,7 @@
     #Testimonial-1517 .horizontal-item {
         padding: 1rem; /* Adjust padding as needed */
         text-align: center;
-        background-color: #ff00ff;
+        background-color: #fa49fa;
     }
     #Testimonial-1517 .cs-flex {
         text-align: left;
@@ -2328,7 +2328,7 @@
     width: 100%;
     max-width: 400px; /* Set maximum width for the button */
     padding: 12px;  /* Increased padding for a larger button */
-    background-color: orangered;
+    background-color: #228b22;
     border: none;
     border-radius: 6px;  /* Slightly larger border radius */
     color: #fff;
@@ -2338,7 +2338,7 @@
 }
 
 #login-form .login-button:hover {
-    background-color: lightsalmon;
+    background-color: #096701;
 }
 
 #login-form .forget-password {
@@ -2619,7 +2619,7 @@
 
 
 #registration-form .submit-btn {
-    background: orangered;
+    background: #228b22;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -2630,7 +2630,7 @@
 }
 
 #registration-form .submit-btn:hover {
-    background: lightsalmon;
+    background: #096701;
 }
 
 /* Mobile Responsive Styles */
