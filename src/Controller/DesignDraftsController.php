@@ -5,6 +5,8 @@ namespace App\Controller;
 
 use App\Model\Table\DesignPhotosTable;
 use Cake\ORM\TableRegistry;
+use ZipArchive;
+
 
 /**
  * DesignDrafts Controller
@@ -220,7 +222,7 @@ class DesignDraftsController extends AppController
 
     }
 
-    public function downloadDesigns($designDraftId = null)
+    public function downloadDesigns($designDraftId)
     {
         $this->request->allowMethod(['get']);
 
@@ -238,15 +240,21 @@ class DesignDraftsController extends AppController
         $school = $school_table->get($designDraft->user_id);
 
         // Create a temporary file for the ZIP archive
-        $zip = new \ZipArchive();
+        $zip = new ZipArchive();
         $zipFilename = tempnam(sys_get_temp_dir(), 'zip');
-        $zip->open($zipFilename, \ZipArchive::CREATE);
+
+        // Check if the ZIP file was successfully created
+        if ($zip->open($zipFilename, ZipArchive::OVERWRITE|ZipArchive::CREATE) !== true) {
+            throw new \RuntimeException(__('Unable to create ZIP file.'));
+        }
 
         // Add school logo to ZIP
         if ($school->logo) {
             $logoPath = WWW_ROOT . 'img/school_logo_img' . DS . $school->logo;
             if (file_exists($logoPath)) {
                 $zip->addFile($logoPath, 'school_logo/' . $school->logo);
+            } else {
+                // Optionally, add a log message or handle missing logo file
             }
         }
 
@@ -258,6 +266,8 @@ class DesignDraftsController extends AppController
             $photoPath = WWW_ROOT . 'img/student_designs_img' . DS . $designPhoto->photo;
             if (file_exists($photoPath)) {
                 $zip->addFile($photoPath, 'design_photos/' . $designPhoto->photo);
+            } else {
+                // Optionally, add a log message or handle missing photo file
             }
         }
 
@@ -267,7 +277,10 @@ class DesignDraftsController extends AppController
         // Prepare response
         $response = $this->response->withFile(
             $zipFilename,
-            ['download' => true, 'name' => $school->name . '_' . $designDraft->design_yearlevel . '_designs.zip']
+            [
+                'download' => true,
+                'name' => $school->name . '_' . $designDraft->design_yearlevel . '_designs.zip'
+            ]
         );
 
         // Clean up
