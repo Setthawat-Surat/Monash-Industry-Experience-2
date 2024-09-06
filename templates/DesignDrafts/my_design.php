@@ -59,7 +59,7 @@ $campaignId = $this->request->getQuery('cID');
                         </div>
 
                         <?php if (!empty($draft->final_design_photo)): ?>
-                            <p class="card-text text-center"><strong>Final Designs:</strong></p>
+                            <p class="card-text text-center"><strong>Final Design:</strong></p>
                             <div class="card-img-container">
                                 <?= $this->Html->image(
                                     'final_design/' . h($draft->final_design_photo),
