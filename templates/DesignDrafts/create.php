@@ -79,6 +79,27 @@ $campaignId = $this->request->getQuery('cID');
             </div>
 
             <div class="form-group">
+                <?= $this->Form->control('logo_position', [
+                    'label' => [
+                        'text' => 'School Logo Position <span class="required-asterisk">*</span>',
+                        'escape' => false
+                    ],
+                    'type' => 'select',
+                    'options' => [
+                        'Top-left' => 'Top-left',
+                        'Top-right' => 'Top-right',
+                        'Bottom-left' => 'Bottom-left',
+                        'Bottom-right' => 'Bottom-right',
+                        'Center' => 'Center'
+                    ],
+                    'required' => true,
+                    'id' => 'logo_position',
+                    'class' => 'form-control',
+                    'empty' => 'Select school logo position'
+                ]) ?>
+            </div>
+
+            <div class="form-group">
                 <?= $this->Form->control('specifications', [
                     'label' => 'Design Description',
                     'type' => 'textarea',

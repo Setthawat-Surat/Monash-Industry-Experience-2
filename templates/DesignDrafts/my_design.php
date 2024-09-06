@@ -26,18 +26,7 @@ $campaignId = $this->request->getQuery('cID');
                             <p class="card-text"><strong>Specifications:</strong> <?= h($draft->specifications) ?></p>
                             <p class="card-text"><strong>Selling Price:</strong> <?= "$" . h($draft->sales_price) ?></p>
                             <p class="card-text"><strong>Approval Status:</strong> <?= $draft->approval_status ? 'Approved' : 'Pending' ?></p>
-                            <?php if (!empty($draft->final_design_photo)): ?>
-                                <p class="card-text text-center"><strong>Final Designs:</strong></p>
-                                <div class="card-img-container">
-                                    <?= $this->Html->image(
-                                        'final_design/' . h($draft->final_design_photo),
-                                        ['class' => 'card-img', 'alt' => 'Final Design Photo']
-                                    ) ?>
-                                </div>
-                            <?php else: ?>
-                                <p class="card-text text-center"><strong>Final Designs:</strong></p>
-                                <p class="card-text text-center">Final design hasn't been upload by admin staffs yet.</p><br>
-                            <?php endif; ?>
+                            <p class="card-text"><strong>School Logo Position:</strong> <?= h($draft->logo_position) ?></p>
                             <p class="card-text text-center"><strong>Your Uploaded Designs:</strong>
                         </div>
 
@@ -68,6 +57,56 @@ $campaignId = $this->request->getQuery('cID');
                                 ]
                             ) ?>
                         </div>
+
+                        <?php if (!empty($draft->final_design_photo)): ?>
+                            <p class="card-text text-center"><strong>Final Designs:</strong></p>
+                            <div class="card-img-container">
+                                <?= $this->Html->image(
+                                    'final_design/' . h($draft->final_design_photo),
+                                    ['class' => 'card-img', 'alt' => 'Final Design Photo']
+                                ) ?>
+                            </div>
+                        <?php else: ?>
+                            <p class="card-text text-center"><strong>Final Design:</strong></p>
+                            <p class="card-text text-center">Final design hasn't been upload by admin staffs yet.</p><br>
+                        <?php endif; ?>
+
+                        <div class="card-body">
+                            <?php if($draft->final_design_photo && $draft->approval_status == 0): ?>
+                                <p class="card-text"><strong>Confirm your final design?</strong></p>
+
+                                <?= $this->Form->create($draft) ?>
+
+                                <!-- Green Confirm Button -->
+                                <?= $this->Form->button('Yes, I like this final design', [
+                                    'type' => 'submit',
+                                    'class' => 'btn btn-success',
+                                    'confirm' => __('Confirm this final design?'),
+                                    'formaction' => $this->Url->build([
+                                        'action' => 'confirmFinalDesign',
+                                        $draft->id,
+                                        '?' => ['cID' => $campaignId]
+                                    ]),
+                                    'style' => 'margin-right: 20px;',
+                                ]); ?>
+
+                                <!-- Red Cancel Button -->
+                                <?= $this->Form->button('No, I am not happy with this final design', [
+                                    'type' => 'submit',
+                                    'class' => 'btn btn-danger',
+                                    'confirm' => __('Reject this final design?'),
+                                    'formaction' => $this->Url->build([
+                                        'action' => 'rejectFinalDesign',
+                                        $draft->id,
+                                        '?' => ['cID' => $campaignId]
+                                    ]),
+                                ]); ?>
+
+                                <?= $this->Form->end(); ?>
+
+                            <?php endif; ?>
+                        </div>
+
                     </div>
                 </div>
             <?php endforeach; ?>

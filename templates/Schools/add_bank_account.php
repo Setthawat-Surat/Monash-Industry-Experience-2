@@ -10,11 +10,6 @@ $this->setLayout('School_dashboard');
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-    <title>Modern Registration Form</title>
-
-</head>
 <body>
 <div class="form-wrapper">
     <section id="registration-form">

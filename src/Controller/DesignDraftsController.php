@@ -303,5 +303,95 @@ class DesignDraftsController extends AppController
 
     }
 
+
+    public function confirmFinalDesign($id){
+        $this->request->allowMethod(['post','put']); // Ensure that this action only accepts POST requests
+        $campaignId = $this->request->getQuery('cID');
+
+        // Fetch the design by ID
+        $design = $this->DesignDrafts->get($id);
+
+        // Set the approval status to 1 (approved)
+        $design->approval_status = 1;
+
+        if ($this->DesignDrafts->save($design)) {
+            $this->Flash->success(__('The final design has been approved.'));
+        } else {
+            $this->Flash->error(__('There was an error approving the design.'));
+        }
+
+        return $this->redirect([
+            'action' => 'myDesign',
+            '?' => ['cID' => $campaignId] // Append cID to the query string
+        ]);
+    }
+
+    public function rejectFinalDesign($id)
+    {
+        $this->request->allowMethod(['post', 'put']); // Ensure that this action only accepts POST requests
+
+        // Fetch the design draft by ID
+        $design = $this->DesignDrafts->get($id);
+
+        // Check if there's a final design photo
+        if (!empty($design->final_design_photo)) {
+            $photoPath = WWW_ROOT . 'img/final_design' . DS . $design->final_design_photo;
+
+            // Check if the file exists and delete it
+            if (file_exists($photoPath)) {
+                unlink($photoPath);
+            }
+
+            $design->final_design_photo = null;
+        }
+
+        // Set the approval status to 0 (rejected)
+        $design->approval_status = 0;
+
+        if ($this->DesignDrafts->save($design)) {
+            $this->Flash->success(__('The final design has been rejected.'));
+        } else {
+            $this->Flash->error(__('There was an error rejecting the design.'));
+        }
+
+        // Redirect to the appropriate page with cID
+        $campaignId = $this->request->getQuery('cID');
+        return $this->redirect([
+            'action' => 'addFeedback',
+            '?' => [
+                'dID' => $id,
+                'cID' => $campaignId]
+        ]);
+    }
+
+
+    public function addFeedback(){
+        $campaignId = $this->request->getQuery('cID');
+        $designId = $this->request->getQuery('dID');
+        $designDraft = $this->DesignDrafts->find()
+            ->where(['id' => $designId])
+            ->first();
+
+
+        if ($this->request->is('put')) {
+            $feedback = $this->request->getData('feedback');
+            $cID = $this->request->getData('cID');
+
+            $designDraft->feedback = $feedback;
+            if ($this->DesignDrafts->save($designDraft)) {
+                $this->Flash->success(__('Thank you for your feedback and your feedback has been recorded.'));
+                return $this->redirect([
+                    'action' => 'myDesign',
+                    '?' => ['cID' => $cID] // Append cID to the query string
+                ]);
+            }
+
+            $this->Flash->error(__('Unable to record your feedback. Please, try again.'));
+        }
+
+        $this->set(compact('designDraft'));
+    }
+
+
 }
 

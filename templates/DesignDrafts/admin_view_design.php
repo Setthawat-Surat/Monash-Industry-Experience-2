@@ -46,9 +46,10 @@ $school = $school_table->find()->all();
                                         <div class="card-body">
                                             <div class="card-content">
                                                 <h5 class="card-title text-center"><?= h($designs->design_yearlevel . " Design") ?></h5><br>
-                                                <p class="card-text">Specification: <?= h($designs->specifications) ?></p>
-                                                <p class="card-text">Status: <?= $designs->approval_status ? 'Approved' : 'Awaiting for your final design upload' ?></p>
-                                                <p class="card-text">Design photos:</p>
+                                                <p class="card-text"><strong>Specification: </strong><?= h($designs->specifications) ?></p>
+                                                <p class="card-text"><strong>Status: </strong><?= $designs->approval_status ? 'Approved' : 'Awaiting for your final design upload' ?></p>
+                                                <p class="card-text"><strong>School Logo Position: </strong><?= h($designs->logo_position) ?></p>
+                                                <p class="card-text"><strong>Design photos: </strong></p>
                                                 <div class="card-img-container">
                                                     <?php foreach ($design_photo as $photo): ?>
                                                         <?= $this->Html->image(
@@ -57,13 +58,20 @@ $school = $school_table->find()->all();
                                                         ) ?>
                                                     <?php endforeach; ?>
                                                 </div>
-                                                <p class="card-text">School logo:</p>
+                                                <p class="card-text"><strong>School logo: </strong></p>
                                                 <div class="card-img-container">
                                                     <?= $this->Html->image(
                                                         'school_logo_img/' . h($schools->logo),
                                                         ['class' => 'card-img', 'alt' => 'School logo']
                                                     ) ?>
                                                 </div>
+
+                                                <?php if($designs->feedback && $designs->approval_status == 0): ?>
+                                                    <p class="card-text">
+                                                        <strong style="color: red;">** School has rejected your final design, please upload another design</strong>
+                                                    </p>
+                                                    <p class="card-text"><strong>Feedback: </strong><?= h($designs->feedback) ?></p>
+                                                <?php endif;?>
                                             </div>
                                             <div class="card-buttons">
                                                 <a href="<?= $this->Url->build(['controller' => 'DesignDrafts', 'action' => 'addFinalDesign', '?' => ['dID' => $designs->id]]) ?>" class="btn btn-primary">
@@ -114,9 +122,10 @@ $school = $school_table->find()->all();
                                         <div class="card-body">
                                             <div class="card-content">
                                                 <h5 class="card-title text-center"><?= h($designs->design_yearlevel . " Design") ?></h5><br>
-                                                <p class="card-text">Specification: <?= h($designs->specifications) ?></p>
-                                                <p class="card-text">Status: <?= $designs->approval_status ? 'Approved' : 'Awaiting for your final design upload' ?></p>
-                                                <p class="card-text">Design photos:</p>
+                                                <p class="card-text"><strong>Specification: </strong><?= h($designs->specifications) ?></p>
+                                                <p class="card-text"><strong>Status: </strong><?= $designs->approval_status ? 'Approved' : 'Awaiting for your final design upload' ?></p>
+                                                <p class="card-text"><strong>School Logo Position: </strong><?= h($designs->logo_position) ?></p>
+                                                <p class="card-text"><strong>Design photos: </strong></p>
                                                 <div class="card-img-container">
                                                     <?php foreach ($design_photo as $photo): ?>
                                                         <?= $this->Html->image(
@@ -125,14 +134,14 @@ $school = $school_table->find()->all();
                                                         ) ?>
                                                     <?php endforeach; ?>
                                                 </div>
-                                                <p class="card-text">School logo:</p>
+                                                <p class="card-text"><strong>LSchool logo: </strong></p>
                                                 <div class="card-img-container">
                                                     <?= $this->Html->image(
                                                         'school_logo_img/' . h($schools->logo),
                                                         ['class' => 'card-img', 'alt' => 'School logo']
                                                     ) ?>
                                                 </div>
-                                                <p class="card-text">Final disign:</p>
+                                                <p class="card-text"><strong>Final disign: </strong></p>
                                                 <div class="card-img-container">
                                                     <?= $this->Html->image(
                                                         'final_design/' . h($designs->final_design_photo),

@@ -83,6 +83,11 @@ class DesignDraftsTable extends Table
             ->allowEmptyString('specifications');
 
         $validator
+            ->scalar('logo_position')
+            ->maxLength('logo_position', 256)
+            ->allowEmptyString('logo_position');
+
+        $validator
             ->scalar('approval_status')
             ->maxLength('approval_status', 256)
             ->allowEmptyString('approval_status');
@@ -96,6 +101,11 @@ class DesignDraftsTable extends Table
             ->scalar('final_design_photo')
             ->maxLength('final_design_photo', 256)
             ->allowEmptyString('final_design_photo');
+
+        $validator
+            ->scalar('feedback')
+            ->maxLength('feedback', 1000)
+            ->allowEmptyString('feedback');
 
         $validator
             ->integer('campaign_id')
