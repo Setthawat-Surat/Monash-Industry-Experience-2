@@ -123,7 +123,7 @@ $school = $school_table->find()->all();
                                             <div class="card-content">
                                                 <h5 class="card-title text-center"><?= h($designs->design_yearlevel . " Design") ?></h5><br>
                                                 <p class="card-text"><strong>Specification: </strong><?= h($designs->specifications) ?></p>
-                                                <p class="card-text"><strong>Status: </strong><?= $designs->approval_status ? 'Approved' : 'Awaiting for your final design upload' ?></p>
+                                                <p class="card-text"><strong>Status: </strong><?= $designs->approval_status ? 'Approved by school representative' : 'Awaiting for your final design upload' ?></p>
                                                 <p class="card-text"><strong>School Logo Position: </strong><?= h($designs->logo_position) ?></p>
                                                 <p class="card-text"><strong>Design photos: </strong></p>
                                                 <div class="card-img-container">

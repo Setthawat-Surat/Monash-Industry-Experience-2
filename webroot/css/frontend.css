@@ -3523,6 +3523,123 @@ textarea:hover {
 */
 
 
+/*-- -------------------------- -->
+<---          Search School          -->
+<--- -------------------------- -*/
+#search-school-section{
+    font-family: "Poppins", sans-serif;
+}
+
+#search-school-section .content-section {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd; /* Optional border for the section */
+    background-color: #f9f9f9; /* Light background color for the section */
+}
+
+#search-school-section .row-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* This will control the space between the two divs */
+}
+
+#search-school-section .left-div, .right-div {
+    width: 48%; /* Adjusted width to fit both divs with the reduced gap */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+#search-school-section .left-div {
+    width: 45%; /* Adjust the width if necessary */
+    padding: 40px 40px;
+    box-sizing: border-box;
+    background-color: lightblue;
+    margin-left: 40px; /* Add margin-left to the left div */
+}
+
+#search-school-section .right-div {
+    width: 45%; /* Adjust the width if necessary */
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: lightgreen;
+    margin-right: 40px; /* Add margin-right to the right div */
+}
+
+#search-school-section .left-div h2, #search-school-section .right-div h2 {
+    text-align: center; /* Centers the h3 in both divs */
+}
+
+#search-school-section .search-form {
+    display: flex;
+    justify-content: center; /* Centers the form horizontally */
+    align-items: center;
+    margin-top: 10px;
+}
+
+#search-school-section .search-input {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#search-school-section .search-btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px; /* Add spacing between input and button */
+}
+
+#search-school-section .search-btn:hover {
+    background-color: #0056b3;
+}
+
+#search-school-section .dropdown {
+    width: 70%; /* Adjust this value to make the dropdown narrower */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#search-school-section .right-div form {
+    display: flex;
+    justify-content: center; /* Centers the dropdown horizontally */
+}
+
+#search-school-section .dropdown {
+    width: 70%; /* Adjust this value to make the dropdown narrower */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+#search-school-section .select-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+#search-school-section .select-btn:hover {
+    background-color: #0056b3;
+}
+
+
 
 
 

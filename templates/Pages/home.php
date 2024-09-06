@@ -46,7 +46,7 @@ $this->assign('title', 'Fundraising');
                 </p><br>
                 <div class="cs-button-group">
                     <button class="nav-button" ><a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'register']) ?>" class="nav-link">Start Fundraising</a></button>
-                    <button class="nav-button" ><a href="#" class="nav-link">Support My School</a></button>
+                    <button class="nav-button" ><a href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display','support_school']) ?>" class="nav-link">Support My School</a></button>
                 </div>
             </div>
         </div>
