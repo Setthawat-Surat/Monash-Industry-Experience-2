@@ -3639,6 +3639,171 @@ textarea:hover {
     background-color: #0056b3;
 }
 
+@media (max-width: 768px) {
+    #search-school-section .row-container {
+        flex-direction: column; /* Stack the two divs vertically */
+        gap: 20px; /* Increase gap between stacked divs */
+    }
+    #search-school-section .left-div, #search-school-section .right-div {
+        width: 100%; /* Full width for each div */
+        margin-left: 0; /* Remove left margin */
+        margin-right: 0; /* Remove right margin */
+    }
+    #search-school-section .search-input, #search-school-section .dropdown {
+        width: 100%; /* Full width for input and dropdown */
+    }
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 480px) {
+    #search-school-section .search-input {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+    #search-school-section .search-btn, #search-school-section .select-btn {
+        padding: 6px 12px; /* Reduce padding for smaller buttons */
+        font-size: 14px; /* Adjust font size for buttons */
+    }
+    #search-school-section .dropdown {
+        padding: 8px; /* Adjust padding for dropdown */
+        font-size: 14px; /* Adjust font size for dropdown */
+    }
+}
+
+
+/*-- -------------------------- -->
+<---          School Catalog          -->
+<--- -------------------------- -*/
+
+.campaign-header {
+    font-family: "Poppins", sans-serif;
+    text-align: center; /* Center the text horizontally */
+    margin-bottom: 20px; /* Add some space below the header */
+}
+
+/* Flexbox container for cards */
+.campaign-cards-container {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between cards */
+    margin: 20px auto; /* Add vertical margin and center the container horizontally */
+    padding-left: 20px; /* Add padding on the left */
+    padding-right: 20px; /* Add padding on the right */
+    max-width: 1200px; /* Adjust max-width to control container size */
+}
+
+/* Each card takes up a percentage of the width with a max-width limit */
+.card {
+    flex: 1 1 calc(45% - 20px); /* Adjust width of the card minus the gap */
+    max-width: calc(50% - 20px); /* Ensure the card doesn't grow beyond this width */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px; /* Add margin around each card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Ensure content inside the card is stacked vertically */
+}
+
+/* Flex container for image and content within the card */
+.card-content {
+    display: flex;
+    align-items: center; /* Center align content vertically */
+    gap: 20px; /* Space between image and content */
+}
+
+/* Image on the left */
+.card-image {
+    flex: 0 0 auto; /* Prevent the image from growing */
+    max-width: 200px; /* Set a max-width for the image */
+}
+
+/* Information on the right */
+.card-info {
+    flex: 1; /* Take up remaining space */
+    margin-left: 40px;
+}
+
+/* Ensure the image fits within the card */
+.card-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Add a gap between the final design image and the information */
+.card-content {
+    margin-right: 20px; /* Adjust the gap between image and information */
+}
+
+/* Style for the green button */
+.button-green {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: default; /* Default cursor instead of stop sign */
+    pointer-events: none; /* Disable pointer events to make the button non-clickable */
+    margin-right: 10px;
+}
+
+/* Style for the light blue button */
+.button-blue {
+    background-color: #ADD8E6; /* Light blue color */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer; /* Indicate that the button is clickable */
+}
+
+/* Optional: Add some space around the buttons */
+.card-buttons {
+    margin-top: 10px;
+}
+
+/* Responsive layout: stack cards vertically on smaller screens */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%; /* Cards will stack in one column on small screens */
+        max-width: 100%; /* Make sure card takes full width on small screens */
+    }
+    .card-content {
+        flex-direction: column; /* Stack image and content vertically on small screens */
+        align-items: center; /* Center-align content vertically */
+    }
+    .card-image {
+        margin-right: 0; /* Remove right margin on small screens */
+        margin-bottom: 10px; /* Add bottom margin to separate image from content */
+    }
+}
+
+/* Additional responsive layout adjustments for mobile devices */
+@media (max-width: 480px) {
+    .campaign-cards-container {
+        padding-left: 10px; /* Reduce left padding */
+        padding-right: 10px; /* Reduce right padding */
+    }
+    .card {
+        flex: 1 1 100%; /* Ensure cards take full width on mobile screens */
+        margin: 5px; /* Reduce margin around cards */
+    }
+    .card-info {
+        margin-left: 0; /* Remove left margin on mobile screens */
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
