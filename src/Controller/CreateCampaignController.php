@@ -57,7 +57,7 @@ class CreateCampaignController extends AppController
                 ->setFrom("123@123.com")
                 ->viewBuilder()
                 ->disableAutoLayout()
-                ->setTemplate('enquiry');
+                ->setTemplate('final_design');
 
             $mailer->setViewVars([
                 'content' => "this is the mail content",
@@ -74,7 +74,7 @@ class CreateCampaignController extends AppController
 
 
 
-                
+
             }
 
             $this->Flash->error(__('The campaign could not be saved. Please, try again.'));

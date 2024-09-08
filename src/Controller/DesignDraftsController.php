@@ -7,9 +7,9 @@ use App\Model\Table\CampaignsTable;
 use App\Model\Table\DesignPhotosTable;
 use App\Model\Table\UsersTable;
 use Cake\Mailer\Mailer;
-use Cake\Routing\Router;
-
 use Cake\ORM\TableRegistry;
+use Cake\Routing\Router;
+use ZipArchive;
 
 /**
  * DesignDrafts Controller
@@ -31,7 +31,6 @@ class DesignDraftsController extends AppController
         $this->DesignPhotos = $this->fetchTable('DesignPhotos');
         $this->Users = $this->fetchTable('Users');
         $this->Campaigns = $this->fetchTable('Campaigns');
-
     }
 
     /**
@@ -56,7 +55,7 @@ class DesignDraftsController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view(?string $id = null)
     {
         $designDraft = $this->DesignDrafts->get($id, contain: ['Campaigns', 'Users', 'DesignPhotos', 'Products']);
         $this->set(compact('designDraft'));
@@ -91,7 +90,7 @@ class DesignDraftsController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit(?string $id = null)
     {
         $designDraft = $this->DesignDrafts->get($id, contain: []);
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -115,7 +114,7 @@ class DesignDraftsController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete(?string $id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $designDraft = $this->DesignDrafts->get($id);
@@ -150,7 +149,6 @@ class DesignDraftsController extends AppController
         // Pass the data to the view
         $this->set(compact('designDrafts', 'campaign'));
     }
-
 
     public function create()
     {
@@ -194,6 +192,7 @@ class DesignDraftsController extends AppController
                         }
                     }
                     $this->Flash->success(__('Your design has been saved along with the photos.'));
+
                     return $this->redirect(['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $campaignId]]);
                 } else {
                     $this->Flash->error(__('No files were uploaded.'));
@@ -222,14 +221,13 @@ class DesignDraftsController extends AppController
         return $this->redirect(['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $campaignId]]);
     }
 
-    public function adminViewDesign(){
+    public function adminViewDesign()
+    {
 
         $campaignTable = TableRegistry::getTableLocator()->get('Campaigns');
         $campaign = $campaignTable->find()->all();
 
         $this->set(compact('campaign'));
-
-
     }
 
     public function downloadDesigns($designDraftId = null)
@@ -250,9 +248,9 @@ class DesignDraftsController extends AppController
         $school = $school_table->get($designDraft->user_id);
 
         // Create a temporary file for the ZIP archive
-        $zip = new \ZipArchive();
+        $zip = new ZipArchive();
         $zipFilename = tempnam(sys_get_temp_dir(), 'zip');
-        $zip->open($zipFilename, \ZipArchive::CREATE);
+        $zip->open($zipFilename, ZipArchive::CREATE);
 
         // Add school logo to ZIP
         if ($school->logo) {
@@ -288,7 +286,8 @@ class DesignDraftsController extends AppController
         return $response;
     }
 
-    public function addFinalDesign(){
+    public function addFinalDesign()
+    {
 
         $design_id = $this->request->getQuery('dID');
         $DesignDrafts = $this->DesignDrafts->find()
@@ -309,9 +308,9 @@ class DesignDraftsController extends AppController
             ->where(['id' => $campaign_id])
             ->first();
 
-
         if (!$User) {
             $this->Flash->error(__('User not found.'));
+
             return $this->redirect(['action' => 'index']);
         }
 
@@ -322,7 +321,6 @@ class DesignDraftsController extends AppController
         $end_date = $Campaign->end_date;
         $campaign_name = $Campaign->name;
 
-
         if ($this->request->is(['post','put'])) {
             $file = $this->request->getData('final_design');
             if ($file->getError() === UPLOAD_ERR_OK) {
@@ -331,42 +329,38 @@ class DesignDraftsController extends AppController
                 $file->moveTo($targetPath);
                 $DesignDrafts->final_design_photo = $image_name;
 
-
-
                 // Send a template email
 
-                $subject = 'Contact Request From ' ;
+                $subject = 'Contact Request From ';
 
                 $mailer = new Mailer('default');
                 $mailer->setSubject($subject)
                     ->setEmailFormat('html')
                     ->setTo($toEmail)
-                    ->setFrom("123@123.com")
+                    ->setFrom('123@123.com')
                     ->viewBuilder()
                     ->disableAutoLayout()
                     ->setTemplate('final_design');
-
 
                 $image_url = Router::url('/img/final_design/' . $image_name, true);
                 $year_level = $DesignDrafts->design_yearlevel;
                 $description = $DesignDrafts->specifications;
 
                 $mailer->setViewVars([
-                    'content' => "this is your final design",
+                    'content' => 'this is your final design',
                     'campaign_name' => $campaign_name,
-                    'email' => "903199600@qq.com",
+                    'email' => '903199600@qq.com',
                     'final_design' => $image_url,
                     'year_level' => $year_level,
                     'description' => $description,
                     'start_date' => $start_date,
-                    'end_date' => $end_date
+                    'end_date' => $end_date,
                 ]);
 
-
-
-                if ($mailer->deliver() && $this->DesignDrafts->save($DesignDrafts) ) {
+                if ($mailer->deliver() && $this->DesignDrafts->save($DesignDrafts)) {
                     $this->Flash->success(__('The final design has been uploaded successfully'));
 
+                    return $this->redirect(['controller' => 'design-drafts', 'action' => 'admin-view-design']);
                 }
             } else {
                 $this->Flash->error(__('Failed to upload the file.'));
@@ -374,8 +368,5 @@ class DesignDraftsController extends AppController
         }
 
         $this->set(compact('DesignDrafts'));
-
     }
-
 }
-
