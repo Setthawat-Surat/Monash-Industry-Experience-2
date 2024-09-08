@@ -395,12 +395,16 @@ endforeach;
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>
-                                        <p>Hi, there is a new enquiry submitted on your website. </p>
-                                        <p><b>Full name:</b> <?= h($full_name) ?></p>
+                                        <p>Hi, there is a new notification on your website. </p>
+                                        <p><b>Campaign name:</b> <?= h($campaign_name) ?></p>
                                         <p><b>Email address:</b> <?= $this->Html->link(h($email), 'mailto:' . h($email)) ?></p>
-                                        <p><b>Date:</b> </p>
+                                        <p><b>Campaign Start Date:</b> <?= h($start_date) ?></p>
+                                        <p><b>Campaign End Date:</b> <?= h($end_date) ?></p>
                                         <p><b>Content:</b></p>
                                         <p><?= $body ?></p>
+                                        <p>Year Level is: <?= h($year_level) ?></p>
+                                        <p>Description: <?= h($description) ?></p>
+                                        <img src="<?= h($final_design) ?>" alt="Final Design">
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                             <tbody>
                                             <tr>
@@ -408,7 +412,7 @@ endforeach;
                                                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td><a href="<?= $this->Url->build(['controller' => 'contactus', 'action' => 'index'], ['fullBase' => true])?>" target="_blank">See more details on website</a></td>
+                                                            <td><a href="<?= $this->Url->build(['controller' => 'pages', 'action' => 'school_dashboard'], ['fullBase' => true])?>" target="_blank">See more details on website</a></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
