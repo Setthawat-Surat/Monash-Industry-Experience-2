@@ -25,7 +25,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <div id="sigupbody">
 
 
-<?= $this->Form->create($campaign, ['url' => ['action' => 'create'], 'id' => 'signup']) ?>
+<?= $this->Form->create($campaign, ['url' => ['action' => 'index'], 'id' => 'signup']) ?>
 
 
 
