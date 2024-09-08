@@ -105,8 +105,8 @@
                 </a>
             </div>
             <p><?= $this->ContentBlock->text('copyright'); ?><br> All Rights Reserved.<br><br>
-            <a href="/terms_and_conditions" class="cs-nav-link">Terms and Conditions</a><br>
-            <a href="/privacy_policy" class="cs-nav-link">Privacy Policy</a>
+            <a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'terms_and_conditions'])?>" class="cs-nav-link">Terms and Conditions</a><br>
+            <a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'privacy_policy'])?>" class="cs-nav-link">Privacy Policy</a>
             </p>
         </div>
         <!-- Contact Info -->
