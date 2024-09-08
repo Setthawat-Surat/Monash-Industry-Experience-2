@@ -339,7 +339,7 @@ $this->assign('title', 'Fundraising');
                             patient with me doing my first school fundraiser! I
                             appreciated your courteous and kind manner. I will
                             certainly be recommending your business to my
-                            friends."<br><br>
+                            friends."<br><br><br>
                             Narelle<br>
                             Merri-bek Primary School
 
