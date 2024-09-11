@@ -1,3 +1,277 @@
+// shopping cart
+let listCartHTML = document.querySelector('.listCart');
+let iconCartSpan = document.querySelector('.icons span');
+let iconCart = document.querySelector('.icons');
+let closeCart = document.querySelector('.close');
+let body = document.querySelector('.cartTab');
+//let cart = [];
+
+iconCart.addEventListener('click', () => {
+    console.log("toggle showCart");
+    body.classList.toggle('showCart');
+})
+
+closeCart.addEventListener('click', () => {
+    console.log("toggle showCart");
+    body.classList.toggle('showCart');
+})
+
+// const initApp = () =>{
+// }
+
+function toggleDisplay() {
+    const showFlowers = document.getElementById('showFlowers').checked;
+    const showBouquets = document.getElementById('showBouquets').checked;
+    const flowerItems = document.getElementsByClassName('flower-item');
+    const bouquetItems = document.getElementsByClassName('bouquet-item');
+
+    for (let i = 0; i < flowerItems.length; i++) {
+        flowerItems[i].style.display = showFlowers ? '' : 'none';
+    }
+    for (let i = 0; i < bouquetItems.length; i++) {
+        bouquetItems[i].style.display = showBouquets ? '' : 'none';
+    }
+}
+
+function checkCartContent() {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    console.log(cart);
+}
+
+function addToCart(product) {
+    console.log("inside add to cart");
+    let cart = localStorage.getItem('cart');
+
+    if (!cart) {
+        // If cart is null or undefined, initialize it as an empty array
+        cart = [];
+    } else {
+        try {
+            // parse the cart as JSON
+            cart = JSON.parse(cart);
+
+            // If parsing is successful but cart is not an array, set it to an empty array
+            if (!Array.isArray(cart)) {
+                cart = [];
+            }
+        } catch (error) {
+            console.error("Error parsing cart:", error);
+            // If parsing fails, set cart to an empty array
+            cart = [];
+        }
+    }
+
+    const itemId = product.id;
+
+    // Check if the item is already in the cart
+    const existingItemIndex = cart.findIndex(item => item.id === itemId);
+
+    if (existingItemIndex !== -1) {
+        // If the item already exists in the cart, increment its quantity
+        if (cart[existingItemIndex].stock){
+            if (cart[existingItemIndex].quantity < cart[existingItemIndex].stock){
+                cart[existingItemIndex].quantity += 1;
+            }
+        }
+        else{
+            if (cart[existingItemIndex].quantity < 50)
+                cart[existingItemIndex].quantity += 1;
+        }
+
+    } else {
+        // If the item is not in the cart, add it as a new item
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            stock: product.quantity,
+            quantity: 1,
+            image: product.image
+        });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    checkCartContent(); // Call checkCartContent function to log the cart content
+    addCartToHTML(); // Update the HTML with the new cart content
+}
+
+const addCartToHTML = () =>{
+    // Retrieve the cart data from local storage
+    const cartData = localStorage.getItem('cart');
+
+    // Initialize total quantity
+    let totalQuantity = 0;
+
+    // Clear the existing content of the listCartHTML element
+    listCartHTML.innerHTML = '';
+
+    // Check if cartData is not null or undefined
+    if (cartData) {
+        // Parse the cartData as JSON
+        const cart = JSON.parse(cartData);
+
+        // Loop through each item in the cart
+        cart.forEach(item => {
+            console.log(item.image);
+
+            totalQuantity += item.quantity;
+
+            var totalPrice = item.price * item.quantity;
+            var formattedPrice = totalPrice.toFixed(2);
+
+            // Create a new item element
+            let newCart = document.createElement('div');
+            newCart.classList.add('item');
+            newCart.dataset.id = item.id;
+            newCart.innerHTML = `
+
+            <div class="image">
+                <img src="${item.image}" alt="Product Image">
+
+
+            </div>
+            <div class="name">
+                ${item.name}
+
+            </div>
+            <div class="totalPrice">
+                $${formattedPrice}
+            </div>
+            <div class="quantity">
+                <span class="minus" onclick="decrementQuantity(${item.id})"><i class="fas fa-minus"></i></span>
+                <input type="number" class="quantity-value" value="${item.quantity}" min="1" max="${item.stock}" aria-valuemax="${item.stock}" onchange="changeQuantity(${item.id}, this.value)">
+                <span class="plus" onclick="incrementQuantity(${item.id})"><i class="fas fa-plus"></i></span>
+            </div>
+            `;
+
+            // Append the new item to the listCartHTML element
+            listCartHTML.appendChild(newCart);
+        });
+    }
+
+    // Update the iconCartSpan with the total quantity
+    iconCartSpan.innerText = totalQuantity;
+}
+
+const changeQuantity = (itemId, newQuantity) => {
+    const cartData = localStorage.getItem('cart');
+
+
+
+    if (cartData) {
+        let cart = JSON.parse(cartData);
+
+        const itemIndex = cart.findIndex(item => item.id === itemId);
+
+        var maxallowed = cart[itemIndex].stock;
+        var minallowed = 1;
+
+        if (maxallowed){
+            if (newQuantity > maxallowed) {
+
+                newQuantity = maxallowed;
+            }
+        }
+        else {
+            if (newQuantity > 50) {
+
+                newQuantity = 50;
+            }
+        }
+
+        if (newQuantity < minallowed) {
+
+            newQuantity = minallowed;
+        }
+
+
+
+        if (itemIndex >= 0) {
+            cart[itemIndex].quantity = parseInt(newQuantity);
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            console.log(cart);
+
+            addCartToHTML();
+        }
+    }
+}
+
+const incrementQuantity = (itemId) => {
+    // Retrieve the cart data from local storage
+    let cart = JSON.parse(localStorage.getItem('cart'));
+
+    // Find the index of the item in the cart
+    const index = cart.findIndex(item => item.id === itemId);
+
+    // Increment the quantity if the item is found
+    if (index !== -1) {
+        var newQuantity = cart[index].quantity + 1;
+
+        var maxallowed = cart[index].stock;
+        if (maxallowed){
+            if (newQuantity > maxallowed) {
+
+                newQuantity = maxallowed;
+            }
+        }
+        else {
+            if (newQuantity > 50) {
+
+                newQuantity = 50;
+            }
+        }
+
+        cart[index].quantity = newQuantity;
+
+        // Update the cart in local storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Update the cart HTML display
+        addCartToHTML();
+    }
+};
+
+const decrementQuantity = (itemId) => {
+    // Retrieve the cart data from local storage
+    let cart = JSON.parse(localStorage.getItem('cart'));
+
+    // Find the index of the item in the cart
+    const index = cart.findIndex(item => item.id === itemId);
+
+    // Decrement the quantity if the item is found and the quantity is greater than 1
+    if (index !== -1) {
+        if (cart[index].quantity > 1) {
+            cart[index].quantity--;
+        } else {
+            // Remove the item from the cart if quantity becomes 0
+            cart.splice(index, 1);
+        }
+
+        // Update the cart in local storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Update the cart HTML display
+        addCartToHTML();
+    }
+};
+
+const init = () => {
+    loadCartFromLocalStorage();
+}
+
+const loadCartFromLocalStorage = () => {
+    const cartData = localStorage.getItem('cart');
+    if (cartData) {
+        const cart = JSON.parse(cartData);
+        addCartToHTML();
+    }
+}
+
+window.addEventListener('load', init);
+
+//
+
 
 
 

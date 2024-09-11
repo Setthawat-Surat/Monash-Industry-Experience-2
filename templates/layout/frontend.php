@@ -81,7 +81,26 @@
             echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Auth', 'action' => 'logout']) . '" class="nav-link">Logout</a></button>';
         ?>
 
+        <div class="icons">
+            <i class="fas fa-shopping-cart"></i>
+            <span>0</span>
+        </div>
+
     </nav>
+
+
+    <!-- Shopping Cart Tab -->
+    <div class="cartTab">
+        <h1>Shopping Cart</h1>
+        <div class="listCart">
+
+        </div>
+        <div class="cartbtn">
+            <button class="close">CLOSE</button>
+            <a href="/stripe" class="checkOut"><button>Check Out</button></a>
+        </div>
+    </div>
+
 </section>
 
 
