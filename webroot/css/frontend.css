@@ -3946,14 +3946,14 @@ body .showCart .container{
 }
 
 .cartTab .cartbtn button{
-    background-color: var(--pink);
+    background-color: #E83E8CFF;
     border: none;
     font-weight: 500;
     cursor: pointer;
 }
 
 .cartTab .cartbtn a{
-    background-color: var(--pink);
+    background-color: #E83E8CFF;
     border: none;
     font-weight: 500;
     cursor: pointer;
@@ -4009,7 +4009,7 @@ body .showCart .container{
 }
 
 .icons i:hover{
-    color:var(--pink);
+    color: #E83E8CFF;
 }
 
 .icons{
@@ -4020,7 +4020,7 @@ body .showCart .container{
     display: flex;
     width: 25px;
     height: 25px;
-    background-color: var(--pink);
+    background-color: #E83E8CFF;
     justify-content: center;
     align-items:center;
     color: #fff;

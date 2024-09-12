@@ -19,7 +19,7 @@ closeCart.addEventListener('click', () => {
 // const initApp = () =>{
 // }
 
-function toggleDisplay() {
+/*function toggleDisplay() {
     const showFlowers = document.getElementById('showFlowers').checked;
     const showBouquets = document.getElementById('showBouquets').checked;
     const flowerItems = document.getElementsByClassName('flower-item');
@@ -31,7 +31,7 @@ function toggleDisplay() {
     for (let i = 0; i < bouquetItems.length; i++) {
         bouquetItems[i].style.display = showBouquets ? '' : 'none';
     }
-}
+}*/
 
 function checkCartContent() {
     const cart = JSON.parse(localStorage.getItem('cart'));
@@ -82,11 +82,11 @@ function addToCart(product) {
         // If the item is not in the cart, add it as a new item
         cart.push({
             id: product.id,
-            name: product.name,
-            price: product.price,
+            name: product.design_name,
+            price: product.sales_price,
             stock: product.quantity,
             quantity: 1,
-            image: product.image
+            image: product.final_design_phot
         });
     }
 

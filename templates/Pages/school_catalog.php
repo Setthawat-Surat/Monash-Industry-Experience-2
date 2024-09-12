@@ -1,6 +1,9 @@
 <br><br>
+
 <?php
 use Cake\ORM\TableRegistry;
+
+
 
 $this->setLayout('frontend');
 $school_code = $this->request->getQuery('code');
@@ -24,6 +27,7 @@ if ($school_code) {
             ->all(); // This returns a collection
 
         if (!$campaigns->isEmpty()) {
+
             foreach ($campaigns as $campaign) {
                 // Check if the campaign has design drafts before rendering
                 if (count($campaign->design_drafts) > 0) {
@@ -31,6 +35,18 @@ if ($school_code) {
                     echo '<div class="campaign-cards-container">'; // Flexbox container for campaign cards
 
                     foreach ($campaign->design_drafts as $draft) {
+
+                        // in PHP code generate JavaScript object
+                        $draftData = [
+                            'id' => $draft->id,
+                            'design_name' => $draft->design_name,
+                            'sales_price' => $draft->sales_price,
+                            'year_level' => $draft->design_yearlevel,
+                            'specifications' => $draft->specifications
+                        ];
+                        // Encode the draft object into JSON
+                        $jsonDraftData = htmlspecialchars(json_encode($draftData), ENT_QUOTES, 'UTF-8');
+
                         // Render each design draft in a card
                         echo '<div class="card">';
                         echo '<div class="card-content">'; // Flex container for image and info
@@ -53,7 +69,7 @@ if ($school_code) {
                         // Buttons
                         echo '<div class="card-buttons">';
                         echo '<button class="button-green" disabled>$' . $draft->sales_price . '</button>';
-                        echo '<button class="button-blue" href="#">Add to Cart</button>';
+                        echo '<button class="button-blue" onclick="addToCart(' . $jsonDraftData . ')">Add to Cart</button>';
                         echo '</div>';
 
                         echo '</div>'; // Close card-info
@@ -91,6 +107,18 @@ if ($school_code) {
                     echo '<div class="campaign-cards-container">'; // Flexbox container for campaign cards
 
                     foreach ($campaign->design_drafts as $draft) {
+
+                        // in PHP code generate JavaScript object
+                        $draftData = [
+                            'id' => $draft->id,
+                            'design_name' => $draft->design_name,
+                            'sales_price' => $draft->sales_price,
+                            'year_level' => $draft->design_yearlevel,
+                            'specifications' => $draft->specifications
+                        ];
+                        // Encode the draft object into JSON
+                        $jsonDraftData = htmlspecialchars(json_encode($draftData), ENT_QUOTES, 'UTF-8');
+
                         // Render each design draft in a card
                         echo '<div class="card">';
                         echo '<div class="card-content">'; // Flex container for image and info
@@ -113,7 +141,7 @@ if ($school_code) {
                         // Buttons
                         echo '<div class="card-buttons">';
                         echo '<button class="button-green" disabled>$' . $draft->sales_price . '</button>';
-                        echo '<button class="button-blue">Add to Cart</button>';
+                        echo '<button class="button-blue" onclick="addToCart(' . $jsonDraftData . ')">Add to Cart</button>';
                         echo '</div>';
 
                         echo '</div>'; // Close card-info
