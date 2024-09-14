@@ -86,7 +86,7 @@ function addToCart(product) {
             price: product.sales_price,
             stock: product.quantity,
             quantity: 1,
-            image: product.final_design_phot
+            image: product.final_design_photo
         });
     }
 
@@ -126,7 +126,8 @@ const addCartToHTML = () =>{
             newCart.innerHTML = `
 
             <div class="image">
-                <img src="${item.image}" alt="Product Image">
+
+                <img src='/img/final_design/${item.image}' alt="Product Image">
 
 
             </div>

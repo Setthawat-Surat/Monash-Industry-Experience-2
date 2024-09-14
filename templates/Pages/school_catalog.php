@@ -114,7 +114,8 @@ if ($school_code) {
                             'design_name' => $draft->design_name,
                             'sales_price' => $draft->sales_price,
                             'year_level' => $draft->design_yearlevel,
-                            'specifications' => $draft->specifications
+                            'specifications' => $draft->specifications,
+                            'final_design_photo' => $draft->final_design_photo
                         ];
                         // Encode the draft object into JSON
                         $jsonDraftData = htmlspecialchars(json_encode($draftData), ENT_QUOTES, 'UTF-8');
