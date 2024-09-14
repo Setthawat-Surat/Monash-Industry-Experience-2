@@ -4001,22 +4001,22 @@ body .showCart .container{
 
 /* shopping cart icon */
 
-.icons i{
+#shopping_cart_section .icons i{
     font-size: 2.5rem;
     color: #333;
     margin-left: 1.5rem;
     cursor: pointer;
 }
 
-.icons i:hover{
+#shopping_cart_section .icons i:hover{
     color: #E83E8CFF;
 }
 
-.icons{
+#shopping_cart_section .icons{
     position: relative;
 }
 
-.icons span{
+#shopping_cart_section .icons span{
     display: flex;
     width: 25px;
     height: 25px;

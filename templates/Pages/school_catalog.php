@@ -69,7 +69,7 @@ if ($school_code) {
                         // Buttons
                         echo '<div class="card-buttons">';
                         echo '<button class="button-green" disabled>$' . $draft->sales_price . '</button>';
-                        echo '<button class="button-blue" onclick="addToCart(' . $jsonDraftData . ')">Add to Cart</button>';
+                        echo '<button class="button-blue addToCartButton" onclick="addToCart(' . $jsonDraftData . ')">Add to Cart</button>';
                         echo '</div>';
 
                         echo '</div>'; // Close card-info
@@ -142,7 +142,7 @@ if ($school_code) {
                         // Buttons
                         echo '<div class="card-buttons">';
                         echo '<button class="button-green" disabled>$' . $draft->sales_price . '</button>';
-                        echo '<button class="button-blue" onclick="addToCart(' . $jsonDraftData . ')">Add to Cart</button>';
+                        echo '<button class="button-blue addToCartButton" onclick="addToCart(' . $jsonDraftData . ')">Add to Cart</button>';
                         echo '</div>';
 
                         echo '</div>'; // Close card-info

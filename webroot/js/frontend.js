@@ -16,6 +16,22 @@ closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 })
 
+
+// button turns to green after clicking
+document.querySelectorAll('.addToCartButton').forEach(function(button) {
+    button.addEventListener('click', function() {
+        // Sets background colour of cart button and text
+        this.style.backgroundColor = '#4CAF50';
+        this.textContent = 'Item Added';
+
+        setTimeout(() => {
+            this.style.backgroundColor = '';  // Reset the background color after 1 second
+            this.textContent = 'Add to Cart';  // Reset the button text after 1 second
+        }, 1000);
+    });
+});
+
+
 // const initApp = () =>{
 // }
 

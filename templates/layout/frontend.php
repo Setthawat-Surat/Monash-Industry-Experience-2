@@ -81,10 +81,13 @@
             echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Auth', 'action' => 'logout']) . '" class="nav-link">Logout</a></button>';
         ?>
 
-        <div class="icons">
-            <i class="fas fa-shopping-cart"></i>
-            <span>0</span>
+        <div id="shopping_cart_section">
+            <div class="icons">
+                <i class="fas fa-shopping-cart"></i>
+                <span>0</span>
+            </div>
         </div>
+
 
     </nav>
 
