@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <meta name="csrf-token" content="<?= $this->request->getAttribute('csrfToken') ?>">
     <title><?= $this->ContentBlock->text('website-title') ?> - <?= $this->fetch('title') ?></title>
     <!-- Favicon-->
     <?= $this->Html->meta('icon') ?>
@@ -39,6 +40,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
+<form id="hiddenForm" action="/Stripe" method="POST" style="display: none;">
+    <input type="hidden" name="cart" id="cartInput">
+    <!-- Include CSRF token if needed -->
+    <input type="hidden" name="_csrfToken" value="<?= $this->request->getAttribute('csrfToken') ?>">
+</form>
 
 <body>
 
@@ -100,9 +107,50 @@
         </div>
         <div class="cartbtn">
             <button class="close">CLOSE</button>
-            <a href="/stripe" class="checkOut"><button>Check Out</button></a>
+            <a href="/Stripe" id="checkoutLink" class="checkOut"><button>Check Out</button></a>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.checkOut').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default action of the anchor tag
+
+                // Function to send data and redirect
+                function sendDataToServer() {
+                    // Fetch data from local storage and parse it
+                    let cart = JSON.parse(localStorage.getItem('cart'));
+
+                    // Remove the 'image' property from each item
+                    cart = cart.map(item => {
+                        const { image, ...rest } = item;
+                        return rest;
+                    });
+
+                    // Convert the modified data back to a string
+                    const cartData = JSON.stringify(cart);
+
+                    // Set data in hidden input
+                    document.getElementById('cartInput').value = cartData;
+                    // Submit the form
+                    document.getElementById('hiddenForm').submit();
+
+                    // Redirect to /Stripe after a short delay
+                    setTimeout(function () {
+                        window.location.href = '/Stripe';
+                    }, 4000); // Adjust the delay if needed
+                }
+
+                // Call this function to send the data and redirect
+                sendDataToServer();
+            });
+        });
+    </script>
+
+
+
+
+
 
 </section>
 

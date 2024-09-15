@@ -109,6 +109,7 @@ function addToCart(product) {
     localStorage.setItem('cart', JSON.stringify(cart));
     checkCartContent(); // Call checkCartContent function to log the cart content
     addCartToHTML(); // Update the HTML with the new cart content
+
 }
 
 const addCartToHTML = () =>{
@@ -288,6 +289,8 @@ const loadCartFromLocalStorage = () => {
 window.addEventListener('load', init);
 
 //
+
+
 
 
 

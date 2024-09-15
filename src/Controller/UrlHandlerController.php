@@ -140,6 +140,13 @@ class UrlHandlerController extends AppController
         ]);
     }
 
+    public function Stripe(){
+        return $this->redirect([
+            'controller' => 'Stripe',
+            'action' => 'index'
+        ]);
+    }
+
 
 
 }
