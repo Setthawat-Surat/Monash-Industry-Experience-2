@@ -360,7 +360,7 @@ class DesignDraftsController extends AppController
                 $mailer->setViewVars([
                     'content' => 'this is your final design',
                     'campaign_name' => $campaign_name,
-                    'email' => '903199600@qq.com',
+                    'email' => $toEmail,
                     'final_design' => $image_url,
                     'year_level' => $year_level,
                     'description' => $description,
