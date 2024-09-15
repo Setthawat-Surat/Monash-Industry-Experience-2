@@ -44,7 +44,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display','School_dashboard'])?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display'])?>">
 
                 <div class="sidebar-brand-text mx-3">Organic Print Studio</div>
             </a>

@@ -38,7 +38,7 @@ $this->assign('title', 'Login');
                 <i class="fa-solid fa-eye" id="togglePassword"></i>
             </div>
         </div>
-        <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'forgetPassword']) ?>" class="forget-password">Forgot password?</a>
+        <!--<a href="<?php /*= $this->Url->build(['controller' => 'Auth', 'action' => 'forgetPassword']) */?>" class="forget-password">Forgot password?</a>-->
         <br>
         <?= $this->Form->button('Login', ['class' => 'login-button']) ?>
         <br><br>
