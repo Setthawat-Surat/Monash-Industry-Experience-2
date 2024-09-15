@@ -12,7 +12,7 @@
     <?= $this->Html->meta('icon') ?>
     <?= $this->fetch('meta') ?>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <?= $this->Html->css('admin_dashboard.css'); ?>
+    <?= $this->Html->css('Admin_dashboard.css'); ?>
     <?= $this->fetch('css') ?>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -46,9 +46,17 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
+                    <a class="nav-link" href="/UrlHandler/home">
+                        <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                        Home
+                    </a>
                     <a class="nav-link" href="/UrlHandler/dashboard">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
+                    </a>
+                    <a class="nav-link" href="/UrlHandler/adminViewDesign">
+                        <div class="sb-nav-link-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                        Upload Final Design
                     </a>
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">

@@ -10970,7 +10970,7 @@ form.user .btn-user {
 
 .error {
   color: #5a5c69;
-  font-size: 7rem;
+
   position: relative;
   line-height: 1;
   width: 12.5rem;
@@ -11468,6 +11468,417 @@ body.sidebar-toggled footer.sticky-footer {
     border-top: 1px solid #cccccc; /* Light gray line */
     margin: 20px 0; /* Space above and below the line */
 }
+
+/*
+Copyright (c) 2024 by Emil Devantie Brockdorff (https://codepen.io/Mestika/pen/xbgqbp)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+/* create campaign */
+
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:300);
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:700);
+
+#sigupbody {
+
+    background-size: cover;
+    height: 100%;
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #666;
+}
+
+#sigupbody #signup {
+    width: min(80%, 800px);
+    height: auto;
+    padding: 20px;
+    background: #fff;
+    margin: 80px auto;
+    position: relative;
+    min-height: 300px;
+}
+
+#sigupbody #fieldsets {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#sigupbody input[type=text],
+#sigupbody input[type=email],
+#sigupbody input[type=password],
+#sigupbody input[type=tel],
+#sigupbody textarea {
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: min(50%, 400px);
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin-bottom: 8px;
+    position: relative;
+}
+#sigupbody input[type=text]:focus,
+#sigupbody input[type=email]:focus,
+#sigupbody input[type=password]:focus,
+#sigupbody input[type=tel]:focus,
+#sigupbody textarea:focus {
+    outline: none;
+    border: 1px solid #22938a; /* darken(#2cbab2,10%) */
+}
+
+#sigupbody input[type=radio] {
+    margin: 6px;
+    display: inline-block;
+}
+
+#sigupbody fieldset {
+    border: black;
+    position: absolute;
+    left: -640px;
+    width: 600px;
+    padding: 10px 0;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    opacity: 0;
+}
+
+#sigupbody fieldset.current {
+    left: 20px;
+    opacity: 1;
+}
+
+#sigupbody fieldset.next {
+    left: 640px;
+}
+
+#sigupbody input[type=submit] {
+    display: none;
+    border: none;
+}
+
+#sigupbody #section-tabs {
+    font-size: 0.8em;
+    height: 50px;
+    position: relative;
+    margin-top: -50px;
+    margin-bottom: 50px;
+    padding: 0;
+    font-weight: bold;
+    list-style: none;
+    text-transform: uppercase;
+
+}
+
+#sigupbody #section-tabs .orderli {
+    color: #a7a7a7;
+    cursor: not-allowed;
+    border-left: 1px solid #aaa;
+    text-decoration: none;
+    padding: 0 6px;
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold;
+    line-height: 30px;
+    background: #ddd;
+    position: relative;
+    border: black;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#sigupbody #section-tabs .orderli span {
+    color: #bababa;
+}
+
+#sigupbody #section-tabs .orderli .black {
+    color: black;
+}
+
+#sigupbody #section-tabs .orderli.active {
+    color: #444;
+    cursor: pointer;
+}
+
+#sigupbody #section-tabs .orderli.current {
+    opacity: 1;
+    background: #fff;
+    z-index: 999;
+    border-left: none;
+}
+
+#sigupbody #section-tabs .orderli.current:after {
+    content: "";
+    display: block;
+    margin-left: 0;
+    position: absolute;
+    left: 0.05px;
+    top: 0;
+    border: 14px solid transparent;
+    border-left: 14px solid #007bff;
+}
+
+#sigupbody .error {
+    color: #bf2424;
+    display: block;
+}
+
+#sigupbody input.error, textarea.error {
+    border-color: #bf2424;
+}
+
+#sigupbody input.error:focus, textarea.error:focus {
+    border-color: #bf2424;
+}
+
+#sigupbody label.error {
+    margin-bottom: 20px;
+}
+
+#sigupbody input.valid {
+    color: green;
+}
+
+#sigupbody label.valid {
+    position: absolute;
+    right: 20px;
+}
+
+#sigupbody input + .valid, textarea + .valid {
+    display: none;
+}
+
+#sigupbody .valid + .valid {
+    display: inline;
+    position: absolute;
+    right: 10px;
+    margin-top: -36px;
+    color: green;
+}
+
+#sigupbody .btn {
+    border: none;
+    padding: 8px;
+    background: #007bff;
+    cursor: pointer;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    color: #fff;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+#sigupbody .btn:hover {
+    background: #26978b; /* darken(#2cbab2, 6%) */
+}
+
+
+/* Styles for the header row */
+#upload-design-form .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Styles for the back link */
+#upload-design-form .back-link {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    font-size: 18px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+#upload-design-form .back-link i {
+    margin-right: 8px; /* Space between the icon and text */
+}
+
+/* Styles for the heading */
+#upload-design-form .h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+#upload-design-form label{
+    color:black;
+    font-weight: bold;
+}
+
+.required-asterisk{
+    color:red;
+}
+
+
+#upload-design-form .form-container {
+    max-width: 550px; /* Adjust the maximum width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 30px; /* Add padding inside the container */
+    background-color: white; /* Optional: Add background color */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+/* Optional: Make form controls full width */
+#upload-design-form .form-control {
+    width: 100%;
+}
+
+
+#upload-design-form .upload-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #fcfcfc;
+}
+
+#upload-design-form .upload-card {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 600px;
+    height: auto;
+    background-color: #ffffff;
+    padding: 10px 30px 40px;
+}
+
+#upload-design-form .upload-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+
+}
+
+#upload-design-form .upload-drop_box {
+    margin: 25px 0 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px dotted #a3a3a3;
+    border-radius: 5px;
+}
+
+#upload-design-form .upload-drop_box h4 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2e2e2e;
+}
+
+#upload-design-form .upload-drop_box p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #a3a3a3;
+}
+
+
+#design-card .card {
+    /* Ensure each card takes full width of its container */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow height to adjust based on content */
+}
+
+#design-card .card-body {
+    /* Ensure card body contents are properly spaced */
+    padding: 15px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+#design-card .card-img-container {
+    /* Use flexbox to align images in a row */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to new lines if needed */
+    gap: 10px; /* Space between images */
+    padding: 15px;
+}
+
+#design-card .card-img {
+    /* Style for each image */
+    flex: 1 1 auto; /* Allow images to grow and shrink, take equal space */
+    max-width: calc(15% - 10px); /* Adjust based on the number of images per row and gap */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure images cover the container without distortion */
+}
+
+#design-card .card-delete-icon {
+    /* Style for the delete icon */
+    z-index: 10; /* Ensure it's above other content */
+}
+
+#add-final-design {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+}
+
+#add-final-design .upload-form-wrapper {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+}
+
+#add-final-design .upload-form-wrapper .title {
+    font-size: 1.75rem;
+    color: #343a40;
+}
+
+#add-final-design .upload-form-wrapper .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#add-final-design .upload-form-wrapper .form-label {
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+
+#add-final-design .upload-form-wrapper .form-control {
+    border-radius: 0.25rem;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+#add-final-design .upload-form-wrapper .btn-primary {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+
+
+
+
+
+
 
 
 
