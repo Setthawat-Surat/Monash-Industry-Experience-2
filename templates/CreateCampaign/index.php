@@ -33,7 +33,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <li class="current active orderli" ><span>1.</span> Step1</li>
         <li class="orderli"><span>2.</span> Step2</li>
         <li class="orderli"><span>3.</span> Step3</li>
-        <li class="orderli"><span>4.</span> Step4</li>
     </ul>
 
     <div id="fieldsets">
@@ -44,7 +43,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 <?= $this->Form->control('name', [
                     'label' => 'Campaign Name:',
                     'required' => true,
-                    'pattern' => '[a-zA-Z\s]*',
+                    'pattern' => '[a-zA-Z0-9\s]*',
                     'minlength' => '3',
                     'title' => 'Campaign Name should only contain letters and spaces',
                     'placeholder' => 'Enter Campaign name',
@@ -61,9 +60,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     'required' => true,
                     'type' => 'number',
                     'min' => '0',
-                    'step' => '0.01',
                     'placeholder' => 'Enter default sales price',
+                    'style' => 'appearance: textfield; -moz-appearance: textfield; -webkit-appearance: none;',
                 ]) ?>
+
             </div>
 
 
@@ -79,24 +79,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             ]) ?>
             <div>
 
-        </fieldset>
-
-        <fieldset class="next">
             <div class="form-group">
-            <?= $this->Form->control('end_date', [
-                'label' => 'End Date:',
-                'required' => true,
-                'type' => 'date',
-                'id' => 'end-date'
-            ]) ?>
+                <?= $this->Form->control('end_date', [
+                    'label' => 'End Date :',
+                    'required' => true,
+                    'type' => 'date',
+                    'id' => 'end-date'
+                ]) ?>
 
                 <div>
+
         </fieldset>
 
         <a class="btn" id="next">Next Section ▷</a>
         <input type="submit" class="btn" value="Create">
-
-
 
     </div>
 

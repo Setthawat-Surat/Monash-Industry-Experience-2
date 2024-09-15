@@ -90,7 +90,7 @@ $("#next").on("click", function(e){
 
 
 $("#signup").on("submit", function(e) {
-    if ($("#next").is(":visible") || $("fieldset.current").index() < 3) {
+    if ($("#next").is(":visible") || $("fieldset.current").index() < 2) {
         e.preventDefault();
     }
 
@@ -118,7 +118,7 @@ function goToSection(i){
         $(".orderli").eq(i).addClass("current").siblings().removeClass("current");
         setTimeout(function(){
             $("fieldset").eq(i).removeClass("next").addClass("current active");
-            if ($("fieldset.current").index() == 3){
+            if ($("fieldset.current").index() == 2){
                 $("#next").hide();
                 $("input[type=submit]").show();
             } else {
@@ -134,7 +134,7 @@ function nextSection(){
     var i = $("fieldset.current").index();
     //console.log("here is nextsection");
 
-    if (i < 3){
+    if (i < 2){
         $(".orderli").eq(i+1).addClass("active");
         //console.log($(".orderli").length);
         goToSection(i+1);
@@ -159,7 +159,7 @@ function validateFields(fieldset) {
             valid = false;
             // Display the custom error message
             var errorMessage = this.validationMessage || 'Invalid input.';
-            alert("Error in '" + this.name + "': " + errorMessage);
+            alert("Error in '" + this.name + "': " + errorMessage + this.t);
         } else {
             $(this).removeClass("error");
         }

@@ -11577,7 +11577,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     position: relative;
     margin-top: -50px;
     margin-bottom: 50px;
-    padding: 0;
+
     font-weight: bold;
     list-style: none;
     text-transform: uppercase;
@@ -11636,7 +11636,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #sigupbody .error {
     color: #bf2424;
-    display: block;
 }
 
 #sigupbody input.error, textarea.error {
