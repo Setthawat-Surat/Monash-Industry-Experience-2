@@ -233,7 +233,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'description' => 'FAQ question1',
                 'slug' => 'faq-question1',
                 'type' => 'text',
-                'value' => "How can I Register with fund4schools?",
+                'value' => "How can I Register with Tea Towels for Schools?",
             ],
             [
                 'parent' => 'FAQ',
@@ -241,7 +241,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'description' => 'FAQ question2',
                 'slug' => 'faq-question2',
                 'type' => 'text',
-                'value' => "What is a campaign?",
+                'value' => "What is a campaign and how do I start one?",
             ],
             [
                 'parent' => 'FAQ',
@@ -265,7 +265,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'description' => 'FAQ question5',
                 'slug' => 'faq-question5',
                 'type' => 'text',
-                'value' => "How can I submit my designs?",
+                'value' => "How can I submit my designs for my tea towels?",
             ],
             [
                 'parent' => 'FAQ',
