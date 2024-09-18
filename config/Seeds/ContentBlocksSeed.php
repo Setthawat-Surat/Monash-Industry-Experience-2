@@ -306,7 +306,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'FAQ Answer5',
                 'slug' => 'faq-answer5',
                 'type' => 'text',
-                'value' => "By logging in to your account",
+                'value' => "By logging in to your account to do this",
             ],
             [
                 'parent' => 'About us',
