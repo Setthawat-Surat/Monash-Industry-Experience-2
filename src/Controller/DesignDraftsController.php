@@ -23,7 +23,7 @@ class DesignDraftsController extends AppController
 {
     private DesignPhotosTable $DesignPhotos;
     private UsersTable $Users;
-    private CampaignsTable $campaigns;
+    private CampaignsTable $Campaigns;
 
     public function initialize(): void
     {
@@ -348,7 +348,7 @@ class DesignDraftsController extends AppController
                 $mailer->setSubject($subject)
                     ->setEmailFormat('html')
                     ->setTo($toEmail)
-                    ->setFrom('123@123.com')
+                    ->setFrom('u241t023@u241t023.iedev.org')
                     ->viewBuilder()
                     ->disableAutoLayout()
                     ->setTemplate('final_design');
@@ -360,7 +360,7 @@ class DesignDraftsController extends AppController
                 $mailer->setViewVars([
                     'content' => 'this is your final design',
                     'campaign_name' => $campaign_name,
-                    'email' => $toEmail,
+                    'to_email' => $toEmail,
                     'final_design' => $image_url,
                     'year_level' => $year_level,
                     'description' => $description,

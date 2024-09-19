@@ -397,7 +397,7 @@ endforeach;
                                     <td>
                                         <p>Hi, there is a new notification on your website. </p>
                                         <p><b>Campaign name:</b> <?= h($campaign_name) ?></p>
-                                        <p><b>Email address:</b> <?= $this->Html->link(h($email), 'mailto:' . h($email)) ?></p>
+                                        <p><b>Email address:</b> <?= $this->Html->link(h($to_email), 'mailto:' . h($to_email)) ?></p>
                                         <p><b>Campaign Start Date:</b> <?= h($start_date) ?></p>
                                         <p><b>Campaign End Date:</b> <?= h($end_date) ?></p>
                                         <p><b>Content:</b></p>
