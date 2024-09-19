@@ -412,7 +412,7 @@ endforeach;
                                                     <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                                         <tbody>
                                                         <tr>
-                                                            <td><a href="<?= $this->Url->build(['controller' => 'pages', 'action' => 'school_dashboard'], ['fullBase' => true])?>" target="_blank">See more details on website</a></td>
+                                                            <td><a href="<?= $this->Url->build(['controller' => 'pages', 'action' => 'home'], ['fullBase' => true])?>" target="_blank">See more details on website</a></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
