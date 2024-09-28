@@ -26,6 +26,7 @@ $campaignId = $this->request->getQuery('cID');
                             <p class="card-text"><strong>Specifications:</strong> <?= h($draft->specifications) ?></p>
                             <p class="card-text"><strong>Selling Price:</strong> <?= "$" . h($draft->sales_price) ?></p>
                             <p class="card-text"><strong>Approval Status:</strong> <?= $draft->approval_status ? 'Approved' : 'Pending' ?></p>
+                            <p class="card-text"><strong>Belly Bands Required? :</strong> <?= $draft->belly_band ? 'Yes' : 'No' ?></p>
                             <p class="card-text"><strong>School Logo Position:</strong> <?= h($draft->logo_position) ?></p>
                             <p class="card-text text-center"><strong>Your Uploaded Designs:</strong>
                         </div>
@@ -47,6 +48,16 @@ $campaignId = $this->request->getQuery('cID');
                         <?php endif; ?>
 
                         <div class="card-delete-icon position-absolute" style="top: 10px; right: 10px;">
+                            <?= $this->Html->link(
+                                '<i class="fa-regular fa-edit text-primary"></i>',
+                                ['controller' => 'DesignDrafts', 'action' => 'editDesign', $draft->id, '?' => ['dID' => $draft->id, 'cID' => $campaignId]],
+                                [
+                                    'escape' => false,
+                                    'title' => 'Edit this design?',
+                                    'class' => 'mr-2' // Add margin to separate the icons
+                                ]
+                            ) ?>
+
                             <?= $this->Form->postLink(
                                 '<i class="fa-regular fa-trash-can text-danger"></i>',
                                 ['controller' => 'DesignDrafts', 'action' => 'deletedesigns', $draft->id, '?' => ['cID' => $campaignId]],

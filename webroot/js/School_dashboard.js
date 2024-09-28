@@ -89,6 +89,7 @@ $("#next").on("click", function(e){
 });
 
 
+
 $("#signup").on("submit", function(e) {
     if ($("#next").is(":visible") || $("fieldset.current").index() < 2) {
         e.preventDefault();
@@ -202,4 +203,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+function toggleCheckbox(currentCheckbox, otherCheckboxId) {
+    if (currentCheckbox.checked) {
+        document.getElementById(otherCheckboxId).checked = false;
+    }
+}
+
+// Custom form validation
+document.querySelector('form').addEventListener('submit', function(event) {
+    const optionOne = document.getElementById('option_one').checked;
+    const optionTwo = document.getElementById('option_two').checked;
+
+    if (!optionOne && !optionTwo) {
+        alert('Please select one of the packaging options.');
+        event.preventDefault(); // Prevent form submission if neither option is selected
+    }
+});
 

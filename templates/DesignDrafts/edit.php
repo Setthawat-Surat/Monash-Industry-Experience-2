@@ -5,6 +5,13 @@
  * @var string[]|\Cake\Collection\CollectionInterface $campaigns
  * @var string[]|\Cake\Collection\CollectionInterface $admins
  */
+if ($this->Identity->isLoggedIn()) {
+    $user_role = $this->Identity->get('role');
+    if ($user_role != 'Admin') {
+        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
+        exit;
+    }
+}
 ?>
 <div class="row">
     <aside class="column">

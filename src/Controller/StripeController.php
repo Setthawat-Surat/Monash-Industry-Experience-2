@@ -31,7 +31,7 @@ class StripeController extends AppController
             // Check if decoding was successful and $cart is an array
             if (json_last_error() === JSON_ERROR_NONE && is_array($cart) && !empty($cart)) {
                 $stripeSecretKey = "sk_test_51PBxjlRqNIa1a7EbHvdvKNctCTh1U8D9irVAtp9VbXtkTruUz7sO4lrADA8z6flQAuc8zEBVewpyChgFntLbgo7A007GtF8q8X";
-                $successUrl = Router::url(['controller' => 'Pages', 'action' => 'display', 'home'], true);
+                $successUrl = Router::url(['controller' => 'Pages', 'action' => 'display', 'payment_success'], true);
                 $cancelUrl = Router::url(['controller' => 'Pages', 'action' => 'display', 'faqs'], true);
 
                 // Set Stripe API key

@@ -202,8 +202,8 @@ class DesignDraftsController extends AppController
             }
         }
 
-        $campaigns = $this->DesignDrafts->Campaigns->find('list', ['limit' => 200])->all();
-        $users = $this->DesignDrafts->Users->find('list', ['limit' => 200])->all();
+        $campaigns = $this->DesignDrafts->Campaigns->find('list', limit: 200)->all();
+        $users = $this->DesignDrafts->Users->find('list', limit: 200)->all();
         $this->set(compact('designDraft', 'campaigns', 'users'));
     }
 
@@ -469,6 +469,65 @@ class DesignDraftsController extends AppController
 
         $this->set(compact('designDraft'));
     }
+
+
+    public function editDesign($id)
+    {
+        $campaignId = $this->request->getQuery('cID');
+        $designDraftId = $this->request->getQuery('dID');
+        // Load the DesignDrafts table
+        $designDraftsTable = TableRegistry::getTableLocator()->get('DesignDrafts');
+
+        // Find the specific design draft by ID
+        $designDraft = $designDraftsTable->get($id, [
+            'contain' => ['DesignPhotos'] // Load associated design photos
+        ]);
+
+        // Set the design draft data to the view
+        $this->set('designDraft', $designDraft);
+
+        // Optionally handle form submission for editing here
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            // Patch the design draft entity with the request data
+            $designDraft = $designDraftsTable->patchEntity($designDraft, $this->request->getData());
+
+            // Check if the photos are being uploaded
+            if (!empty($this->request->getData('studentDesigns'))) {
+                // Handle file uploads
+                $files = $this->request->getData('studentDesigns');
+                foreach ($files as $file) {
+                    if ($file->getError() === UPLOAD_ERR_OK) {
+                        $fileName = $file->getClientFilename();
+                        $targetPath = WWW_ROOT . 'img/student_designs_img' . DS . $fileName;
+
+                        $file->moveTo($targetPath);
+
+                        $designPhotoData = [
+                            'photo' => $fileName,
+                            'design_draft_id' => $designDraftId,
+                        ];
+
+
+                        // Create a new DesignPhoto entity to save in the database
+                        $designPhoto = $this->DesignPhotos->newEmptyEntity();
+                        $designPhoto = $this->DesignPhotos->patchEntity($designPhoto, $designPhotoData);
+
+                        if(!$this->DesignPhotos->save($designPhoto)){
+                            $this->Flash->error(__('Unable to save some photo. Please try again'));
+                        }
+                    }
+                }
+            }
+
+            // Save the updated design draft
+            if ($designDraftsTable->save($designDraft)) {
+                $this->Flash->success(__('The design has been updated.'));
+                return $this->redirect(['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $campaignId]]); // Redirect after saving
+            }
+            $this->Flash->error(__('The design draft could not be saved. Please, try again.'));
+        }
+    }
+
 
 
 }

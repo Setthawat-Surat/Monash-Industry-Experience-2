@@ -93,11 +93,27 @@ class DesignPhotosController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $designPhoto = $this->DesignPhotos->get($id);
         if ($this->DesignPhotos->delete($designPhoto)) {
-            $this->Flash->success(__('The design photo has been deleted.'));
+            $this->Flash->success(__('The photo has been deleted.'));
         } else {
-            $this->Flash->error(__('The design photo could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The photo could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function deletephotos($id){
+
+        $campaignId = $this->request->getQuery('cID');
+        $designDraftId = $this->request->getQuery('dID');
+        $this->request->allowMethod(['post', 'delete']);
+        $designPhoto = $this->DesignPhotos->get($id);
+        if ($this->DesignPhotos->delete($designPhoto)) {
+            $this->Flash->success(__('The photo has been deleted.'));
+        } else {
+            $this->Flash->error(__('The photo could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['controller' => 'DesignDrafts', 'action' => 'editDesign', $designDraftId, '?' => ['dID' => $designDraftId, 'cID' => $campaignId]]);
+
     }
 }
