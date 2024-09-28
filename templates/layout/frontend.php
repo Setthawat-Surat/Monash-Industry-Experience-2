@@ -66,10 +66,10 @@
         if ($this->Identity->isLoggedIn()) {
             $user_role = $this->Identity->get('role');
             if ($user_role == 'Admin') {
-                echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'Admin_dashboard']) . '" class="nav-link">Dashboard</a></button>';
+                echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'admin_dashboard']) . '" class="nav-link">Dashboard</a></button>';
             }
             elseif ($user_role == 'School') {
-                echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'School_dashboard']) . '" class="nav-link">Dashboard</a></button>';
+                echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'school_dashboard']) . '" class="nav-link">Dashboard</a></button>';
             }
         } else {
             echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'home']) . '" class="nav-link">Home</a></button>';

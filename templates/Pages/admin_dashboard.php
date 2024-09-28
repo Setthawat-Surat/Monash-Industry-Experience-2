@@ -6,6 +6,14 @@ use Cake\ORM\TableRegistry;
 $design_draft_table = TableRegistry::getTableLocator()->get('DesignDrafts');
 $awaiting_upload_design_count = $design_draft_table->find()->where(['approval_status' => 0, 'final_design_photo IS' => null])->count();
 
+if ($this->Identity->isLoggedIn()) {
+    $user_role = $this->Identity->get('role');
+    if ($user_role != 'Admin') {
+        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
+        exit;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

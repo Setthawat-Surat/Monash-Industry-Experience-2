@@ -285,7 +285,7 @@ class AuthController extends AppController
                 $user_account_status = $school_user_account_status->approval_status;
 
                 if($user_account_status){
-                    $this->redirect(['controller' => 'Pages', 'action' => 'display','School_dashboard']);
+                    $this->redirect(['controller' => 'Pages', 'action' => 'display','school_dashboard']);
                 }
                 else if(!$user_account_status){
                     $this->Flash->error('Your account has not been verified yet. Please wait for our team to verify your account. ');
@@ -294,7 +294,7 @@ class AuthController extends AppController
             }
 
             else if($user_role == 'Admin'){
-                $this->redirect(['controller' => 'Pages', 'action' => 'display','Admin_dashboard']);
+                $this->redirect(['controller' => 'Pages', 'action' => 'display','admin_dashboard']);
             }
 
 
