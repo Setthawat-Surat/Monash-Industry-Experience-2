@@ -1,11 +1,3 @@
-<?php
-use Cake\ORM\TableRegistry;
-
-$school_table = TableRegistry::getTableLocator()->get('Schools');
-$user_id = $this->Identity->get('id');
-$school_rep= $school_table->find()->where(['id' => $user_id])->first();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
