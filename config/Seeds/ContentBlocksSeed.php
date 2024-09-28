@@ -273,7 +273,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'description' => 'FAQ Answer1',
                 'slug' => 'faq-answer1',
                 'type' => 'text',
-                'value' => "By visiting the Organic Print Studio",
+                'value' => "By visiting the Organic Print Studio for Schools website, and navigating to the 'Register' button on the top right hand side of the page. You will be prompted to make an account with your details, and set a password. ",
             ],
             [
                 'parent' => 'FAQ',
@@ -281,7 +281,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'description' => 'FAQ Answer2',
                 'slug' => 'faq-answer2',
                 'type' => 'text',
-                'value' => "A campaign",
+                'value' => "A campaign is set up when a school has",
             ],
             [
                 'parent' => 'FAQ',
