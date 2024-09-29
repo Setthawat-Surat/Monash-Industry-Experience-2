@@ -99,6 +99,9 @@
     </nav>
 
 
+    <!-- Mask layer -->
+    <div class="mask"></div>
+
     <!-- Shopping Cart Tab -->
     <div class="cartTab">
         <h1>Shopping Cart</h1>

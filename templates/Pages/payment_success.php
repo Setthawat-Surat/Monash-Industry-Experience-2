@@ -40,6 +40,11 @@ $homePageUrl = 'home'; // URL of the homepage
         }
     </style>
     <script>
+
+
+        // clear the shopping cart in localStorage
+        localStorage.removeItem('cart');
+
         let countdown = <?= $redirectDelay ?>;
 
         function updateTimer() {

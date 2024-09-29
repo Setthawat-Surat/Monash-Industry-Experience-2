@@ -3842,22 +3842,48 @@ textarea:hover {
 
 /* shopping cart */
 
+/*Hide the initial state of the shopping cart*/
 .cartTab {
     width: 400px;
     background: linear-gradient(135deg, #353432, #3c3b3a);
-    color: #eee;
-    position: fixed;
-    inset: 0 -400px 0 auto;
-    display: grid;
-    grid-template-rows: 70px 1fr 70px;
-    transition: transform .5s ease-in-out;
-    z-index: 1001;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
+    color: #eee;
+    position: fixed;
+    right: -400px; /*Initial hidden shopping cart*/
+    top: 0;
+    bottom: 0;
+    transition: right 0.5s ease;
+    z-index: 1001;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px;
 }
+
+/* 显示购物车 */
+.showCart .cartTab {
+    right: 0; /*Slide the shopping cart into the view*/
+}
+
+/*Mask layer*/
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /*Initial Hide*/
+    z-index: 1000; /*Located under the shopping cart*/
+}
+
+/*Display Mask Layer*/
+.showCart .mask {
+    display: block;
+}
+
 
 .cartTab h1 {
     font-family: "Poppins", sans-serif;
@@ -3868,9 +3894,7 @@ textarea:hover {
     color: #ffffff;
 }
 
-body .showCart {
-    inset: 0 0 0 auto;
-}
+
 
 body .showCart .container {
     transform: translateX(-250px);

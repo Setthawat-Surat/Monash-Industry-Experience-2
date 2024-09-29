@@ -3,19 +3,25 @@ let listCartHTML = document.querySelector('.listCart');
 let iconCartSpan = document.querySelector('.icons span');
 let iconCart = document.querySelector('.icons');
 let closeCart = document.querySelector('.close');
+let mask = document.querySelector('.mask');
 let body = document.querySelector('.cartTab');
 let totoalPriceSpan = document.getElementById('totalPrice');
 //let cart = [];
 
+// When clicking on the shopping cart icon, display the shopping cart and mask layer
 iconCart.addEventListener('click', () => {
-    console.log("toggle showCart");
-    body.classList.toggle('showCart');
-})
+    document.body.classList.add('showCart');
+});
 
+// Click the close button to close the shopping cart and mask layer
 closeCart.addEventListener('click', () => {
-    console.log("toggle showCart");
-    body.classList.toggle('showCart');
-})
+    document.body.classList.remove('showCart');
+});
+
+// Click on the mask layer to close the shopping cart and mask layer
+mask.addEventListener('click', () => {
+    document.body.classList.remove('showCart');
+});
 
 
 // button turns to green after clicking
