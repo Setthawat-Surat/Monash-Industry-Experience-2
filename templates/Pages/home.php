@@ -323,13 +323,13 @@ $this->assign('title', 'Fundraising');
                 <div class="horizontal-container">
                     <div class="horizontal-item">
                         <p class="cs-text"><br><br>
-                            "Susy was brilliant to work with, she was very
-                            informative about the process and guided me through
-                            every step. The final product looks and feels amazing, is
-                            of high quality and was delivered on time. I would
-                            definitely work with Susy again!"<br><br>
-                            Emily<br>
-                            Gowrie Clare Court Kinder
+                            "We recently worked with Susy to create a tea towel
+                            for school's 150th celebration, and we couldn't be happier
+                            with the result! We couldn't have asked for a better experience,
+                            and we highly recommend her to anyone looking for quality
+                            and care in their custom creations!"<br><br>
+                            Michelle<br>
+                            Oakey State School
                         </p>
                     </div>
                     <div class="horizontal-item">
@@ -339,17 +339,22 @@ $this->assign('title', 'Fundraising');
                             patient with me doing my first school fundraiser! I
                             appreciated your courteous and kind manner. I will
                             certainly be recommending your business to my
-                            friends."<br><br>
+                            friends."<br><br><br>
                             Narelle<br>
                             Merri-bek Primary School
+
                         </p>
                     </div>
                     <div class="horizontal-item">
-                        <picture>
-                            <source media="(max-width: 600px)" srcset="<?= $this->Url->image('Testimonial_picture.png') ?>">
-                            <source media="(min-width: 601px)" srcset="<?= $this->Url->image('Testimonial_picture.png') ?>">
-                            <img loading="lazy" decoding="async" src="<?= $this->Url->image('Testimonial_picture.png') ?>" alt="Footer Background" width="1920" height="1200" aria-hidden="true">
-                        </picture>
+                        <p class="cs-text"><br><br>
+                            "Susy was brilliant to work with, she was very
+                            informative about the process and guided me through
+                            every step. The final product looks and feels amazing, is
+                            of high quality and was delivered on time. I would
+                            definitely work with Susy again!"<br><br><br>
+                            Emily<br>
+                            Gowrie Clare Court Kinder
+                        </p>
                     </div>
                 </div>
             </div>

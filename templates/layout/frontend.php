@@ -76,9 +76,8 @@
         }
         ?>
         <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'About_us'])?>" class="nav-link">About</a></button>
-            <button class="nav-button"><a href="#" class="nav-link">Services</a></button>
         <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'Faqs'])?>" class="nav-link">FAQ's</a></button>
-        <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'the_process'])?>" class="nav-link">The process</a></button>
+        <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'the_process'])?>" class="nav-link">The Process</a></button>
         <button class="nav-button"><a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'register']) ?>" class="nav-link">Register</a></button>
         <?php
         if (!$this->Identity->isLoggedIn()) {
