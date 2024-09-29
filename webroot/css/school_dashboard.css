@@ -11519,6 +11519,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #sigupbody input[type=email],
 #sigupbody input[type=password],
 #sigupbody input[type=tel],
+#sigupbody input[type=number],
+#sigupbody input[type=date],
 #sigupbody textarea {
     display: block;
     -webkit-appearance: none;
@@ -11529,6 +11531,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     padding: 8px;
     margin-bottom: 8px;
     position: relative;
+    height: 44px;
 }
 #sigupbody input[type=text]:focus,
 #sigupbody input[type=email]:focus,
@@ -11537,6 +11540,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #sigupbody textarea:focus {
     outline: none;
     border: 1px solid #22938a; /* darken(#2cbab2,10%) */
+}
+
+.cp-error-message {
+    color: red;
+    font-size: 12px;
+    margin-left: 10px;
+
 }
 
 #sigupbody input[type=radio] {
@@ -11688,6 +11698,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #sigupbody .btn:hover {
     background: #26978b; /* darken(#2cbab2, 6%) */
+}
+
+/*Browsers targeting the WebKit kernel (such as Chrome, Safari, Edge)*/
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*For Firefox browser*/
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 

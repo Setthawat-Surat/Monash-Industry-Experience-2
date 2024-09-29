@@ -91,19 +91,41 @@ $("#next").on("click", function(e){
 
 
 $("#signup").on("submit", function(e) {
-    if ($("#next").is(":visible") || $("fieldset.current").index() < 2) {
+    if ($("#next").is(":visible") || $("fieldset.current").index() < 3) {
         e.preventDefault();
     }
+
 
     // Validate the last section's date fields
     var startDate = new Date($("#start-date").val());
     var endDate = new Date($("#end-date").val());
 
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+
+    // Clear previous error messages
+    $("cp-error-message").text("").hide();
+
+
     if (endDate < startDate) {
-        alert("End Date should not be earlier than Start Date.");
+        $("cp-error-message").text("End Date should not be earlier than Start Date.").show();
         $("#end-date").addClass("error");
         e.preventDefault(); // Prevent form submission if dates are invalid
-    } else {
+    }
+    else if (startDate < today || endDate < today) {
+        if (startDate < today) {
+            $("cp-error-message").text("Start Date cannot be in the past.").show();
+            $("#start-date").addClass("error");
+        }
+        if (endDate < today) {
+            $("cp-error-message").text("End Date cannot be in the past.").show();
+            $("#end-date").addClass("error");
+        }
+        e.preventDefault();
+    }
+    else {
+        $(".cp-error-message").text("").hide();
         $("#end-date").removeClass("error");
     }
 });
@@ -112,22 +134,21 @@ function goToSection(i){
     var currentFieldset = $("fieldset.current");
 
     // Validate current section before transitioning
-    if (validateFields(currentFieldset)) {
 
-        $("fieldset:gt("+i+")").removeClass("current").addClass("next");
-        $("fieldset:lt("+i+")").removeClass("current");
-        $(".orderli").eq(i).addClass("current").siblings().removeClass("current");
-        setTimeout(function(){
-            $("fieldset").eq(i).removeClass("next").addClass("current active");
-            if ($("fieldset.current").index() == 2){
-                $("#next").hide();
-                $("input[type=submit]").show();
-            } else {
-                $("#next").show();
-                $("input[type=submit]").hide();
-            }
-        }, 80);
-    }
+    $("fieldset:gt("+i+")").removeClass("current").addClass("next");
+    $("fieldset:lt("+i+")").removeClass("current");
+    $(".orderli").eq(i).addClass("current").siblings().removeClass("current");
+    setTimeout(function(){
+        $("fieldset").eq(i).removeClass("next").addClass("current active");
+        if ($("fieldset.current").index() == 3){
+            $("#next").hide();
+            $("input[type=submit]").show();
+        } else {
+            $("#next").show();
+            $("input[type=submit]").hide();
+        }
+    }, 80);
+
 
 }
 
@@ -135,17 +156,27 @@ function nextSection(){
     var i = $("fieldset.current").index();
     //console.log("here is nextsection");
 
-    if (i < 2){
+    if (i < 3){
         $(".orderli").eq(i+1).addClass("active");
         //console.log($(".orderli").length);
-        goToSection(i+1);
+        if (validateFields( $("fieldset.current"))){
+            goToSection(i+1);
+        }
     }
 }
 
 $(".orderli").on("click", function(e){
     var i = $(this).index();
     if ($(this).hasClass("active")){
-        goToSection(i);
+        if (i<= $("fieldset.current").index()) {
+            $(".cp-error-message").text("").hide();
+            goToSection(i);
+        }
+        else{
+            if (validateFields($("fieldset.current"))){
+                goToSection(i);
+            }
+        }
     } else {
         alert("Please complete previous sections first.");
     }
@@ -153,29 +184,66 @@ $(".orderli").on("click", function(e){
 
 function validateFields(fieldset) {
     let valid = true;
+
+
     const inputs = fieldset.find("input[required], textarea[required]");
     inputs.each(function() {
         if (!this.checkValidity()) {
             $(this).addClass("error");
-            valid = false;
-            // Display the custom error message
             var errorMessage = this.validationMessage || 'Invalid input.';
-            alert("Error in '" + this.name + "': " + errorMessage + this.t);
+            $("#" + this.id + "-error").text(errorMessage).show();
+            valid = false;
+            if (this.type == 'text'){
+                $(".cp-error-message").text("Campaign name can only contain letters and numbers.").show();
+            }
+            else if (this.type == 'number'){
+                // get the input value
+                let inputValue = parseInt(this.value, 10); 
+
+                // check if the value greater than 2024
+                if (inputValue > 2024) {
+                    this.value = 2024;
+                }
+                $(".cp-error-message").text("Please input a valid number between 1 and 2024.").show();
+            }
+
         } else {
             $(this).removeClass("error");
+            $(".cp-error-message").text("").hide();
         }
     });
 
+
+
     // Custom validation for date fields
-    if (fieldset.find("#start-date").length && fieldset.find("#end-date").length) {
+    if (fieldset.find("#start-date").length || fieldset.find("#end-date").length) {
         var startDate = new Date(fieldset.find("#start-date").val());
         var endDate = new Date(fieldset.find("#end-date").val());
 
+
+        // Get the current date and set it to 00:00:00
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+
         if (endDate < startDate) {
-            alert("End Date should not be earlier than Start Date.");
+            $(".cp-error-message").text("End Date should not be earlier than Start Date.").show();
+
             fieldset.find("#end-date").addClass("error");
             valid = false;
-        } else {
+        }
+        //The inspection date cannot be a past date
+        else if (startDate < today || endDate < today) {
+            $(".cp-error-message").text("Dates cannot be in the past.").show();
+            if (startDate < today) {
+                fieldset.find("#start-date").addClass("error");
+            }
+            if (endDate < today) {
+                fieldset.find("#end-date").addClass("error");
+            }
+            valid = false;
+        }
+        else {
+            $(".cp-error-message").text("").hide();
             fieldset.find("#end-date").removeClass("error");
         }
     }

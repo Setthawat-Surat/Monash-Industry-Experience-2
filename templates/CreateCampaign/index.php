@@ -33,6 +33,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <li class="current active orderli" ><span>1.</span> Step1</li>
         <li class="orderli"><span>2.</span> Step2</li>
         <li class="orderli"><span>3.</span> Step3</li>
+        <li class="orderli"><span>4.</span> Step4</li>
     </ul>
 
     <div id="fieldsets">
@@ -42,13 +43,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
                 <?= $this->Form->control('name', [
                     'label' => 'Campaign Name:',
+                    'type' => 'text',
                     'required' => true,
                     'pattern' => '[a-zA-Z0-9\s]*',
                     'minlength' => '3',
-                    'title' => 'Campaign Name should only contain letters and spaces',
+                    'title' => 'Campaign Name should only contain letters and numebers',
                     'placeholder' => 'Enter Campaign name',
                 ]) ?>
             </div>
+            <span class="cp-error-message" id="cp-error"> </span> <!-- error message show here -->
 
         </fieldset>
 
@@ -59,13 +62,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     'label' => 'Default Sales Price:',
                     'required' => true,
                     'type' => 'number',
-                    'min' => '0',
+                    'min' => '1',
+                    'max' => '2024',
                     'placeholder' => 'Enter default sales price',
                     'style' => 'appearance: textfield; -moz-appearance: textfield; -webkit-appearance: none;',
                 ]) ?>
 
             </div>
-
+            <span class="cp-error-message" id="cp-error"></span> <!-- error message show here -->
 
         </fieldset>
 
@@ -78,17 +82,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 'id' => 'start-date'
             ]) ?>
             <div>
+                <span class="cp-error-message" id="cp-error"></span> <!-- error message show here -->
+        </fieldset>
 
+        <fieldset class="next">
             <div class="form-group">
+
                 <?= $this->Form->control('end_date', [
                     'label' => 'End Date :',
                     'required' => true,
                     'type' => 'date',
                     'id' => 'end-date'
                 ]) ?>
-
                 <div>
 
+                    <span class="cp-error-message" id="cp-error"></span> <!-- error message show here -->
         </fieldset>
 
         <a class="btn" id="next">Next Section ▷</a>
