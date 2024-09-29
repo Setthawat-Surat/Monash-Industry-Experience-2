@@ -3522,6 +3522,44 @@ textarea:hover {
 }
 */
 
+/* privacy policy page */
+#privacy-policy {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+}
+
+#privacy-policy h1 {
+    font-size: 30px;
+}
+
+#privacy-policy h2 {
+    font-size: 20px;
+}
+
+/* terms and conditions page */
+#terms-and-conditions {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid black;*/
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+}
+
+#terms-and-conditions h1 {
+    font-size: 30px;
+}
+
+#terms-and-conditions h2 {
+    font-size: 20px;
+}
 
 
 
