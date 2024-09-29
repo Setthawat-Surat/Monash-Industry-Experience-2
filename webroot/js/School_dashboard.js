@@ -105,21 +105,21 @@ $("#signup").on("submit", function(e) {
 
 
     // Clear previous error messages
-    $("cp-error-message").text("").hide();
+    $(".cp-error-message").text("").hide();
 
 
     if (endDate < startDate) {
-        $("cp-error-message").text("End Date should not be earlier than Start Date.").show();
+        $(".cp-error-message").text("End Date should not be earlier than Start Date.").show();
         $("#end-date").addClass("error");
         e.preventDefault(); // Prevent form submission if dates are invalid
     }
     else if (startDate < today || endDate < today) {
         if (startDate < today) {
-            $("cp-error-message").text("Start Date cannot be in the past.").show();
+            $(".cp-error-message").text("Start Date cannot be in the past.").show();
             $("#start-date").addClass("error");
         }
         if (endDate < today) {
-            $("cp-error-message").text("End Date cannot be in the past.").show();
+            $(".cp-error-message").text("End Date cannot be in the past.").show();
             $("#end-date").addClass("error");
         }
         e.preventDefault();
@@ -194,11 +194,11 @@ function validateFields(fieldset) {
             $("#" + this.id + "-error").text(errorMessage).show();
             valid = false;
             if (this.type == 'text'){
-                $(".cp-error-message").text("Campaign name can only contain letters and numbers.").show();
+                $(".cp-error-message").text("Campaign name can only contain letters and numbers and length at least 3.").show();
             }
             else if (this.type == 'number'){
                 // get the input value
-                let inputValue = parseInt(this.value, 10); 
+                let inputValue = parseInt(this.value, 10);
 
                 // check if the value greater than 2024
                 if (inputValue > 2024) {

@@ -1981,6 +1981,10 @@ textarea.form-control {
 
 .form-group {
   margin-bottom: 1rem;
+
+    max-width: 90%;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
 .form-text {
@@ -11508,7 +11512,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     left: 0px;
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 30px;
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 10px;
@@ -11543,9 +11547,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .cp-error-message {
-    color: red;
+    display: block; /* 确保错误信息独占一行 */
+    width: 80%; /* 占据父容器的最大宽度 */
+    max-width: 100%; /* 不超过父容器 */
+    color: red; /* 设置错误消息的颜色 */
+    margin-top: 5px; /* 为错误消息添加适当的上边距 */
+    box-sizing: border-box; /* 确保包括内边距和边框 */
     font-size: 12px;
-    margin-left: 10px;
 
 }
 
@@ -11570,6 +11578,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #sigupbody fieldset.current {
     left: 20px;
     opacity: 1;
+    max-width: 100%;
 }
 
 #sigupbody fieldset.next {
@@ -11583,34 +11592,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #sigupbody #section-tabs {
     font-size: 0.8em;
-    height: 50px;
     position: relative;
     margin-top: -50px;
     margin-bottom: 50px;
-
     font-weight: bold;
     list-style: none;
     text-transform: uppercase;
 
+    display: flex; /* 使用 flexbox 布局 */
+    justify-content: space-between; /* 子元素在水平方向上等间距分布 */
+    flex-wrap: nowrap; /* 禁止换行 */
+    padding: 0;
 }
 
 #sigupbody #section-tabs .orderli {
     color: #a7a7a7;
     cursor: not-allowed;
-    border-left: 1px solid #aaa;
     text-decoration: none;
     padding: 0 6px;
-    float: left;
-    width: 25%;
+    width: 25%; /* 每个li占父元素25%的宽度 */
     box-sizing: border-box;
     text-align: center;
     font-weight: bold;
     line-height: 30px;
     background: #ddd;
     position: relative;
-    border: black;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* 去除float，使用flexbox布局 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #sigupbody #section-tabs .orderli span {
@@ -11643,6 +11656,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     border: 14px solid transparent;
     border-left: 14px solid #007bff;
 }
+
 
 #sigupbody .error {
     color: #bf2424;
