@@ -3,6 +3,13 @@
  * @var \App\View\AppView $this
  * @var iterable<\App\Model\Entity\DesignDraft> $designDrafts
  */
+if ($this->Identity->isLoggedIn()) {
+    $user_role = $this->Identity->get('role');
+    if ($user_role != 'Admin') {
+        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
+        exit;
+    }
+}
 ?>
 <div class="designDrafts index content">
     <?= $this->Html->link(__('New Design Draft'), ['action' => 'add'], ['class' => 'button float-right']) ?>

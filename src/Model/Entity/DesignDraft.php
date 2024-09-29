@@ -13,7 +13,10 @@ use Cake\ORM\Entity;
  * @property string|null $design_yearlevel
  * @property string|null $specifications
  * @property string|null $approval_status
+ * @property string|null $belly_band
  * @property string|null $sales_price
+ * @property string|null $logo_position
+ * @property string|null $feedback
  * @property string|null $final_design_photo
  * @property int|null $campaign_id
  * @property int|null $user_id
@@ -39,6 +42,7 @@ class DesignDraft extends Entity
         'specifications' => true,
         'logo_position' => true,
         'approval_status' => true,
+        'belly_band' => true,
         'sales_price' => true,
         'final_design_photo' => true,
         'feedback' => true,

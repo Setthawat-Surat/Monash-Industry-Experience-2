@@ -17,17 +17,17 @@ $this->assign('title', 'Fundraising');
     </picture>
     <picture class="cs-picture">
         <!--Mobile Image-->
-        <source media="(max-width: 600px)" srcset="<?= $this->Url->image('photo_gallery_5.jpg')?>">
+        <source media="(max-width: 600px)" srcset="<?= $this->Url->image('photo_gallery_5.png')?>">
         <!--Tablet and above Image-->
-        <source media="(min-width: 601px)" srcset="<?= $this->Url->image('photo_gallery_5.jpg')?>">
-        <img loading="lazy" decoding="async" src="<?= $this->Url->image('photo_gallery_5.jpg')?>" alt="picture" width="480" height="549">
+        <source media="(min-width: 601px)" srcset="<?= $this->Url->image('photo_gallery_5.png')?>">
+        <img loading="lazy" decoding="async" src="<?= $this->Url->image('photo_gallery_5.png')?>" alt="picture" width="480" height="549">
     </picture>
     <picture class="cs-picture">
         <!--Mobile Image-->
-        <source media="(max-width: 600px)" srcset="<?= $this->Url->image('photo_gallery_4.jpg')?>">
+        <source media="(max-width: 600px)" srcset="<?= $this->Url->image('photo_gallery_4.png')?>">
         <!--Tablet and above Image-->
-        <source media="(min-width: 601px)" srcset="<?= $this->Url->image('photo_gallery_4.jpg')?>">
-        <img loading="lazy" decoding="async" src="<?= $this->Url->image('photo_gallery_4.jpg')?>" alt="picture" width="480" height="549">
+        <source media="(min-width: 601px)" srcset="<?= $this->Url->image('photo_gallery_4.png')?>">
+        <img loading="lazy" decoding="async" src="<?= $this->Url->image('photo_gallery_4.png')?>" alt="picture" width="480" height="549">
     </picture>
 </section><br><br>
 

@@ -8,6 +8,14 @@ $design_draft_table = TableRegistry::getTableLocator()->get('DesignDrafts');
 $design_photo_table = TableRegistry::getTableLocator()->get('DesignPhotos');
 
 $school = $school_table->find()->all();
+
+if ($this->Identity->isLoggedIn()) {
+    $user_role = $this->Identity->get('role');
+    if ($user_role != 'Admin') {
+        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
+        exit;
+    }
+}
 ?>
 
 <div id="layoutSidenav_content">
@@ -49,6 +57,7 @@ $school = $school_table->find()->all();
                                                 <p class="card-text"><strong>Specification: </strong><?= h($designs->specifications) ?></p>
                                                 <p class="card-text"><strong>Status: </strong><?= $designs->approval_status ? 'Approved' : 'Awaiting for your final design upload' ?></p>
                                                 <p class="card-text"><strong>School Logo Position: </strong><?= h($designs->logo_position) ?></p>
+                                                <p class="card-text"><strong>Belly Bands Required? :</strong> <?= h($designs->belly_band) ? 'Yes' : 'No' ?></p>
                                                 <p class="card-text"><strong>Design photos: </strong></p>
                                                 <div class="card-img-container">
                                                     <?php foreach ($design_photo as $photo): ?>
@@ -125,6 +134,7 @@ $school = $school_table->find()->all();
                                                 <p class="card-text"><strong>Specification: </strong><?= h($designs->specifications) ?></p>
                                                 <p class="card-text"><strong>Status: </strong><?= $designs->approval_status ? 'Approved by school representative' : 'Awaiting for your final design upload' ?></p>
                                                 <p class="card-text"><strong>School Logo Position: </strong><?= h($designs->logo_position) ?></p>
+                                                <p class="card-text"><strong>Belly Bands Required? :</strong> <?= h($designs->belly_band) ? 'Yes' : 'No' ?></p>
                                                 <p class="card-text"><strong>Design photos: </strong></p>
                                                 <div class="card-img-container">
                                                     <?php foreach ($design_photo as $photo): ?>
@@ -134,14 +144,14 @@ $school = $school_table->find()->all();
                                                         ) ?>
                                                     <?php endforeach; ?>
                                                 </div>
-                                                <p class="card-text"><strong>LSchool logo: </strong></p>
+                                                <p class="card-text"><strong>School logo: </strong></p>
                                                 <div class="card-img-container">
                                                     <?= $this->Html->image(
                                                         'school_logo_img/' . h($schools->logo),
                                                         ['class' => 'card-img', 'alt' => 'School logo']
                                                     ) ?>
                                                 </div>
-                                                <p class="card-text"><strong>Final disign: </strong></p>
+                                                <p class="card-text"><strong>Final design: </strong></p>
                                                 <div class="card-img-container">
                                                     <?= $this->Html->image(
                                                         'final_design/' . h($designs->final_design_photo),

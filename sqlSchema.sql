@@ -42,6 +42,7 @@ CREATE TABLE design_drafts (
                                specifications VARCHAR(256),
                                logo_position VARCHAR(256),
                                approval_status TINYINT(1),
+                               belly_band TINYINT(1),
                                sales_price VARCHAR(256),
                                final_design_photo VARCHAR(256),
                                feedback VARCHAR(1000),

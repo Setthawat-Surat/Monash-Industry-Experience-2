@@ -16,11 +16,6 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-    <title>Modern Registration Form</title>
-
-</head>
 <body>
 <div class="form-wrapper">
     <section id="registration-form">

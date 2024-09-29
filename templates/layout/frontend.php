@@ -54,7 +54,7 @@
 <!-- ============================================ -->
 
 <section id="website-logo">
-    <img src="<?= $this->Url->image('OrganicPrintStudioLogo.jpg')?>" alt="Website Logo">
+    <img src="<?= $this->Url->image('OrganicPrintStudioLogo.png')?>" alt="Website Logo">
 </section>
 
 <!-- ============================================ -->
@@ -66,10 +66,10 @@
         if ($this->Identity->isLoggedIn()) {
             $user_role = $this->Identity->get('role');
             if ($user_role == 'Admin') {
-                echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'Admin_dashboard']) . '" class="nav-link">Dashboard</a></button>';
+                echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'admin_dashboard']) . '" class="nav-link">Dashboard</a></button>';
             }
             elseif ($user_role == 'School') {
-                echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'School_dashboard']) . '" class="nav-link">Dashboard</a></button>';
+                echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'school_dashboard']) . '" class="nav-link">Dashboard</a></button>';
             }
         } else {
             echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'home']) . '" class="nav-link">Home</a></button>';
@@ -78,7 +78,7 @@
         <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'About_us'])?>" class="nav-link">About</a></button>
             <button class="nav-button"><a href="#" class="nav-link">Services</a></button>
         <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'Faqs'])?>" class="nav-link">FAQ's</a></button>
-        <button class="nav-button"><a href="#" class="nav-link">The process</a></button>
+        <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'the_process'])?>" class="nav-link">The process</a></button>
         <button class="nav-button"><a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'register']) ?>" class="nav-link">Register</a></button>
         <?php
         if (!$this->Identity->isLoggedIn()) {

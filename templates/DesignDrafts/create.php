@@ -71,7 +71,8 @@ $campaignId = $this->request->getQuery('cID');
                             'id' => 'sales_price',
                             'class' => 'form-control',
                             'placeholder' => 'Enter sells price',
-                            'step' => '0.01'
+                            'step' => '0.01',
+                            'min' => '0'
                         ]) ?>
                     </div>
                 </div>
@@ -90,12 +91,13 @@ $campaignId = $this->request->getQuery('cID');
                         'Top-right' => 'Top-right',
                         'Bottom-left' => 'Bottom-left',
                         'Bottom-right' => 'Bottom-right',
-                        'Center' => 'Center'
+                        'Center' => 'Center',
+                        'I prefer not to have school logo on the tea towel' => 'I prefer not to have school logo on the tea towel'
                     ],
                     'required' => true,
                     'id' => 'logo_position',
                     'class' => 'form-control',
-                    'empty' => 'Select school logo position'
+                    'empty' => '=== Select school logo position from the list ==='
                 ]) ?>
             </div>
 
@@ -108,6 +110,34 @@ $campaignId = $this->request->getQuery('cID');
                     'placeholder' => 'Enter design description'
                 ]) ?>
             </div>
+
+            <div class="form-group">
+                <label>Packaging Option (Belly Bands) <span class="required-asterisk">*</span></label>
+                <div class="form-check">
+                    <?= $this->Form->checkbox('belly_band', [
+                        'label' => false,
+                        'class' => 'form-check-input',
+                        'id' => 'option_one',
+                        'value' => '1',
+                        'hiddenField' => false,
+                        'onclick' => 'toggleCheckbox(this, "option_two")'
+                    ]); ?>
+                    <label class="form-check-label" for="option_one">Yes, I would like to have a belly band.</label>
+                </div>
+                <div class="form-check">
+                    <?= $this->Form->checkbox('belly_band', [
+                        'label' => false,
+                        'class' => 'form-check-input',
+                        'id' => 'option_two',
+                        'value' => '0',
+                        'hiddenField' => false,
+                        'onclick' => 'toggleCheckbox(this, "option_one")'
+                    ]); ?>
+                    <label class="form-check-label" for="option_two">No, I don't want a belly band.</label>
+                </div>
+            </div>
+
+
 
             <div class="form-group">
                 <label>Upload Student Designs <span class="required-asterisk">*</label>

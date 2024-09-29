@@ -9,6 +9,15 @@ $user_id = $this->Identity->get('id');
 $created_campaign= $campaign_table->find()->where(['school_id' => $user_id])->all();
 $campaignCount = $campaign_table->find()->where(['school_id' => $user_id])->count();
 
+
+if ($this->Identity->isLoggedIn()) {
+    $user_role = $this->Identity->get('role');
+    if ($user_role != 'School') {
+        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
+        exit;
+    }
+}
+
 ?>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
 

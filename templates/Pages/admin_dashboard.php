@@ -3,6 +3,17 @@ $this->setLayout('Admin_dashboard');
 
 use Cake\ORM\TableRegistry;
 
+$design_draft_table = TableRegistry::getTableLocator()->get('DesignDrafts');
+$awaiting_upload_design_count = $design_draft_table->find()->where(['approval_status' => 0, 'final_design_photo IS' => null])->count();
+
+if ($this->Identity->isLoggedIn()) {
+    $user_role = $this->Identity->get('role');
+    if ($user_role != 'Admin') {
+        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
+        exit;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +21,20 @@ use Cake\ORM\TableRegistry;
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1><br><br>
+                        <h1 class="mt-4">Dashboard</h1><br>
+                        <?php if ($awaiting_upload_design_count > 0) { ?>
+                            <div class="alert alert-warning mt-4" role="alert">
+                                <h4 class="alert-heading">
+                                    <i class="fas fa-exclamation-triangle"></i> Action required!
+                                </h4>
+                                <p>You have upcoming designs awaiting your final submission. Please upload your final design.</p>
+                                <hr>
+                                <button type="button" class="btn btn-light btn-warning mt-3" onclick="window.location.href='<?= $this->Url->build(['controller'=>'DesignDrafts', 'action' => 'adminViewDesign']) ?>'">Upload Final Design</button>
+                            </div><br><br>
+                        <?php } ?>
+
+
+
                         <!--
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
@@ -129,18 +153,6 @@ use Cake\ORM\TableRegistry;
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
     </body>

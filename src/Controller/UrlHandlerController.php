@@ -147,6 +147,13 @@ class UrlHandlerController extends AppController
         ]);
     }
 
+    public function process(){
+        return $this->redirect([
+            'controller' => 'pages',
+            'action' => 'the_process'
+        ]);
+    }
+
 
 
 }

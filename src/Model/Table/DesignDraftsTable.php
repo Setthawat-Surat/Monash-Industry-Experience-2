@@ -93,6 +93,11 @@ class DesignDraftsTable extends Table
             ->allowEmptyString('approval_status');
 
         $validator
+            ->scalar('belly_band')
+            ->maxLength('belly_band', 256)
+            ->allowEmptyString('belly_band');
+
+        $validator
             ->scalar('sales_price')
             ->maxLength('sales_price', 256)
             ->allowEmptyString('sales_price');
