@@ -222,20 +222,27 @@ $this->assign('title', 'Register');
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <!-- Checkbox for Terms and Conditions and Privacy Policy -->
-                <?= $this->Form->control('terms_and_privacy', [
-                    'type' => 'checkbox',
-                    'label' => [
-                        'text' => 'I agree to the <a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'terms_and_conditions']) . '" target="_blank">Terms and Conditions</a> and the <a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'privacy_policy']) . '" target="_blank">Privacy Policy</a> <span class="required-asterisk">*</span>',
-                        'escape' => false
-                    ],
-                    'required' => true,
-                    'id' => 'terms_and_privacy',
-                    'name' => 'terms_and_privacy'
-                ]) ?>
-            </div>
+        <div class="form-row" style="display: flex; align-items: center;">
+            <!-- Checkbox for Terms and Conditions and Privacy Policy -->
+            <?= $this->Form->control('terms_and_privacy', [
+                'type' => 'checkbox',
+                'label' => false, // Disable default label
+                'required' => true,
+                'id' => 'terms_and_privacy',
+                'name' => 'terms_and_privacy',
+                'style' => 'margin: 0 10px 0 0;' // Space on the right for the label
+            ]) ?>
+            <label for="terms_and_privacy" style="font-size: 16px; margin: 0;">
+                I agree to the
+                <a href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'terms_and_conditions']) ?>" target="_blank">
+                    Terms and Conditions
+                </a>
+                and the
+                <a href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'privacy_policy']) ?>" target="_blank">
+                    Privacy Policy
+                </a>
+                <span class="required-asterisk" style="color: red;">*</span>
+            </label>
         </div>
 
 
