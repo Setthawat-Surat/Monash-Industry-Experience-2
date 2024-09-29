@@ -89,7 +89,7 @@
         ?>
 
         <div id="shopping_cart_section">
-            <div class="icons">
+            <div class="icons quantity">
                 <i class="fas fa-shopping-cart"></i>
                 <span>0</span>
             </div>
@@ -105,9 +105,14 @@
         <div class="listCart">
 
         </div>
+        <div class="totalPriceContainer">
+            <span class="subtotalLabel">Subtotal:</span>
+            <span class="subtotalPrice" id="totalPrice">0.00</span>
+        </div>
+
         <div class="cartbtn">
             <button class="close">CLOSE</button>
-            <a href="/Stripe" id="checkoutLink" class="checkOut"><button>Check Out</button></a>
+            <a href="/Stripe" id="checkoutLink" class="checkOut checkout-link"><button class="checkbtn">Check Out</button></a>
         </div>
     </div>
 

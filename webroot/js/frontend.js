@@ -4,6 +4,7 @@ let iconCartSpan = document.querySelector('.icons span');
 let iconCart = document.querySelector('.icons');
 let closeCart = document.querySelector('.close');
 let body = document.querySelector('.cartTab');
+let totoalPriceSpan = document.getElementById('totalPrice');
 //let cart = [];
 
 iconCart.addEventListener('click', () => {
@@ -118,6 +119,7 @@ const addCartToHTML = () =>{
 
     // Initialize total quantity
     let totalQuantity = 0;
+    let price = 0;
 
     // Clear the existing content of the listCartHTML element
     listCartHTML.innerHTML = '';
@@ -131,9 +133,12 @@ const addCartToHTML = () =>{
         cart.forEach(item => {
             console.log(item.image);
 
-            totalQuantity += item.quantity;
+            totalQuantity += 1;
+
+
 
             var totalPrice = item.price * item.quantity;
+            price += totalPrice;
             var formattedPrice = totalPrice.toFixed(2);
 
             // Create a new item element
@@ -155,6 +160,7 @@ const addCartToHTML = () =>{
             <div class="totalPrice">
                 $${formattedPrice}
             </div>
+            <span class="delete" onclick="removeItem(${item.id})">×</span>
             <div class="quantity">
                 <span class="minus" onclick="decrementQuantity(${item.id})"><i class="fas fa-minus"></i></span>
                 <input type="number" class="quantity-value" value="${item.quantity}" min="1" max="${item.stock}" aria-valuemax="${item.stock}" onchange="changeQuantity(${item.id}, this.value)">
@@ -165,10 +171,12 @@ const addCartToHTML = () =>{
             // Append the new item to the listCartHTML element
             listCartHTML.appendChild(newCart);
         });
+
     }
 
     // Update the iconCartSpan with the total quantity
     iconCartSpan.innerText = totalQuantity;
+    totoalPriceSpan.innerText = `$${price.toFixed(2)}`;
 }
 
 const changeQuantity = (itemId, newQuantity) => {
@@ -191,9 +199,9 @@ const changeQuantity = (itemId, newQuantity) => {
             }
         }
         else {
-            if (newQuantity > 50) {
+            if (newQuantity > 200) {
 
-                newQuantity = 50;
+                newQuantity = 200;
             }
         }
 
@@ -215,6 +223,24 @@ const changeQuantity = (itemId, newQuantity) => {
     }
 }
 
+const removeItem = (itemId) => {
+    // Retrieve the cart data from local storage
+    let cart = JSON.parse(localStorage.getItem('cart'));
+
+    // Check if cart exists
+    if (cart) {
+        // Filter out the item to be removed
+        cart = cart.filter(item => item.id !== itemId);
+
+        // Update the cart in local storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Update the cart HTML display
+        addCartToHTML();
+    }
+};
+
+
 const incrementQuantity = (itemId) => {
     // Retrieve the cart data from local storage
     let cart = JSON.parse(localStorage.getItem('cart'));
@@ -234,9 +260,9 @@ const incrementQuantity = (itemId) => {
             }
         }
         else {
-            if (newQuantity > 50) {
+            if (newQuantity > 200) {
 
-                newQuantity = 50;
+                newQuantity = 200;
             }
         }
 
@@ -247,6 +273,16 @@ const incrementQuantity = (itemId) => {
 
         // Update the cart HTML display
         addCartToHTML();
+
+
+        // Find the current button and add the 'clicked' class name
+        const plusButton = document.querySelector(`[data-id="${itemId}"] .plus`);
+        plusButton.classList.add('clicked');
+
+        // Remove the style after a period of time
+        setTimeout(() => {
+            plusButton.classList.remove('clicked');
+        }, 300); // 300 毫秒后移除 'clicked' 类
     }
 };
 
@@ -271,6 +307,16 @@ const decrementQuantity = (itemId) => {
 
         // Update the cart HTML display
         addCartToHTML();
+
+
+        //Find the current minus button and add the 'clicked' class name
+        const minusButton = document.querySelector(`[data-id="${itemId}"] .minus`);
+        minusButton.classList.add('clicked');
+
+
+        setTimeout(() => {
+            minusButton.classList.remove('clicked');
+        }, 300);
     }
 };
 
