@@ -3,9 +3,9 @@
     * Copyright 2013-2023 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
     */
-    // 
+    //
 // Scripts
-// 
+//
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -24,3 +24,15 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+function toggleBreakdown(index) {
+    var breakdownRow = document.getElementById('breakdown-' + index);
+    var icon = document.getElementById('icon-' + index);
+    if (breakdownRow.style.display === 'none') {
+        breakdownRow.style.display = 'table-row';
+        icon.innerHTML = '-'; // Change the icon to minus when expanded
+    } else {
+        breakdownRow.style.display = 'none';
+        icon.innerHTML = '+'; // Change the icon back to plus when collapsed
+    }
+}

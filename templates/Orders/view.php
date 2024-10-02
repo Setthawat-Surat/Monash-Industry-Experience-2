@@ -3,13 +3,6 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Order $order
  */
-if ($this->Identity->isLoggedIn()) {
-    $user_role = $this->Identity->get('role');
-    if ($user_role != 'Admin') {
-        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
-        exit;
-    }
-}
 ?>
 <div class="row">
     <aside class="column">
@@ -46,6 +39,37 @@ if ($this->Identity->isLoggedIn()) {
                     <td><?= h($order->date_purchase) ?></td>
                 </tr>
             </table>
+            <div class="related">
+                <h4><?= __('Related Items') ?></h4>
+                <?php if (!empty($order->items)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Name') ?></th>
+                            <th><?= __('Quantity') ?></th>
+                            <th><?= __('Design Draft Id') ?></th>
+                            <th><?= __('Order Id') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($order->items as $item) : ?>
+                        <tr>
+                            <td><?= h($item->id) ?></td>
+                            <td><?= h($item->name) ?></td>
+                            <td><?= h($item->quantity) ?></td>
+                            <td><?= h($item->design_draft_id) ?></td>
+                            <td><?= h($item->order_id) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'Items', 'action' => 'view', $item->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Items', 'action' => 'edit', $item->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Items', 'action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
             <div class="related">
                 <h4><?= __('Related Product Orders') ?></h4>
                 <?php if (!empty($order->product_orders)) : ?>

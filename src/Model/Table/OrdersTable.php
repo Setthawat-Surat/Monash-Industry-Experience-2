@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Orders Model
  *
+ * @property \App\Model\Table\ItemsTable&\Cake\ORM\Association\HasMany $Items
  * @property \App\Model\Table\ProductOrdersTable&\Cake\ORM\Association\HasMany $ProductOrders
  *
  * @method \App\Model\Entity\Order newEmptyEntity()
@@ -43,6 +44,9 @@ class OrdersTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
+        $this->hasMany('Items', [
+            'foreignKey' => 'order_id',
+        ]);
         $this->hasMany('ProductOrders', [
             'foreignKey' => 'order_id',
         ]);
@@ -72,9 +76,15 @@ class OrdersTable extends Table
             ->allowEmptyString('customer_contact_email');
 
         $validator
+            ->scalar('status')
+            ->maxLength('status', 1)
+            ->allowEmptyString('status');
+
+        $validator
             ->dateTime('date_purchase')
             ->notEmptyDateTime('date_purchase');
 
         return $validator;
     }
+
 }

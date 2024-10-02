@@ -11340,3 +11340,72 @@ body {
 
 
 
+/* General styles for the layout */
+#layoutSidenav_content {
+    padding: 20px;
+}
+
+/* Styles for the view order section */
+#view-order {
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding around the section */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Header styles */
+#view-order h1 {
+    font-size: 35px; /* Font size for the title */
+    margin-bottom: 20px; /* Space below the title */
+    color: #333; /* Dark text color */
+}
+
+/* Table styles */
+#view-order table {
+    width: 100%; /* Full width of the container */
+    border-collapse: collapse; /* Merge table borders */
+    margin-bottom: 40px;
+}
+
+#view-order thead {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff; /* White text color for the header */
+}
+
+#view-order th, td {
+    padding: 12px; /* Padding for table cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #dee2e6; /* Light border between rows */
+}
+
+#view-order tbody tr:hover {
+    background-color: #e9ecef; /* Light grey background on hover */
+}
+
+#view-order tbody td {
+    color: #495057; /* Darker text color for the table data */
+}
+
+#view-order .school-title {
+    margin-top: 20px;  /* Space above the school title */
+    margin-bottom: 10px;  /* Space below the school title */
+}
+
+
+#view-order .expand-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+#view-order .breakdown-row {
+    display: none;
+    background-color: #f9f9f9;
+}
+
+
+
+

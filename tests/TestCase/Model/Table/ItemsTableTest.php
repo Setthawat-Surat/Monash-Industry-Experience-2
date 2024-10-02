@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\OrdersTable;
+use App\Model\Table\ItemsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\OrdersTable Test Case
+ * App\Model\Table\ItemsTable Test Case
  */
-class OrdersTableTest extends TestCase
+class ItemsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\OrdersTable
+     * @var \App\Model\Table\ItemsTable
      */
-    protected $Orders;
+    protected $Items;
 
     /**
      * Fixtures
@@ -24,9 +24,9 @@ class OrdersTableTest extends TestCase
      * @var list<string>
      */
     protected array $fixtures = [
-        'app.Orders',
         'app.Items',
-        'app.ProductOrders',
+        'app.DesignDrafts',
+        'app.Orders',
     ];
 
     /**
@@ -37,8 +37,8 @@ class OrdersTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Orders') ? [] : ['className' => OrdersTable::class];
-        $this->Orders = $this->getTableLocator()->get('Orders', $config);
+        $config = $this->getTableLocator()->exists('Items') ? [] : ['className' => ItemsTable::class];
+        $this->Items = $this->getTableLocator()->get('Items', $config);
     }
 
     /**
@@ -48,7 +48,7 @@ class OrdersTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Orders);
+        unset($this->Items);
 
         parent::tearDown();
     }
@@ -57,9 +57,20 @@ class OrdersTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\OrdersTable::validationDefault()
+     * @uses \App\Model\Table\ItemsTable::validationDefault()
      */
     public function testValidationDefault(): void
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     * @uses \App\Model\Table\ItemsTable::buildRules()
+     */
+    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

@@ -154,6 +154,13 @@ class UrlHandlerController extends AppController
         ]);
     }
 
+    public function order(){
+        return $this->redirect([
+            'controller' => 'Orders',
+            'action' => 'view_order'
+        ]);
+    }
+
 
 
 }

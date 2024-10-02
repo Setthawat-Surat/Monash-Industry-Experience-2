@@ -14,6 +14,7 @@ use Cake\ORM\Entity;
  * @property string|null $customer_contact_email
  * @property \Cake\I18n\DateTime $date_purchase
  *
+ * @property \App\Model\Entity\Item[] $items
  * @property \App\Model\Entity\ProductOrder[] $product_orders
  */
 class Order extends Entity
@@ -31,7 +32,9 @@ class Order extends Entity
         'customer_name' => true,
         'customer_contact_number' => true,
         'customer_contact_email' => true,
+        'status' => true,
         'date_purchase' => true,
+        'items' => true,
         'product_orders' => true,
     ];
 }
