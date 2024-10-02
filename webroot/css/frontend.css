@@ -56,8 +56,8 @@
 
 .nav-button {
     font-family: "Poppins", sans-serif;
-    background-color: #ff00ff; /* Neon pink background color */
-    color: #ffd800; /* Neon yellow text color */
+    background-color: #f745b4; /* Neon pink background color */
+    color: white; /* Neon yellow text color */
     padding: 10px 20px; /* Padding inside the buttons */
     border: none; /* Removes the default button border */
     font-size: 16px; /* Font size for button text */
@@ -67,7 +67,6 @@
     position: relative;
     overflow: hidden; /* Ensures any pseudo-elements stay within the button */
     border-radius: 50px; /* Makes the button rounded (pill shape) */
-    box-shadow: 5px 5px 7px rgba(255, 216, 0, 1); /* Neon yellow shadow with 100% opacity */
     margin: 0 20px; /* Adjusts horizontal spacing between buttons */
     min-width: 120px; /* Ensures buttons don’t get too small */
 }
@@ -236,12 +235,11 @@
         padding: 10px 20px; /* Add some padding */
         margin: 5px; /* Add some margin between buttons */
         cursor: pointer; /* Change cursor to pointer on hover */
-        box-shadow: 5px 5px 7px rgba(0, 0, 0, 1); /* Black shadow with 70% opacity */
     }
 
     /* Style for links inside buttons */
     #Welcome-1517 .cs-button-group .nav-button .nav-link {
-        color: #ff00ff; /* Set text color to pink */
+        color: #f745b4; /* Set text color to pink */
         text-decoration: none; /* Remove underline from links */
         display: block; /* Make link block level to occupy full button area */
     }
@@ -765,7 +763,7 @@
     }
     /* Style for buttons */
     #timeline-1517 .cs-button-group .nav-button {
-        background-color: #ff00ff; /* Set button background color to yellow */
+        background-color: #f745b4; /* Set button background color to yellow */
         border: none; /* Remove default border */
         padding: 10px 20px; /* Add some padding */
         margin: 5px; /* Add some margin between buttons */
@@ -968,7 +966,7 @@
     }
     /* Style for buttons */
     #timeline-1517 .cs-button-group .nav-button {
-        background-color: #ff00ff; /* Set button background color to yellow */
+        background-color: #f745b4; /* Set button background color to yellow */
         border: none; /* Remove default border */
         padding: 10px 20px; /* Add some padding */
         margin: 5px; /* Add some margin between buttons */
@@ -1026,7 +1024,7 @@
     }
     /* Style for buttons */
     #timeline-1517 .cs-button-group .nav-button {
-        background-color: #ff00ff; /* Set button background color to yellow */
+        background-color: #f745b4; /* Set button background color to yellow */
         border: none; /* Remove default border */
         padding: 10px 20px; /* Add some padding */
         margin: 5px; /* Add some margin between buttons */
@@ -1354,15 +1352,14 @@
     }
     /* Style for buttons */
     #pricing-1387 .cs-button-group .nav-button {
-        background-color: #ff00ff; /* Set button background color to yellow */
+        background-color: #f745b4; /* Set button background color to yellow */
         border: none; /* Remove default border */
         padding: 10px 20px; /* Add some padding */
         margin: 5px; /* Add some margin between buttons */
         cursor: pointer; /* Change cursor to pointer on hover */
-        box-shadow: 5px 5px 7px rgba(0, 0, 0, 1); /* Black shadow with 70% opacity */
     }
     #profitMessage {
-        color: #ff00ff; /* Change this to your desired color */
+        color: #f745b4; /* Change this to your desired color */
         font-weight: bold; /* Change this to your desired font weight */
         font-size: 40px;
     }
@@ -1898,7 +1895,7 @@
         overflow: hidden;
         position: relative;
         z-index: 1;
-        background-color: #00c5ff;
+        background-color: lightgreen;
         font-family: "Poppins", sans-serif;
     }
     #Why-Choose-Us-1517:before {
@@ -1939,7 +1936,7 @@
     #Why-Choose-Us-1517 .horizontal-item {
         padding: 1rem; /* Adjust padding as needed */
         text-align: center;
-        background-color: #00c5ff;
+        background-color: lightgreen;
     }
     #Why-Choose-Us-1517 .cs-flex {
         text-align: left;
@@ -2005,7 +2002,7 @@
         box-shadow: 5px 5px 7px rgba(0, 0, 0, 1);
     }
     #Why-Choose-Us-1517 .cs-button-group .nav-button .nav-link {
-        color: #ff00ff;
+        color: #f745b4;
         text-decoration: none;
         display: block;
     }
@@ -2053,7 +2050,7 @@
         overflow: hidden;
         position: relative;
         z-index: 1;
-        background-color: #ff00ff;
+        background-color: #f745b4;
         font-family: "Poppins", sans-serif;
     }
     #Testimonial-1517:before {
@@ -2094,7 +2091,7 @@
     #Testimonial-1517 .horizontal-item {
         padding: 1rem; /* Adjust padding as needed */
         text-align: center;
-        background-color: #ff00ff;
+        background-color: #f745b4;
     }
     #Testimonial-1517 .cs-flex {
         text-align: left;
@@ -2171,7 +2168,7 @@
         box-shadow: 5px 5px 7px rgba(0, 0, 0, 1);
     }
     #Testimonial-1517 .cs-button-group .nav-button .nav-link {
-        color: #ff00ff;
+        color: #f745b4;
         text-decoration: none;
         display: block;
     }
@@ -4350,6 +4347,14 @@ input[type=number] {
     }
 }
 
+
+.HomepageForm {
+    width: 60%;
+    max-width: 350px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
 
 
