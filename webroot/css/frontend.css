@@ -4348,6 +4348,14 @@ input[type=number] {
 }
 
 
+.HomepageForm {
+    width: 60%;
+    max-width: 350px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 
 
 

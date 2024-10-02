@@ -85,7 +85,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
             <!-- Nav Item - Pages Collapse Menu -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/createcampaign">
+                <a class="nav-link collapsed" href="/UrlHandler/createcampaign">
                     <span>Create Campaign</span>
                 </a>
             </li>

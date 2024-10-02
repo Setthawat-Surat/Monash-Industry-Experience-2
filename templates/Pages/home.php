@@ -263,18 +263,7 @@ $this->assign('title', 'Fundraising');
         - Belly bands an additional $1.25 per piece
     </p>
     <div class="cs-container">
-        <div class="grid">
-            <div class="grid-item"><b>Number of tea towels purchases</b></div>
-            <div class="grid-item"><b>Cost</b></div>
-            <div class="grid-item">25-49</div>
-            <div class="grid-item">$17.40</div>
-            <div class="grid-item">50-249</div>
-            <div class="grid-item">$13.05</div>
-            <div class="grid-item">250-499</div>
-            <div class="grid-item">$11.60</div>
-            <div class="grid-item">500+</div>
-            <div class="grid-item">$11.02</div>
-        </div>
+        <img src="img/calculator form.png" alt="Purchases and Costs Table" class="HomepageForm">
         <div class="cs-content">
             <h2 class="cs-title">Profit Calculator</h2>
             <form class="profit-calculator" onsubmit="calculateProfit(event)">
