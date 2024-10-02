@@ -41,43 +41,46 @@ $campaignId = $this->request->getQuery('cID');
                 ]) ?>
             </div>
 
-            <div class="row">
+            <div class="form-group">
+                <div class="row">
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <?= $this->Form->control('design_yearlevel', [
-                            'label' => [
-                                'text' => 'Year Level <span class="required-asterisk">*</span>',
-                                'escape' => false
-                            ],
-                            'type' => 'text',
-                            'required' => true,
-                            'id' => 'design_yearlevel',
-                            'class' => 'form-control',
-                            'placeholder' => 'Enter year level'
-                        ]) ?>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <?= $this->Form->control('design_yearlevel', [
+                                'label' => [
+                                    'text' => 'Year Level <span class="required-asterisk">*</span>',
+                                    'escape' => false
+                                ],
+                                'type' => 'text',
+                                'required' => true,
+                                'id' => 'design_yearlevel',
+                                'class' => 'form-control',
+                                'placeholder' => 'Enter year level'
+                            ]) ?>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <?= $this->Form->control('sales_price', [
-                            'label' => [
-                                'text' => 'Selling Price <span class="required-asterisk">*</span>',
-                                'escape' => false
-                            ],
-                            'type' => 'number',
-                            'required' => true,
-                            'id' => 'sales_price',
-                            'class' => 'form-control',
-                            'placeholder' => 'Enter sells price',
-                            'step' => '0.01',
-                            'min' => '0'
-                        ]) ?>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <?= $this->Form->control('sales_price', [
+                                'label' => [
+                                    'text' => 'Selling Price <span class="required-asterisk">*</span>',
+                                    'escape' => false
+                                ],
+                                'type' => 'number',
+                                'required' => true,
+                                'id' => 'sales_price',
+                                'class' => 'form-control',
+                                'placeholder' => 'Enter sells price',
+                                'step' => '0.01',
+                                'min' => '0'
+                            ]) ?>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
+
 
             <div class="form-group">
                 <?= $this->Form->control('logo_position', [
