@@ -256,16 +256,28 @@ class OrdersController extends AppController
                 'CampaignName' => 'Campaigns.name',
                 'SchoolName' => 'Schools.name',
                 'BellyBand' => 'DesignDrafts.belly_band',
-                'SchoolAddress' => 'schools.address',
-                'RepFirstName' => 'schools.rep_first_name',
-                'RepLastName' => 'schools.rep_last_name',
-                'RepEmail' => 'schools.rep_email',
+                'SchoolAddress' => 'Schools.address',
+                'RepFirstName' => 'Schools.rep_first_name',
+                'RepLastName' => 'Schools.rep_last_name',
+                'RepEmail' => 'Schools.rep_email',
                 'Price' => 'Items.price',
                 'BankAccount' => 'Schools.bank_account_number',
                 'BSB' => 'Schools.bsb',
             ])
             ->leftJoinWith('DesignDrafts.Campaigns.Schools')
-            ->group(['Items.name', 'Campaigns.name', 'Schools.name']);
+            ->group([
+                'Items.name',
+                'Campaigns.name',
+                'Schools.name',
+                'DesignDrafts.belly_band',
+                'Schools.address',
+                'Schools.rep_first_name',
+                'Schools.rep_last_name',
+                'Schools.rep_email',
+                'Items.price',
+                'Schools.bank_account_number',
+                'Schools.bsb'
+            ]);
 
         // Execute the query and get the results
         $uniqueProducts = $uniqueProductsQuery->toArray();
