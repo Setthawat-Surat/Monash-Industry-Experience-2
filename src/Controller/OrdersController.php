@@ -123,7 +123,7 @@ class OrdersController extends AppController
         $this->autoRender = false;
         $this->request->allowMethod(['post']); // Only allow POST requests
 
-        $endpoint_secret = 'whsec_9f888523fd5fbc00b50897efbb41d47c4d793a88b6015f061e561060fe32472b'; // Set your Stripe webhook secret here
+        $endpoint_secret = 'whsec_N6L6Nx6QSL9MjerZnQWea67pw7ov8KVA'; // Set your Stripe webhook secret here
         $payload = @file_get_contents('php://input');
         $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
 

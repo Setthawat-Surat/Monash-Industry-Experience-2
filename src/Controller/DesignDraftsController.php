@@ -479,9 +479,8 @@ class DesignDraftsController extends AppController
         $designDraftsTable = TableRegistry::getTableLocator()->get('DesignDrafts');
 
         // Find the specific design draft by ID
-        $designDraft = $designDraftsTable->get($id, [
-            'contain' => ['DesignPhotos'] // Load associated design photos
-        ]);
+        $designDraft = $designDraftsTable->get($id, contain: ['DesignPhotos']); // Load associated design photos
+
 
         // Set the design draft data to the view
         $this->set('designDraft', $designDraft);
