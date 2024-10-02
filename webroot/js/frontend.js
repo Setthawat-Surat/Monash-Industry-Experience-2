@@ -97,7 +97,7 @@ function addToCart(product) {
             }
         }
         else{
-            if (cart[existingItemIndex].quantity < 50)
+            if (cart[existingItemIndex].quantity < 200)
                 cart[existingItemIndex].quantity += 1;
         }
 
@@ -138,11 +138,7 @@ const addCartToHTML = () =>{
         // Loop through each item in the cart
         cart.forEach(item => {
             console.log(item.image);
-
             totalQuantity += 1;
-
-
-
             var totalPrice = item.price * item.quantity;
             price += totalPrice;
             var formattedPrice = totalPrice.toFixed(2);
@@ -156,12 +152,9 @@ const addCartToHTML = () =>{
             <div class="image">
 
                 <img src='/img/final_design/${item.image}' alt="Product Image">
-
-
             </div>
             <div class="name">
                 ${item.name}
-
             </div>
             <div class="totalPrice">
                 $${formattedPrice}
@@ -173,13 +166,10 @@ const addCartToHTML = () =>{
                 <span class="plus" onclick="incrementQuantity(${item.id})"><i class="fas fa-plus"></i></span>
             </div>
             `;
-
             // Append the new item to the listCartHTML element
             listCartHTML.appendChild(newCart);
         });
-
     }
-
     // Update the iconCartSpan with the total quantity
     iconCartSpan.innerText = totalQuantity;
     totoalPriceSpan.innerText = `$${price.toFixed(2)}`;
