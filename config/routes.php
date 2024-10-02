@@ -61,7 +61,8 @@ return function (RouteBuilder $routes): void {
          * ...and connect the rest of 'Pages' controller's URLs.
          */
         $builder->connect('/pages/*', 'Pages::display');
-
+        // Connect a route to stripe webhook
+        $builder->connect('/stripe/webhook', ['controller' => 'Orders', 'action' => 'webhook']);
         /*
          * Connect catchall routes for all controllers.
          *
@@ -75,6 +76,15 @@ return function (RouteBuilder $routes): void {
          * You can remove these routes once you've connected the
          * routes you want in your application.
          */
+        $builder->fallbacks();
+    });
+
+    $routes->scope('/api', function (RouteBuilder $builder): void {
+
+        $builder->setExtensions(['json', 'xml']);
+
+        $builder->connect('/stripe/webhook', ['controller' => 'Orders', 'action' => 'webhook']);
+
         $builder->fallbacks();
     });
 

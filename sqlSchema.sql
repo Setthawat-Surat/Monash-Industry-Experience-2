@@ -81,6 +81,7 @@ CREATE TABLE orders (
                         customer_name VARCHAR(256),
                         customer_contact_number VARCHAR(256),
                         customer_contact_email VARCHAR(256),
+                        status TINYINT(1),
                         date_purchase TIMESTAMP
 
 );
@@ -93,6 +94,19 @@ CREATE TABLE product_orders (
 
                                 FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
                                 FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+CREATE TABLE items (
+                       id INT(11) PRIMARY KEY AUTO_INCREMENT,
+                       name VARCHAR(256),
+                       price INT(11),
+                       quantity INT(11),
+                       design_draft_id INT(11),
+                       order_id INT(11),
+
+                       FOREIGN KEY (design_draft_id) REFERENCES design_drafts(id) ON DELETE CASCADE,
+                       FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+
 );
 
 INSERT INTO users (email, password, role)
