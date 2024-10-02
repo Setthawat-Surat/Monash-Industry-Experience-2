@@ -29,6 +29,9 @@
 <body>
 <h1>404 Page Not Found</h1>
 <p>Oops! The page you're looking for doesn't exist.</p>
-<a href="/">Go back to Homepage</a>
+<p class="error">
+    <strong><?= __d('cake', 'Error') ?>: </strong>
+    <?= __d('cake', 'The requested address {0} was not found on this server.', "<strong>'{$url}'</strong>") ?>
+</p>
 </body>
 </html>
