@@ -124,7 +124,7 @@ if ($this->Identity->isLoggedIn()) {
             // Initialize the calendar
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
-                timeZone: 'UTC',
+                timeZone: 'AEST',
                 events: [],
                 contentHeight: 650
             });

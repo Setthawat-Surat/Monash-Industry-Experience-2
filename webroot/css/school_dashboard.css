@@ -11909,6 +11909,124 @@ input[type=number] {
     border-radius: 0.25rem;
 }
 
+#school-order h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Campaign List Styling */
+#school-order ul {
+    list-style: none;
+    padding: 0;
+}
+
+#school-order li {
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#school-order h2 {
+    font-size: 1.6em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center; /* Center the campaign title */
+}
+
+/* Design Draft Details */
+#school-order ul ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+#school-order ul ul li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 4px solid #3498db;
+}
+
+/* Style for Design Draft Name */
+#school-order .draft-name {
+    font-size: 1.1rem; /* Adjust the size as needed (1.5em = 150% of the default size) */
+    font-weight: bold; /* Optional: makes the text bold */
+    color: #2c3e50; /* Default color for draft name */
+}
+
+/* Empty State */
+#school-order p {
+    color: #e74c3c;
+    font-style: italic;
+    text-align: center;
+}
+
+#school-order .design-drafts.hidden {
+    display: none;
+}
+
+/* Cursor pointer for the campaign titles */
+#school-order .campaign-title {
+    cursor: pointer;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+/* Change color on hover */
+#school-order .campaign-title:hover {
+    color: #3498db;
+}
+
+/* Hide the design drafts by default */
+#school-order .design-drafts.hidden, .draft-details.hidden {
+    display: none;
+}
+
+/* Add cursor pointer for the draft names */
+#school-order .draft-name {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hover effect for design drafts */
+#school-order .draft-name:hover {
+    color: #3498db;
+}
+
+/* Icon styling */
+#school-order .expand-icon {
+    margin-left: 5px; /* Spacing between the name and icon */
+    font-size: 0.8em; /* Smaller size for the icon */
+    transition: transform 0.3s ease; /* Animation for rotation */
+}
+
+/* Rotate the icon when expanded */
+#school-order .draft-details:not(.hidden) .expand-icon {
+    transform: rotate(180deg); /* Rotate icon to indicate expanded state */
+}
+
+/* Transition for expanded elements */
+.draft-details {
+    transition: max-height 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Optional: Add spacing for better readability */
+#school-order ul ul {
+    margin-top: 15px; /* Space above nested lists */
+}
+
+/* Optional: Add focus style for accessibility */
+#school-order .campaign-title:focus,
+#school-order .draft-name:focus {
+    outline: none;
+    border: 2px solid #3498db; /* Highlight when focused */
+}
 
 
 

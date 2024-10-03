@@ -289,3 +289,14 @@ document.querySelector('form').addEventListener('submit', function(event) {
     }
 });
 
+function toggleDrafts(campaignId) {
+    const draftsDiv = document.getElementById('drafts-' + campaignId);
+    draftsDiv.classList.toggle('hidden');
+}
+
+// Toggle design draft details visibility within design drafts
+function toggleDraftDetails(draftId) {
+    const detailsDiv = document.getElementById('draft-details-' + draftId);
+    detailsDiv.classList.toggle('hidden');
+}
+
