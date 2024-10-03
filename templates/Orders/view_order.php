@@ -25,7 +25,7 @@ $this->setLayout('admin_dashboard');
             <table>
                 <thead>
                 <tr>
-                    <th>Product Name</th>
+                    <th>Design Name</th>
                     <th>Total Quantity</th>
                     <th>Campaign Name</th>
                     <th>Belly Band Required</th>

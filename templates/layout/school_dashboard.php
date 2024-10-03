@@ -4,6 +4,14 @@ use Cake\ORM\TableRegistry;
 $school_table = TableRegistry::getTableLocator()->get('Schools');
 $user_id = $this->Identity->get('id');
 $school_rep= $school_table->find()->where(['id' => $user_id])->first();
+
+if ($this->Identity->isLoggedIn()) {
+    $user_role = $this->Identity->get('role');
+    if ($user_role != 'School') {
+        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
