@@ -39,7 +39,7 @@ if ($this->Identity->isLoggedIn()) {
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <?= $this->Html->css('School_dashboard.css'); ?>
+    <?= $this->Html->css('school_dashboard.css'); ?>
 
 </head>
 
