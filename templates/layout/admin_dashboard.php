@@ -1,15 +1,3 @@
-<?php
-
-if ($this->Identity->isLoggedIn()) {
-    $user_role = $this->Identity->get('role');
-    if ($user_role != 'Admin') {
-        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
-        exit;
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,7 +83,7 @@ if ($this->Identity->isLoggedIn()) {
                     </div>
                     <div class="sb-sidenav-menu-heading">Backends</div>
                     <a class="nav-link" href="/UrlHandler/order">
-                        <div class="sb-nav-link-icon"><i class="fas fa-shopping-basket"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                         View My Orders
                     </a>
                     <a class="nav-link" href="/UrlHandler/global">
