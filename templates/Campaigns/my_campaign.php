@@ -1,7 +1,7 @@
 <?php
 use Cake\ORM\TableRegistry;
 
-$this->setLayout('School_dashboard');
+$this->setLayout('school_dashboard');
 
 $campaign_table = TableRegistry::getTableLocator()->get('Campaigns');
 $user_id = $this->Identity->get('id');
