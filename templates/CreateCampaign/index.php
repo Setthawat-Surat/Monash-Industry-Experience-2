@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Campaign $campaign
  */
 
-$this->layout = 'School_dashboard';
+$this->layout = 'school_dashboard';
 $this->assign('title', 'Campaign');
 ?>
 

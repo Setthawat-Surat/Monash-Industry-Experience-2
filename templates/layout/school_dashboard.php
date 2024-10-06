@@ -99,7 +99,7 @@ if ($this->Identity->isLoggedIn()) {
             <!-- Nav Item - Pages Collapse Menu -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/UrlHandler/createcampaign">
+                <a class="nav-link collapsed" href="/UrlHandler/createCampaign">
                     <span>Create Campaign</span>
                 </a>
             </li>
