@@ -12028,7 +12028,122 @@ input[type=number] {
     border: 2px solid #3498db; /* Highlight when focused */
 }
 
+#update-design-form .photo-gallery {
+    display: flex; /* Use flexbox to layout photos */
+    flex-wrap: wrap; /* Allow photos to wrap to the next line */
+    justify-content: center; /* Center the photos */
+}
 
+#update-design-form .photo-item {
+    margin: 10px; /* Add some space between photos */
+}
+
+#update-design-form .card-img {
+    width: 150px; /* Set a fixed width for each image */
+    height: 150px; /* Set a fixed height for each image */
+    object-fit: cover; /* Ensure images cover the container without distortion */
+    border-radius: 5px; /* Optional: add rounded corners to images */
+}
+
+#update-design-form .card-img-container {
+    /* Use flexbox to align images in a row */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to new lines if needed */
+    gap: 10px; /* Space between images */
+    padding: 15px;
+    position: relative;
+}
+
+#update-design-form .delete-icon {
+    position: absolute; /* Position relative to the card image */
+    top: 5px; /* Adjust to your preference */
+    right: 5px; /* Adjust to your preference */
+    color: red; /* Change to your preferred color */
+    font-size: 20px; /* Adjust size */
+    cursor: pointer; /* Pointer cursor on hover */
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: semi-transparent background for better visibility */
+    border-radius: 50%; /* Optional: round background */
+    padding: 2px; /* Optional: padding for the icon */
+}
+
+#update-design-form .delete-icon:hover {
+    color: darkred; /* Darker color on hover */
+}
+
+
+#update-design-form .upload-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+#update-design-form .upload-card {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 600px;
+    height: auto;
+    padding: 10px 30px 40px;
+}
+
+#update-design-form .upload-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+
+}
+
+#update-design-form .upload-drop_box {
+    margin: 25px 0 10px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px dotted #a3a3a3;
+    border-radius: 5px;
+}
+
+#update-design-form .upload-drop_box h4 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2e2e2e;
+}
+
+#update-design-form .upload-drop_box p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #a3a3a3;
+}
+
+#update-design-form .form-group label {
+    color: black;
+    font-weight: bold;
+}
+
+/* Styles for the header row */
+#update-design-form .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Styles for the back link */
+#update-design-form .back-link {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    font-size: 18px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+#update-design-form .back-link i {
+    margin-right: 8px; /* Space between the icon and text */
+}
 
 
 
