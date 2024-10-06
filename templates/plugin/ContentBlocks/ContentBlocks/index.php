@@ -49,7 +49,7 @@ $slugify = function($text) {
 
     <?php foreach($contentBlocksGrouped as $parent => $contentBlocks) { ?>
         <div class="content-blocks-group" id="<?= $slugify($parent) ?>" style="display: none;">
-            <a href="/Urlhandler/<?= $slugify($parent) ?>"><h4 class="content-blocks--list-subheading"><?= $parent ?></h4></a>
+            <a href="/UrlHandler/<?= $slugify($parent) ?>"><h4 class="content-blocks--list-subheading"><?= $parent ?></h4></a>
 
             <?php foreach($contentBlocks as $contentBlock) { ?>
                 <li class="content-blocks--list-group-item" data-type="<?= $contentBlock['type'] ?>">
