@@ -263,7 +263,12 @@ $this->assign('title', 'Fundraising');
         - Belly bands an additional $1.25 per piece
     </p>
     <div class="cs-container">
-        <img src="img/calculator form.png" alt="Purchases and Costs Table" class="HomepageForm">
+        <?php
+        echo $this->Html->image('calculator_form.png', [
+        'alt' => 'Purchases and Costs Table',
+        'class' => 'HomepageForm'
+        ]); ?>
+
         <div class="cs-content">
             <h2 class="cs-title">Profit Calculator</h2>
             <form class="profit-calculator" onsubmit="calculateProfit(event)">
