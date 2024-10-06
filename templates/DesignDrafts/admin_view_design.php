@@ -1,7 +1,7 @@
 <?php
 use Cake\ORM\TableRegistry;
 
-$this->setLayout('Admin_dashboard');
+$this->setLayout('admin_dashboard');
 $school_table = TableRegistry::getTableLocator()->get('Schools');
 $campaign_table = TableRegistry::getTableLocator()->get('Campaigns');
 $design_draft_table = TableRegistry::getTableLocator()->get('DesignDrafts');

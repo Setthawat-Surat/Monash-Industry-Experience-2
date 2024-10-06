@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\DesignDraft $designDraft
  */
 
-$this->setLayout('School_dashboard');
+$this->setLayout('school_dashboard');
 $campaignId = $this->request->getQuery('cID');
 $designId = $this->request->getQuery('dID');
 

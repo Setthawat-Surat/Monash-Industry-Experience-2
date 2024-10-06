@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\DesignDraft $DesignDrafts
  */
-$this->setLayout('Admin_dashboard');
+$this->setLayout('admin_dashboard');
 
 if ($this->Identity->isLoggedIn()) {
     $user_role = $this->Identity->get('role');
