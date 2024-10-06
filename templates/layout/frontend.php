@@ -54,7 +54,18 @@
 <!-- ============================================ -->
 
 <section id="website-logo">
-    <img src="<?= $this->Url->image('OrganicPrintStudioLogo.png')?>" alt="Website Logo">
+
+    <?php
+    $logoImage = $this->ContentBlock->image('logo'); // get image HTML
+    if (empty($logoimage)) {
+                echo '<a href="/" ><img class="aboutimg" alt="Website Logo" src="' . $this->Url->image('OrganicPrintStudioLogo.png') . '"></a>';
+
+            } else {
+        $logoImage = $this->Html->link($logoImage, ['controller' => 'Pages', 'action' => 'home'], ['escape' => false]); // create link
+        echo $logoimage;
+            }
+            ?>
+
 </section>
 
 <!-- ============================================ -->
@@ -191,7 +202,7 @@
                 <span class="cs-header">Call us:</span>
             </li>
             <li class="cs-nav-li">
-                <a class="cs-nav-link" href="tel:123-456-7890"><?= $this->ContentBlock->text('contact-number'); ?></a>
+                <a class="cs-nav-link" href="tel:<?= $this->ContentBlock->text('contact-number'); ?>"><?= $this->ContentBlock->text('contact-number'); ?></a>
             </li>
 
             <li class="cs-nav-li spacer"></li>

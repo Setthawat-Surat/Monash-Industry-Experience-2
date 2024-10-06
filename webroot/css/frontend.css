@@ -14,7 +14,6 @@
 #website-logo img {
     max-width: 400px; /* Adjust as needed */
     max-height: 200px; /* Adjust as needed */
-    width: auto; /* Maintain aspect ratio */
     height: auto; /* Maintain aspect ratio */
 }
 
@@ -3302,7 +3301,7 @@ body {
 
 #about-us {
     font-family: "Poppins", sans-serif;
-    background-color: #444;
+    background-color: #807e7ee0;
     color: white;
     Padding: 5em;
     background-image: url('../img/Homepage_Background.png');

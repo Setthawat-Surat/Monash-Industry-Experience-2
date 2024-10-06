@@ -29,12 +29,52 @@ $this->assign('title', 'About');
     <div id="photos">
         <h1> Photo Gallery </h1>
         <div id="photo-gallery">
-            <img class="aboutimg" src="<?= $this->Url->image('sample_product1.jpg')?>">
-            <img class="aboutimg" src="<?= $this->Url->image('sample_product2.jpg')?>">
-            <img class="aboutimg" src="<?= $this->Url->image('sample_product3.jpg')?>">
-            <img class="aboutimg" src="<?= $this->Url->image('sample_product4.jpg')?>">
-            <img class="aboutimg" src="<?= $this->Url->image('sample_product5.jpg')?>">
-            <img class="aboutimg" src="<?= $this->Url->image('sample_product1.jpg')?>">
+            <?php
+            $image1 = $this->ContentBlock->image('abt-image1');
+            if (empty($image1)) {
+                echo '<img class="aboutimg" src="' . $this->Url->image('sample_product1.jpg') . '">';
+            } else {
+                echo $image1;
+            }
+
+            $image2 = $this->ContentBlock->image('abt-image2');
+            if (empty($image2)) {
+                echo '<img class="aboutimg" src="' . $this->Url->image('sample_product2.jpg') . '">';
+            } else {
+                echo $image2;
+            }
+
+            $image3 = $this->ContentBlock->image('abt-image3');
+            if (empty($image3)) {
+                echo '<img class="aboutimg" src="' . $this->Url->image('sample_product3.jpg') . '">';
+            } else {
+                echo $image3;
+            }
+
+            $image4 = $this->ContentBlock->image('abt-image4');
+            if (empty($image4)) {
+                echo '<img class="aboutimg" src="' . $this->Url->image('sample_product4.jpg') . '">';
+            } else {
+                echo $image4;
+            }
+
+            $image5 = $this->ContentBlock->image('abt-image5');
+            if (empty($image5)) {
+                echo '<img class="aboutimg" src="' . $this->Url->image('sample_product5.jpg') . '">';
+            } else {
+                echo $image5;
+            }
+
+            $image6 = $this->ContentBlock->image('abt-image6');
+            if (empty($image6)) {
+                echo '<img class="aboutimg" src="' . $this->Url->image('sample_product1.jpg') . '">';
+            } else {
+                echo $image6;
+            }
+
+            ?>
+
+
         </div>
     </div>
 

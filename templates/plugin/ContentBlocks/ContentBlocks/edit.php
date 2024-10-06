@@ -23,6 +23,70 @@ $this->Html->css('ContentBlocks.content-blocks', ['block' => true]);
     .ck-editor__editable_inline {
         min-height: 25rem; /* CKEditor field minimal height */
     }
+
+    .contentBlocks {
+        background-color: #f9f9f9; /* Background color */
+        border-radius: 8px; /* Rounded corners */
+        padding: 20px; /* Padding inside the block */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        width: 90%; /* Width is 90% of the screen */
+        max-width: 900px; /* Maximum width is 900px */
+        margin: 0 auto; /* Center the block */
+    }
+
+    .content-blocks--form-heading {
+        color: #333; /* Text color */
+        margin-bottom: 10px; /* Space below the heading */
+    }
+
+    .content-blocks--form-description {
+        color: #666; /* Text color */
+        margin-bottom: 20px; /* Space below the description */
+    }
+
+    .form-control {
+        width: 100%; /* Full width for form controls */
+        padding: 10px; /* Padding for input fields */
+        border: 1px solid #ccc; /* Border color */
+        border-radius: 4px; /* Rounded corners */
+        font-size: 1rem; /* Font size for input fields */
+        margin-bottom: 20px; /* Space below input fields */
+    }
+
+    .content-blocks--image-preview {
+        max-width: 100%; /* Responsive image size */
+        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 20px; /* Space below the image */
+    }
+
+    .content-blocks--form-actions {
+        display: flex; /* Flexbox for buttons alignment */
+        justify-content: space-between; /* Space between buttons */
+        margin-top: 20px; /* Space above the action buttons */
+    }
+
+    .button {
+        background-color: #007bff; /* Primary button color */
+        color: white; /* Text color */
+        border: none; /* Remove default border */
+        border-radius: 4px; /* Rounded corners for buttons */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s; /* Transition effect */
+    }
+
+    .button:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+    }
+
+    a {
+        color: #007bff; /* Link color */
+        text-decoration: none; /* Remove underline */
+    }
+
+    a:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
+
 </style>
 
 <div class="row">

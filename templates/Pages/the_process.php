@@ -27,33 +27,33 @@ $this->setLayout('frontend');
         <div class="cs-wrapper">
             <div class="cs-content">
                 <span class="cs-topper">How to get started</span>
-                <h2 class="cs-title">Simple Steps to Get Our Services</h2>
+                <h2 class="cs-title"><?= $this->ContentBlock->text('proc-title'); ?></h2>
             </div>
             <ul class="cs-card-group">
                 <li class="cs-item">
                     <span class="cs-number">01</span>
                     <div class="cs-flex">
-                        <h3 class="cs-h3">Book an Appointment</h3>
+                        <h3 class="cs-h3"><?= $this->ContentBlock->text('proc-subtitle1'); ?></h3>
                         <p class="cs-item-text">
-                            Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on  evidence-based medicine in dermatology, especially for skin of color.
+                            <?= $this->ContentBlock->text('proc-text1'); ?>
                         </p>
                     </div>
                 </li>
                 <li class="cs-item">
                     <span class="cs-number">02</span>
                     <div class="cs-flex">
-                        <h3 class="cs-h3">Attend your appointment</h3>
+                        <h3 class="cs-h3"><?= $this->ContentBlock->text('proc-subtitle2'); ?></h3>
                         <p class="cs-item-text">
-                            Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on  evidence-based medicine in dermatology, especially for skin of color.
+                            <?= $this->ContentBlock->text('proc-text2'); ?>
                         </p>
                     </div>
                 </li>
                 <li class="cs-item">
                     <span class="cs-number">03</span>
                     <div class="cs-flex">
-                        <h3 class="cs-h3">Follow your treatment plan</h3>
+                        <h3 class="cs-h3"><?= $this->ContentBlock->text('proc-subtitle3'); ?></h3>
                         <p class="cs-item-text">
-                            Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on  evidence-based medicine in dermatology, especially for skin of color.
+                            <?= $this->ContentBlock->text('proc-text3'); ?>
                         </p>
                     </div>
                 </li>

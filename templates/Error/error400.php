@@ -18,6 +18,7 @@ if (Configure::read('debug')) :
     $this->assign('templateName', 'error400.php');
 
     $this->start('file');
+
 ?>
 <?php if (!empty($error->queryString)) : ?>
     <p class="notice">
@@ -83,4 +84,6 @@ endif;
     <?= __d('cake', 'The requested address {0} was not found on this server.', "<strong>'{$url}'</strong>") ?>
 </p>
 </body>
+
+
 </html>

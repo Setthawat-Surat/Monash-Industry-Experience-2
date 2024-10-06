@@ -12,10 +12,9 @@ $this->assign('title', 'Fundraising');
     <div class="cs-container">
         <div class="cs-content">
             <div class="cs-flex">
-                <h1 class="cs-title">Support your school and the environment with our ACO certified organic cotton tea towels!</h1>
+                <h1 class="cs-title"><?= $this->ContentBlock->text('home-title'); ?></h1>
                 <p class="cs-text">
-                    Showcasing unigue artwork, each towel is a collaborative masterpiece. Your purchase directly supports local schools and educational
-                    programs. Dry dishes with pride, display student creativity, or gift these unique, sustainable pieces – every towel makes a difference.
+                    <?= $this->ContentBlock->text('home-content'); ?>
                 </p><br>
                 <div class="cs-button-group">
                     <button class="nav-button" ><a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'register']) ?>" class="nav-link">Start Fundraising</a></button>
@@ -78,33 +77,21 @@ $this->assign('title', 'Fundraising');
             <div class="cs-flex">
                 <div class="horizontal-container">
                     <div class="horizontal-item">
-                        <h1 class="cs-title">Raise Funds with Ease</h1>
+                        <h1 class="cs-title"><?= $this->ContentBlock->text('wcu-title1'); ?></h1>
                         <p class="cs-text">
-                            The Fund4Schools portal will allow you to centrally
-                            manage all tea-towel fundraisers whilst having direct
-                            communication with Organic Print Studio to streamline
-                            the design process. This, along with the shopping portal
-                            will allow family and friends of the school to directly
-                            purchase these designed to order, allowing schools to
-                            reduce waste and get professional consultation about
-                            tea-towel designs prior to printing.
+                            <?= $this->ContentBlock->text('wcu-reason1'); ?>
                         </p>
                     </div>
                     <div class="horizontal-item">
-                        <h1 class="cs-title">Years of Experience</h1>
+                        <h1 class="cs-title"><?= $this->ContentBlock->text('wcu-title2'); ?></h1>
                         <p class="cs-text">
-                            Organic Print Studio has years in the tea towel printing
-                            industry whilst introducing unique, creative flares to
-                            your designs to make your tea-towels stand out!
+                            <?= $this->ContentBlock->text('wcu-reason2'); ?>
                         </p>
                     </div>
                     <div class="horizontal-item">
-                        <h1 class="cs-title">Environmentally Friendly</h1>
+                        <h1 class="cs-title"><?= $this->ContentBlock->text('wcu-title3'); ?></h1>
                         <p class="cs-text">
-                            Using 100% certified organic cotton, as well as
-                            commitments to sustainability and ethically sourcing
-                            materials, you can be assured that your tea towels are
-                            both high-quality and good for the environment.
+                            <?= $this->ContentBlock->text('wcu-reason3'); ?>
                         </p>
                     </div>
                 </div>
@@ -166,41 +153,28 @@ $this->assign('title', 'Fundraising');
     <div class="cs-container">
         <div class="cs-content">
             <div class="cs-flex">
-                <h1 class="cs-title">Testimonials</h1>
+                <h1 class="cs-title"><?= $this->ContentBlock->text('TMs-title'); ?></h1>
                 <div class="horizontal-container">
                     <div class="horizontal-item">
                         <p class="cs-text"><br><br>
-                            "We recently worked with Susy to create a tea towel
-                            for school's 150th celebration, and we couldn't be happier
-                            with the result! We couldn't have asked for a better experience,
-                            and we highly recommend her to anyone looking for quality
-                            and care in their custom creations!"<br><br>
-                            Michelle<br>
-                            Oakey State School
+                            <?= $this->ContentBlock->text('TMs-text1'); ?><br><br>
+                            <?= $this->ContentBlock->text('TMs-name1'); ?><br>
+                            <?= $this->ContentBlock->text('TMs-loc1'); ?>
                         </p>
                     </div>
                     <div class="horizontal-item">
                         <p class="cs-text"><br><br>
-                            "We received the tea towels Friday, they look fantastic!
-                            I also wanted to thank you for being so efficient and
-                            patient with me doing my first school fundraiser! I
-                            appreciated your courteous and kind manner. I will
-                            certainly be recommending your business to my
-                            friends."<br><br><br>
-                            Narelle<br>
-                            Merri-bek Primary School
+                            <?= $this->ContentBlock->text('TMs-text2'); ?><br><br><br>
+                            <?= $this->ContentBlock->text('TMs-name2'); ?><br>
+                            <?= $this->ContentBlock->text('TMs-loc2'); ?>
 
                         </p>
                     </div>
                     <div class="horizontal-item">
                         <p class="cs-text"><br><br>
-                            "Susy was brilliant to work with, she was very
-                            informative about the process and guided me through
-                            every step. The final product looks and feels amazing, is
-                            of high quality and was delivered on time. I would
-                            definitely work with Susy again!"<br><br><br>
-                            Emily<br>
-                            Gowrie Clare Court Kinder
+                            <?= $this->ContentBlock->text('TMs-text3'); ?><br><br><br>
+                            <?= $this->ContentBlock->text('TMs-name3'); ?><br>
+                            <?= $this->ContentBlock->text('TMs-loc3'); ?>
                         </p>
                     </div>
                 </div>
