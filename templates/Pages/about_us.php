@@ -7,10 +7,13 @@ $this->assign('title', 'About');
 <!-- https://codepen.io/bookworm0618/details/wxojZQ -->
 
 <main>
-    <section id="about-us">
-        <h1> Organic Print Studio </h1>
-        <p> Encourage, Educate, Empower </p>
+
+    <?php $backgroundImage = $this->ContentBlock->image('abt-background') ?: '../img/Homepage_Background.png'; ?>
+    <section style="background-image: url('<?= $backgroundImage; ?>')" id="about-us">
+        <h1> <?= $this->ContentBlock->text('abt-title'); ?> </h1>
+        <p> <?= $this->ContentBlock->text('abt-subtitle'); ?> </p>
     </section>
+
 
     <section id="videos">
         <h1> <?= $this->ContentBlock->text('abt-vidotitle'); ?> </h1>

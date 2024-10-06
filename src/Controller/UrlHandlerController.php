@@ -154,6 +154,25 @@ class UrlHandlerController extends AppController
         ]);
     }
 
+    public function homeTestimonial()
+    {
+        return $this->redirect([
+            'controller' => 'Pages',
+            'action' => 'home',
+            '#' => 'Testimonial-1517'
+        ]);
+
+    }
+
+    public function homeWhyUs()
+    {
+        return $this->redirect([
+            'controller' => 'Pages',
+            'action' => 'home',
+            '#' => 'Why-Choose-Us-1517'
+        ]);
+    }
+
     public function order(){
         return $this->redirect([
             'controller' => 'Orders',

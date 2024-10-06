@@ -33,7 +33,7 @@ class ContentBlocksSeed extends AbstractSeed
             ],
             [
                 'parent' => 'Global',
-                'label' => 'Number',
+                'label' => 'Phone Number',
                 'description' => 'Shown on the website anywhere of the contact number',
                 'slug' => 'contact-number',
                 'type' => 'text',
@@ -89,7 +89,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'value' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia incidunt quia enim mollitia delectus? Perferendis sapiente quaerat quos. Odit quasi similique nobis earum laudantium ad doloribus quos eos quod. Delectus?",
             ],*/
             [
-                'parent' => 'Home',
+                'parent' => 'Home Why Us',
                 'label' => 'Why Choose Us Reason1 Title',
                 'description' => 'Why Choose Us Reason1 Title',
                 'slug' => 'wcu-title1',
@@ -97,23 +97,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'value' => "Raise Funds with Ease",
             ],
             [
-                'parent' => 'Home',
-                'label' => 'Why Choose Us Reason2 Title',
-                'description' => 'Why Choose Us Reason2 Title',
-                'slug' => 'wcu-title2',
-                'type' => 'text',
-                'value' => "Years of Experience",
-            ],
-            [
-                'parent' => 'Home',
-                'label' => 'Why Choose Us Reason3 Title',
-                'description' => 'Why Choose Us Reason3 Title',
-                'slug' => 'wcu-title3',
-                'type' => 'text',
-                'value' => "Environmentally Friendly",
-            ],
-            [
-                'parent' => 'Home',
+                'parent' => 'Home Why Us',
                 'label' => 'Why Choose Us Reason1',
                 'description' => 'Why Choose Us Reason1',
                 'slug' => 'wcu-reason1',
@@ -121,7 +105,15 @@ class ContentBlocksSeed extends AbstractSeed
                 'value' => "The Fund4Schools portal will allow you to centrally manage all tea-towel fundraisers whilst having direct communication with Organic Print Studio to streamline the design process. This, along with the shopping portal will allow family and friends of the school to directly purchase these designed to order, allowing schools to reduce waste and get professional consultation about tea-towel designs prior to printing.",
             ],
             [
-                'parent' => 'Home',
+                'parent' => 'Home Why Us',
+                'label' => 'Why Choose Us Reason2 Title',
+                'description' => 'Why Choose Us Reason2 Title',
+                'slug' => 'wcu-title2',
+                'type' => 'text',
+                'value' => "Years of Experience",
+            ],
+            [
+                'parent' => 'Home Why Us',
                 'label' => 'Why Choose Us Reason2',
                 'description' => 'Why Choose Us Reason2',
                 'slug' => 'wcu-reason2',
@@ -129,7 +121,15 @@ class ContentBlocksSeed extends AbstractSeed
                 'value' => "Organic Print Studio has years in the tea towel printing industry whilst introducing unique, creative flares to your designs to make your tea-towels stand out!",
             ],
             [
-                'parent' => 'Home',
+                'parent' => 'Home Why Us',
+                'label' => 'Why Choose Us Reason3 Title',
+                'description' => 'Why Choose Us Reason3 Title',
+                'slug' => 'wcu-title3',
+                'type' => 'text',
+                'value' => "Environmentally Friendly",
+            ],
+            [
+                'parent' => 'Home Why Us',
                 'label' => 'Why Choose Us Reason3',
                 'description' => 'Why Choose Us Reason3',
                 'slug' => 'wcu-reason3',
@@ -139,7 +139,7 @@ class ContentBlocksSeed extends AbstractSeed
 
 
             [
-                'parent' => 'Home',
+                'parent' => 'Home Testimonial',
                 'label' => 'Section Title',
                 'description' => 'Words From Our Customers Section',
                 'slug' => 'TMs-title',
@@ -154,8 +154,18 @@ class ContentBlocksSeed extends AbstractSeed
 //                'type' => 'text',
 //                'value' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo, ornare. Lorem ipsum dolor sit amet.",
 //            ],
+
+
             [
-                'parent' => 'Home',
+                'parent' => 'Home Testimonial',
+                'label' => 'Section testimonial1',
+                'description' => 'Words From Our Customers Section',
+                'slug' => 'TMs-text1',
+                'type' => 'text',
+                'value' => "\"We recently worked with Susy to create a tea towel for school's 150th celebration, and we couldn't be happier with the result! We couldn't have asked for a better experience, and we highly recommend her to anyone looking for quality and care in their custom creations!\"",
+            ],
+            [
+                'parent' => 'Home Testimonial',
                 'label' => 'Testimonial 1 name',
                 'description' => 'Words From Our Customers Section',
                 'slug' => 'TMs-name1',
@@ -163,23 +173,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'value' => "Michelle",
             ],
             [
-                'parent' => 'Home',
-                'label' => 'Testimonial 2 name',
-                'description' => 'Words From Our Customers Section',
-                'slug' => 'TMs-name2',
-                'type' => 'text',
-                'value' => "Narelle",
-            ],
-            [
-                'parent' => 'Home',
-                'label' => 'Testimonial 3 name',
-                'description' => 'Words From Our Customers Section',
-                'slug' => 'TMs-name3',
-                'type' => 'text',
-                'value' => "Emily",
-            ],
-            [
-                'parent' => 'Home',
+                'parent' => 'Home Testimonial',
                 'label' => 'Section Location1',
                 'description' => 'Words From Our Customers Section',
                 'slug' => 'TMs-loc1',
@@ -187,7 +181,23 @@ class ContentBlocksSeed extends AbstractSeed
                 'value' => "Oakey State School",
             ],
             [
-                'parent' => 'Home',
+                'parent' => 'Home Testimonial',
+                'label' => 'Section testimonial2',
+                'description' => 'Words From Our Customers Section',
+                'slug' => 'TMs-text2',
+                'type' => 'text',
+                'value' => "\"We received the tea towels Friday, they look fantastic! I also wanted to thank you for being so efficient and patient with me doing my first school fundraiser! I appreciated your courteous and kind manner. I will certainly be recommending your business to my friends.\"",
+            ],
+            [
+                'parent' => 'Home Testimonial',
+                'label' => 'Testimonial 2 name',
+                'description' => 'Words From Our Customers Section',
+                'slug' => 'TMs-name2',
+                'type' => 'text',
+                'value' => "Narelle",
+            ],
+            [
+                'parent' => 'Home Testimonial',
                 'label' => 'Section Location2',
                 'description' => 'Words From Our Customers Section',
                 'slug' => 'TMs-loc2',
@@ -195,7 +205,23 @@ class ContentBlocksSeed extends AbstractSeed
                 'value' => "Merri-bek Primary School",
             ],
             [
-                'parent' => 'Home',
+                'parent' => 'Home Testimonial',
+                'label' => 'Section testimonial3',
+                'description' => 'Words From Our Customers Section',
+                'slug' => 'TMs-text3',
+                'type' => 'text',
+                'value' => "\"Susy was brilliant to work with, she was very informative about the process and guided me through every step. The final product looks and feels amazing, is of high quality and was delivered on time. I would definitely work with Susy again!\"",
+            ],
+            [
+                'parent' => 'Home Testimonial',
+                'label' => 'Testimonial 3 name',
+                'description' => 'Words From Our Customers Section',
+                'slug' => 'TMs-name3',
+                'type' => 'text',
+                'value' => "Emily",
+            ],
+            [
+                'parent' => 'Home Testimonial',
                 'label' => 'Section Location3',
                 'description' => 'Words From Our Customers Section',
                 'slug' => 'TMs-loc3',
@@ -204,28 +230,44 @@ class ContentBlocksSeed extends AbstractSeed
             ],
             [
                 'parent' => 'Home',
-                'label' => 'Section testimonial1',
-                'description' => 'Words From Our Customers Section',
-                'slug' => 'TMs-text1',
-                'type' => 'text',
-                'value' => "\"We recently worked with Susy to create a tea towel for school's 150th celebration, and we couldn't be happier with the result! We couldn't have asked for a better experience, and we highly recommend her to anyone looking for quality and care in their custom creations!\"",
+                'label' => 'Homepage Top Picture',
+                'description' => 'The first image of gallery at the top homepage.',
+                'slug' => 'home-image1',
+                'type' => 'image',
             ],
             [
                 'parent' => 'Home',
-                'label' => 'Section testimonial2',
-                'description' => 'Words From Our Customers Section',
-                'slug' => 'TMs-text2',
-                'type' => 'text',
-                'value' => "\"We received the tea towels Friday, they look fantastic! I also wanted to thank you for being so efficient and patient with me doing my first school fundraiser! I appreciated your courteous and kind manner. I will certainly be recommending your business to my friends.\"",
+                'label' => 'Homepage Top Picture',
+                'description' => 'The second image of gallery at the top homepage.',
+                'slug' => 'home-image2',
+                'type' => 'image',
             ],
             [
                 'parent' => 'Home',
-                'label' => 'Section testimonial3',
-                'description' => 'Words From Our Customers Section',
-                'slug' => 'TMs-text3',
-                'type' => 'text',
-                'value' => "\"Susy was brilliant to work with, she was very informative about the process and guided me through every step. The final product looks and feels amazing, is of high quality and was delivered on time. I would definitely work with Susy again!\"",
+                'label' => 'Homepage Top Picture',
+                'description' => 'The third image of gallery at the top homepage.',
+                'slug' => 'home-image3',
+                'type' => 'image',
             ],
+            [
+                'parent' => 'Home',
+                'label' => 'Homepage Middle Picture',
+                'description' => 'The fourth image at the middle homepage.',
+                'slug' => 'home-image4',
+                'type' => 'image',
+            ],
+            [
+                'parent' => 'Home',
+                'label' => 'Homepage Bottom Picture',
+                'description' => 'The fifth image at the bottom homepage.',
+                'slug' => 'home-image5',
+                'type' => 'image',
+            ],
+
+
+
+
+
 
 
 
@@ -240,38 +282,6 @@ class ContentBlocksSeed extends AbstractSeed
             ],
             [
                 'parent' => 'FAQ',
-                'label' => 'Question2',
-                'description' => 'FAQ question2',
-                'slug' => 'faq-question2',
-                'type' => 'text',
-                'value' => "What is a campaign?",
-            ],
-            [
-                'parent' => 'FAQ',
-                'label' => 'Question3',
-                'description' => 'FAQ question3',
-                'slug' => 'faq-question3',
-                'type' => 'text',
-                'value' => "What happens to the money that has been raised?",
-            ],
-            [
-                'parent' => 'FAQ',
-                'label' => 'Question4',
-                'description' => 'FAQ question4',
-                'slug' => 'faq-question4',
-                'type' => 'text',
-                'value' => "I am expecting more than 1000 orders, can I order in bulk?",
-            ],
-            [
-                'parent' => 'FAQ',
-                'label' => 'Question5',
-                'description' => 'FAQ question5',
-                'slug' => 'faq-question5',
-                'type' => 'text',
-                'value' => "How can I submit my designs?",
-            ],
-            [
-                'parent' => 'FAQ',
                 'label' => 'Answer1',
                 'description' => 'FAQ Answer1',
                 'slug' => 'faq-answer1',
@@ -280,11 +290,27 @@ class ContentBlocksSeed extends AbstractSeed
             ],
             [
                 'parent' => 'FAQ',
+                'label' => 'Question2',
+                'description' => 'FAQ question2',
+                'slug' => 'faq-question2',
+                'type' => 'text',
+                'value' => "What is a campaign?",
+            ],
+            [
+                'parent' => 'FAQ',
                 'label' => 'Answer2',
                 'description' => 'FAQ Answer2',
                 'slug' => 'faq-answer2',
                 'type' => 'text',
                 'value' => "A campaign",
+            ],
+            [
+                'parent' => 'FAQ',
+                'label' => 'Question3',
+                'description' => 'FAQ question3',
+                'slug' => 'faq-question3',
+                'type' => 'text',
+                'value' => "What happens to the money that has been raised?",
             ],
             [
                 'parent' => 'FAQ',
@@ -297,11 +323,27 @@ We collect the orders on your behalf, and return the profits from each order to 
             ],
             [
                 'parent' => 'FAQ',
+                'label' => 'Question4',
+                'description' => 'FAQ question4',
+                'slug' => 'faq-question4',
+                'type' => 'text',
+                'value' => "I am expecting more than 1000 orders, can I order in bulk?",
+            ],
+            [
+                'parent' => 'FAQ',
                 'label' => 'Answer4',
                 'description' => 'FAQ Answer4',
                 'slug' => 'faq-answer4',
                 'type' => 'text',
                 'value' => "Of course! By using our interactive pricing scale, you can see the manufacturing cost and how much profit you can generate for your school, based on how many tea towels you order.",
+            ],
+            [
+                'parent' => 'FAQ',
+                'label' => 'Question5',
+                'description' => 'FAQ question5',
+                'slug' => 'faq-question5',
+                'type' => 'text',
+                'value' => "How can I submit my designs?",
             ],
             [
                 'parent' => 'FAQ',
@@ -315,7 +357,22 @@ We collect the orders on your behalf, and return the profits from each order to 
 
 
             [
-                'parent' => 'About us',
+                'parent' => 'About Us',
+                'label' => 'About Us Pge Title',
+                'description' => 'About us Section',
+                'slug' => 'abt-title',
+                'type' => 'text',
+                'value' => "Organic Print Studio",
+            ],            [
+                'parent' => 'About Us',
+                'label' => 'About Us Subtitle',
+                'description' => 'About us Section',
+                'slug' => 'abt-subtitle',
+                'type' => 'text',
+                'value' => "Encourage, Educate, Empower",
+            ],
+            [
+                'parent' => 'About Us',
                 'label' => 'About Us Video Title',
                 'description' => 'About us Section',
                 'slug' => 'abt-vidotitle',
@@ -323,7 +380,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'value' => "You Can Learn More About Us!!",
             ],
             [
-                'parent' => 'About us',
+                'parent' => 'About Us',
                 'label' => 'About Us Video Link',
                 'description' => 'About us Section',
                 'slug' => 'abt-video',
@@ -331,7 +388,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'value' => "https://www.youtube.com/embed/RMk4wd5TCfM",
             ],
             [
-                'parent' => 'About us',
+                'parent' => 'About Us',
                 'label' => 'About Us Content',
                 'description' => 'About us Section',
                 'slug' => 'abt-text',
@@ -340,55 +397,58 @@ We collect the orders on your behalf, and return the profits from each order to 
             Constantly developing new products in collaboration with local artists, Susy strives to ethically source materials that minimise impact on the environment. She applies her love for quality textiles in the beautiful tactile products she develops. Susy keeps her finger on the pulse of design trends and feeds that back through her products to customers.",
             ],
             [
-                'parent' => 'About us',
-                'label' => 'About Us Video Link',
-                'description' => 'About us Section',
-                'slug' => 'abt-video',
-                'type' => 'text',
-                'value' => "https://www.youtube.com/embed/RMk4wd5TCfM",
+                'parent' => 'About Us ',
+                'label' => 'About Us Page Background Picture',
+                'description' => 'The image at the top of about us page.',
+                'slug' => 'abt-background',
+                'type' => 'image',
             ],
             [
-                'parent' => 'About us',
+                'parent' => 'About Us',
                 'label' => 'Image 1',
                 'description' => 'The image in the about us page.',
                 'slug' => 'abt-image1',
                 'type' => 'image',
             ],
             [
-                'parent' => 'About us',
+                'parent' => 'About Us',
                 'label' => 'Image 2',
                 'description' => 'The image in the about us page.',
                 'slug' => 'abt-image2',
                 'type' => 'image',
             ],
             [
-                'parent' => 'About us',
+                'parent' => 'About Us',
                 'label' => 'Image 3',
                 'description' => 'The image in the about us page.',
                 'slug' => 'abt-image3',
                 'type' => 'image',
             ],
             [
-                'parent' => 'About us',
+                'parent' => 'About Us',
                 'label' => 'Image 4',
                 'description' => 'The image in the about us page.',
                 'slug' => 'abt-image4',
                 'type' => 'image',
             ],
             [
-                'parent' => 'About us',
+                'parent' => 'About Us',
                 'label' => 'Image 5',
                 'description' => 'The image in the about us page.',
                 'slug' => 'abt-image5',
                 'type' => 'image',
             ],
             [
-                'parent' => 'About us',
+                'parent' => 'About Us',
                 'label' => 'Image 6',
                 'description' => 'The image in the about us page.',
                 'slug' => 'abt-image6',
                 'type' => 'image',
             ],
+
+
+
+
 
 
 
@@ -410,11 +470,27 @@ We collect the orders on your behalf, and return the profits from each order to 
             ],
             [
                 'parent' => 'The Process',
+                'label' => 'Step description1 of the process',
+                'description' => 'The step3 description1 text of the process',
+                'slug' => 'proc-text1',
+                'type' => 'text',
+                'value' => "Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on evidence-based medicine in dermatology, especially for skin of color.",
+            ],
+            [
+                'parent' => 'The Process',
                 'label' => 'Step2 of the process',
                 'description' => 'The step2 title of the process',
                 'slug' => 'proc-subtitle2',
                 'type' => 'text',
                 'value' => "Attend your appointment",
+            ],
+            [
+                'parent' => 'The Process',
+                'label' => 'Step description2 of the process',
+                'description' => 'The step3 description2 text of the process',
+                'slug' => 'proc-text2',
+                'type' => 'text',
+                'value' => "Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on evidence-based medicine in dermatology, especially for skin of color.",
             ],
             [
                 'parent' => 'The Process',
@@ -426,27 +502,18 @@ We collect the orders on your behalf, and return the profits from each order to 
             ],
             [
                 'parent' => 'The Process',
-                'label' => 'Step3 description1 of the process',
-                'description' => 'The step3 description1 text of the process',
-                'slug' => 'proc-text1',
-                'type' => 'text',
-                'value' => "Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on evidence-based medicine in dermatology, especially for skin of color.",
-            ],
-            [
-                'parent' => 'The Process',
-                'label' => 'Step3 description2 of the process',
-                'description' => 'The step3 description2 text of the process',
-                'slug' => 'proc-text2',
-                'type' => 'text',
-                'value' => "Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on evidence-based medicine in dermatology, especially for skin of color.",
-            ],
-            [
-                'parent' => 'The Process',
-                'label' => 'Step3 description3 of the process',
+                'label' => 'Step description3 of the process',
                 'description' => 'The step3 description3 text of the process',
                 'slug' => 'proc-text3',
                 'type' => 'text',
                 'value' => "Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on evidence-based medicine in dermatology, especially for skin of color.",
+            ],
+            [
+                'parent' => 'The Process',
+                'label' => 'Image',
+                'description' => 'The image of the process page.',
+                'slug' => 'proc-image',
+                'type' => 'image',
             ],
 
 
