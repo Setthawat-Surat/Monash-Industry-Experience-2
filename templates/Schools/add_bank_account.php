@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\School $school
  */
-$this->setLayout('School_dashboard');
+$this->setLayout('school_dashboard');
 
 
 ?>
