@@ -1,5 +1,5 @@
 <?php
-$this->setLayout('Admin_dashboard');
+$this->setLayout('admin_dashboard');
 
 use Cake\ORM\TableRegistry;
 
