@@ -7,7 +7,7 @@
  * @var \Cake\Collection\CollectionInterface|string[] $users
  */
 
-$this->setLayout('School_dashboard');
+$this->setLayout('school_dashboard');
 $campaignId = $this->request->getQuery('cID');
 ?>
 
