@@ -397,7 +397,7 @@ We collect the orders on your behalf, and return the profits from each order to 
             Constantly developing new products in collaboration with local artists, Susy strives to ethically source materials that minimise impact on the environment. She applies her love for quality textiles in the beautiful tactile products she develops. Susy keeps her finger on the pulse of design trends and feeds that back through her products to customers.",
             ],
             [
-                'parent' => 'About Us ',
+                'parent' => 'About Us',
                 'label' => 'About Us Page Background Picture',
                 'description' => 'The image at the top of about us page.',
                 'slug' => 'abt-background',
