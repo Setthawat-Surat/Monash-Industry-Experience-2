@@ -4,6 +4,14 @@ use Cake\ORM\TableRegistry;
 $school_table = TableRegistry::getTableLocator()->get('Schools');
 $user_id = $this->Identity->get('id');
 $school_rep= $school_table->find()->where(['id' => $user_id])->first();
+
+if ($this->Identity->isLoggedIn()) {
+    $user_role = $this->Identity->get('role');
+    if ($user_role != 'School') {
+        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,6 +77,12 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                 <a class="nav-link" href="/UrlHandler/myCampaign">
                     <i class="fas fa-file-alt"></i>
                     <span>My Campaigns</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/UrlHandler/schoolOrder">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>My Orders</span></a>
             </li>
 
             <!-- Divider -->

@@ -181,5 +181,13 @@ class UrlHandlerController extends AppController
     }
 
 
+    public function schoolOrder(){
+        return $this->redirect([
+            'controller' => 'Orders',
+            'action' => 'list_order'
+        ]);
+    }
+
+
 
 }

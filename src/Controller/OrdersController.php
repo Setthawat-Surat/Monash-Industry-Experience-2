@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Table\CampaignsTable;
 use App\Model\Table\ItemsTable;
 use Cake\Event\EventInterface;
 use Stripe\Webhook;
@@ -10,19 +11,24 @@ use Stripe\Webhook;
  * Orders Controller
  *
  * @property \App\Model\Table\OrdersTable $Orders
+ *
  */
 class OrdersController extends AppController
 {
     /**
      * @var \App\Model\Table\ItemsTable $Items
+     * @var \App\Model\Table\CampaignsTable $Campaign
      */
 
     private ItemsTable $Items;
+
+    private CampaignsTable $Campaigns;
 
     public function initialize(): void
     {
         parent::initialize();
         $this->Items = $this->fetchTable('Items');
+        $this->Campaigns = $this->fetchTable('Campaigns');
     }
 
     public function beforeFilter(EventInterface $event)
@@ -247,7 +253,8 @@ class OrdersController extends AppController
     }
 
 
-    public function viewOrder() {
+    public function viewOrder()
+    {
         // Create the query
         $uniqueProductsQuery = $this->Items->find()
             ->select([
@@ -290,6 +297,23 @@ class OrdersController extends AppController
 
         // Set the results for the view
         $this->set(compact('groupedProducts'));
+    }
+
+
+
+    public function listOrder(){
+
+        $userId = $this->Authentication->getIdentity()->get('id');
+
+        // Fetch all campaigns for the school along with their design drafts
+        $campaigns = $this->Campaigns->find()
+            ->where(['Campaigns.school_id' => $userId])
+            ->contain(['DesignDrafts']) // Include related design drafts
+            ->all();
+
+        // Pass the campaigns with design drafts to the view
+        $this->set(compact('campaigns'));
+
     }
 
 }
