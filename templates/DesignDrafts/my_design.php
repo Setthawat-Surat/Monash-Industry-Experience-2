@@ -2,7 +2,7 @@
 
 use Cake\ORM\TableRegistry;
 
-$this->setLayout('School_dashboard');
+$this->setLayout('school_dashboard');
 $campaignId = $this->request->getQuery('cID');
 ?>
 <div class="container-fluid">
