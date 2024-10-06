@@ -6,6 +6,7 @@ let closeCart = document.querySelector('.close');
 let mask = document.querySelector('.mask');
 let body = document.querySelector('.cartTab');
 let totoalPriceSpan = document.getElementById('totalPrice');
+let quantityLimit = 999;
 //let cart = [];
 
 // When clicking on the shopping cart icon, display the shopping cart and mask layer
@@ -97,7 +98,7 @@ function addToCart(product) {
             }
         }
         else{
-            if (cart[existingItemIndex].quantity < 200)
+            if (cart[existingItemIndex].quantity < quantityLimit)
                 cart[existingItemIndex].quantity += 1;
         }
 
@@ -195,9 +196,9 @@ const changeQuantity = (itemId, newQuantity) => {
             }
         }
         else {
-            if (newQuantity > 200) {
+            if (newQuantity > quantityLimit) {
 
-                newQuantity = 200;
+                newQuantity = quantityLimit;
             }
         }
 
@@ -256,9 +257,9 @@ const incrementQuantity = (itemId) => {
             }
         }
         else {
-            if (newQuantity > 200) {
+            if (newQuantity > quantityLimit) {
 
-                newQuantity = 200;
+                newQuantity = quantityLimit;
             }
         }
 
