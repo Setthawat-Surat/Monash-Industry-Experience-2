@@ -4,6 +4,14 @@ use Cake\ORM\TableRegistry;
 $school_table = TableRegistry::getTableLocator()->get('Schools');
 $user_id = $this->Identity->get('id');
 $school_rep= $school_table->find()->where(['id' => $user_id])->first();
+
+if ($this->Identity->isLoggedIn()) {
+    $user_role = $this->Identity->get('role');
+    if ($user_role != 'School') {
+        echo '<script>window.location.href = "' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'access_denied']) . '";</script>';
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -71,6 +79,12 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
                     <span>My Campaigns</span></a>
             </li>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="/UrlHandler/schoolOrder">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>My Orders</span></a>
+            </li>
+
             <!-- Divider -->
 
             <hr class="sidebar-divider">
@@ -85,7 +99,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
             <!-- Nav Item - Pages Collapse Menu -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/CreateCampaign">
+                <a class="nav-link collapsed" href="/UrlHandler/createcampaign">
                     <span>Create Campaign</span>
                 </a>
             </li>
@@ -135,167 +149,167 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
 
 
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!--
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/utilities-other.html">Other</a>
-                    </div>
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <!--
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Utilities</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Utilities:</h6>
+                    <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/utilities-color.html">Colors</a>
+                    <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/utilities-border.html">Borders</a>
+                    <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/utilities-animation.html">Animations</a>
+                    <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/utilities-other.html">Other</a>
                 </div>
-            </li>
-            -->
-
-            <!-- Divider -->
-            <!--
-            <hr class="sidebar-divider">
-            -->
-
-            <!-- Heading -->
-            <!--
-            <div class="sidebar-heading">
-                Addons
             </div>
-            -->
+        </li>
+        -->
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!--
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/login.html">Login</a>
-                        <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/register.html">Register</a>
-                        <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/404.html">404 Page</a>
-                        <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/blank.html">Blank Page</a>
-                    </div>
+        <!-- Divider -->
+        <!--
+        <hr class="sidebar-divider">
+        -->
+
+        <!-- Heading -->
+        <!--
+        <div class="sidebar-heading">
+            Addons
+        </div>
+        -->
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <!--
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Pages</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Login Screens:</h6>
+                    <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/login.html">Login</a>
+                    <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/register.html">Register</a>
+                    <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/forgot-password.html">Forgot Password</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Other Pages:</h6>
+                    <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/404.html">404 Page</a>
+                    <a class="collapse-item" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/blank.html">Blank Page</a>
                 </div>
-            </li>
-            -->
+            </div>
+        </li>
+        -->
 
-            <!-- Nav Item - Charts -->
-            <!--
-            <li class="nav-item">
-                <a class="nav-link" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-            -->
+        <!-- Nav Item - Charts -->
+        <!--
+        <li class="nav-item">
+            <a class="nav-link" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/charts.html">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Charts</span></a>
+        </li>
+        -->
 
-            <!-- Nav Item - Tables -->
-            <!--
-            <li class="nav-item">
-                <a class="nav-link" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+        <!-- Nav Item - Tables -->
+        <!--
+        <li class="nav-item">
+            <a class="nav-link" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/tables.html">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Tables</span></a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Logout</span></a>
-            </li>
-            -->
+        <li class="nav-item">
+            <a class="nav-link" href="../../../../Desktop/school_dashboard/startbootstrap-sb-admin-2-gh-pages/tables.html">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Logout</span></a>
+        </li>
+        -->
 
-            <!-- Divider -->
-            <!--
-            <hr class="sidebar-divider d-none d-md-block">
-            -->
-
-
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Topbar Search -->
-
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-
-                        </li>
+        <!-- Divider -->
+        <!--
+        <hr class="sidebar-divider d-none d-md-block">
+        -->
 
 
 
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Search -->
 
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?php
-                                if($this->Identity->isLoggedIn()){
-                                    $school_rep_firstname = $school_rep->get('rep_first_name');
-                                    $school_rep_lastname = $school_rep->get('rep_last_name');
-                                }
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
 
-                                ?>
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $school_rep_firstname . ' ' . $school_rep_lastname?></span>
-                                <i class="fas fa-user-circle fa-2x text-gray-600"></i>
+                    </li>
+
+
+
+
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?php
+                            if($this->Identity->isLoggedIn()){
+                                $school_rep_firstname = $school_rep->get('rep_first_name');
+                                $school_rep_lastname = $school_rep->get('rep_last_name');
+                            }
+
+                            ?>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $school_rep_firstname . ' ' . $school_rep_lastname?></span>
+                            <i class="fas fa-user-circle fa-2x text-gray-600"></i>
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
                             </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
+                        </div>
+                    </li>
 
-                    </ul>
+                </ul>
 
-                </nav>
-                <!-- End of Topbar -->
-                <?= $this->fetch('content') ?>
+            </nav>
+            <!-- End of Topbar -->
+            <?= $this->fetch('content') ?>
 
             <!-- Footer -->
-                <!--
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
+            <!--
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2021</span>
                 </div>
-            </footer>
-            -->
+            </div>
+        </footer>
+        -->
             <!-- End of Footer -->
 
         </div>
@@ -311,7 +325,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

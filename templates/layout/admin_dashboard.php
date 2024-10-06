@@ -83,7 +83,7 @@
                     </div>
                     <div class="sb-sidenav-menu-heading">Backends</div>
                     <a class="nav-link" href="/UrlHandler/order">
-                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-shopping-basket"></i></div>
                         View My Orders
                     </a>
                     <a class="nav-link" href="/UrlHandler/global">
