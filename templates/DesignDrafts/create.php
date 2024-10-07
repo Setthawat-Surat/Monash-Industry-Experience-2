@@ -25,8 +25,8 @@ $campaignId = $this->request->getQuery('cID');
 
         <div class="form-container">
             <?= $this->Form->create($designDraft, ['type' => 'file', 'id' => 'upload-design-form']) ?>
-            <?= $this->Flash->render() ?>
 
+            <div><?= $this->Flash->render() ?></div>
             <div class="form-group">
                 <?= $this->Form->control('design_name', [
                     'label' => [

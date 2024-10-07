@@ -30,6 +30,8 @@ if ($this->Identity->isLoggedIn()) {
                 ]) ?>
                 <div class="upload-form-wrapper shadow-sm p-4 bg-white rounded">
                     <h1 class="title text-center mb-4">Upload Final Design</h1>
+                    <div><?= $this->Flash->render() ?></div>
+
                     <div class="form-group mb-3">
                         <?= $this->Form->control('final_design', [
                             'type' => 'file',

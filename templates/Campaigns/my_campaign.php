@@ -1,5 +1,6 @@
 <?php
 use Cake\ORM\TableRegistry;
+use Cake\I18n\FrozenTime;
 
 $this->setLayout('school_dashboard');
 
@@ -7,6 +8,9 @@ $campaign_table = TableRegistry::getTableLocator()->get('Campaigns');
 $user_id = $this->Identity->get('id');
 $created_campaign = $campaign_table->find()->where(['school_id' => $user_id])->all();
 
+if ($created_campaign->isEmpty()) {
+    $this->Flash->info(__('No campaigns found for your school.'));
+}
 ?>
 
 <div class="container-fluid">
@@ -26,30 +30,44 @@ $created_campaign = $campaign_table->find()->where(['school_id' => $user_id])->a
             <div class="col-md-4">
                 <div class="card shadow mb-4">
                     <div class="card-body position-relative">
-                        <!-- Bin Icon -->
                         <?php
-                        echo $this->Form->postLink(
-                            '<i class="fa-regular fa-trash-can text-danger"></i>',
-                            ['controller' => 'Campaigns', 'action' => 'deletecampaign', $created_campaigns->id],
-                            [
-                                'escape' => false, // This allows HTML inside the link
-                                'class' => 'position-absolute',
-                                'style' => 'top: 23px; right: 30px;',
-                                'title' => 'Delete this campaign?',
-                                'confirm' => __('Are you sure you want to delete this campaign?'), // Confirmation dialog
-                                'method' => 'DELETE' // Simulates a DELETE request
-                            ]
-                        );
-                        ?>
 
-                        <h4 class="card-title text-center"><b><?= $created_campaigns->name ?></b></h4><br>
-                        <p class="card-text">Start Date: <?= $created_campaigns->start_date ?></p>
-                        <p class="card-text">End Date: <?= $created_campaigns->end_date ?></p>
+                        $currentTime = FrozenTime::now();
+
+
+                        $startDate = new FrozenTime($created_campaigns->start_date);
+                        $endDate = new FrozenTime($created_campaigns->end_date);
+
+
+                        $isOngoing = $currentTime >= $startDate && $currentTime <= $endDate;
+
+
+                        if (!$isOngoing):
+                            ?>
+                            <?php
+                            echo $this->Form->postLink(
+                                '<i class="fa-regular fa-trash-can text-danger"></i>',
+                                ['controller' => 'Campaigns', 'action' => 'deletecampaign', $created_campaigns->id],
+                                [
+                                    'escape' => false,
+                                    'class' => 'position-absolute',
+                                    'style' => 'top: 23px; right: 30px;',
+                                    'title' => 'Delete this campaign?',
+                                    'confirm' => __('Are you sure you want to delete this campaign?'),
+                                    'method' => 'DELETE'
+                                ]
+                            );
+                            ?>
+                        <?php endif; ?>
+
+                        <h4 class="card-title text-center"><b><?= h($created_campaigns->name) ?></b></h4><br>
+                        <p class="card-text">Start Date: <?= h($created_campaigns->start_date) ?></p>
+                        <p class="card-text">End Date: <?= h($created_campaigns->end_date) ?></p>
                         <?php
                         $designDraft_table = TableRegistry::getTableLocator()->get('DesignDrafts');
                         $participated_classroom = $designDraft_table->find()->where(['campaign_id' => $created_campaigns->id])->count();
                         ?>
-                        <p class="card-text">Total number of classes participated: <?= $participated_classroom ?></p>
+                        <p class="card-text">Total number of classes participated: <?= h($participated_classroom) ?></p>
                         <br>
                         <div class="text-center">
                             <a href="<?= $this->Url->build(['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $created_campaigns->id]]) ?>" class="btn btn-primary">Manage this campaign</a>

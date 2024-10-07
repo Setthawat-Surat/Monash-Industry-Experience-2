@@ -165,35 +165,67 @@ class DesignDraftsController extends AppController
             if ($this->DesignDrafts->save($designDraft)) {
                 $designDraftId = $designDraft->id;
 
-                // Process file uploads
+// Process file uploads
                 $files = $this->request->getData('studentDesigns');
+
+                // Allowed file types and max file size (2MB)
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+                $maxFileSize = 100 * 1024 * 1024; // 2MB
+                $uploadErrors = [];
 
                 if (!empty($files)) {
                     foreach ($files as $file) {
-                        if ($file->getError() === UPLOAD_ERR_OK) {
-                            $image_name = $file->getClientFilename();
-                            $targetPath = WWW_ROOT . 'img/student_designs_img' . DS . $image_name;
+                        // Check for upload errors
+                        if ($file->getError() !== UPLOAD_ERR_OK) {
+                            $uploadErrors[] = __('Failed to upload one or more files.');
+                            continue; // Skip to the next file
+                        }
 
-                            // Move file to target directory
-                            $file->moveTo($targetPath);
+                        $image_name = $file->getClientFilename();
+                        $fileType = $file->getClientMediaType();
+                        $fileSize = $file->getSize();
 
-                            // Create and save design photo entity
-                            $designPhotoData = [
-                                'photo' => $image_name,
-                                'design_draft_id' => $designDraftId,
-                            ];
+                        // Validate file type
+                        if (!in_array($fileType, $allowedMimeTypes)) {
+                            $uploadErrors[] = __('Invalid file type for file: {0}. Please upload a JPEG, PNG, or GIF image.', $image_name);
+                            continue; // Skip to the next file
+                        }
 
-                            $designPhoto = $this->DesignPhotos->newEmptyEntity();
-                            $designPhoto = $this->DesignPhotos->patchEntity($designPhoto, $designPhotoData);
+                        // Validate file size
+                        if ($fileSize > $maxFileSize) {
+                            $uploadErrors[] = __('File size for file: {0} exceeds 2MB. Please upload a smaller image.', $image_name);
+                            continue; // Skip to the next file
+                        }
 
-                            if (!$this->DesignPhotos->save($designPhoto)) {
-                                $this->Flash->error(__('Unable to save some photos. Please try again.'));
-                            }
+                        // Set target path
+                        $targetPath = WWW_ROOT . 'img/student_designs_img' . DS . uniqid() . '-'. $image_name;
+
+                        // Move file to target directory
+                        $file->moveTo($targetPath);
+                        // Create and save design photo entity
+                        $designPhotoData = [
+                            'photo' => basename($targetPath),
+                            'design_draft_id' => $designDraftId,
+                        ];
+
+                        $designPhoto = $this->DesignPhotos->newEmptyEntity();
+                        $designPhoto = $this->DesignPhotos->patchEntity($designPhoto, $designPhotoData);
+
+                        if (!$this->DesignPhotos->save($designPhoto)) {
+                            $uploadErrors[] = __('Unable to save some photos. Please try again.');
+                        }
+
+                    }
+
+                    if (empty($uploadErrors)) {
+                        $this->Flash->success(__('Your design has been saved along with the photos.'));
+                        return $this->redirect(['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $campaignId]]);
+                    } else {
+                        // If there are any upload errors, display them
+                        foreach ($uploadErrors as $error) {
+                            $this->Flash->error($error);
                         }
                     }
-                    $this->Flash->success(__('Your design has been saved along with the photos.'));
-
-                    return $this->redirect(['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $campaignId]]);
                 } else {
                     $this->Flash->error(__('No files were uploaded.'));
                 }
@@ -299,7 +331,6 @@ class DesignDraftsController extends AppController
 
     public function addFinalDesign()
     {
-
         $design_id = $this->request->getQuery('dID');
         $DesignDrafts = $this->DesignDrafts->find()
             ->where(['id' => $design_id])
@@ -332,18 +363,44 @@ class DesignDraftsController extends AppController
         $end_date = $Campaign->end_date;
         $campaign_name = $Campaign->name;
 
-        if ($this->request->is(['post','put'])) {
+        if ($this->request->is(['post', 'put'])) {
             $file = $this->request->getData('final_design');
-            if ($file->getError() === UPLOAD_ERR_OK) {
+
+            // Allowed file types and max file size (2MB)
+            $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+            $maxFileSize = 100 * 1024 * 1024; // 2MB
+            $uploadErrors = [];
+
+            // Check for upload errors
+            if ($file->getError() !== UPLOAD_ERR_OK) {
+                $uploadErrors[] = __('Failed to upload the file.');
+            } else {
                 $image_name = $file->getClientFilename();
-                $targetPath = WWW_ROOT . 'img/final_design' . DS . $image_name;
-                $file->moveTo($targetPath);
-                $DesignDrafts->final_design_photo = $image_name;
+                $fileType = $file->getClientMediaType();
+                $fileSize = $file->getSize();
 
+                // Validate file type
+                if (!in_array($fileType, $allowedMimeTypes)) {
+                    $uploadErrors[] = __('Invalid file type for file: {0}. Please upload a JPG, PNG, or WebP image.', $image_name);
+                }
+
+                // Validate file size
+                if ($fileSize > $maxFileSize) {
+                    $uploadErrors[] = __('File size for file: {0} exceeds 2MB. Please upload a smaller image.', $image_name);
+                }
+
+                // If there are no errors, move the file
+                if (empty($uploadErrors)) {
+                    $targetPath = WWW_ROOT . 'img/final_design' . DS . uniqid() . '-' . $image_name;
+                    $file->moveTo($targetPath);
+                    $DesignDrafts->final_design_photo = basename($targetPath);
+                }
+            }
+
+            // Send email if no upload errors
+            if (empty($uploadErrors)) {
                 // Send a template email
-
                 $subject = 'Contact Request From ';
-
                 $mailer = new Mailer('default');
                 $mailer->setSubject($subject)
                     ->setEmailFormat('html')
@@ -370,16 +427,19 @@ class DesignDraftsController extends AppController
 
                 if ($mailer->deliver() && $this->DesignDrafts->save($DesignDrafts)) {
                     $this->Flash->success(__('The final design has been uploaded successfully'));
-
                     return $this->redirect(['controller' => 'design-drafts', 'action' => 'admin-view-design']);
                 }
             } else {
-                $this->Flash->error(__('Failed to upload the file.'));
+                // If there are upload errors, display them
+                foreach ($uploadErrors as $error) {
+                    $this->Flash->error($error);
+                }
             }
         }
 
         $this->set(compact('DesignDrafts'));
     }
+
 
 
     public function confirmFinalDesign($id){
@@ -481,7 +541,6 @@ class DesignDraftsController extends AppController
         // Find the specific design draft by ID
         $designDraft = $designDraftsTable->get($id, contain: ['DesignPhotos']); // Load associated design photos
 
-
         // Set the design draft data to the view
         $this->set('designDraft', $designDraft);
 
@@ -494,27 +553,56 @@ class DesignDraftsController extends AppController
             if (!empty($this->request->getData('studentDesigns'))) {
                 // Handle file uploads
                 $files = $this->request->getData('studentDesigns');
+
+                // Allowed file types and max file size (2MB)
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+                $maxFileSize = 100 * 1024 * 1024; // 2MB
+                $uploadErrors = [];
+
                 foreach ($files as $file) {
                     if ($file->getError() === UPLOAD_ERR_OK) {
                         $fileName = $file->getClientFilename();
-                        $targetPath = WWW_ROOT . 'img/student_designs_img' . DS . $fileName;
+                        $fileType = $file->getClientMediaType();
+                        $fileSize = $file->getSize();
 
+                        // Validate file type
+                        if (!in_array($fileType, $allowedMimeTypes)) {
+                            $uploadErrors[] = __('Invalid file type for file: {0}. Please upload a JPEG, PNG, or WEBP image.', $fileName);
+                            continue; // Skip to the next file
+                        }
+
+                        // Validate file size
+                        if ($fileSize > $maxFileSize) {
+                            $uploadErrors[] = __('File size for file: {0} exceeds 2MB. Please upload a smaller image.', $fileName);
+                            continue; // Skip to the next file
+                        }
+
+                        // Move the file to the target directory
+                        $targetPath = WWW_ROOT . 'img/student_designs_img' . DS . uniqid() . '-' . $fileName;
+
+                        // Move file to target directory
                         $file->moveTo($targetPath);
 
                         $designPhotoData = [
-                            'photo' => $fileName,
+                            'photo' => basename($targetPath),
                             'design_draft_id' => $designDraftId,
                         ];
-
 
                         // Create a new DesignPhoto entity to save in the database
                         $designPhoto = $this->DesignPhotos->newEmptyEntity();
                         $designPhoto = $this->DesignPhotos->patchEntity($designPhoto, $designPhotoData);
 
-                        if(!$this->DesignPhotos->save($designPhoto)){
-                            $this->Flash->error(__('Unable to save some photo. Please try again'));
+                        if (!$this->DesignPhotos->save($designPhoto)) {
+                            $this->Flash->error(__('Unable to save some photos. Please try again.'));
                         }
+                    } else {
+                        $uploadErrors[] = __('Failed to upload file: {0}.', $file->getClientFilename());
                     }
+                }
+
+                // If there are any upload errors, display them
+                foreach ($uploadErrors as $error) {
+                    $this->Flash->error($error);
                 }
             }
 
@@ -526,7 +614,5 @@ class DesignDraftsController extends AppController
             $this->Flash->error(__('The design draft could not be saved. Please, try again.'));
         }
     }
-
-
-
 }
+
