@@ -11,7 +11,7 @@ $this->setLayout('school_dashboard');
 $campaignId = $this->request->getQuery('cID');
 ?>
 
-
+<div><?= $this->Flash->render() ?></div>
 <div class="container-fluid"><br>
     <section id="upload-design-form">
         <div class="header-row">
@@ -26,7 +26,7 @@ $campaignId = $this->request->getQuery('cID');
         <div class="form-container">
             <?= $this->Form->create($designDraft, ['type' => 'file', 'id' => 'upload-design-form']) ?>
 
-            <div><?= $this->Flash->render() ?></div>
+
             <div class="form-group">
                 <?= $this->Form->control('design_name', [
                     'label' => [

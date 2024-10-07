@@ -11,7 +11,7 @@ $school_table = TableRegistry::getTableLocator()->get('Schools');
 $user_id = $this->Identity->get('id');
 $school_rep= $school_table->find()->where(['id' => $user_id])->first();
 ?>
-
+<div><?= $this->Flash->render() ?></div>
 <title>Upload School Logo</title>
 <section id="upload-section">
     <?= $this->Form->create($school, [
@@ -35,7 +35,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
 
         <br>
         <h1 class="title">Update School Logo</h1>
-        <div><?= $this->Flash->render() ?></div>
+
         <div class="form-group">
             <?= $this->Form->control('logo', [
                 'type' => 'file',
