@@ -165,12 +165,12 @@ class DesignDraftsController extends AppController
             if ($this->DesignDrafts->save($designDraft)) {
                 $designDraftId = $designDraft->id;
 
-// Process file uploads
+            // Process file uploads
                 $files = $this->request->getData('studentDesigns');
 
-                // Allowed file types and max file size (2MB)
+                // Allowed file types and max file size (100MB)
                 $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
-                $maxFileSize = 100 * 1024 * 1024; // 2MB
+                $maxFileSize = 100 * 1024 * 1024; // 100MB
                 $uploadErrors = [];
 
                 if (!empty($files)) {

@@ -39,7 +39,7 @@ if ($created_campaign->isEmpty()) {
                         $endDate = new FrozenTime($created_campaigns->end_date);
 
 
-                        $isOngoing = $currentTime >= $startDate && $currentTime <= $endDate;
+                        $isOngoing = $currentTime >= $startDate;
 
 
                         if (!$isOngoing):

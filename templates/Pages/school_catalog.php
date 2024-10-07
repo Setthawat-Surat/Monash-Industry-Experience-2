@@ -19,7 +19,16 @@ if ($school_code) {
         ->first();
     if ($search_school) {
         $searched_school_id = $search_school->id;
+        // Fetch campaigns and associated design drafts
 
+        $campaigns = $campaign_table->find()
+            ->where([
+                'school_id' => $searched_school_id,
+                'start_date <=' => date('Y-m-d'),
+                'end_date >=' => date('Y-m-d')
+            ])
+            ->contain(['DesignDrafts'])
+            ->all();
 
 
         if (!$campaigns->isEmpty()) {
@@ -92,9 +101,13 @@ if ($school_code) {
 
         // Fetch campaigns and associated design drafts
         $campaigns = $campaign_table->find()
-            ->where(['school_id' => $searched_school_id])
-            ->contain(['DesignDrafts']) // Load related design drafts
-            ->all(); // This returns a collection
+            ->where([
+                'school_id' => $searched_school_id,
+                'start_date <=' => date('Y-m-d'),
+                'end_date >=' => date('Y-m-d')
+            ])
+            ->contain(['DesignDrafts'])
+            ->all();
 
         if (!$campaigns->isEmpty()) {
             foreach ($campaigns as $campaign) {
