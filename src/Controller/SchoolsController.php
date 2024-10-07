@@ -167,22 +167,61 @@ class SchoolsController extends AppController
             ->where(['id' => $userId])
             ->first();
 
-        if ($this->request->is(['post','put'])) {
+
+
+        if ($this->request->is(['post', 'put'])) {
             $file = $this->request->getData('logo');
+
+            // Allowed file types and max file size (2MB)
+            $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            $maxFileSize = 2 * 1024 * 1024; // 2MB
+
             if ($file->getError() === UPLOAD_ERR_OK) {
                 $image_name = $file->getClientFilename();
-                $targetPath = WWW_ROOT . 'img/school_logo_img' . DS . $image_name;
-                $file->moveTo($targetPath);
-                $school->logo = $image_name;
-                if ($this->Schools->save($school)) {
-                    $this->Flash->success(__('The school logo has been uploaded successfully'));
-                    return $this->redirect(['controller'=>'pages','action' => 'display','School_dashboard']);
+                $fileType = $file->getClientMediaType();
+                $fileSize = $file->getSize();
+
+                // Validate file type
+                if (!in_array($fileType, $allowedMimeTypes)) {
+                    $this->Flash->error(__('Invalid file type. Please upload a JPEG, PNG, or GIF image.'));
+                    return $this->redirect(['controller' => 'Schools', 'action' => 'addSchoolLogo']);
                 }
-            } else {
-                $this->Flash->error(__('Failed to upload the file.'));
+
+                if ($this->request->is(['post', 'put'])) {
+                    $file = $this->request->getData('logo');
+
+                    // Allowed file types and max file size (2MB)
+                    $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                    $maxFileSize = 2 * 1024 * 1024; // 2MB
+
+                    if ($file->getError() === UPLOAD_ERR_OK) {
+                        $image_name = $file->getClientFilename();
+                        $fileType = $file->getClientMediaType();
+                        $fileSize = $file->getSize();
+
+                        // Validate file type
+                        if (!in_array($fileType, $allowedMimeTypes)) {
+                            $this->Flash->error(__('Invalid file type. Please upload a JPEG, PNG, or GIF image.'));
+                            return $this->redirect(['controller' => 'Schools', 'action' => 'addSchoolLogo']);
+                        }
+                        if ($fileSize > $maxFileSize) {
+                            $this->Flash->error(__('File size exceeds 2MB. Please upload a smaller image.'));
+                            return $this->redirect(['controller' => 'Schools', 'action' => 'addSchoolLogo']);
+                        }
+                    }
+                    $targetPath = WWW_ROOT . 'img/school_logo_img' . DS . $image_name;
+                    $file->moveTo($targetPath);
+                    $school->logo = $image_name;
+                    if ($this->Schools->save($school)) {
+                        $this->Flash->success(__('The school logo has been uploaded successfully'));
+                        return $this->redirect(['controller'=>'pages','action' => 'display','School_dashboard']);
+                    }
+                else {
+                    $this->Flash->error(__('Failed to upload the file.'));
+                }
+                }
             }
         }
-
         $this->set(compact('school'));
     }
 
@@ -192,23 +231,56 @@ class SchoolsController extends AppController
             ->where(['id' => $userId])
             ->first();
 
-        if ($this->request->is(['post','put'])) {
+        $this->set(compact('school'));
+
+        if ($this->request->is(['post', 'put'])) {
             $file = $this->request->getData('logo');
+
+            // Allowed file types and max file size (2MB)
+            $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            $maxFileSize = 2 * 1024 * 1024; // 2MB
+
             if ($file->getError() === UPLOAD_ERR_OK) {
                 $image_name = $file->getClientFilename();
-                $targetPath = WWW_ROOT . 'img/school_logo_img' . DS . $image_name;
-                $file->moveTo($targetPath);
-                $school->logo = $image_name;
-                if ($this->Schools->save($school)) {
-                    $this->Flash->success(__('The school logo has been updated successfully'));
-                    return $this->redirect(['controller'=>'pages','action' => 'display','School_dashboard']);
+                $fileType = $file->getClientMediaType();
+                $fileSize = $file->getSize();
+
+                // Validate file type
+                if (!in_array($fileType, $allowedMimeTypes)) {
+                    $this->Flash->error(__('Invalid file type. Please upload a JPEG, PNG, or GIF image.'));
+                    return $this->redirect(['controller' => 'Schools', 'action' => 'updateSchoolLogo']);
                 }
-            } else {
-                $this->Flash->error(__('Failed to upload the file.'));
+
+                // Validate file size
+                if ($fileSize > $maxFileSize) {
+                    $this->Flash->error(__('File size exceeds 2MB. Please upload a smaller image.'));
+                    return $this->redirect(['controller' => 'Schools', 'action' => 'updateSchoolLogo']);
+                }
+
+                // Create a unique file name to avoid conflicts
+                $dir = WWW_ROOT . 'img' . DS . 'school_logo_img';
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0775, true);
+                }
+                $targetPath = $dir . DS . uniqid() . '-' . $image_name;
+
+
+                // Move the uploaded file
+                $file->moveTo($targetPath);
+                // Update school logo in the database
+                $school->logo = basename($targetPath);
+                if ($this->Schools->save($school)) {
+                    $this->Flash->success(__('The school logo has been uploaded successfully'));
+                    return $this->redirect(['controller' => 'pages', 'action' => 'display', 'School_dashboard']);
+                } else {
+                    $this->Flash->error(__('Failed to save the logo to the database. Please try again.'));
+                    return;
+                }
+
             }
         }
 
-        $this->set(compact('school'));
+
     }
 
     public function updateAccountStatus($id = null, $status = null){

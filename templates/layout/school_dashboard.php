@@ -127,22 +127,14 @@ if ($this->Identity->isLoggedIn()) {
 
             <!-- Add and Update School logo shortcut -->
             <?php
-            if ($school_rep->get('logo') == null) {
-                echo '
-                        <li class="nav-item">
-                            <a class="nav-link collapsed" href="/UrlHandler/addSchoolLogo">
-                                <span>Add School Logo</span>
-                            </a>
-                        </li>';
-            }
-            else {
+
                 echo '
                         <li class="nav-item">
                             <a class="nav-link collapsed" href="/UrlHandler/updateSchoolLogo">
                                 <span>Update School Logo</span>
                             </a>
                         </li>';
-            }
+
             ?>
 
 

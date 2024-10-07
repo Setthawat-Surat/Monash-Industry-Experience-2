@@ -16,7 +16,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
 <section id="upload-section">
     <?= $this->Form->create($school, [
         'type' => 'file',
-        'url' => ['controller' => 'Schools', 'action' => 'addSchoolLogo'],
+        'url' => ['controller' => 'Schools', 'action' => 'updateSchoolLogo'],
         'id' => 'upload-logo-form'
     ]) ?>
     <div class="upload-form-wrapper">
@@ -35,6 +35,7 @@ $school_rep= $school_table->find()->where(['id' => $user_id])->first();
 
         <br>
         <h1 class="title">Update School Logo</h1>
+        <div><?= $this->Flash->render() ?></div>
         <div class="form-group">
             <?= $this->Form->control('logo', [
                 'type' => 'file',
