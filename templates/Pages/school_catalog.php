@@ -20,11 +20,7 @@ if ($school_code) {
     if ($search_school) {
         $searched_school_id = $search_school->id;
 
-        // Fetch campaigns and associated design drafts
-        $campaigns = $campaign_table->find()
-            ->where(['school_id' => $searched_school_id])
-            ->contain(['DesignDrafts']) // Load related design drafts
-            ->all(); // This returns a collection
+
 
         if (!$campaigns->isEmpty()) {
 
