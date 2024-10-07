@@ -88,7 +88,7 @@ if ($school_code) {
     }
 } elseif ($school_name) {
     $search_school_by_name = $school_table->find()
-        ->where(['name LIKE' => '%' . $school_name . '%'])
+        ->where(['name' => $school_name])
         ->first();
     if ($search_school_by_name) {
         $searched_school_id = $search_school_by_name->id;
