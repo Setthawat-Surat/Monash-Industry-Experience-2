@@ -66,7 +66,7 @@ $campaignId = $this->request->getQuery('cID');
                         ]) ?>
                     </div>
 
-
+                    <div class="form-group">
                     <div class="row">
 
                         <div class="col-md-6">
@@ -107,7 +107,7 @@ $campaignId = $this->request->getQuery('cID');
 
                     </div>
 
-
+                    </div>
                     <div class="form-group">
                         <?= $this->Form->control('logo_position', [
                             'label' => [
