@@ -86,6 +86,7 @@ if ($school_code) {
     } else {
         echo '<h1 style="text-align: center; font-family: \'Poppins\', sans-serif;">No search result found.</h1>';
     }
+
 } elseif ($school_name) {
     $search_school_by_name = $school_table->find()
         ->where(['name' => $school_name])
@@ -155,11 +156,19 @@ if ($school_code) {
             }
         } else {
             echo '<h1 style="text-align: center; font-family: \'Poppins\', sans-serif;">No campaigns found for this school.</h1>';
+
+
         }
     } else {
         echo '<h1 style="text-align: center; font-family: \'Poppins\', sans-serif;">No search result found.</h1>';
+
     }
 }
+echo '<div style="text-align: center;">';
+echo '<button type="submit" class="nav-button" style="padding: 10px 20px; background-color: #0778f2de; border: none; color: white; font-size: 16px; cursor: pointer; border-radius: 5px;">
+        <a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'support_school']) . '" style="color: white; text-decoration: none;">Return</a>
+      </button>';
+echo '</div>';
 ?>
 
 <br><br><br>

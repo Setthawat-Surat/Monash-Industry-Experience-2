@@ -14,7 +14,11 @@ $created_campaign = $campaign_table->find()->where(['school_id' => $user_id])->a
     <br>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h3 class="h3 mb-0 text-gray-800">My Campaigns</h3>
+        <a href="<?= $this->Url->build(['controller' => 'CreateCampaign', 'action' => 'index']); ?>" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Create Campaign
+        </a>
     </div>
+
     <br>
 
     <div class="row">
