@@ -243,16 +243,16 @@ $this->assign('title', 'Fundraising');
     </p>
     <div class="cs-container">
         <div class="grid">
-            <div class="grid-item"><b>Number of tea towels purchases</b></div>
-            <div class="grid-item"><b>Cost</b></div>
-            <div class="grid-item">25-49</div>
-            <div class="grid-item">$17.40</div>
-            <div class="grid-item">50-249</div>
-            <div class="grid-item">$13.05</div>
-            <div class="grid-item">250-499</div>
-            <div class="grid-item">$11.60</div>
-            <div class="grid-item">500+</div>
-            <div class="grid-item">$11.02</div>
+            <div class="grid-item"><b>Number of tea towels:</b></div>
+            <div class="grid-item"><b>Cost per piece:</b></div>
+            <div class="grid-item background-white">25-49</div>
+            <div class="grid-item background-white">$17.40</div>
+            <div class="grid-item background-white">50-249</div>
+            <div class="grid-item background-white">$13.05</div>
+            <div class="grid-item background-white">250-499</div>
+            <div class="grid-item background-white">$11.60</div>
+            <div class="grid-item background-white">500+</div>
+            <div class="grid-item background-white">$11.02</div>
         </div>
 
 
