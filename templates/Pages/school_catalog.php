@@ -24,8 +24,8 @@ if ($school_code) {
         $campaigns = $campaign_table->find()
             ->where([
                 'school_id' => $searched_school_id,
-                'start_date <=' => date('Y-m-d'),
-                'end_date >=' => date('Y-m-d')
+                'start_date >=' => date('Y-m-d'),
+                'end_date <=' => date('Y-m-d')
             ])
             ->contain(['DesignDrafts'])
             ->all();
@@ -103,8 +103,8 @@ if ($school_code) {
         $campaigns = $campaign_table->find()
             ->where([
                 'school_id' => $searched_school_id,
-                'start_date <=' => date('Y-m-d'),
-                'end_date >=' => date('Y-m-d')
+                'start_date >=' => date('Y-m-d'),
+                'end_date <=' => date('Y-m-d')
             ])
             ->contain(['DesignDrafts'])
             ->all();
