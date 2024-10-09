@@ -123,7 +123,9 @@
 
         <div class="cartbtn">
             <button class="close">CLOSE</button>
-            <a href="/Stripe" id="checkoutLink" class="checkOut checkout-link"><button class="checkbtn">Check Out</button></a>
+            <a href="/Stripe" id="checkoutLink" class="checkOut checkout-link">
+                <button class="checkbtn" id="checkoutButton" disabled>CHECK OUT</button>
+            </a>
         </div>
     </div>
 

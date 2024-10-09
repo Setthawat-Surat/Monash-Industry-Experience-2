@@ -8,7 +8,28 @@ let body = document.querySelector('.cartTab');
 let totoalPriceSpan = document.getElementById('totalPrice');
 let quantityLimit = 999;
 //let cart = [];
+let checkoutButton = document.getElementById('checkoutButton');
 
+// check if localStorage cart is empty
+function updateCheckoutButton() {
+
+    const cart = JSON.parse(localStorage.getItem('cart'));
+
+    if (!cart || cart.length === 0) {
+        checkoutButton.disabled = true;
+        // console.log("disable mode")
+
+    } else {
+        checkoutButton.disabled = false;
+
+        checkCartContent()
+    }
+}
+
+// 在页面加载时检查购物车状态
+document.addEventListener('DOMContentLoaded', function() {
+    updateCheckoutButton();
+});
 // When clicking on the shopping cart icon, display the shopping cart and mask layer
 iconCart.addEventListener('click', () => {
     document.body.classList.add('showCart');
@@ -90,6 +111,7 @@ function addCartNotification(product){
 }
 
 function addToCart(product) {
+    updateCheckoutButton();
     console.log("inside add to cart");
     let cart = localStorage.getItem('cart');
 
@@ -150,6 +172,7 @@ function addToCart(product) {
 }
 
 const addCartToHTML = () =>{
+    updateCheckoutButton()
     // Retrieve the cart data from local storage
     const cartData = localStorage.getItem('cart');
 

@@ -3826,6 +3826,7 @@ textarea:hover {
 .button-blue {
     background-color: #007bff; /* Blue for add to cart button */
     font-size: 1.1em;
+    margin: 5px;
 }
 
 .button-blue:hover {
@@ -3977,6 +3978,15 @@ body .showCart .container {
     background: linear-gradient(45deg, #ff3b30, #ff6f61);
 }
 
+/*Button style in disabled state*/
+.cartTab .cartbtn .checkbtn:disabled{
+    color: #666666;
+    cursor: not-allowed;
+    border: none;
+    background: #eeeeeeb9;
+}
+
+
 .checkout-link {
     display: inline-block;
     text-decoration: none;
@@ -3987,8 +3997,9 @@ body .showCart .container {
 }
 
 .checkout-link .checkbtn:hover {
-    background-color: #45a049; /* 悬停时改变背景颜色 */
+    background-color: #45a049;
 }
+
 
 
 .listCart {

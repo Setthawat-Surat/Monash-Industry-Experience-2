@@ -115,7 +115,7 @@ if (!empty($campaigns)) {
     <br>
     <br>
     <div style="text-align: center;">
-        <a href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'support_school']) ?>" class="nav-button" style="padding: 10px 20px; background-color: #0778f2de; border: none; color: white; font-size: 16px; cursor: pointer; border-radius: 5px;">
+        <a href="<?= $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'support_school']) ?>" class="nav-button" style="padding: 10px 20px; background-color: #0778f2de;text-decoration: none; border: none; color: white; font-size: 16px; cursor: pointer;">
             Return
         </a>
     </div>
