@@ -11859,7 +11859,7 @@ input[type=number] {
     /* Style for each image */
     flex: 1 1 auto; /* Allow images to grow and shrink, take equal space */
     max-width: calc(15% - 10px); /* Adjust based on the number of images per row and gap */
-    height: auto; /* Maintain aspect ratio */
+    height: 100px; /* Maintain aspect ratio */
     object-fit: cover; /* Ensure images cover the container without distortion */
 }
 
