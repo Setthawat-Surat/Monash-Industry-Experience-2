@@ -1,6 +1,3 @@
-<style>
-
-</style>
 
 <?php
 use Cake\ORM\TableRegistry;
@@ -13,7 +10,7 @@ $school_name = $this->request->getQuery('name');
 $school_table = TableRegistry::getTableLocator()->get('Schools');
 $campaign_table = TableRegistry::getTableLocator()->get('Campaigns');
 
-// 根据学校代码或名称搜索
+// search by name or code
 if ($school_code) {
     $school = $school_table->find()->where(['code' => $school_code])->first();
 } elseif ($school_name) {
@@ -43,7 +40,20 @@ if ($school) {
                     <span style="color: red;">(Ends: <?= h($campaign->end_date) ?>)</span>
                 </h2>
                 <div class="campaign-cards-container">
-                    <?php foreach ($campaign->design_drafts as $draft): ?>
+                    <?php foreach ($campaign->design_drafts as $draft):
+                        // in PHP code generate JavaScript object
+                        $draftData = [
+                            'id' => $draft->id,
+                            'design_name' => $draft->design_name,
+                            'sales_price' => $draft->sales_price,
+                            'year_level' => $draft->design_yearlevel,
+                            'specifications' => $draft->specifications,
+                            'final_design_photo' => $draft->final_design_photo
+                        ];
+                        // Encode the draft object into JSON
+                        $jsonDraftData = htmlspecialchars(json_encode($draftData), ENT_QUOTES, 'UTF-8');
+
+                        ?>
                         <div class="card">
                             <div class="card-image">
                                 <?= $this->Html->image(
@@ -61,7 +71,7 @@ if ($school) {
                                     <button class="button-green" disabled>
                                         $<?= h($draft->sales_price) ?>
                                     </button>
-                                    <button class="button-blue addToCartButton" onclick="addToCart(<?= json_encode($draft, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>)">
+                                    <button class="button-blue addToCartButton" onclick="addToCart(<?= $jsonDraftData ?>)">
                                         Add to Cart
                                     </button>
                                 </div>
@@ -81,6 +91,7 @@ if ($school) {
             Return
         </a>
     </div>
-    <div class="space"></div>
+    <br>
+    <br>
 </div>
 

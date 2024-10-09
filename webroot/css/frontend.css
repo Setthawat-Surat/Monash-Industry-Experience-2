@@ -3756,6 +3756,7 @@ textarea:hover {
 .card-image {
     flex: 0 0 auto; /* Prevent the image from growing */
     max-width: min(50%, 200px); /* Set a max-width for the image */
+
 }
 
 
@@ -3765,6 +3766,8 @@ textarea:hover {
     height: auto;
     object-fit: cover;
     padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for 3D effect */
+
 }
 
 /* Card content */
