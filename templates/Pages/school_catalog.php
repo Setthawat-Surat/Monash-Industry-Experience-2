@@ -84,6 +84,12 @@ if ($school) {
     <?php else: ?>
         <h1 style="text-align: center;">No campaigns found for this school.</h1>
     <?php endif; ?>
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
     <br>
     <br>
     <div style="text-align: center;">

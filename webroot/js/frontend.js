@@ -62,9 +62,38 @@ function checkCartContent() {
     console.log(cart);
 }
 
+function addCartNotification(product){
+    //Get modal box elements
+    var modal = document.getElementById("cartModal");
+    var modalMessage = document.getElementById("modalMessage");
+
+    //Set the message in the modal box
+    modalMessage.textContent = product.design_name + " has been added to your cart!";
+
+    //Display modal box
+    modal.style.display = "block"
+
+    //Get close button
+    var closeBtn = document.querySelector(".close-btn");
+
+    //Hide modal box when clicking the close button
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    //Click on the area outside the modal box to hide it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
 function addToCart(product) {
     console.log("inside add to cart");
     let cart = localStorage.getItem('cart');
+
+    addCartNotification(product)
 
     if (!cart) {
         // If cart is null or undefined, initialize it as an empty array
