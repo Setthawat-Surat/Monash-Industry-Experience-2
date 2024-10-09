@@ -29,7 +29,21 @@ $campaignId = $this->request->getQuery('cID');
                             <?php if (!empty($designDraft->design_photos)): ?>
                                 <?php foreach ($designDraft->design_photos as $photo): ?>
                                     <div class="card-img-container">
-                                        <?= $this->Html->image( 'student_designs_img/' . $photo->photo, ['alt' => 'Design Photo', 'class' => 'card-img']) ?>
+
+                                        <?php
+                                        //Get file extension
+                                        $fileExtension = strtolower(pathinfo($photo->photo, PATHINFO_EXTENSION));
+                                        $defaultImage = 'filePlacehloder.png'; //Alternative image path (if in PDF format)
+
+                                        //Check if the file is in PDF format. If it is, use the default image. Otherwise, display the image
+                                        if ($fileExtension === 'pdf') {
+                                            $imageToDisplay = $defaultImage; //If it is a PDF, use the default image
+                                        } else {
+                                            $imageToDisplay = 'student_designs_img/' . $photo->photo; //Otherwise, display the actual image
+                                        }
+                                        ?>
+
+                                        <?= $this->Html->image( $imageToDisplay, ['alt' => 'Design Photo', 'class' => 'card-img']) ?>
                                         <?= $this->Form->postLink(
                                             '<i class="fa-solid fa-circle-xmark text-danger"></i>', // Solid circle with cross icon
                                             ['controller' => 'DesignPhotos', 'action' => 'deletephotos', $photo->id, '?' => ['dID' => $designDraft->id, 'cID' => $campaignId]],
