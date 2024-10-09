@@ -18,16 +18,38 @@ if ($school_code) {
 }
 
 if ($school) {
+    date_default_timezone_set('Australia/Melbourne');
+
+    $currentDate = date('Y-m-d');
+/*    echo "Now date is: " . $currentDate ;*/
     $campaigns = $campaign_table->find()
         ->where([
             'school_id' => $school->id,
-
+            'start_date <=' => $currentDate,
+            'end_date >=' => $currentDate,
         ])
         ->contain(['DesignDrafts'])
         ->all();
 } else {
     $campaigns = [];
 }
+
+/*
+if (!empty($campaigns)) {
+    foreach ($campaigns as $campaign) {
+        // Check start_date
+        if ($campaign->start_date) {
+            // echo campaign name and start_date
+            echo "Campaign Name: " . h($campaign->name) . "<br>";
+            echo "Campaign Start Date: " . h($campaign->end_date) . "<br><br>";
+        } else {
+            echo "Campaign Name: " . h($campaign->name) . "<br>";
+            echo "Start date is not set.<br><br>";
+        }
+    }
+} else {
+    echo "No campaigns found.";
+}*/
 
 ?>
 

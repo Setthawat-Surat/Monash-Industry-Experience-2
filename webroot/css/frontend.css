@@ -1418,7 +1418,7 @@
     }
     #pricing-1387 .grid {
         width: auto;
-        margin-top: 2rem; /* Adds space between calculator and table */
+        margin-top: -10rem; /* Adds space between calculator and table */
     }
 
     .background-white{
