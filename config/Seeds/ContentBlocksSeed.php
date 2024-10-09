@@ -251,16 +251,23 @@ class ContentBlocksSeed extends AbstractSeed
             ],
             [
                 'parent' => 'Home',
-                'label' => 'Homepage Middle Picture',
-                'description' => 'The fourth image at the middle homepage.',
+                'label' => 'Homepage Head Picture',
+                'description' => 'The fourth image at the Head homepage.',
                 'slug' => 'home-image4',
                 'type' => 'image',
             ],
             [
                 'parent' => 'Home',
-                'label' => 'Homepage Bottom Picture',
-                'description' => 'The fifth image at the bottom homepage.',
+                'label' => 'Homepage Middle Picture',
+                'description' => 'The fifth image at the middle homepage.',
                 'slug' => 'home-image5',
+                'type' => 'image',
+            ],
+            [
+                'parent' => 'Home',
+                'label' => 'Homepage Bottom Picture',
+                'description' => 'The sixth image at the bottom homepage.',
+                'slug' => 'home-image6',
                 'type' => 'image',
             ],
 

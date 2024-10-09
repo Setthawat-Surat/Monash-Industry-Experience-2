@@ -12,13 +12,10 @@ $this->setLayout('frontend');
     <div class="cs-container">
         <div class="cs-image-group">
             <picture class="cs-picture">
-                <?php $imageSrc = $this->ContentBlock->image('proc-image') ?: 'https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/dermatologist1.jpeg'; ?>
+                <?php echo $imageSrc = $this->ContentBlock->image('proc-image') ?: $this->Html->image('https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/dermatologist1.jpeg'); ?>
 
-                <!--Mobile Image-->
-                <source media="(max-width: 600px)" srcset="<?= $imageSrc ?>">
-                <!--Tablet and above Image-->
-                <source media="(min-width: 601px)" srcset="<?= $imageSrc ?>">
-                <img loading="lazy" decoding="async" src="<?= $imageSrc ?>" alt="dermatologist" width="324" height="467">
+
+                
             </picture>
             <img class="cs-graphic cs-brown" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/brown-lines2.svg" alt="graphic" width="100" height="98" aria-hidden="true">
             <img class="cs-graphic cs-peach" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/peach-blob.svg" alt="graphic" width="42" height="31" aria-hidden="true">

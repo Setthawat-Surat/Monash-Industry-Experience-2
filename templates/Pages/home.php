@@ -45,28 +45,16 @@ $this->assign('title', 'Fundraising');
 
 <section id="gallery-565">
     <picture class="cs-picture">
-        <?php $image1Src = $this->ContentBlock->image('home-image1') ?: $this->Url->image('photo_gallery_2.jpg'); ?>
-        <!--Mobile Image-->
-        <source media="(max-width: 600px)" srcset="<?= $image1Src; ?>">
-        <!--Tablet and above Image-->
-        <source media="(min-width: 601px)" srcset="<?= $image1Src; ?>">
-        <img loading="lazy" decoding="async" src="<?= $image1Src; ?>" alt="picture" width="480" height="549">
+        <?php echo  $image1Src = $this->ContentBlock->image('home-image1') ?: $this->Html->image('photo_gallery_2.jpg'); ?>
+
+
     </picture>
     <picture class="cs-picture">
-        <?php $image2Src = $this->ContentBlock->image('home-image2') ?: $this->Url->image('photo_gallery_5.png'); ?>
-        <!--Mobile Image-->
-        <source media="(max-width: 600px)" srcset="<?= $image2Src; ?>">
-        <!--Tablet and above Image-->
-        <source media="(min-width: 601px)" srcset="<?= $image2Src; ?>">
-        <img loading="lazy" decoding="async" src="<?= $image2Src; ?>" alt="picture" width="480" height="549">
+        <?php echo $image2Src = $this->ContentBlock->image('home-image2') ?: $this->Html->image('photo_gallery_5.png'); ?>
+
     </picture>
     <picture class="cs-picture">
-        <?php $image3Src = $this->ContentBlock->image('home-image3') ?: $this->Url->image('photo_gallery_4.png'); ?>
-        <!--Mobile Image-->
-        <source media="(max-width: 600px)" srcset="<?= $image3Src; ?>">
-        <!--Tablet and above Image-->
-        <source media="(min-width: 601px)" srcset="<?= $image3Src; ?>">
-        <img loading="lazy" decoding="async" src="<?= $image3Src; ?>" alt="picture" width="480" height="549">
+        <?php echo $image3Src = $this->ContentBlock->image('home-image3') ?: $this->Html->image('photo_gallery_4.png'); ?>
     </picture>
 </section><br><br>
 
@@ -125,10 +113,8 @@ $this->assign('title', 'Fundraising');
 <section id="Image-section-1152">
     <div class="cs-background">
         <picture>
-            <?php $image4Src = $this->ContentBlock->image('home-image4') ?: $this->Url->image('Image_section_1.png'); ?>
-            <source media="(max-width: 600px)" srcset="<?= $image4Src ?>">
-            <source media="(min-width: 601px)" srcset="<?= $image4Src ?>">
-            <img loading="lazy" decoding="async" src="<?= $image4Src ?>" alt="Footer Background" width="1920" height="1200" aria-hidden="true">
+            <?php echo $image4Src = $this->ContentBlock->image('home-image4') ?: $this->Html->image('Image_section_1.png'); ?>
+
         </picture>
     </div>
 
@@ -207,10 +193,8 @@ $this->assign('title', 'Fundraising');
 <section id="Image-section-1152">
     <div class="cs-background">
         <picture>
-            <?php $image5Src = $this->ContentBlock->image('home-image5') ?: $this->Url->image('Image_section_2.png'); ?>
-            <source media="(max-width: 600px)" srcset="<?= $image5Src ?>">
-            <source media="(min-width: 601px)" srcset="<?= $image5Src ?>">
-            <img loading="lazy" decoding="async" src="<?= $image5Src ?>" alt="Footer Background" width="1920" height="1200" aria-hidden="true">
+            <?php echo $image5Src = $this->ContentBlock->image('home-image5') ?: $this->Html->image('Image_section_2.png'); ?>
+
         </picture>
     </div>
 
@@ -294,9 +278,8 @@ $this->assign('title', 'Fundraising');
 <section id="Image-section-1152">
     <div class="cs-background">
         <picture>
-            <source media="(max-width: 600px)" srcset="<?= $this->Url->image('Image_section_3.png') ?>">
-            <source media="(min-width: 601px)" srcset="<?= $this->Url->image('Image_section_3.png') ?>">
-            <img loading="lazy" decoding="async" src="<?= $this->Url->image('Image_section_3.png') ?>" alt="Footer Background" width="1920" height="1200" aria-hidden="true">
+            <?php echo $image6Src = $this->ContentBlock->image('home-image6') ?: $this->Html->image('Image_section_3.png'); ?>
+
         </picture>
     </div>
 

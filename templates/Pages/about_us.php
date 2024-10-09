@@ -7,13 +7,21 @@ $this->assign('title', 'About');
 <!-- https://codepen.io/bookworm0618/details/wxojZQ -->
 
 <main>
+    <?php
+    //Retrieve HTML<img>tags from ContentBlock or use default image path
+    $backgroundImageHtml = $this->ContentBlock->image('abt-background') ?: $this->Html->image('Homepage_Background.png');
 
-    <?php $backgroundImage = $this->ContentBlock->image('abt-background') ?: '../img/Homepage_Background.png'; ?>
-    <section style="background-image: url('<?= $backgroundImage; ?>')" id="about-us">
-        <h1> <?= $this->ContentBlock->text('abt-title'); ?> </h1>
-        <p> <?= $this->ContentBlock->text('abt-subtitle'); ?> </p>
+    //Extracting the src attribute of<img>tags using regular expressions
+    preg_match('/src="([^"]+)"/', $backgroundImageHtml, $matches);
+
+    // 如果匹配成功，$matches[1] 就是图片的 URL
+    $backgroundImageUrl = !empty($matches[1]) ? $matches[1] : $this->Url->build('/img/Homepage_Background.png');
+    ?>
+
+    <section style="background-image: url('<?= $backgroundImageUrl; ?>')" id="about-us">
+        <h1><?= $this->ContentBlock->text('abt-title'); ?></h1>
+        <p><?= $this->ContentBlock->text('abt-subtitle'); ?></p>
     </section>
-
 
     <section id="videos">
         <h1> <?= $this->ContentBlock->text('abt-vidotitle'); ?> </h1>
