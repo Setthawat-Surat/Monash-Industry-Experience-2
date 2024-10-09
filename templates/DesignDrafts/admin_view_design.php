@@ -60,9 +60,25 @@ if ($this->Identity->isLoggedIn()) {
                                                 <p class="card-text"><strong>Belly Bands Required? :</strong> <?= h($designs->belly_band) ? 'Yes' : 'No' ?></p>
                                                 <p class="card-text"><strong>Design photos: </strong></p>
                                                 <div class="card-img-container">
+
                                                     <?php foreach ($design_photo as $photo): ?>
+
+                                                        <?php
+                                                        //Get file extension
+                                                        $fileExtension = strtolower(pathinfo($photo->photo, PATHINFO_EXTENSION));
+                                                        $defaultImage = 'filePlacehloder.png'; //Alternative image path (if in PDF format)
+
+                                                        //Check if the file is in PDF format. If it is, use the default image. Otherwise, display the image
+                                                        if ($fileExtension === 'pdf') {
+                                                            $imageToDisplay = $defaultImage; //If it is a PDF, use the default image
+                                                        } else {
+                                                            $imageToDisplay = 'student_designs_img/' . $photo->photo; //Otherwise, display the actual image
+                                                        }
+                                                        ?>
+
+
                                                         <?= $this->Html->image(
-                                                            'student_designs_img/' . h($photo->photo),
+                                                            $imageToDisplay,
                                                             ['class' => 'card-img', 'alt' => 'Design Photo']
                                                         ) ?>
                                                     <?php endforeach; ?>
