@@ -169,7 +169,7 @@ class DesignDraftsController extends AppController
                 $files = $this->request->getData('studentDesigns');
 
                 // Allowed file types and max file size (100MB)
-                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+                $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
                 $maxFileSize = 100 * 1024 * 1024; // 100MB
                 $uploadErrors = [];
 
@@ -187,7 +187,7 @@ class DesignDraftsController extends AppController
 
                         // Validate file type
                         if (!in_array($fileType, $allowedMimeTypes)) {
-                            $uploadErrors[] = __('Invalid file type for file: {0}. Please upload a JPEG, PNG, or GIF image.', $image_name);
+                            $uploadErrors[] = __('Invalid file type for file: {0}. Please upload a JPEG, PNG, PDF or GIF image.', $image_name);
                             continue; // Skip to the next file
                         }
 
