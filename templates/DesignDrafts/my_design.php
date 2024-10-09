@@ -1,5 +1,6 @@
 <?php
 
+use Cake\I18n\FrozenTime;
 use Cake\ORM\TableRegistry;
 
 $this->setLayout('school_dashboard');
@@ -46,9 +47,20 @@ $campaignId = $this->request->getQuery('cID');
                                 <?php endforeach; ?>
                             </div>
                         <?php endif; ?>
+                        <?php
 
+                        $currentTime = FrozenTime::now();
+
+                        $startDate = new FrozenTime($campaign->start_date);
+                        $endDate = new FrozenTime($campaign->end_date);
+
+                        $isOngoing = $currentTime >= $startDate;
+
+
+                        ?>
                         <div class="card-delete-icon position-absolute" style="top: 10px; right: 10px;">
-                            <?= $this->Html->link(
+
+                            <?= !$isOngoing ? $this->Html->link(
                                 '<i class="fa-regular fa-edit text-primary"></i>',
                                 ['controller' => 'DesignDrafts', 'action' => 'editDesign', $draft->id, '?' => ['dID' => $draft->id, 'cID' => $campaignId]],
                                 [
@@ -56,9 +68,9 @@ $campaignId = $this->request->getQuery('cID');
                                     'title' => 'Edit this design?',
                                     'class' => 'mr-2' // Add margin to separate the icons
                                 ]
-                            ) ?>
+                            ) : '' ?>
 
-                            <?= $this->Form->postLink(
+                            <?= !$isOngoing ? $this->Form->postLink(
                                 '<i class="fa-regular fa-trash-can text-danger"></i>',
                                 ['controller' => 'DesignDrafts', 'action' => 'deletedesigns', $draft->id, '?' => ['cID' => $campaignId]],
                                 [
@@ -66,7 +78,8 @@ $campaignId = $this->request->getQuery('cID');
                                     'confirm' => __('Are you sure you want to delete this design draft?'),
                                     'title' => 'Delete this design?'
                                 ]
-                            ) ?>
+                            ) : '' ?>
+
                         </div>
 
                         <?php if (!empty($draft->final_design_photo)): ?>

@@ -59,6 +59,7 @@ $slugify = function($text) {
                     </div>
                     <div class="content-blocks--actions">
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $contentBlock->id]) ?>
+                        <?php if (!empty($contentBlock->previous_value)) echo " :: " . $this->Form->postLink(__('Restore'), ['action' => 'restore', $contentBlock->id], ['confirm' => __("Are you sure you want to restore the previous version for this item?\n{0}/{1}\nNote: You cannot cancel this action!", $contentBlock->parent, $contentBlock->slug)]) ?>
                     </div>
                 </li>
             <?php } ?>

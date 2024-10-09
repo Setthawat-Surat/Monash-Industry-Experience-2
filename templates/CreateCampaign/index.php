@@ -42,7 +42,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     'pattern' => '[a-zA-Z0-9\s]*',
                     'minlength' => '3',
                     'title' => 'Campaign Name should only contain letters and numebers',
-                    'placeholder' => 'Enter Campaign name',
+                    'placeholder' => 'e.g., Mothers\' Day21',
                 ]) ?>
             </div>
             <span class="cp-error-message" id="cp-error"> </span> <!-- error message show here -->
@@ -58,7 +58,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     'type' => 'number',
                     'min' => '1',
                     'max' => '2024',
-                    'placeholder' => 'Enter default sales price',
+                    'placeholder' => 'e.g., 50.00',
                     'style' => 'appearance: textfield; -moz-appearance: textfield; -webkit-appearance: none;',
                 ]) ?>
             </div>
@@ -69,7 +69,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <fieldset class="next">
             <div class="form-group">
             <?= $this->Form->control('start_date', [
-                'label' => 'Start Date:',
+                'label' => 'Start Date: (Enter the start date for your campaign as scheduled)',
                 'required' => true,
                 'type' => 'date',
                 'id' => 'start-date'
@@ -82,7 +82,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <div class="form-group">
 
                 <?= $this->Form->control('end_date', [
-                    'label' => 'End Date :',
+                    'label' => 'End Date : (Enter the end date for your campaign as scheduled)',
                     'required' => true,
                     'type' => 'date',
                     'id' => 'end-date'

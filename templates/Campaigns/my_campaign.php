@@ -34,13 +34,11 @@ if ($created_campaign->isEmpty()) {
 
                         $currentTime = FrozenTime::now();
 
-
                         $startDate = new FrozenTime($created_campaigns->start_date);
                         $endDate = new FrozenTime($created_campaigns->end_date);
 
-
                         $isOngoing = $currentTime >= $startDate;
-
+                        $isEnd = $currentTime >= $endDate;
 
                         if (!$isOngoing):
                             ?>
@@ -70,7 +68,11 @@ if ($created_campaign->isEmpty()) {
                         <p class="card-text">Total number of classes participated: <?= h($participated_classroom) ?></p>
                         <br>
                         <div class="text-center">
-                            <a href="<?= $this->Url->build(['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $created_campaigns->id]]) ?>" class="btn btn-primary">Manage this campaign</a>
+                            <?= !$isEnd ? $this->Html->link(
+                                'Manage this campaign',
+                                ['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $created_campaigns->id]],
+                                ['class' => 'btn btn-primary']
+                            ) : '' ?>
                         </div>
                     </div>
                 </div>
