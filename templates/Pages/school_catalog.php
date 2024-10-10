@@ -34,8 +34,8 @@ if ($school) {
     $campaigns = [];
 }
 
-/*
-if (!empty($campaigns)) {
+
+/*if (!empty($campaigns)) {
     foreach ($campaigns as $campaign) {
         // Check start_date
         if ($campaign->start_date) {

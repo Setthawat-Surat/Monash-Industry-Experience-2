@@ -96,4 +96,22 @@ class UsersTable extends Table
 
         return $rules;
     }
+
+
+    public function validationResetPassword(Validator $validator): Validator
+    {
+        $validator
+            ->add('password', [
+                'length' => [
+                    'rule' => ['minLength', 8], // set the minimum length
+                    'message' => 'The password must be at least 8 characters long.'
+                ]
+            ])
+            ->add('confirm_password', 'compareWith', [
+                'rule' => ['compareWith', 'password'],
+                'message' => 'Passwords do not match.'
+            ]);
+
+        return $validator;
+    }
 }
