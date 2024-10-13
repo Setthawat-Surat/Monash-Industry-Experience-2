@@ -26,7 +26,6 @@
     left: 20px; /* Distance from the left of the #website-logo section */
 }
 
-
 @media (max-width: 600px) {
     #website-logo {
         padding: 10px;
@@ -198,6 +197,17 @@
         justify-content: center;    /* Centers items horizontally */
         align-items: center;        /* Centers items vertically */
         gap: 10px;                  /* Optional: Adds space between buttons */
+    }
+    #Welcome-1517 .cs-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px; /* Adjust for spacing between buttons and image */
+    }
+    #Welcome-1517 .cs-image img {
+        max-width: 100%; /* Ensures the image will not overflow the container */
+        width: 175px;     /* Set the desired width */
+        height: auto;     /* Maintain aspect ratio */
     }
     #Welcome-1517 .cs-item-text {
         /* 14px - 16px */

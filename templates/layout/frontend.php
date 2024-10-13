@@ -86,8 +86,9 @@
             echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'home']) . '" class="nav-link">Home</a></button>';
         }
         ?>
-        <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'About_us'])?>" class="nav-link">About</a></button>
         <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'the_process'])?>" class="nav-link">The Process</a></button>
+        <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Auth', 'action' => 'register'])?>" class="nav-link">Start Fundraising</a></button>
+        <button class="nav-button"><a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display','support_school'])?>" class="nav-link">Buy Tea Towels</a></button>
         <?php
         if (!$this->Identity->isLoggedIn()) {
             echo '<button class="nav-button"><a href="' . $this->Url->build(['controller' => 'Auth', 'action' => 'login']) . '" class="nav-link">Login</a></button>';
@@ -193,8 +194,10 @@
                 </a>
             </div>
             <p><?= $this->ContentBlock->text('copyright'); ?><br> All Rights Reserved.<br><br>
+            <a href="https://www.organicprintstudio.com.au" target="_blank" class="cs-nav-link">Visit Organic Print Studio</a><br>
             <a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'terms_and_conditions'])?>" class="cs-nav-link">Terms and Conditions</a><br>
             <a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'privacy_policy'])?>" class="cs-nav-link">Privacy Policy</a><br>
+            <a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'About_us'])?>" class="cs-nav-link">About Us</a><br>
             <a href="<?=$this->Url->build(['controller' => 'Pages', 'action' => 'display', 'Faqs'])?>" class="cs-nav-link">FAQs</a>
             </p>
         </div>
