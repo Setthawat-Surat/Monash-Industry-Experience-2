@@ -8,9 +8,6 @@ $campaign_table = TableRegistry::getTableLocator()->get('Campaigns');
 $user_id = $this->Identity->get('id');
 $created_campaign = $campaign_table->find()->where(['school_id' => $user_id])->all();
 
-if ($created_campaign->isEmpty()) {
-    $this->Flash->info(__('No campaigns found for your school.'));
-}
 ?>
 
 <div class="container-fluid">
