@@ -192,7 +192,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'parent' => 'Home Testimonial',
                 'label' => 'Testimonial 2 name',
                 'description' => 'Words From Our Customers Section',
-                'slug' => 'TMs-name2',
+                    'slug' => 'TMs-name2',
                 'type' => 'text',
                 'value' => "Narelle",
             ],

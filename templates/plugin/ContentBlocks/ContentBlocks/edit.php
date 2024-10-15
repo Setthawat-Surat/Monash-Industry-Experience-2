@@ -49,7 +49,7 @@ $this->Html->css('ContentBlocks.content-blocks', ['block' => true]);
         padding: 10px; /* Padding for input fields */
         border: 1px solid #ccc; /* Border color */
         border-radius: 4px; /* Rounded corners */
-        font-size: 1rem; /* Font size for input fields */
+        font-size: 1.35rem; /* Font size for input fields */
         margin-bottom: 20px; /* Space below input fields */
     }
 
@@ -104,8 +104,13 @@ $this->Html->css('ContentBlocks.content-blocks', ['block' => true]);
 
             <?php
             if ($contentBlock->type === 'text') {
-                if ($contentBlock->slug !== 'home-content' && $contentBlock->slug !== 'abt-text' &&
-                $contentBlock->slug !== 'wfoc-testi2' && $contentBlock->slug !== 'wfoc-testi1' && $contentBlock->slug !== 'wfoc-testi3'){
+                $excludedSlugs = ['website-title', 'copyright', 'contact-number', 'contact-email',
+                    'home-title', 'wcu-title1', 'wcu-title2', 'wcu-title3', 'TMs-title', 'TMs-loc1',
+                    'TMs-name1', 'TMs-name2', 'TMs-name3', 'TMs-loc3', 'TMs-loc2', 'faq-question1',
+                    'faq-question2', 'faq-question3','faq-question4','faq-question5', 'abt-title',
+                    'abt-subtitle', 'abt-vidotitle', 'proc-title', 'proc-subtitle1', 'proc-subtitle2',
+                    'proc-subtitle3'];
+                if ((in_array($contentBlock->slug, $excludedSlugs))){
                     echo $this->Form->control('value', [
                         'type' => 'text',
                         'value' => html_entity_decode($contentBlock->value),
