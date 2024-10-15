@@ -8,6 +8,7 @@ use App\Model\Table\UsersTable;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
+
 use Cake\ORM\TableRegistry;
 
 /**
@@ -83,6 +84,10 @@ class AuthController extends AppController
 
             if ($this->Users->save($user)) {
 
+
+
+
+
                 $usersTable = TableRegistry::getTableLocator()->get('Users');
                 $savedUser = $usersTable->find()
                     ->where(['email' => $data['email']])
@@ -120,12 +125,34 @@ class AuthController extends AppController
                 if ($this->Schools->save($school)) {
                     $this->Flash->success('You have been registered. Please login.');
 
+                    $toEmail = $user->email;
+                    // Send a template email
+                    $subject = 'Welcome to Organic Print Studio';
+                    $mailer = new Mailer('default');
+                    $mailer->setSubject($subject)
+                        ->setEmailFormat('html')
+                        ->setTo($toEmail)
+                        ->setFrom('u241t023@u241t023.iedev.org')
+                        ->viewBuilder()
+                        ->disableAutoLayout()
+                        ->setTemplate('welcome');
+
+                    $mailer->setViewVars([
+                        'content' => 'this is your final design',
+                        'to_email' => $toEmail,
+
+                    ]);
+
+                    $mailer->deliver();
+
                     return $this->redirect(['action' => 'login']);
                 } else {
                     // Rollback user save if school save fails
                     $this->Users->delete($user);
                     $this->Flash->error('The school details could not be saved. Please, try again.');
+                    return;
                 }
+
             } else {
                 $this->Flash->error('The user could not be registered. Please, try again.');
             }
