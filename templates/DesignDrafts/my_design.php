@@ -108,6 +108,19 @@ $campaignId = $this->request->getQuery('cID');
                             <p class="card-text text-center">Final design hasn't been upload by admin staffs yet.</p><br>
                         <?php endif; ?>
 
+                        <?php if (!empty($draft->final_design_photo)): ?>
+                            <div class="position-absolute" style="bottom: 20px; right: 25px;">
+                                <a href="<?= $this->Url->build([
+                                    'controller' => 'DesignDrafts',
+                                    'action' => 'downloadFinalDesign',
+                                    $draft->id,
+                                    '?' => ['cID' => $campaignId]
+                                ]) ?>" class="btn btn-info">
+                                    <i class="fa fa-download"></i> Download My Final Design
+                                </a>
+                            </div>
+                        <?php endif; ?>
+
                         <div class="card-body">
                             <?php if($draft->final_design_photo && $draft->approval_status == 0): ?>
                                 <p class="card-text"><strong>Confirm your final design?</strong></p>

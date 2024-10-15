@@ -329,6 +329,17 @@ class DesignDraftsController extends AppController
         return $response;
     }
 
+    public function downloadFinalDesign($designDraftId){
+        $designDraft = $this->DesignDrafts->get($designDraftId);
+
+        $filePath = WWW_ROOT . 'img/final_design' . DS . $designDraft->final_design_photo;
+
+        return $this->response->withFile(
+            $filePath,
+            ['download' => true, 'name' => basename($filePath)] // Force download with the file's original name
+        );
+    }
+
     public function addFinalDesign()
     {
         $design_id = $this->request->getQuery('dID');
