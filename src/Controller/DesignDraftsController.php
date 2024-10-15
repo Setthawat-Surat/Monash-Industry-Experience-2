@@ -8,6 +8,7 @@ use App\Model\Table\DesignPhotosTable;
 use App\Model\Table\UsersTable;
 use Cake\Mailer\Mailer;
 use Cake\ORM\TableRegistry;
+use Cake\Core\Configure;
 use Cake\Routing\Router;
 use ZipArchive;
 
@@ -155,11 +156,18 @@ class DesignDraftsController extends AppController
         $campaignId = $this->request->getQuery('cID');
         $designDraft = $this->DesignDrafts->newEmptyEntity();
 
+        // by campaign_id find campaign
+        $Campaign = $this->Campaigns->find()
+            ->where(['id' => $campaignId])
+            ->first();
+
         if ($this->request->is('post')) {
             $designDraft = $this->DesignDrafts->patchEntity($designDraft, $this->request->getData());
             $designDraft->approval_status = 0;
             $designDraft->campaign_id = $campaignId;
             $designDraft->user_id = $this->getRequest()->getAttribute('identity')->get('id');
+
+            $targetPath = '';
 
             // Save the design draft first
             if ($this->DesignDrafts->save($designDraft)) {
@@ -219,6 +227,48 @@ class DesignDraftsController extends AppController
 
                     if (empty($uploadErrors)) {
                         $this->Flash->success(__('Your design has been saved along with the photos.'));
+
+
+                        $currentUser = $this->getRequest()->getAttribute('identity');
+                        $from = $currentUser->get('email'); // get the current school email
+
+                        // get users' email
+                        $toEmail = Configure::read('Email.default.from', ['susy@organicprintstudio.com.au' => 'Organic Print Studio']);;
+                        // get campaign start date & end date & campaign name
+
+                        $start_date = $Campaign->start_date;
+                        $end_date = $Campaign->end_date;
+                        $campaign_name = $Campaign->name;
+
+
+                        // Send a template email
+                        $subject = 'School Upload a design';
+                        $mailer = new Mailer('default');
+                        $mailer->setSubject($subject)
+                            ->setEmailFormat('html')
+                            ->setTo($toEmail)
+                            ->setFrom($from)
+                            ->viewBuilder()
+                            ->disableAutoLayout()
+                            ->setTemplate('add_design');
+
+                        $image_url = Router::url('/img/student_designs_img/' . basename($targetPath), true);
+
+                        $mailer->setViewVars([
+                            'content' => 'this is shcool\'s upload design',
+                            'campaign_name' => $campaign_name,
+                            'final_design' => $image_url,
+                            'year_level' => $designDraft->design_yearlevel,
+                            'description' => $designDraft->specifications,
+                            'start_date' => $start_date,
+                            'end_date' => $end_date,
+                        ]);
+                        if (!$mailer->deliver()) {
+                            $this->Flash->success(__('Your design uploaded email sent failed'));
+
+                        }
+
+
                         return $this->redirect(['controller' => 'DesignDrafts', 'action' => 'myDesign', '?' => ['cID' => $campaignId]]);
                     } else {
                         // If there are any upload errors, display them
@@ -366,6 +416,7 @@ class DesignDraftsController extends AppController
         if ($this->request->is(['post', 'put'])) {
             $file = $this->request->getData('final_design');
 
+            $targetPath = '';
             // Allowed file types and max file size (2MB)
             $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
             $maxFileSize = 100 * 1024 * 1024; // 2MB
@@ -397,20 +448,25 @@ class DesignDraftsController extends AppController
                 }
             }
 
+            // get email from configure file
+            $from = Configure::read('Email.default.from', ['susy@organicprintstudio.com.au' => 'Organic Print Studio']);
+
             // Send email if no upload errors
             if (empty($uploadErrors)) {
+
                 // Send a template email
-                $subject = 'Contact Request From ';
+                $subject = 'Upload Final Design';
                 $mailer = new Mailer('default');
                 $mailer->setSubject($subject)
                     ->setEmailFormat('html')
                     ->setTo($toEmail)
-                    ->setFrom('u241t023@u241t023.iedev.org')
+                    ->setFrom($from)
                     ->viewBuilder()
                     ->disableAutoLayout()
                     ->setTemplate('final_design');
 
-                $image_url = Router::url('/img/final_design/' . $image_name, true);
+
+                $image_url = Router::url('/img/final_design/' . basename($targetPath), true);
                 $year_level = $DesignDrafts->design_yearlevel;
                 $description = $DesignDrafts->specifications;
 
