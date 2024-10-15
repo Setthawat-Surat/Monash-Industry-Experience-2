@@ -17,10 +17,20 @@
             <td class="wrapper">
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
+                        <td align="center" style="padding: 10px 0;">
+                            <div style="max-width: 600px; max-height: 300px; overflow: hidden;">
+                                <img src="<?= $this->Url->build('/img/Homepage_Background.png', ['fullBase' => true]) ?>"
+                                     alt="Homepage Banner"
+                                     style="width: 100%; height: 130px; object-fit: cover; display: block;" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+
                         <td>
                             <h3>Reset your account password</h3>
                             <p>Hi <?= h($first_name) ?>, </p>
-                            <p>Thank you for your request to reset the password of your account on <b>Cake CMS/Auth Sample</b>. </p>
+                            <p>Thank you for your request to reset the password of your account on <b>Organic Print Studio</b>. </p>
                             <p></p>
                             <p>To reset your account password, use the button below to access the reset password page: </p>
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
@@ -57,7 +67,7 @@
                     Please discard this email if it not meant for you
                     <br>
                     <br>
-                    Copyright &copy; <?= date("Y"); ?> Monash FIT Industry Experience
+                    Copyright &copy; <?= date("Y"); ?> Organic Print Studio
                 </td>
             </tr>
         </table>

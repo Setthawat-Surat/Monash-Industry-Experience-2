@@ -3,9 +3,12 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Core\Configure;
+
 use App\Model\Table\SchoolsTable;
 use App\Model\Table\UsersTable;
 use Cake\I18n\DateTime;
+use Cake\Log\Log;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
 
@@ -126,13 +129,22 @@ class AuthController extends AppController
                     $this->Flash->success('You have been registered. Please login.');
 
                     $toEmail = $user->email;
+                    // get email from configure file
+                    $from = Configure::read('Email.default.from', ['susy@organicprintstudio.com.au' => 'Organic Print Studio']);
+
+                    if (empty($from)) {
+                        // if the address is null show the error message
+                        Log::error('The "from" email address is not configured properly.');
+                        $this->Flash->error('Registration succeeded, but we could not send the welcome email.');
+                        return $this->redirect(['action' => 'login']);
+                    }
                     // Send a template email
                     $subject = 'Welcome to Organic Print Studio';
                     $mailer = new Mailer('default');
                     $mailer->setSubject($subject)
                         ->setEmailFormat('html')
                         ->setTo($toEmail)
-                        ->setFrom('u241t023@u241t023.iedev.org')
+                        ->setFrom($from)
                         ->viewBuilder()
                         ->disableAutoLayout()
                         ->setTemplate('welcome');
@@ -140,10 +152,14 @@ class AuthController extends AppController
                     $mailer->setViewVars([
                         'content' => 'this is your final design',
                         'to_email' => $toEmail,
-
                     ]);
 
-                    $mailer->deliver();
+                    if (!$mailer->deliver()) {
+                        // send a friendly message while fail
+                        Log::error('Failed to send email to ' . $toEmail);
+                        $this->Flash->error('We were unable to send the welcome email. Please contact support.');
+                    }
+
 
                     return $this->redirect(['action' => 'login']);
                 } else {
