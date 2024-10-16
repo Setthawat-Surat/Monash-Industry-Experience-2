@@ -224,12 +224,18 @@ $this->assign('title', 'Fundraising');
     <p class="cs-price-text">
         - Includes GST & freight.<br>
         - Belly bands an additional $1.25 per piece
-    </p>
+    </p><br><br><br>
     <div class="cs-container">
         <div class="grid">
             <div class="grid-item"><b>Number of tea towels:</b></div>
             <div class="grid-item"><b>Cost per piece:</b></div>
-            <div class="grid-item background-white">25-49</div>
+            <div class="grid-item background-white">1-4</div>
+            <div class="grid-item background-white">$29.00</div>
+            <div class="grid-item background-white">5-9</div>
+            <div class="grid-item background-white">$26.10</div>
+            <div class="grid-item background-white">10-19</div>
+            <div class="grid-item background-white">$20.30</div>
+            <div class="grid-item background-white">20-49</div>
             <div class="grid-item background-white">$17.40</div>
             <div class="grid-item background-white">50-249</div>
             <div class="grid-item background-white">$13.05</div>
@@ -245,7 +251,7 @@ $this->assign('title', 'Fundraising');
             <form class="profit-calculator" onsubmit="calculateProfit(event)">
                 <div class="form-group">
                     <label for="number-of-towels">Number of tea towels that you would like to purchase<br>(minimum order of 25 per design):</label>
-                    <input type="number" id="number-of-towels" name="number-of-towels" min="25" required>
+                    <input type="number" id="number-of-towels" name="number-of-towels" min="1" required>
                 </div>
                 <div class="form-group">
                     <label for="selling-price">How much would you like to sell each of them for:</label>

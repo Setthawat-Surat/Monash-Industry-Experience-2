@@ -26,7 +26,7 @@ function updateCheckoutButton() {
     }
 }
 
-// 在页面加载时检查购物车状态
+
 document.addEventListener('DOMContentLoaded', function() {
     updateCheckoutButton();
 });
@@ -443,15 +443,21 @@ function calculateProfit(event) {
     // Price per item based on quantity
     let costPerItem;
     if (quantity >= 500) {
-        costPerItem = 11.50;
+        costPerItem = 11.02;
     } else if (quantity >= 250) {
-        costPerItem = 12;
+        costPerItem = 11.60;
     } else if (quantity >= 50) {
-        costPerItem = 13.50;
-    } else if (quantity >= 25) {
-        costPerItem = 18;
+        costPerItem = 13.05;
+    } else if (quantity >= 20) {
+        costPerItem = 17.40;
+    } else if (quantity >= 10) {
+        costPerItem = 20.30;
+    } else if (quantity >= 5) {
+        costPerItem = 26.10;
+    } else if (quantity >= 1) {
+        costPerItem = 29.00;
     } else {
-        document.getElementById('profitMessage').textContent = '*Minimum order: 25 pieces per class';
+        document.getElementById('profitMessage').textContent = '* Please input a valid number';
         return;
     }
 

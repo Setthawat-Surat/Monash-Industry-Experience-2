@@ -89,17 +89,6 @@ class AuthController extends AppController
                     ->first();
 
                 $address = $data['schooladdress'] . ' ' . $data['schoolsuburb'] . ' ' . $data['schoolstate'] . ' ' .$data['schoolpostcode'];
-                $file = $this->request->getData('schoollogo');
-                $image_name = $file->getClientFilename();
-                $targetPath = WWW_ROOT . 'img/school_logo_img' . DS . $image_name;
-
-                if ($file->getError() === UPLOAD_ERR_OK) {
-                    if ($image_name) {
-                        $file->moveTo($targetPath);
-                    }
-                } else {
-                    $image_name = null;
-                }
 
                 // After saving the user, get the user ID
                 $schoolData = [
@@ -108,7 +97,7 @@ class AuthController extends AppController
                     'rep_last_name' => $data['replastname'],
                     'rep_email' => $data['repemail'],
                     'address' => $address,
-                    'logo' => $image_name,
+                    'logo' => null,
                     'approval_status' => 1, // Set default approval status
                 ];
 

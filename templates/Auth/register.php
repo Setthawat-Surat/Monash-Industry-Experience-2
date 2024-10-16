@@ -162,18 +162,6 @@ $this->assign('title', 'Register');
 
         </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <?= $this->Form->control('schoollogo', [
-                    'label' => 'Logo',
-                    'type' => 'file',
-                    'required' => false,
-                    'id' => 'schoollogo',
-                    'name' => 'schoollogo',
-                    'accept' => 'image/*',
-                ]) ?>
-            </div>
-        </div>
 
         <div class="credentials-header">
             <span>Account Credentials</span>

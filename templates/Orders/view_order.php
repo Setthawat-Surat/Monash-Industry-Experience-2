@@ -38,16 +38,22 @@ $this->setLayout('admin_dashboard');
                     <?php
                     // Calculate product cost based on quantity
                     $quantity = $product->Total;
-                    if ($quantity >= 25 && $quantity <= 49) {
-                        $productCost = 17.40;
-                    } elseif ($quantity >= 50 && $quantity <= 249) {
-                        $productCost = 13.05;
-                    } elseif ($quantity >= 250 && $quantity <= 499) {
-                        $productCost = 11.60;
-                    } elseif ($quantity >= 500) {
+                    if ($quantity >= 500) {
                         $productCost = 11.02;
+                    } elseif ($quantity >= 250) {
+                        $productCost = 11.60;
+                    } elseif ($quantity >= 50) {
+                        $productCost = 13.05;
+                    } elseif ($quantity >= 20) {
+                        $productCost = 17.40;
+                    } elseif ($quantity >= 10) {
+                        $productCost = 20.30;
+                    } elseif ($quantity >= 5) {
+                        $productCost = 26.10;
+                    } elseif ($quantity >= 1) {
+                        $productCost = 29.00;
                     } else {
-                        $productCost = 20; // Invalid quantity
+                        $productCost = 0;
                     }
 
                     // Calculate the cost of belly bands if required
