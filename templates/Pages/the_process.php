@@ -12,7 +12,7 @@ $this->setLayout('frontend');
     <div class="cs-container">
         <div class="cs-image-group">
             <picture class="cs-picture">
-                <?php echo $imageSrc = $this->ContentBlock->image('proc-image') ?: $this->Html->image('https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/dermatologist1.jpeg'); ?>
+                <?php echo $imageSrc = $this->ContentBlock->image('proc-image') ?: $this->Html->image('Ideas-image.png'); ?>
 
 
 
