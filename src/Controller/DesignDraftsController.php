@@ -233,7 +233,7 @@ class DesignDraftsController extends AppController
                         $from = $currentUser->get('email'); // get the current school email
 
                         // get users' email
-                        $toEmail = Configure::read('Email.default.from', ['susy@organicprintstudio.com.au' => 'Organic Print Studio']);;
+                        $toEmail = Configure::read('myEmail.email', ['susy@organicprintstudio.com.au' => 'Organic Print Studio']);;
                         // get campaign start date & end date & campaign name
 
                         $start_date = $Campaign->start_date;
@@ -460,7 +460,7 @@ class DesignDraftsController extends AppController
             }
 
             // get email from configure file
-            $from = Configure::read('Email.default.from', ['susy@organicprintstudio.com.au' => 'Organic Print Studio']);
+            $from = Configure::read('myEmail.email', ['susy@organicprintstudio.com.au' => 'Organic Print Studio']);
 
             // Send email if no upload errors
             if (empty($uploadErrors)) {

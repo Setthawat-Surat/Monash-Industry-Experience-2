@@ -130,7 +130,7 @@ class AuthController extends AppController
 
                     $toEmail = $user->email;
                     // get email from configure file
-                    $from = Configure::read('Email.default.from', ['susy@organicprintstudio.com.au' => 'Organic Print Studio']);
+                    $from = Configure::read('myEmail.email', ['susy@organicprintstudio.com.au' => 'Organic Print Studio']);
 
                     if (empty($from)) {
                         // if the address is null show the error message

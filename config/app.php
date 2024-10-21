@@ -222,7 +222,7 @@ return [
              * The keys host, port, timeout, username, password, client and tls
              * are used in SMTP transports
              */
-            'host' => 'mail.u241t023.iedev.org',
+            'host' => 'teatowel@teatowelsforschools.com.au',
             'port' => 465,
             'timeout' => 30,
             /*
@@ -248,13 +248,18 @@ return [
     'Email' => [
         'default' => [
             'transport' => 'default',
-            'from' => ['u241t023@u241t023.iedev.org'],
+            'from' => 'teatowel@teatowelsforschools.com.au',
             /*
              * Will by default be set to config value of App.encoding, if that exists otherwise to UTF-8.
              */
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
         ],
+    ],
+
+
+    'myEmail' => [
+        'email' => 'teatowel@teatowelsforschools.com.au',
     ],
 
     /*
