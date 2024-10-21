@@ -285,15 +285,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'description' => 'FAQ question1',
                 'slug' => 'faq-question1',
                 'type' => 'text',
-                'value' => "How can I Register with fund4schools?",
-            ],
-            [
-                'parent' => 'FAQ',
-                'label' => 'Answer1',
-                'description' => 'FAQ Answer1',
-                'slug' => 'faq-answer1',
-                'type' => 'text',
-                'value' => "By visiting the Organic Print Studio",
+                'value' => "How can I Register with Tea Towels for Schools?",
             ],
             [
                 'parent' => 'FAQ',
@@ -301,15 +293,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'description' => 'FAQ question2',
                 'slug' => 'faq-question2',
                 'type' => 'text',
-                'value' => "What is a campaign?",
-            ],
-            [
-                'parent' => 'FAQ',
-                'label' => 'Answer2',
-                'description' => 'FAQ Answer2',
-                'slug' => 'faq-answer2',
-                'type' => 'text',
-                'value' => "A campaign",
+                'value' => "What is a Campaign and how do I start one?",
             ],
             [
                 'parent' => 'FAQ',
@@ -321,15 +305,6 @@ class ContentBlocksSeed extends AbstractSeed
             ],
             [
                 'parent' => 'FAQ',
-                'label' => 'Answer3',
-                'description' => 'FAQ Answer3',
-                'slug' => 'faq-answer3',
-                'type' => 'text',
-                'value' => "What happens to the money that has been raised?
-We collect the orders on your behalf, and return the profits from each order to you at the end of the campaign.",
-            ],
-            [
-                'parent' => 'FAQ',
                 'label' => 'Question4',
                 'description' => 'FAQ question4',
                 'slug' => 'faq-question4',
@@ -338,19 +313,43 @@ We collect the orders on your behalf, and return the profits from each order to 
             ],
             [
                 'parent' => 'FAQ',
-                'label' => 'Answer4',
-                'description' => 'FAQ Answer4',
-                'slug' => 'faq-answer4',
-                'type' => 'text',
-                'value' => "Of course! By using our interactive pricing scale, you can see the manufacturing cost and how much profit you can generate for your school, based on how many tea towels you order.",
-            ],
-            [
-                'parent' => 'FAQ',
                 'label' => 'Question5',
                 'description' => 'FAQ question5',
                 'slug' => 'faq-question5',
                 'type' => 'text',
-                'value' => "How can I submit my designs?",
+                'value' => "What are belly bands?",
+            ],
+            [
+                'parent' => 'FAQ',
+                'label' => 'Answer1',
+                'description' => 'FAQ Answer1',
+                'slug' => 'faq-answer1',
+                'type' => 'text',
+                'value' => "You can also register by navigating to the home page, and selecting the “Start Fundraising” button in yellow. You will then be prompted to set up an account. ",
+            ],
+            [
+                'parent' => 'FAQ',
+                'label' => 'Answer2',
+                'description' => 'FAQ Answer2',
+                'slug' => 'faq-answer2',
+                'type' => 'text',
+                'value' => "A campaign is a specific product with its own design, price, and selling period. It contains all of the details that make that tea towel unique. Campaigns could be themed for events like Mother’s Day or school events, and you can begin a campaign by logging in to your account on the website, and navigating to the “Create a Campaign” button on the left hand side. When you set up a campaign, you will be asked to give it a title and description, as well as choosing which dates the campaign should run between. These dates are the dates which the product will be available to purchase on the Tea Towels for Schools website. ",
+            ],
+            [
+                'parent' => 'FAQ',
+                'label' => 'Answer3',
+                'description' => 'FAQ Answer3',
+                'slug' => 'faq-answer3',
+                'type' => 'text',
+                'value' => "The money that has been raised will be collected by Organic Print Studio, and minus the production costs, all profits will be sent directly to the school for your fundraising efforts. ",
+            ],
+            [
+                'parent' => 'FAQ',
+                'label' => 'Answer4',
+                'description' => 'FAQ Answer4',
+                'slug' => 'faq-answer4',
+                'type' => 'text',
+                'value' => " Of course! Organic Print Studio caters for all order sizes, however with a minimum order size of 25 Tea Towels per campaign. Check out our pricing calculator on the home page!",
             ],
             [
                 'parent' => 'FAQ',
@@ -358,7 +357,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'FAQ Answer5',
                 'slug' => 'faq-answer5',
                 'type' => 'text',
-                'value' => "By logging in to your account",
+                'value' => "Belly bands are a card stock product that holds the tea towel together. Belly bands are available on both white card stock (350gsm EcoStar – 100% recycled and uncoated) or Kraft board (Enviro Board – 100 % recycled and uncoated). We will happily fold and wrap your tea towels and totes in your belly bands unless requested they be supplied flat and not packed.",
             ],
 
 
@@ -384,7 +383,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'About us Section',
                 'slug' => 'abt-vidotitle',
                 'type' => 'text',
-                'value' => "You Can Learn More About Us!!",
+                'value' => "You Can Learn More About Us!",
             ],
             [
                 'parent' => 'About Us',
@@ -400,8 +399,16 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'About us Section',
                 'slug' => 'abt-text',
                 'type' => 'text',
-                'value' => "From her little garden studio, Susy Kennedy is creating beautiful personalised souvenir tea towels for special events. Printed on top-quality ACO Certified cotton, these unique keepsakes will remind guests of your happy occasion, or as merchandise for your business. Organic Print Studio is all about the beauty of life and the occasions that mark our journeys through it.<br>
-            Constantly developing new products in collaboration with local artists, Susy strives to ethically source materials that minimise impact on the environment. She applies her love for quality textiles in the beautiful tactile products she develops. Susy keeps her finger on the pulse of design trends and feeds that back through her products to customers.",
+                'value' => "From her little garden studio, Susy Kennedy is creating beautiful personalised souvenir tea towels for special events. Printed on top-quality ACO Certified cotton, these unique keepsakes will remind guests of your happy occasion, or as merchandise for your business. Organic Print Studio is all about the beauty of life and the occasions that mark our journeys through it.<br><br>
+            Constantly developing new products in collaboration with local artists, Susy strives to ethically source materials that minimise impact on the environment. She applies her love for quality textiles in the beautiful tactile products she develops. Susy keeps her finger on the pulse of design trends and feeds that back through her products to customers.<br><br>
+            Tea Towels for Schools allows you to create a bespoke design that reflects the character of your school. Choosing any style you wish, you can personalise designs for each class, year level, or social group. Elevate your school’s fundraising efforts with vibrant, organic tea towels! Organic Print Studio believes in creating beautiful art while nurturing a sustainable future.<br><br>
+            Key Features:
+            <ul>
+            <li>Vibrant Designs: From whimsical illustrations to inspiring quotes, our prints cater to a variety of tastes and themes that resonate with students, parents, and teachers alike.</li>
+            <li>Eco-Conscious Materials: We use only organic inks and recycled paper, minimizing our carbon footprint and promoting a healthier planet for future generations.</li>
+            <li>Fundraising Made Easy: Each purchase directly supports your school’s fundraising goals. With attractive pricing and customizable options, you can maximize your profits while offering a product your community will love.</li>
+            <li>Educational Value: Our prints come with fun facts and art history insights, sparking creativity and conversation in classrooms and homes.</li><br>
+            Join the movement towards sustainability and creativity! Partner with us to inspire your community and fund essential programs for your school. Together, we can create a brighter future—one print at a time.",
             ],
             [
                 'parent' => 'About Us',
@@ -465,7 +472,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'The title of the process page',
                 'slug' => 'proc-title',
                 'type' => 'text',
-                'value' => "Simple Steps to Get Our Services",
+                'value' => "Steps to Raise Funds for your School",
             ],
             [
                 'parent' => 'The Process',
@@ -473,7 +480,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'The step1 title of the process',
                 'slug' => 'proc-subtitle1',
                 'type' => 'text',
-                'value' => "Book an Appointment",
+                'value' => "Register an Account",
             ],
             [
                 'parent' => 'The Process',
@@ -481,7 +488,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'The step3 description1 text of the process',
                 'slug' => 'proc-text1',
                 'type' => 'text',
-                'value' => "Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on evidence-based medicine in dermatology, especially for skin of color.",
+                'value' => "Register an account through the 'Start Fundraising' button and provide your school's details. Then, create a fundraising campaign from your dashboard.",
             ],
             [
                 'parent' => 'The Process',
@@ -489,7 +496,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'The step2 title of the process',
                 'slug' => 'proc-subtitle2',
                 'type' => 'text',
-                'value' => "Attend your appointment",
+                'value' => "Upload Student Designs",
             ],
             [
                 'parent' => 'The Process',
@@ -497,7 +504,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'The step3 description2 text of the process',
                 'slug' => 'proc-text2',
                 'type' => 'text',
-                'value' => "Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on evidence-based medicine in dermatology, especially for skin of color.",
+                'value' => "Collate and scan designs created by your students and upload them through your account dashboard. Once approved, parents and guardians will be able to purchase the designs through the website.",
             ],
             [
                 'parent' => 'The Process',
@@ -505,7 +512,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'The step3 title of the process',
                 'slug' => 'proc-subtitle3',
                 'type' => 'text',
-                'value' => "Follow your treatment plan",
+                'value' => "Receive Tea Towels and Payment",
             ],
             [
                 'parent' => 'The Process',
@@ -513,7 +520,7 @@ We collect the orders on your behalf, and return the profits from each order to 
                 'description' => 'The step3 description3 text of the process',
                 'slug' => 'proc-text3',
                 'type' => 'text',
-                'value' => "Aside from seeing patients, Dr. Paul is dedicated to patient advocacy and education on evidence-based medicine in dermatology, especially for skin of color.",
+                'value' => "After the campaign has ended, Organic Print Studio will create the tea towels and send them to your school, along with the funds raised.",
             ],
             [
                 'parent' => 'The Process',

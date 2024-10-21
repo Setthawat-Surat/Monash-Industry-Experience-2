@@ -75,7 +75,7 @@ $this->assign('title', 'FAQ');
                         </span>
                     </button>
                     <p class="cs-item-p">
-                        <?= $this->ContentBlock->text('faq-question4'); ?>
+                        <?= $this->ContentBlock->text('faq-answer4'); ?>
                     </p>
                 </li>
                 <li class="cs-faq-item">
