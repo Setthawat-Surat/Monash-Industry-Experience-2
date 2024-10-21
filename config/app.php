@@ -222,7 +222,7 @@ return [
              * The keys host, port, timeout, username, password, client and tls
              * are used in SMTP transports
              */
-            'host' => 'teatowel@teatowelsforschools.com.au',
+            'host' => 's05ae.syd5.hostingplatform.net.au',
             'port' => 465,
             'timeout' => 30,
             /*
@@ -248,7 +248,7 @@ return [
     'Email' => [
         'default' => [
             'transport' => 'default',
-            'from' => 'teatowel@teatowelsforschools.com.au',
+            'from' => 'organicprint@teatowelsforschools.com.au',
             /*
              * Will by default be set to config value of App.encoding, if that exists otherwise to UTF-8.
              */
@@ -259,7 +259,7 @@ return [
 
 
     'myEmail' => [
-        'email' => 'teatowel@teatowelsforschools.com.au',
+        'email' => 'organicprint@teatowelsforschools.com.au',
     ],
 
     /*
