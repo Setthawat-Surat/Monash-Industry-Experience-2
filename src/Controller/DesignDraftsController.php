@@ -189,7 +189,7 @@ class DesignDraftsController extends AppController
                             continue; // Skip to the next file
                         }
 
-                        $image_name = $file->getClientFilename();
+                        $image_name = preg_replace('/[^A-Za-z0-9\-_\.]/', '_', $file->getClientFilename());
                         $fileType = $file->getClientMediaType();
                         $fileSize = $file->getSize();
 
@@ -437,7 +437,7 @@ class DesignDraftsController extends AppController
             if ($file->getError() !== UPLOAD_ERR_OK) {
                 $uploadErrors[] = __('Failed to upload the file.');
             } else {
-                $image_name = $file->getClientFilename();
+                $image_name = preg_replace('/[^A-Za-z0-9\-_\.]/', '_', $file->getClientFilename());
                 $fileType = $file->getClientMediaType();
                 $fileSize = $file->getSize();
 
