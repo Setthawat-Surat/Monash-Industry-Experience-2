@@ -1,6 +1,7 @@
 <?php
 
 use Cake\ORM\TableRegistry;
+use Cake\I18n\FrozenDate;
 
 $this->setLayout('school_dashboard');
 
@@ -8,6 +9,23 @@ $campaign_table = TableRegistry::getTableLocator()->get('Campaigns');
 $user_id = $this->Identity->get('id');
 $created_campaign= $campaign_table->find()->where(['school_id' => $user_id])->all();
 $campaignCount = $campaign_table->find()->where(['school_id' => $user_id])->count();
+
+$currentDate = FrozenDate::now();
+
+$ongoingCampaignCount = $campaign_table->find()
+    ->where([
+        'school_id' => $user_id,
+        'start_date <=' => $currentDate,
+        'end_date >=' => $currentDate
+    ])
+    ->count();
+
+$completedCampaignCount = $campaign_table->find()
+    ->where([
+        'school_id' => $user_id,
+        'end_date <' => $currentDate
+    ])
+    ->count();
 
 ?>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
@@ -72,7 +90,7 @@ $campaignCount = $campaign_table->find()->where(['school_id' => $user_id])->coun
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $ongoingCampaignCount ?></div>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +110,7 @@ $campaignCount = $campaign_table->find()->where(['school_id' => $user_id])->coun
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 Completed Campaign</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $completedCampaignCount ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-comments fa-2x text-gray-300"></i>
