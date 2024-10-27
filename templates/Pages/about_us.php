@@ -76,12 +76,6 @@ $this->assign('title', 'About');
                 echo $image5;
             }
 
-            $image6 = $this->ContentBlock->image('abt-image6', ['class' => 'aboutimg']);
-            if (empty($image6)) {
-                echo '<img class="aboutimg" src="' . $this->Url->image('sample_product1.jpg') . '">';
-            } else {
-                echo $image6;
-            }
 
             ?>
 

@@ -391,7 +391,7 @@ class ContentBlocksSeed extends AbstractSeed
                 'description' => 'About us Section',
                 'slug' => 'abt-video',
                 'type' => 'text',
-                'value' => "https://www.youtube.com/embed/RMk4wd5TCfM",
+                'value' => "https://youtube.com/embed/jFL4M9aHIKs",
             ],
             [
                 'parent' => 'About Us',
