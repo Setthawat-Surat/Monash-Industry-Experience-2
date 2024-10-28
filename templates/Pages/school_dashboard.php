@@ -6,7 +6,9 @@ use Cake\I18n\FrozenDate;
 $this->setLayout('school_dashboard');
 
 $campaign_table = TableRegistry::getTableLocator()->get('Campaigns');
+$school_table = TableRegistry::getTableLocator()->get('Schools');
 $user_id = $this->Identity->get('id');
+$my_school = $school_table->find()->where(['id' => $user_id])->first();
 $created_campaign= $campaign_table->find()->where(['school_id' => $user_id])->all();
 $campaignCount = $campaign_table->find()->where(['school_id' => $user_id])->count();
 
@@ -45,6 +47,7 @@ foreach ($created_campaign as $campaign) {
                 class="fas fa-download fa-sm text-white-50"></i> Create Campaign</a>
     </div>
     <?= $this->flash->render() ?>
+    <h1 class="h3 mb-0 text-gray-800">My School Code: <?= $my_school->code ?></h1><br><br>
 
     <!-- Content Row -->
     <div class="row">
