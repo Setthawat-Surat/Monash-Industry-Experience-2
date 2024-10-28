@@ -7,6 +7,7 @@ use App\Model\Table\CampaignsTable;
 use App\Model\Table\ItemsTable;
 use Cake\Event\EventInterface;
 use Stripe\Webhook;
+use Cake\ORM\TableRegistry;
 /**
  * Orders Controller
  *
@@ -259,7 +260,9 @@ class OrdersController extends AppController
         $uniqueProductsQuery = $this->Items->find()
             ->select([
                 'ProductName' => 'Items.name',
+                'ProductDesignDraftID' => 'Items.design_draft_id',
                 'Total' => $this->Items->find()->func()->sum('Items.quantity'),
+                'CampaignID' => 'Campaigns.id',
                 'CampaignName' => 'Campaigns.name',
                 'SchoolName' => 'Schools.name',
                 'BellyBand' => 'DesignDrafts.belly_band',
@@ -274,6 +277,8 @@ class OrdersController extends AppController
             ->leftJoinWith('DesignDrafts.Campaigns.Schools')
             ->group([
                 'Items.name',
+                'Items.design_draft_id',
+                'Campaigns.id',
                 'Campaigns.name',
                 'Schools.name',
                 'DesignDrafts.belly_band',
@@ -314,6 +319,33 @@ class OrdersController extends AppController
         // Pass the campaigns with design drafts to the view
         $this->set(compact('campaigns'));
 
+    }
+
+    public function confirmFunds()
+    {
+        // Get the campaign ID and fundraised amount from the query parameters
+        $campaignId = $this->request->getQuery('cID');
+        $fundraisedAmount = (float)$this->request->getQuery('fundraisedAmount'); // Passed fundraised amount
+
+        // Fetch the Campaigns table
+        $campaignsTable = TableRegistry::getTableLocator()->get('Campaigns');
+
+        // Retrieve the campaign to update
+        $campaign = $campaignsTable->get($campaignId);
+
+        // Calculate the new total fundraised amount
+        $newTotalFundRaised = (float)$campaign->total_fund_raised + $fundraisedAmount;
+
+        // Update the campaign with the new total
+        $campaign->total_fund_raised = $newTotalFundRaised;
+        if ($campaignsTable->save($campaign)) {
+            $this->Flash->success('Total fundraised amount confirmed and updated.');
+        } else {
+            $this->Flash->error('Unable to confirm and update the total fundraised amount.');
+        }
+
+        // Redirect or proceed with further logic
+        return $this->redirect(['action' => 'viewOrder']);
     }
 
 }

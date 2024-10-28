@@ -3,10 +3,13 @@ $this->setLayout('admin_dashboard');
 ?>
 
 <div id="layoutSidenav_content">
+    <?= $this->Flash->render() ?>
     <section id="view-order">
         <h1 class="text-center">My Orders</h1>
 
-        <?php foreach ($groupedProducts as $schoolName => $products): ?>
+        <?php
+        $index = 0; // Initialize index counter here
+        foreach ($groupedProducts as $schoolName => $products): ?>
             <h4 class="school-title">Order From: <?= h($schoolName) ?></h4>
             <?php
             $schoolAddress = $products[0]->SchoolAddress;
@@ -19,7 +22,7 @@ $this->setLayout('admin_dashboard');
             <p>
                 Representative: <?= h($repFirstName . ' ' . $repLastName) ?: "No representative provided" ?><br>
                 Email: <?= h($repEmail ?: "No email provided") ?><br>
-                Bank Account: <?= h($bankAccount ?: "This school hasn't provide bank account number yet") ?> &ensp; BSB:  <?= h($bsb ?: "This school hasn't provide BSB yet") ?><br>
+                Bank Account: <?= h($bankAccount ?: "This school hasn't provided a bank account number yet") ?> &ensp; BSB:  <?= h($bsb ?: "This school hasn't provided a BSB yet") ?><br>
                 Shipping Address: <?= h($schoolAddress ?: "This school hasn't provided any address yet") ?>
             </p><br>
             <table>
@@ -30,11 +33,12 @@ $this->setLayout('admin_dashboard');
                     <th>Campaign Name</th>
                     <th>Belly Band Required</th>
                     <th>Fundraised Amount</th>
+                    <th>Action</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($products as $index => $product): ?>
+                <?php foreach ($products as $product): ?>
                     <?php
                     // Calculate product cost based on quantity
                     $quantity = $product->Total;
@@ -66,6 +70,15 @@ $this->setLayout('admin_dashboard');
                         <td><?= $product->BellyBand ? 'Yes' : 'No' ?></td>
                         <td><?= h(number_format($fundraisedAmount, 2)) ?></td>
                         <td>
+                            <a href="<?= $this->Url->build([
+                                'controller' => 'Orders',
+                                'action' => 'confirmFunds',
+                                '?' => ['cID' => $product->CampaignID, 'fundraisedAmount' => $fundraisedAmount]
+                            ]) ?>" class="btn btn-success" onclick="return confirm('Would you like to confirm the amount of funds raised?');">
+                                Confirmed Funds
+                            </a>
+                        </td>
+                        <td>
                             <!-- Expand/Collapse Button -->
                             <button class="expand-btn" onclick="toggleBreakdown(<?= $index ?>)">
                                 <span id="icon-<?= $index ?>">+</span>
@@ -84,6 +97,7 @@ $this->setLayout('admin_dashboard');
                             <strong>Fundraised Amount: $<?= h(number_format($fundraisedAmount, 2)) ?></strong><br><br>
                         </td>
                     </tr>
+                    <?php $index++; // Increment index counter ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>

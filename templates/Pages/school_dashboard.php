@@ -27,6 +27,11 @@ $completedCampaignCount = $campaign_table->find()
     ])
     ->count();
 
+$totalProfit = 0;
+foreach ($created_campaign as $campaign) {
+    $totalProfit += $campaign->total_fund_raised;
+}
+
 ?>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
 
@@ -70,7 +75,7 @@ $completedCampaignCount = $campaign_table->find()
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Total profit made</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$0</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$<?= $totalProfit ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
